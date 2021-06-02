@@ -1,6 +1,6 @@
 ## NavyW3Bot
  
-![Tweet_1](../Assets/1.png)
+![Tweet_1](Assets/1.png)
  
 ### Consigna
  
