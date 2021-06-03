@@ -2,9 +2,9 @@
 
 namespace Library
 {
-    public abstract class GeneralVassele
+    public abstract class GeneralVessels
     {
-        private List<item> items;
+        private List<IItem> items;
         private int[] state;
         public bool IsAlive()
         {
@@ -14,7 +14,7 @@ namespace Library
         {
             return 0;
         }
-        public bool AddItem(item toAdd)
+        public bool AddItem(IItem toAdd)
         {
             return true;
         }

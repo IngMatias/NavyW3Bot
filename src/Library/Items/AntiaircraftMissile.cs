@@ -2,7 +2,7 @@
 {
     public class AntiaircraftMissile : IItem
     {
-        public bool IsAddable(GeneralVessel vessel)
+        public bool IsAddable(GeneralVessels vessel)
         {
             return true;
         }

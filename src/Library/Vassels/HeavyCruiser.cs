@@ -1,7 +1,7 @@
 ﻿
 namespace Library
 {
-    public class HeavyCruiser : GeneralVassele
+    public class HeavyCruiser : GeneralVessels
     {
         public void LaunchMissile(int x, int y)
         {
