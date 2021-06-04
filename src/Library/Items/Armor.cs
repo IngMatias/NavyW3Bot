@@ -3,9 +3,11 @@ namespace Library
 {
     public class Armor : IItem
     {
-        public bool IsAddable(AbstractVessels vessel)
+        public int Position {get ;set; }
+
+        public bool IsAddable(Player player, AbstractVessels vasselToAdd)
         {
-           return true;
+            return (vasselToAdd.State[this.Position]) != 0;
         }
     }
 }

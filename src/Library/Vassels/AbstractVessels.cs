@@ -1,11 +1,27 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Library
 {
     public abstract class AbstractVessels
     {
         private List<IItem> items;
+        public ReadOnlyCollection<IItem> Items
+        {
+            get
+            {
+                return items.AsReadOnly();
+            }
+        }
         private int[] state;
+        public IList<int> State
+        {
+            get
+            {
+                return Array.AsReadOnly(state);
+            }
+        }
         public bool IsAlive()
         {
             return true;
