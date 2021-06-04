@@ -2,7 +2,7 @@
 
 namespace Library
 {
-    public class Godzilla : IEvents
+    public class Godzilla : IEvent
     {
         public void DoEvent()
         {

@@ -2,7 +2,7 @@
 
 namespace Library
 {
-    public interface IEvents
+    public interface IEvent
     {
         public void DoEvent();
     }

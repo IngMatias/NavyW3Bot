@@ -1,9 +1,9 @@
 ﻿
 namespace Library
 {
-    public class Frigate : GeneralVessels
+    public class Frigate : AbstractVessels
     {
-        public void LaunchMissile(int x, int y)
+        public void LaunchMissile(int x1, int y1, int x2, int y2)
         {
             
         }

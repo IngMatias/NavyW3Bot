@@ -3,7 +3,7 @@ namespace Library
 {
     public class Kong : IItem
     {
-        public bool IsAddable(GeneralVessels vessel)
+        public bool IsAddable(AbstractVessels vessel)
         {
             return true;
         }

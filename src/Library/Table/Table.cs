@@ -4,8 +4,8 @@ namespace Library
 {
     public class Table
     {
-        private  bool[,] table;
-        private Dictionary<(int,int), GeneralVessels> vessels;
+        private  int[,] table;
+        private Dictionary<(int,int), AbstractVessels> vessels;
         public bool IsAVassel(int x,int y)
         {
             return true;
@@ -14,11 +14,23 @@ namespace Library
         {
             return true;
         }
-        public void AddVessel(int x, int y, GeneralVessels vessel, bool orientation)
+        public void AddVessel(int x, int y, AbstractVessels vessel, bool orientation)
         {
 
         }
-        public void DeleteVessel(int x, int y)
+        public void AddVessel(int x, int y, Submarine vessel, bool orientation)
+        {
+
+        }
+        public void MissileAt(int x, int y)
+        {
+
+        }
+        public void LoadAt(int x, int y)
+        {
+            
+        }
+        public void RemoveVessel(int x, int y)
         {
             
         }

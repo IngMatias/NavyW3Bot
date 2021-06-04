@@ -2,7 +2,7 @@
 
 namespace Library
 {
-    public class TelegramReader : IReader
+    public class ClientReader : IReader
     {
         public string Read()
         {
@@ -10,7 +10,7 @@ namespace Library
         }
         public string Read(string msg)
         {
-            IPrinter printer = new TelegramPrinter();
+            IPrinter printer = new ClientPrinter();
             printer.Print(msg);
             return Console.ReadLine();
         }

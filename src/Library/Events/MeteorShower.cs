@@ -2,7 +2,7 @@
 
 namespace Library
 {
-    public class MeteorShower : IEvents
+    public class MeteorShower : IEvent
     {
         public void DoEvent()
         {

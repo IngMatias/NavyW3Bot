@@ -1,7 +1,7 @@
 ﻿
 namespace Library
 {
-    public class Submarine
+    public class Submarine : AbstractVessels
     {
         public void LaunchMissile(int x, int y)
         {

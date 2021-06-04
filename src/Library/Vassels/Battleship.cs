@@ -1,6 +1,6 @@
 ﻿namespace Library
 {
-    public class Battleship : GeneralVessels
+    public class Battleship : AbstractVessels
     {
         public void LaunchMissile(int x, int y)
         {

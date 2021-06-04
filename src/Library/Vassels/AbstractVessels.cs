@@ -2,7 +2,7 @@
 
 namespace Library
 {
-    public abstract class GeneralVessels
+    public abstract class AbstractVessels
     {
         private List<IItem> items;
         private int[] state;
@@ -15,6 +15,10 @@ namespace Library
             return 0;
         }
         public bool AddItem(IItem toAdd)
+        {
+            return true;
+        }
+        public bool RemoveItem(IItem toRemove)
         {
             return true;
         }
