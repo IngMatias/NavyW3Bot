@@ -24,19 +24,33 @@ namespace Library
         }
         public bool IsAlive()
         {
-            return true;
+            foreach(int i in State)
+            {
+                if (i != 0)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
+
         public int Large()
         {
-            return 0;
+            return State.Count;
         }
-        public bool AddItem(IItem toAdd)
+
+        public bool AddItem(Player player, IItem toAdd)
         {
-            return true;
+            if (toAdd.IsAddable(player,this))
+            {
+                this.items.Add(toAdd);
+                return true;
+            }
+            return false;
         }
-        public bool RemoveItem(IItem toRemove)
+        public void RemoveItem(IItem toRemove)
         {
-            return true;
+            this.items.Remove(toRemove);
         }
     }
 }
