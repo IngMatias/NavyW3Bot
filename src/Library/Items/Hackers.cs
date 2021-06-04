@@ -4,9 +4,14 @@ namespace Library
 {
     public class Hacker : IItem
     {
-        public bool IsAddable(AbstractVessels vessel)
+        public bool IsAddable(Player player, AbstractVessels vasselToAdd)
         {
-            return true;
+            AbstractVessels puntoon = new Puntoon();
+            if (vasselToAdd.Equals(puntoon.GetType()))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
