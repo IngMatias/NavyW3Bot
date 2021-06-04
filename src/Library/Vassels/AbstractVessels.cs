@@ -34,7 +34,7 @@ namespace Library
             return false;
         }
 
-        public int Large()
+        public int Length()
         {
             return State.Count;
         }

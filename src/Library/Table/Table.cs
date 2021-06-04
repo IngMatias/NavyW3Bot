@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Library
 {
@@ -6,6 +7,14 @@ namespace Library
     {
         private  int[,] table;
         private Dictionary<(int,int), AbstractVessels> vessels;
+        public int XLength()
+        {
+            return this.table.GetLength(0);
+        } 
+        public int YLength()
+        {
+            return this.table.GetLength(1);
+        }
         public bool IsAVassel(int x,int y)
         {
             return true;
@@ -33,6 +42,10 @@ namespace Library
         public void RemoveVessel(int x, int y)
         {
             
+        }
+        public string StringTable()
+        {
+            return "";
         }
     }
 }
