@@ -2,7 +2,7 @@
 
 namespace Library
 {
-    public class Puntoon
+    public class Puntoon : AbstractVessels
     {
         
     }

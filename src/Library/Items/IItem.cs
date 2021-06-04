@@ -2,6 +2,6 @@
 {
     public interface IItem
     {
-        public bool IsAddable(GeneralVessels vessel);
+        public bool IsAddable(AbstractVessels vessel);
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Library
 {
-    public class TelegramPrinter : IPrinter
+    public class ClientPrinter : IPrinter
     {
         public void Print(string ToPrint)
         {

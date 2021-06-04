@@ -2,7 +2,7 @@
 
 namespace Library
 {
-    public class Hurricane : IEvents
+    public class Hurricane : IEvent
     {
         public void DoEvent()
         {

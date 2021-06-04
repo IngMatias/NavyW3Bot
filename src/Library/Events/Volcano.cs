@@ -2,7 +2,7 @@
 
 namespace Library
 {
-    public class Volcano : IEvents
+    public class Volcano : IEvent
     {
         public void DoEvent()
         {
