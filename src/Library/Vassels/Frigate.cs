@@ -8,8 +8,8 @@ namespace Library
         {
             table.MissileAt(x1, y1);
             table.MissileAt(x2, y2);
-            this.RandomMisil(table);
-            this.RandomMisil(table);
+            table.RandomMissile();
+            table.RandomMissile();
         }
     }
 }

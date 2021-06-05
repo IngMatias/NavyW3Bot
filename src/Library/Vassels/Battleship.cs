@@ -7,8 +7,8 @@ namespace Library
         public void LaunchMissile(Table table, int x, int y)
         {
             table.MissileAt(x, y);
-            this.RandomMisil(table);
-            this.RandomMisil(table);
+            table.RandomMissile();
+            table.RandomMissile();
 
         }
     }
