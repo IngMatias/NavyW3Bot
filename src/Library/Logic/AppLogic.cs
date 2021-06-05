@@ -6,17 +6,14 @@
         {
 
         }
-
         public string Welcome()
         {
             return "";
         }
-        
         public string ByeBye()
         {
             return "";
         }
-
         public string Scores()
         {
             return "";

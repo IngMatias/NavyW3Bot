@@ -13,20 +13,17 @@ namespace Library
             int lengthY = participants[0].YLength();
             int randomX = random.Next(radio, lengthX - radio);
             int randomY = random.Next(radio, lengthY - radio);
-
             foreach (Table table in participants)
             {
-                for (int y = 0; y < lengthY ; y++)
+                for (int y = 0; y < lengthY; y++)
                 {
-                    table.LoadAt(randomX,y);
+                    table.LoadAt(randomX, y);
                 }
                 for (int x = 0; x < lengthX; x++)
                 {
                     table.LoadAt(x, randomY);
                 }
             }
-        
         }
     }
 }
-

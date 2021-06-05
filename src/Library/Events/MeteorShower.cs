@@ -9,7 +9,6 @@ namespace Library
         public void DoEvent(List<Table> participants)
         {
             Random random = new Random();
-
             foreach (Table table in participants)
             {
                 for (int i = 0; i < this.times; i++)

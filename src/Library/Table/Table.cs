@@ -7,12 +7,12 @@ namespace Library
 {
     public class Table
     {
-        private  int[,] table;
-        private Dictionary<(int,int), AbstractVessels> vessels;
+        private int[,] table;
+        private Dictionary<(int, int), AbstractVessels> vessels;
         public int XLength()
         {
             return this.table.GetLength(0);
-        } 
+        }
         public int YLength()
         {
             return this.table.GetLength(1);
@@ -26,21 +26,21 @@ namespace Library
         // -1 Ruinas. 
         //  0 Agua.
         // -2 Inatacable. 
-        public bool IsAVassel(int x,int y)
+        public bool IsAVassel(int x, int y)
         {
-            return table[x,y] == 1;  
+            return table[x, y] == 1;
         }
-        public bool IsASubmarine(int x,int y)
+        public bool IsASubmarine(int x, int y)
         {
-            return table[x,y] == 2;  
+            return table[x, y] == 2;
         }
         public bool IsEmpty()
         {
-            for (int y=0 ; y < this.YLength(); y++)
+            for (int y = 0; y < this.YLength(); y++)
             {
-                for (int x=0 ; y < this.XLength(); x++)
+                for (int x = 0; y < this.XLength(); x++)
                 {
-                    if (table[x,y] > 0)
+                    if (table[x, y] > 0)
                     {
                         return false;
                     }
@@ -52,7 +52,7 @@ namespace Library
         // false - Horizontal
         public void AddVessel(int x, int y, AbstractVessels vessel, bool orientation)
         {
-            
+
         }
         public void AddVessel(int x, int y, Submarine vessel, bool orientation)
         {
@@ -64,7 +64,7 @@ namespace Library
         }
         public void LoadAt(int x, int y)
         {
-            
+
         }
         public void RemoveVessel(int x, int y)
         {
@@ -75,7 +75,6 @@ namespace Library
         {
             return "";
         }
-
         public void RandomMissile()
         {
             Random random = new Random();
@@ -83,7 +82,7 @@ namespace Library
             int randomY = random.Next(0, this.YLength());
 
             this.MissileAt(randomX, randomY);
-        } 
+        }
         public void RandomLoad()
         {
             Random random = new Random();
@@ -91,7 +90,6 @@ namespace Library
             int randomY = random.Next(0, this.YLength());
 
             this.LoadAt(randomX, randomY);
-        } 
-        
+        }
     }
 }

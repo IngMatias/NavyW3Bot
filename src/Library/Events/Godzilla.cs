@@ -21,11 +21,10 @@ namespace Library
                 {
                     for (int x = randomX - radio; x <= randomX + radio; x++)
                     {
-                        table.RemoveVessel(x,y);
+                        table.RemoveVessel(x, y);
                     }
                 }
             }
-                
         }
     }
 }

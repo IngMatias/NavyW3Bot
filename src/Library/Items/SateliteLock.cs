@@ -4,9 +4,9 @@
     {
         public bool IsAddable(Table table, AbstractVessels vasselToAdd)
         {
-            foreach(AbstractVessels vassel in table.GetVessels())
+            foreach (AbstractVessels vassel in table.GetVessels())
             {
-                foreach(IItem item in vassel.Items)
+                foreach (IItem item in vassel.Items)
                 {
                     if (item.Equals(this.GetType()))
                     {

@@ -14,18 +14,16 @@ namespace Library
             int lengthY = participants[0].YLength();
             int randomX = random.Next(radio, lengthX - radio);
             int randomY = random.Next(radio, lengthY - radio);
-
             foreach (Table table in participants)
             {
                 for (int y = randomY - radio; y <= randomY + radio; y++)
                 {
                     for (int x = randomX - radio; x <= randomX + radio; x++)
                     {
-                        table.RemoveVessel(x,y);
+                        table.RemoveVessel(x, y);
                     }
                 }
             }
-
         }
     }
 }

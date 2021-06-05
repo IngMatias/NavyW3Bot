@@ -24,7 +24,7 @@ namespace Library
         }
         public bool IsAlive()
         {
-            foreach(int i in State)
+            foreach (int i in State)
             {
                 if (i != 0)
                 {
@@ -39,7 +39,7 @@ namespace Library
         }
         public bool AddItem(Table table, IItem toAdd)
         {
-            if (toAdd.IsAddable(table,this))
+            if (toAdd.IsAddable(table, this))
             {
                 this.items.Add(toAdd);
                 return true;
