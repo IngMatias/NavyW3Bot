@@ -2,7 +2,7 @@
 {
     public class Hacker : IItem
     {
-        public bool IsAddable(Player player, AbstractVessels vasselToAdd)
+        public bool IsAddable(Table table, AbstractVessels vasselToAdd)
         {
             AbstractVessels puntoon = new Puntoon();
             if (vasselToAdd.Equals(puntoon.GetType()))

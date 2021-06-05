@@ -2,9 +2,9 @@
 {
     public class SateliteLock : IItem
     {
-        public bool IsAddable(Player player, AbstractVessels vasselToAdd)
+        public bool IsAddable(Table table, AbstractVessels vasselToAdd)
         {
-            foreach(AbstractVessels vassel in player.Vessels)
+            foreach(AbstractVessels vassel in table.GetVessels())
             {
                 foreach(IItem item in vassel.Items)
                 {

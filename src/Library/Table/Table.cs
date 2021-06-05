@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Library
 {
@@ -15,6 +16,11 @@ namespace Library
         {
             return this.table.GetLength(1);
         }
+        public ReadOnlyCollection<AbstractVessels> GetVessels()
+        {
+            return null;
+        }
+    
         public bool IsAVassel(int x,int y)
         {
             return true;

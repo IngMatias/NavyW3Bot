@@ -4,9 +4,9 @@ namespace Library
 {
     public class GameLogic
     {
-        private List<Player> participants;
+        private List<Table> participants;
         
-        private List<(Player,Player)> alliances;
+        private List<(Table,Table)> alliances;
 
         public void WaitingRoom()
         {
@@ -18,12 +18,12 @@ namespace Library
 
         }
          
-        public void MakeAlliance(Player p1,Player p2)
+        public void MakeAlliance(Table t1,Table t2)
         {
 
         }
 
-        public void BreakAlliance(Player p)
+        public void BreakAlliance(Table t)
         {
 
         }
