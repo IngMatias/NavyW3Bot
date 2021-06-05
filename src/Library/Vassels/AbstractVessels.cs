@@ -39,9 +39,9 @@ namespace Library
             return State.Count;
         }
 
-        public bool AddItem(Player player, IItem toAdd)
+        public bool AddItem(Table table, IItem toAdd)
         {
-            if (toAdd.IsAddable(player,this))
+            if (toAdd.IsAddable(table,this))
             {
                 this.items.Add(toAdd);
                 return true;

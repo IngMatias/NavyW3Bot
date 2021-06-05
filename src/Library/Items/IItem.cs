@@ -2,6 +2,6 @@
 {
     public interface IItem
     {
-        public bool IsAddable(Player player, AbstractVessels vasselToAdd);
+        public bool IsAddable(Table table, AbstractVessels vasselToAdd);
     }
 }

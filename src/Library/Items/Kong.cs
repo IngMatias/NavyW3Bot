@@ -2,7 +2,7 @@
 {
     public class Kong : IItem
     {
-        public bool IsAddable(Player player, AbstractVessels vasselToAdd)
+        public bool IsAddable(Table table, AbstractVessels vasselToAdd)
         {
             if (vasselToAdd.Items.Count == 0 && vasselToAdd.Length() < 4)
             {
