@@ -7,6 +7,11 @@ namespace Library
         public void SayHi()
         {
             Console.WriteLine("Hi");
+            foreach ( int i in new int[5] )
+            {
+                Console.WriteLine(i);
+            }
+            
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Library
                 return items.AsReadOnly();
             }
         }
-        private int[] state;
+        protected int[] state;
         public IList<int> State
         {
             get
@@ -22,6 +22,18 @@ namespace Library
                 return Array.AsReadOnly(state);
             }
         }
+        public void InitState(int health)
+        {
+            for (int i= 0; i < this.state.Length; i++)
+            {
+                this.state[i] = health;
+            }
+        }
+        public AbstractVessels()
+        {
+            this.items = new List<IItem> ();
+        }
+
         public bool IsAlive()
         {
             foreach (int i in State)
