@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace Library
 {
@@ -18,20 +19,41 @@ namespace Library
         }
         public ReadOnlyCollection<AbstractVessels> GetVessels()
         {
-            return null;
+            return this.vessels.Values.ToList<AbstractVessels>().AsReadOnly();
         }
-    
+        // -2 Inatacable 
+        // -1 Ruinas 
+        // 0 - Agua
+        // +1- Barco 
+        // +2- Submarino 
+        
         public bool IsAVassel(int x,int y)
         {
-            return true;
+            return table[x,y] == 1;  
+        }
+        public bool IsASubmarine(int x,int y)
+        {
+            return table[x,y] == 2;  
         }
         public bool IsEmpty()
         {
+            for (int y=0 ; y < this.YLength(); y++)
+            {
+                for (int x=0 ; y < this.XLength(); x++)
+                {
+                    if (table[x,y] > 0)
+                    {
+                        return false;
+                    }
+                }
+            }
             return true;
         }
+        // false - Horizontal
+        // true - Vertical 
         public void AddVessel(int x, int y, AbstractVessels vessel, bool orientation)
         {
-
+            
         }
         public void AddVessel(int x, int y, Submarine vessel, bool orientation)
         {
