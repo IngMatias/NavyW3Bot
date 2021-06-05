@@ -2,9 +2,10 @@
 {
     public class HeavyCruiser : AbstractVessels
     {
-        public void LaunchMissile(int x, int y)
+        public void LaunchMissile(Table table, int x, int y)
         {
-            
+            table.MissileAt(x, y);
+            table.MissileAt(x, y);
         }
     }
 }
