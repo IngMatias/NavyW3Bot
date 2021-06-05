@@ -50,9 +50,59 @@ namespace Library
         }
         // true - Vertical 
         // false - Horizontal
-        public void AddVessel(int x, int y, AbstractVessels vessel, bool orientation)
+        public bool AddVessel(int x, int y, AbstractVessels vessel, bool orientation)
         {
+            int minX = x - 1;
+            int minY = y - 1;
+            int maxX;
+            int maxY;
+            if (orientation)
+            {
+                maxX = x + 1;
+                maxY = y + vessel.Length();
+            }
+            else
+            {
+                maxX = x + vessel.Length();
+                maxY = y + 1;
+            }
 
+            // Revisamos que el barco tenga el espacio suficiente en el tablero.
+            // No se permiten barcos contra el borde.
+            if (!(0 <= minX && maxX < this.XLength() && 0 <= minY && maxY < this.YLength()))
+            {
+                return false;
+            }
+            // Revisamos que el barco no se superponga con otro, ni con un submarino.
+            for (int j = minY; j <= maxY; j++)
+            {
+                for (int i = minX; i <= maxX; i++)
+                {
+                    if (this.IsAVassel(i, j) || this.IsASubmarine(i, j))
+                    {
+                        return false;
+                    }
+
+                }
+            }
+            // Colocamos el barco.
+            if (orientation)
+            {
+                for (int j = y; j < y + vessel.Length(); j++)
+                {
+                    this.table[x, j] = 1;
+                }
+            }
+            else
+            {
+                for (int i = x; i < x + vessel.Length(); i++)
+                {
+                    this.table[i, y] = 1;
+                }
+            }
+            // Actualizo el diccionario. 
+            this.vessels.Add((x,y), vessel);
+            return true;
         }
         public void AddVessel(int x, int y, Submarine vessel, bool orientation)
         {
