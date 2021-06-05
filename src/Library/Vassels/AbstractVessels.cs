@@ -52,5 +52,14 @@ namespace Library
         {
             this.items.Remove(toRemove);
         }
+
+        protected void RandomMisil(Table table)
+        {
+            Random random = new Random();
+            int randomX = random.Next(0, table.XLength());
+            int randomY = random.Next(0, table.XLength());
+
+            table.MissileAt(randomX, randomY);
+        } 
     }
 }
