@@ -1,6 +1,4 @@
-﻿
-
-namespace Library
+﻿namespace Library
 {
     public class Hacker : IItem
     {
