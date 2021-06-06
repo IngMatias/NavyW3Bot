@@ -9,6 +9,11 @@ namespace Library
     {
         private int[,] table;
         private Dictionary<(int, int), AbstractVessels> vessels;
+        public Table()
+        {
+            this.table = new int[14,26];
+            this.vessels = new Dictionary<(int, int), AbstractVessels>();
+        }
         public int XLength()
         {
             return this.table.GetLength(0);
