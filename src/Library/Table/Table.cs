@@ -2,11 +2,22 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Text;
 
 namespace Library
 {
     public class Table
     {
+
+        // La clase Table contiene una Matriz donde se guardan 
+        // enteros que se interpretan de la siguiente manera.
+        // En el futuro podria implementarse un enumerado.
+        // +1 Barco.
+        //  0 Agua.
+        // -1 Ruinas despues de un misil.
+        // -2 Ruinas despues de una carga. 
+        // -3 Ruinas despues de un evento.
+
         private int[,] table;
         private Dictionary<(int, int), AbstractVessels> vessels;
         public Table()
@@ -26,11 +37,6 @@ namespace Library
         {
             return this.vessels.Values.ToList<AbstractVessels>().AsReadOnly();
         }
-        // +2 Submarino.
-        // +1 Barco.
-        // -1 Ruinas. 
-        //  0 Agua.
-        // -2 Inatacable. 
         public bool IsAVassel(int x, int y)
         {
             return table[x, y] == 1;
@@ -53,10 +59,12 @@ namespace Library
             }
             return true;
         }
-        // true - Vertical 
-        // false - Horizontal
+
         public bool AddVessel(int x, int y, AbstractVessels vessel, bool orientation)
         {
+            // La orientacion se interpreta de la siguiente manera.
+            // true - Vertical 
+            // false - Horizontal
             int minX = x - 1;
             int minY = y - 1;
             int maxX;
@@ -121,15 +129,6 @@ namespace Library
         {
 
         }
-        public void RemoveVessel(int x, int y)
-        {
-            // Chequear que haya un barco para que no de error.
-            // Además chequear que el barco no posea el item Kong.
-        }
-        public string StringTable()
-        {
-            return "";
-        }
         public void RandomMissile()
         {
             Random random = new Random();
@@ -145,6 +144,22 @@ namespace Library
             int randomY = random.Next(0, this.YLength());
 
             this.LoadAt(randomX, randomY);
+        }
+        public void RemoveVessel(int x, int y)
+        {
+        }
+        public string StringTable()
+        {
+            StringBuilder toReturn = new StringBuilder();
+            for (int j = 0;j<this.YLength(); j++)
+            {
+                for (int i=0;i<this.XLength();i++)
+                {
+                    toReturn.Append(this.table[i,j]);
+                }
+                toReturn.Append("\n");
+            }
+            return toReturn.ToString();
         }
     }
 }

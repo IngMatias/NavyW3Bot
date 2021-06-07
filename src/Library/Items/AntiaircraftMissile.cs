@@ -6,7 +6,7 @@
         {
             foreach (IItem item in vasselToAdd.Items)
             {
-                if (item.Equals(this.GetType()))
+                if (item is AntiaircraftMissile)
                 {
                     return false;
                 }

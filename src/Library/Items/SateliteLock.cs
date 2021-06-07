@@ -8,7 +8,7 @@
             {
                 foreach (IItem item in vassel.Items)
                 {
-                    if (item.Equals(this.GetType()))
+                    if (item is SateliteLock)
                     {
                         return false;
                     }

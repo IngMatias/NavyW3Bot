@@ -16,7 +16,6 @@ namespace Library
             table.MissileAt(x, y);
             table.RandomMissile();
             table.RandomMissile();
-
         }
     }
 }
