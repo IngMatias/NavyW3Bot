@@ -12,6 +12,12 @@ namespace Library
 
     // D - DIP: Se cumple DIP, porque solo se usan abstracciones.
 
+    // Expert : En esta clase solo se conoce.
+
+    // Polimorfismo : No se usa polimorfismo.
+
+    // Creator : No se usa Creator.
+
     public abstract class AbstractAttacker
     {
         public int x {get; set;}

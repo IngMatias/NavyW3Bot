@@ -17,6 +17,12 @@ using System.Collections.Generic;
 
     // D - DIP: Battleship depende de Table, que no es una abstraccion, no se cumple DIP.
 
+    // Expert : En esta clase no se conoce.
+
+    // Polimorfismo : El metodo LaunchMissile es polimorfico en todos los barcos que lo tienen. Asi como ThrowLoad.
+
+    // Creator : No se usa Creator.
+
 namespace Library
 {
     public class Battleship : AbstractVessels

@@ -11,6 +11,12 @@
 
     // D - DIP: Se cumple DIP, porque no se usan abstracciones.
     
+    // Expert : En esta clase no se conoce.
+
+    // Polimorfismo : El tipo implicito MissileAttack es de la misma forma que todos los otros AbstractAttackers.
+
+    // Creator : No se usa Creator.
+    
 namespace Library
 {
     public class MissileAttack : AbstractAttacker

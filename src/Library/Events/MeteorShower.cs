@@ -17,6 +17,13 @@ using System.Collections.Generic;
     
     // D - DIP: MeteorShower depende de Table, que no es una abstraccion, no se cumple DIP.
 
+    // Expert : Esta clase conoce la cantidad de meteoros por tablero que deben ser lanzados, por eso
+    // se le adjudica el comportamiento de lanzarlos a todos los tableros.
+
+    // Polimorfismo : El metodo DoEvent es polimorfico en todos los IEvents.
+
+    // Creator : No se usa Creator.
+
 namespace Library
 {
     public class MeteorShower : IEvent

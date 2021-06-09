@@ -14,6 +14,12 @@
     
     // D - DIP: ConsolePrinter no tiene dependencias, cumple DIP.
 
+    // Expert : En esta clase no se conoce.
+
+    // Polimorfismo : El metodo Print es polimorfico en todos los IPrinter.
+
+    // Creator : No se usa Creator.
+
 namespace Library
 {
     public class ConsolePrinter : IPrinter

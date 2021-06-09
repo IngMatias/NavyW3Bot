@@ -14,6 +14,12 @@
     
     // D - DIP: ClientPrinter tiene dependencias desconocidas.
 
+    // Expert : En esta clase no se conoce.
+
+    // Polimorfismo : El metodo Print es polimorfico en todos los IPrinter.
+
+    // Creator : No se usa Creator.
+
 namespace Library
 {
     public class ClientPrinter : IPrinter

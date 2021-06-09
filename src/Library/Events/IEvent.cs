@@ -15,6 +15,12 @@
     
     // D - DIP: IEvent depende de Table, que no es una abstraccion, no se cumple DIP.
 
+    // Expert : En esta clase no se conoce.
+
+    // Polimorfismo : El metodo DoEvent es polimorfico en todos los IEvents.
+
+    // Creator : No se usa Creator.
+    
 namespace Library
 {
     public interface IEvent

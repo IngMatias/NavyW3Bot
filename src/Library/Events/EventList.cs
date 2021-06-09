@@ -16,11 +16,11 @@
 
     // D - DIP: EventList depende de IEvent, que es una abstraccion, se cumple DIP.
 
-    // Expert
+    // Expert : Esta clase conoce todos los eventos, por eso su comportamiento es elejir entre uno de ellos.
 
-    // Polymorphism
-    
-    // Creator
+    // Polimorfismo : No se usa polimorfismo.
+
+    // Creator : Esta clase aplica creator creando los IEvent que retorna.
 
 namespace Library
 {

@@ -11,6 +11,12 @@
 
     // D - DIP: Puntoon depende de Table, que no es una abstraccion, no se cumple DIP.
 
+    // Expert : En esta clase no se conoce.
+
+    // Polimorfismo : No se usa polimorfismo.
+
+    // Creator : No se usa Creator.
+
 namespace Library
 {
     public class Puntoon : AbstractVessels

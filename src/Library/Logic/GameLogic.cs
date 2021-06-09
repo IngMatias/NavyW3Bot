@@ -13,6 +13,13 @@
 
     // D - DIP: GameLogic depende se abstracciones, cumple DIP.
 
+    // Expert : Esta clase conoce los participantes y como estan aliados, por eso tiene la responsabilidad
+    // de ejecutar el juego.
+
+    // Polimorfismo : No se usa Polimorfismo.
+
+    // Creator : Se usa Creator para la creacion de los Table.
+
 using System.Collections.Generic;
 
 namespace Library

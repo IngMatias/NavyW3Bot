@@ -10,7 +10,13 @@
     // I - ISP: Se cumple ya que esta clase no contiene comportamiento.
 
     // D - DIP: Se cumple DIP, porque no se usan abstracciones.
-    
+
+    // Expert : En esta clase no se conoce.
+
+    // Polimorfismo : El tipo implicito MeteorAttack es de la misma forma que todos los otros AbstractAttackers.
+
+    // Creator : No se usa Creator.
+
 namespace Library
 {
     public class MeteorAttack : AbstractAttacker

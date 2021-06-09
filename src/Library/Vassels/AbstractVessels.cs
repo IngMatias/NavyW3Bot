@@ -17,6 +17,13 @@ using System.Collections.ObjectModel;
 
     // D - DIP: AbstractVessels depende de Table, que no es una abstraccion, no se cumple DIP.
 
+    // Expert : Esta clase conoce los items de un barco, por lo tanto tiene el comportamiento de agregar y quitarlos.
+    // Ademas de conocer el estado, por lo cual tiene la responsabilidad de inicializar y consultar dicho estado.
+
+    // Polimorfismo : 
+
+    // Creator : No se usa Creator.
+
 namespace Library
 {
     public abstract class AbstractVessels

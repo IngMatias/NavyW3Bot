@@ -18,6 +18,13 @@ using System.Text;
 
     // D - DIP: Table depende solo de abstracciones, se cumple DIP.
 
+    // Expert : Esta clase conoce el tablero, por lo tanto tiene todo lo relacionado con su Consulta y Tratamiento.
+    // Ademas conoce el lugar donde se hallan los barcos, por lo que tambien es responsable de realizar los ataques si corrsponde.
+
+    // Polimorfismo : No se usa polimorfismo.
+
+    // Creator : Se usa Creator en la creacion de la matriz table y el diccionario vessels.
+
 namespace Library
 {
     public class Table

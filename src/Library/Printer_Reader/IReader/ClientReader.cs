@@ -15,6 +15,12 @@
 
     // D - DIP: ClientReader tiene dependencias desconocidas.
 
+    // Expert : En esta clase no se conoce.
+
+    // Polimorfismo : Los metodos Read son polimorfico en todos los IPrinter.
+
+    // Creator : No se usa Creator.
+
 namespace Library
 {
     public class ClientReader : IReader
@@ -23,9 +29,8 @@ namespace Library
         {
             return Console.ReadLine();
         }
-        public string Read(string msg)
+        public string Read(IPrinter printer, string msg)
         {
-            IPrinter printer = new ClientPrinter();
             printer.Print(msg);
             return Console.ReadLine();
         }

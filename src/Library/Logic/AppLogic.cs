@@ -13,6 +13,12 @@
     
     // D - DIP: AppLogic depende se abstracciones, cumple DIP.
 
+    // Expert : En esta clase no se conoce.
+
+    // Polimorfismo : No se usa Polimorfismo.
+
+    // Creator : No se usa Creator.
+    
 namespace Library
 {
     public class AppLogic

@@ -14,6 +14,12 @@
 
     // D - DIP: ConsoleReader no tiene dependencias, cumple DIP.
 
+    // Expert : En esta clase no se conoce.
+
+    // Polimorfismo : Los metodos Read son polimorfico en todos los IPrinter.
+    
+    // Creator : No se usa Creator.
+
 namespace Library
 {
     public class ConsoleReader : IReader
@@ -22,9 +28,8 @@ namespace Library
         {
             return Console.ReadLine();
         }
-        public string Read(string msg)
+        public string Read(IPrinter printer, string msg)
         {
-            IPrinter printer = new ConsolePrinter();
             printer.Print(msg);
             return Console.ReadLine();
         }
