@@ -55,10 +55,6 @@ namespace Library
         {
             return table[x, y] == 1;
         }
-        public bool IsASubmarine(int x, int y)
-        {
-            return table[x, y] == 2;
-        }
         public bool IsEmpty()
         {
             for (int y = 0; y < this.YLength(); y++)
@@ -93,7 +89,6 @@ namespace Library
                 maxX = x + vessel.Length();
                 maxY = y + 1;
             }
-
             // Revisamos que el barco tenga el espacio suficiente en el tablero.
             // No se permiten barcos contra el borde.
             if (!(0 <= minX && maxX < this.XLength() && 0 <= minY && maxY < this.YLength()))
@@ -105,7 +100,7 @@ namespace Library
             {
                 for (int i = minX; i <= maxX; i++)
                 {
-                    if (this.IsAVassel(i, j) || this.IsASubmarine(i, j))
+                    if (this.IsAVassel(i, j))
                     {
                         return false;
                     }

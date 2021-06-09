@@ -17,7 +17,9 @@
     // D - DIP: EventList depende de IEvent, que es una abstraccion, se cumple DIP.
 
     // Expert
+
     // Polymorphism
+    
     // Creator
 
 namespace Library

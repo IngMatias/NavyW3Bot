@@ -11,7 +11,7 @@
 
     // I - ISP: GameLogic no respeta ISP, no hace uso de todas las operaciones de Table.
 
-    // D
+    // D - DIP: GameLogic depende se abstracciones, cumple DIP.
 
 using System.Collections.Generic;
 
@@ -41,7 +41,7 @@ namespace Library
         {
 
         }
-        public void Game()
+        public void Game(IPrinter clientP, IReader clientR)
         {
 
         }

@@ -11,13 +11,13 @@
 
     // I - ISP: No se encuentra una aplicacion del principio ISP.
     
-    // D: 
+    // D - DIP: AppLogic depende se abstracciones, cumple DIP.
 
 namespace Library
 {
     public class AppLogic
     {
-        public void ShowMenuAndTakeOption()
+        public void ShowMenuAndTakeOption(IPrinter clientP, IReader clientR)
         {
 
         }
