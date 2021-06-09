@@ -1,6 +1,6 @@
 namespace Library
 {
-    public class MissileAttack : AbstractAtacker
+    public class MissileAttack : AbstractAttacker
     {
 
     }

@@ -1,6 +1,6 @@
 namespace Library
 {
-    public abstract class AbstractAtacker
+    public abstract class AbstractAttacker
     {
         public int x {get; set;}
         public int y {get; set;}

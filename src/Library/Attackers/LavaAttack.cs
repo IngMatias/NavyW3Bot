@@ -1,6 +1,6 @@
 namespace Library
 {
-    public class LavaAttack : AbstractAtacker
+    public class LavaAttack : AbstractAttacker
     {
 
     }

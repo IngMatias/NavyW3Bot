@@ -1,6 +1,6 @@
 namespace Library
 {
-    public class LoadAttack : AbstractAtacker
+    public class LoadAttack : AbstractAttacker
     {
 
     }

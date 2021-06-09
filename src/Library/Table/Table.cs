@@ -131,36 +131,20 @@ namespace Library
             this.vessels.Add((x,y), vessel);
             return true;
         }
-        public void AddVessel(int x, int y, Submarine vessel, bool orientation)
+        public void AttackAt(int x, int y, AbstractAttacker attack)
         {
 
         }
-        public void MissileAt(int x, int y)
-        {
-
-        }
-        public void LoadAt(int x, int y)
-        {
-
-        }
-        public void RandomMissile()
+        public void RandomAttack(AbstractAttacker attack)
         {
             Random random = new Random();
             int randomX = random.Next(0, this.XLength());
             int randomY = random.Next(0, this.YLength());
-
-            this.MissileAt(randomX, randomY);
-        }
-        public void RandomLoad()
-        {
-            Random random = new Random();
-            int randomX = random.Next(0, this.XLength());
-            int randomY = random.Next(0, this.YLength());
-
-            this.LoadAt(randomX, randomY);
+            this.AttackAt(randomX, randomY, attack);
         }
         public void RemoveVessel(int x, int y)
         {
+            
         }
         public string StringTable()
         {

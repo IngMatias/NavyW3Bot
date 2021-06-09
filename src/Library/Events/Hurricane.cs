@@ -31,11 +31,13 @@ namespace Library
             {
                 for (int y = 0; y < lengthY; y++)
                 {
-                    table.LoadAt(randomX, y);
+                    AbstractAttacker hurricane = new HurricaneAttack();
+                    table.AttackAt(randomX, y, hurricane);
                 }
                 for (int x = 0; x < lengthX; x++)
                 {
-                    table.LoadAt(x, randomY);
+                    AbstractAttacker hurricane = new HurricaneAttack();
+                    table.AttackAt(x, randomY, hurricane);
                 }
             }
         }

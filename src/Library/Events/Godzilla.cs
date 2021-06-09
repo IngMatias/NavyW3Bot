@@ -35,7 +35,8 @@ namespace Library
                 {
                     for (int x = randomX - radio; x <= randomX + radio; x++)
                     {
-                        table.RemoveVessel(x, y);
+                        AbstractAttacker godzilla = new GodzillaAttack();
+                        table.AttackAt(x, y, godzilla);
                     }
                 }
             }

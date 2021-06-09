@@ -26,7 +26,7 @@ namespace Library
             }
             return false;
         }
-        public bool ReceiveAttack(AbstractAtacker attack)
+        public bool ReceiveAttack(AbstractAttacker attack)
         {
             return true;
         }

@@ -29,14 +29,8 @@ namespace Library
             {
                 for (int i = 0; i < this.times; i++)
                 {
-                    if (random.Next(0, 2) == 0)
-                    {
-                        table.RandomMissile();
-                    }
-                    else
-                    {
-                        table.RandomLoad();
-                    }
+                    AbstractAttacker meteor = new MeteorAttack();
+                    table.RandomAttack(meteor);
                 }
             }
         }

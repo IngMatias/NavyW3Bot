@@ -24,7 +24,7 @@ namespace Library
             return (vasselToAdd.State[this.Position]) != 0;
         }
 
-        public bool ReceiveAttack(AbstractAtacker attack)
+        public bool ReceiveAttack(AbstractAttacker attack)
         {
             return true;
         }

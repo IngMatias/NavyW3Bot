@@ -27,11 +27,13 @@ namespace Library
         }
         public void LaunchMissile(Table table, int x, int y)
         {
-            table.MissileAt(x, y);
+            AbstractAttacker missile = new MissileAttack();
+            table.AttackAt(x, y,missile);
         }
         public void ThrowLoad(Table table, int x, int y)
         {
-            table.LoadAt(x, y);
+            AbstractAttacker load = new LoadAttack();
+            table.AttackAt(x, y,load);
         }
     }
 }
