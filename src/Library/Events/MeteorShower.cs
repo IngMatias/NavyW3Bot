@@ -22,7 +22,7 @@ using System.Collections.Generic;
 
     // Polimorfismo : El metodo DoEvent es polimorfico en todos los IEvents.
 
-    // Creator : No se usa Creator.
+    // Creator : Se usa Creator cuando se crea MeteorAttack porque se usa de manera cercana.
 
 namespace Library
 {

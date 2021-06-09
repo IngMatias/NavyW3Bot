@@ -20,7 +20,7 @@
 
     // Polimorfismo : El metodo LaunchMissile es polimorfico en todos los barcos que lo tienen. Asi como ThrowLoad.
 
-    // Creator : No se usa Creator.
+    // Creator : Se usa Creator cuando se crea MissileAttack porque se usa de manera cercana.
 
 namespace Library
 {
