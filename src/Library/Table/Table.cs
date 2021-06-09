@@ -4,6 +4,20 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 
+    // S - SRP: Esta interface se encarga de la responsabilidad de manejar el tablero.
+    // Si se es estricto hay mas de dos razones de cambio, si se desea cambiar el tamaño
+    // del tablero, agregar una nueva representacion en el mismo o cambiar el modo de agregado
+    // de barcos, por ejemplo permitiendo agregarse en el borde.
+    // Sin embargo no creemos que sea necesario romper esta unión.
+
+    // O - OCP: No se encuentra una aplicacion del principio OCP.
+
+    // L - LSP: No se encuentra una aplicacion del principio LSP.
+    
+    // I - ISP: Table no respeta ISP, no hace uso de todas las operaciones de AbstractVessels.
+
+    // D - DIP: Table depende solo de abstracciones, se cumple DIP.
+
 namespace Library
 {
     public class Table

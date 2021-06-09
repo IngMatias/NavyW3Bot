@@ -1,4 +1,19 @@
-﻿using System.Collections.Generic;
+﻿
+    // S - SRP: Esta clase se encarga de la responsabilidad de manejar la logica del
+    // juego, como puede ser el sistema de turnos y aliansas y los comandos recibidos durante el juego.
+    // Si se es estricto hay mas de dos razones de cambio, si se desea cambiar la cantidad
+    // maxima de tableros por alianza, o si se desea cambiar la sala de espera.
+    // Sin embargo no creemos que sea necesario romper esta unión.
+
+    // O - OCP: No se encuentra una aplicacion del principio OCP.
+    
+    // L - LSP: No se encuentra una aplicacion del principio LSP.
+
+    // I - ISP: GameLogic no respeta ISP, no hace uso de todas las operaciones de Table.
+
+    // D
+
+using System.Collections.Generic;
 
 namespace Library
 {
