@@ -76,5 +76,9 @@ namespace Library
         {
             this.items.Remove(toRemove);
         }
+        public void ReceiveAttack(AbstractAtacker attack)
+        {
+
+        }
     }
 }

@@ -30,5 +30,9 @@ namespace Library
         {
             table.LoadAt(x, y);
         }
+        public void ReceiveAttack(MissileAttack attack)
+        {
+
+        }
     }
 }
