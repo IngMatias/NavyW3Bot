@@ -5,12 +5,11 @@
 
 ## Notas
 
-
 - Los desafíos más difíciles de la entrega.
 
-El comienzo fue dificil, rapidamente se identificaron muchisimas clases :symbols:; pero lo que nos tomo cierto tiempo :hourglass: y nos hace mas felices :smile: en retrospectiva es la asgnacion de responsabilidades como IsAddable, que atentan en contra de toda intuicion :question:. Como puede ser que un item se el responsable de decidir si es agregable a un determinado barco? Esto conlleva bondades que no esperabamos a priori.
+El comienzo fue dificil, rapidamente se identificaron muchisimas clases :symbols:; pero lo que nos tomo cierto tiempo :hourglass: y nos hace mas felices :smile: en retrospectiva es la asgnacion de responsabilidades como IsAddable, que atentan en contra de toda intuicion :question:. ¿Como puede ser que un item es el responsable de decidir si es agregable a un determinado barco? Esto conlleva bondades que no esperábamos a priori.
 La entrega nos conforma mucho en aspectos generales, sin embargo hay pequeños detalles que deseamos solucionar rapidamente; son nuestras metas mas inmediatas :fist:, como ha de ser aumentar el numero de cumplimiento de patrones y principios.
-Nos ha sido, y nos es muy dificil  justificar en muchos casos la violación de los patrones, por ejemplo el Tablero que parece englobar muchas responsabilidades(SRP); pero en  muchos casos la aceptacion a ciegas :eyes: de los patrones dificultaria mucho el trabajo.
+Nos ha sido, y nos es muy difícil justificar en muchos casos la violación de los patrones, por ejemplo el Tablero que parece englobar muchas responsabilidades(SRP); pero en  muchos casos la aceptacion a ciegas :eyes: de los patrones dificultaria mucho el trabajo.
 Finalmente, el fantasma :ghost: de la implementacion de una interface de Tablero para cumplir aun mas con los patrones es una implementacion que nos perseguirá hasta proximas entregas. 
 
 - Lo que aprendimos enfrentándonos al proyecto y no en clase.
@@ -23,7 +22,7 @@ Finalmente sentimos incompleta la relacion entre nuestro bot y la propia platafo
 
 El uso de documentacion oficial de Microsoft nos ayudo mucho, especialmente el referido a los metodos abstractos y virtuales de las clases abstractas, ademas del uso de diccionarios :book:.
 
-- Reflexion final.
+- reflexión final.
 
 > "No fracasé, sólo descubrí 999 maneras de como no hacer una bombilla." :bulb:
 Thomas Alva Edison
