@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
     // S - SRP: Esta clase se encarga de la responsabilidad de conocer todos los items del juego y
     // elegir aleatoriamente uno de ellos, esta funcion se piensa para no alterar el resto del codigo
@@ -20,10 +21,17 @@ namespace Library
 {
     public class ItemList
     {
-        private List<IItem> items;
+        private List<IItem> items = new List<IItem> {
+                                                        new AntiaircraftMissile(),
+                                                        new Armor(),
+                                                        new Hackers(),
+                                                        new Kong(),
+                                                        new SateliteLock(),
+                                                    };
         public IItem RandomItem()
         {
-            return new Armor();
+            Random rnd = new Random();
+            return this.items[rnd.Next(0,this.items.Count)];
         }
     }
 }

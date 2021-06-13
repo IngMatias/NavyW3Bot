@@ -83,9 +83,27 @@ namespace Library
         {
             this.items.Remove(toRemove);
         }
-        public void ReceiveAttack(AbstractAttacker attack)
+        public bool ReceiveAttack(AbstractAttacker attack)
         {
-
+            bool avoidAttack = false;
+            foreach (IItem item in this.items)
+            {
+                avoidAttack = item.ReceiveAttack(attack);
+                if (avoidAttack)
+                {
+                    this.RemoveItem(item);
+                    break;
+                }
+            }
+            if (!avoidAttack)
+            {
+                this.state[attack.Position] -= 1;
+                if (this.state[attack.Position] == 0)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

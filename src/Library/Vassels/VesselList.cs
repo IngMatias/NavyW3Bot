@@ -27,7 +27,14 @@ namespace Library
 {
     public class VesselList
     {
-        private List<AbstractVessels> vessels;
+        private List<AbstractVessels> vessels = new List<AbstractVessels>   {
+                                                                                new Battleship(),
+                                                                                new Frigate(),
+                                                                                new HeavyCruiser(),
+                                                                                new LightCruiser(),
+                                                                                new Puntoon(),
+                                                                                new Submarine()
+                                                                            };
         public ReadOnlyCollection<AbstractVessels> Vessels
         {
             get
