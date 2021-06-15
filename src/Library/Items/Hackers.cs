@@ -16,7 +16,7 @@
 
 namespace Library
 {
-    public class Hacker : IItem
+    public class Hackers : IItem
     {
         public bool IsAddable(Table table, AbstractVessels vasselToAdd)
         {
