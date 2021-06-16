@@ -33,7 +33,7 @@ namespace Library
             this.state = new int[6];
             this.InitState(1);
         }
-        public void LaunchMissile(Table table, int x, int y)
+        public void LaunchMissile(ITable table, int x, int y)
         {
             AbstractAttacker missile1 = new MissileAttack();
             AbstractAttacker missile2 = new MissileAttack();

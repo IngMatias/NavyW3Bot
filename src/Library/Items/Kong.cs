@@ -18,7 +18,7 @@ namespace Library
 {
     public class Kong : IItem
     {
-        public bool IsAddable(Table table, AbstractVessels vasselToAdd)
+        public bool IsAddable(ITable table, AbstractVessels vasselToAdd)
         {
             if (vasselToAdd.Items.Count == 0 && vasselToAdd.Length() < 4)
             {
@@ -26,7 +26,7 @@ namespace Library
             }
             return false;
         }
-        public bool ReceiveAttack(Table table, AbstractAttacker attack)
+        public bool ReceiveAttack(ITable table, AbstractAttacker attack)
         {
             return attack is GodzillaAttack;
         }

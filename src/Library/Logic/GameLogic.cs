@@ -36,11 +36,11 @@ namespace Library
         {
 
         }
-        public void MakeAlliance(Table t1, Table t2)
+        public void MakeAlliance(ITable t1, ITable t2)
         {
 
         }
-        public void BreakAlliance(Table t)
+        public void BreakAlliance(ITable t)
         {
 
         }

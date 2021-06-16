@@ -26,7 +26,7 @@ namespace Library
     public class Volcano : IEvent
     {
         // Se obvserva poder generalizar este codigo como una explocion cuadrada de radio r = 2.
-        public void DoEvent(List<Table> participants)
+        public void DoEvent(List<ITable> participants)
         {
             Random random = new Random();
             int radio = 2;

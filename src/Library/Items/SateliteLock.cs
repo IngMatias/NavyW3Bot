@@ -18,7 +18,7 @@ namespace Library
 {
     public class SateliteLock : IItem
     {
-        public bool IsAddable(Table table, AbstractVessels vasselToAdd)
+        public bool IsAddable(ITable table, AbstractVessels vasselToAdd)
         {
             foreach (AbstractVessels vassel in table.GetVessels())
             {
@@ -32,7 +32,7 @@ namespace Library
             }
             return true;
         }
-        public bool ReceiveAttack(Table table, AbstractAttacker attack)
+        public bool ReceiveAttack(ITable table, AbstractAttacker attack)
         {
             if (attack is MissileAttack || attack is LoadAttack)
             {
