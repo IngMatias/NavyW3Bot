@@ -18,7 +18,7 @@ namespace Library
 {
     public class Hackers : IItem
     {
-        public bool IsAddable(Table table, AbstractVessels vasselToAdd)
+        public bool IsAddable(ITable table, AbstractVessels vasselToAdd)
         {
             if (vasselToAdd is Puntoon)
             {
@@ -26,7 +26,7 @@ namespace Library
             }
             return false;
         }
-        public bool ReceiveAttack(Table table, AbstractAttacker attack)
+        public bool ReceiveAttack(ITable table, AbstractAttacker attack)
         {
             return false;
         }

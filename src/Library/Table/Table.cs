@@ -27,7 +27,7 @@ using System.Text;
 
 namespace Library
 {
-    public class Table
+    public class Table : ITable
     {
 
         // La clase Table contiene una Matriz donde se guardan 
@@ -38,6 +38,7 @@ namespace Library
         // -1 Ruinas despues de un misil (pueden ser atacables).
         // -2 Ruinas sin barco (no pueden ser atacables).
         // -3 Ruina con barco (no pueden ser atacables).
+        // -4 Hay algo (puede ser atacado)
 
         private int[,] table;
         private Dictionary<(int, int), AbstractVessels> vessels;
@@ -54,6 +55,11 @@ namespace Library
         {
             return this.table.GetLength(1);
         }
+        public void Update(int x, int y, int data)
+        {
+            this.table[x, y] = data;
+        }
+
         public ReadOnlyCollection<AbstractVessels> GetVessels()
         {
             return this.vessels.Values.ToList<AbstractVessels>().AsReadOnly();
@@ -178,20 +184,18 @@ namespace Library
                         this.Update(x,y,-3);
                     }
                 }
-                // Aca hay algo pero no se pudo atacar por item o por submarino el tablero continua igual.
+                else
+                {
+                    // Aca hay algo pero no se pudo atacar.
+                    this.Update(x,y,-5);
+                }
+                
             }
             else
             {
                 this.Update(x,y,-2);
             }
         }
-
-        public void Update(int x, int y, int data)
-        {
-            this.table[x, y] = data;
-        }
-
-
         public void RandomAttack(AbstractAttacker attack)
         {
             Random random = new Random();

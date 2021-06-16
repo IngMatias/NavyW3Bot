@@ -70,7 +70,7 @@ namespace Library
         {
             return State.Count;
         }
-        public bool AddItem(Table table, IItem toAdd)
+        public bool AddItem(ITable table, IItem toAdd)
         {
             if (toAdd.IsAddable(table, this))
             {
@@ -83,7 +83,7 @@ namespace Library
         {
             this.items.Remove(toRemove);
         }
-        public bool ReceiveAttack(Table table, AbstractAttacker attack)
+        public bool ReceiveAttack(ITable table, AbstractAttacker attack)
         {
             bool avoidAttack = false;
             foreach (IItem item in this.items)

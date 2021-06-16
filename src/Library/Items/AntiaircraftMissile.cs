@@ -18,7 +18,7 @@ namespace Library
 {
     public class AntiaircraftMissile : IItem
     {
-        public bool IsAddable(Table table, AbstractVessels vasselToAdd)
+        public bool IsAddable(ITable table, AbstractVessels vasselToAdd)
         {
             foreach (IItem item in vasselToAdd.Items)
             {
@@ -30,7 +30,7 @@ namespace Library
             return true;
         }
 
-        public bool ReceiveAttack(Table table, AbstractAttacker attack)
+        public bool ReceiveAttack(ITable table, AbstractAttacker attack)
         {
             return attack is MissileAttack;
         }

@@ -19,12 +19,12 @@ namespace Library
     public class Armor : IItem
     {
         public int Position { get; set; }
-        public bool IsAddable(Table table, AbstractVessels vasselToAdd)
+        public bool IsAddable(ITable table, AbstractVessels vasselToAdd)
         {
             return (vasselToAdd.State[this.Position]) != 0;
         }
 
-        public bool ReceiveAttack(Table table, AbstractAttacker attack)
+        public bool ReceiveAttack(ITable table, AbstractAttacker attack)
         {
             return (attack is MissileAttack || attack is LoadAttack)
                 && (this.Position == attack.Position);

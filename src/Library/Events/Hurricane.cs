@@ -25,7 +25,7 @@ namespace Library
 {
     public class Hurricane : IEvent
     {
-        public void DoEvent(List<Table> participants)
+        public void DoEvent(List<ITable> participants)
         {
             Random random = new Random();
             int radio = 3;
