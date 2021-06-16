@@ -33,11 +33,11 @@ namespace Library
         // La clase Table contiene una Matriz donde se guardan 
         // enteros que se interpretan de la siguiente manera.
         // En el futuro podria implementarse un enumerado.
-        // +1 Barco.
-        //  0 Agua.
-        // -1 Ruinas despues de un misil.
-        // -2 Ruinas
-        // -3 Lugares Atacados
+        // +1 Barco: hay un barco.
+        //  0 Agua: no hay barco.
+        // -1 Ruinas despues de un misil (pueden ser atacables).
+        // -2 Ruinas sin barco (no pueden ser atacables).
+        // -3 Ruina con barco (no pueden ser atacables).
 
         private int[,] table;
         private Dictionary<(int, int), AbstractVessels> vessels;
@@ -62,6 +62,10 @@ namespace Library
         {
             return table[x, y] == 1;
         }
+        public bool IsSomething(int x, int y)
+        {
+            return table[x, y] != 0;
+        }
         public bool IsEmpty()
         {
             for (int y = 0; y < this.YLength(); y++)
@@ -75,10 +79,6 @@ namespace Library
                 }
             }
             return true;
-        }
-        public void Update(int x, int y, int data)
-        {
-            this.table[x,y] = data;
         }
         public bool AddVessel(int x, int y, AbstractVessels vessel, bool orientation)
         {
@@ -122,14 +122,14 @@ namespace Library
             {
                 for (int j = y; j < y + vessel.Length(); j++)
                 {
-                    this.Update(x,j,1);
+                    this.Update(x, j, 1);
                 }
             }
             else
             {
                 for (int i = x; i < x + vessel.Length(); i++)
                 {
-                    this.Update(i,y,1);
+                    this.Update(i, y, 1);
                 }
             }
             // Actualizo el diccionario. 
@@ -138,16 +138,15 @@ namespace Library
         }
         public void AttackAt(int x, int y, AbstractAttacker attack)
         {
-            // El metodo attack DEBE SER REVISADO.
             if (this.IsAVessel(x, y))
             {
                 int xAux = x;
                 int yAux = y;
-                while (this.IsAVessel(xAux-1, y))
+                while (this.IsSomething(xAux - 1, y))
                 {
                     xAux = xAux - 1;
                 }
-                while (this.IsAVessel(x, yAux-1))
+                while (this.IsSomething(x, yAux - 1))
                 {
                     yAux = yAux - 1;
                 }
@@ -166,17 +165,11 @@ namespace Library
                     attack.Position = y - yAux;
                 }
 
-                bool successfully = this.vessels[(xAux, yAux)].ReceiveAttack(attack);
+                bool successfully = this.vessels[(xAux, yAux)].ReceiveAttack(this, attack);
 
                 if (successfully)
                 {
-                    // Si el ataque se concreta, la posicion no es mas atacable.
-                    this.Update(x,y,-2);
-                }
-                else
-                {
-                    // Si el ataque no se concreta, el lugar puede ser atacado nuevamente, si se trata de un misil.
-                    if(attack is MissileAttack)
+                    if (attack is MissileAttack)
                     {
                         this.Update(x,y,-1);
                     }
@@ -185,19 +178,20 @@ namespace Library
                         this.Update(x,y,-3);
                     }
                 }
+                // Aca hay algo pero no se pudo atacar por item o por submarino el tablero continua igual.
             }
             else
             {
-                if (attack is MissileAttack)
-                {
-                    this.Update(x,y,-1);
-                }
-                else
-                {
-                    this.Update(x,y,-3);
-                }
+                this.Update(x,y,-2);
             }
         }
+
+        public void Update(int x, int y, int data)
+        {
+            this.table[x, y] = data;
+        }
+
+
         public void RandomAttack(AbstractAttacker attack)
         {
             Random random = new Random();
@@ -209,11 +203,11 @@ namespace Library
         {
             int xAux = x;
             int yAux = y;
-            while (this.IsAVessel(xAux-1, y))
+            while (this.IsAVessel(xAux - 1, y))
             {
                 xAux = xAux - 1;
             }
-            while (this.IsAVessel(x, yAux-1))
+            while (this.IsAVessel(x, yAux - 1))
             {
                 yAux = yAux - 1;
             }
@@ -221,18 +215,18 @@ namespace Library
             int up = xAux;
             int left = yAux;
 
-            this.vessels.Remove((up,left));
+            this.vessels.Remove((up, left));
 
             while (this.IsAVessel(xAux, y))
             {
-                this.Update(xAux,yAux,-3);
+                this.Update(xAux, yAux, -3);
                 xAux = xAux + 1;
             }
             xAux = up;
             yAux = left + 1;
             while (this.IsAVessel(x, yAux))
             {
-                this.Update(xAux,yAux,-3);
+                this.Update(xAux, yAux, -3);
                 yAux = yAux + 1;
             }
         }

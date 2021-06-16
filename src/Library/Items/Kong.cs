@@ -26,9 +26,9 @@ namespace Library
             }
             return false;
         }
-        public bool ReceiveAttack(AbstractAttacker attack)
+        public bool ReceiveAttack(Table table, AbstractAttacker attack)
         {
-            return true;
+            return attack is GodzillaAttack;
         }
     }
 }

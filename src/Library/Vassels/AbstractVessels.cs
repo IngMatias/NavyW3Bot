@@ -83,12 +83,12 @@ namespace Library
         {
             this.items.Remove(toRemove);
         }
-        public bool ReceiveAttack(AbstractAttacker attack)
+        public bool ReceiveAttack(Table table, AbstractAttacker attack)
         {
             bool avoidAttack = false;
             foreach (IItem item in this.items)
             {
-                avoidAttack = item.ReceiveAttack(attack);
+                avoidAttack = item.ReceiveAttack(table, attack);
                 if (avoidAttack)
                 {
                     this.RemoveItem(item);

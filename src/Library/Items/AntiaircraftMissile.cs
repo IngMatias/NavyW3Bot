@@ -30,9 +30,9 @@ namespace Library
             return true;
         }
 
-        public bool ReceiveAttack(AbstractAttacker attack)
+        public bool ReceiveAttack(Table table, AbstractAttacker attack)
         {
-            return true;
+            return attack is MissileAttack;
         }
     }
 }

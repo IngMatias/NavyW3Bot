@@ -32,9 +32,17 @@ namespace Library
             }
             return true;
         }
-        public bool ReceiveAttack(AbstractAttacker attack)
+        public bool ReceiveAttack(Table table, AbstractAttacker attack)
         {
-            return true;
+            if (attack is MissileAttack || attack is LoadAttack)
+            {
+                table.RandomAttack(attack);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
