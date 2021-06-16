@@ -39,9 +39,34 @@ namespace Library
             AbstractAttacker load = new LoadAttack();
             table.AttackAt(x, y,load);
         }
-        public void ReceiveAttack(MissileAttack attack)
+        public override bool ReceiveAttack(ITable table, AbstractAttacker attack)
         {
-
+            if (attack is MissileAttack)
+            {
+                return false;
+            }
+            else
+            {
+                bool avoidAttack = false;
+                foreach (IItem item in this.items)
+                {
+                    avoidAttack = item.ReceiveAttack(table, attack);
+                    if (avoidAttack)
+                    {
+                        this.RemoveItem(item);
+                        break;
+                    }
+                }
+                if (!avoidAttack)
+                {
+                    this.state[attack.Position] -= 1;
+                    if (this.state[attack.Position] == 0)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
         }
     }
 }

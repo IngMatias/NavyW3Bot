@@ -28,7 +28,7 @@ namespace Library
 {
     public abstract class AbstractVessels
     {
-        private List<IItem> items;
+        protected List<IItem> items;
         public ReadOnlyCollection<IItem> Items
         {
             get
@@ -83,7 +83,7 @@ namespace Library
         {
             this.items.Remove(toRemove);
         }
-        public bool ReceiveAttack(ITable table, AbstractAttacker attack)
+        public virtual bool ReceiveAttack(ITable table, AbstractAttacker attack)
         {
             bool avoidAttack = false;
             foreach (IItem item in this.items)
