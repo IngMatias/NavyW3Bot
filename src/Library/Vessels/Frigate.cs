@@ -10,7 +10,7 @@ namespace Library
         {
             
         }
-        public void LaunchMissile(ITable table, int x1, int y1, int x2, int y2)
+        public void LaunchMissile(AbstractTable table, int x1, int y1, int x2, int y2)
         {
             AbstractAttacker missile1 = new MissileAttack();
             AbstractAttacker missile2 = new MissileAttack();
@@ -21,7 +21,7 @@ namespace Library
             table.RandomAttack(missile3);
             table.RandomAttack(missile4);
         }
-        public override void Attack0(ITable table, IPrinter clientP, IReader clientR)
+        public override void Attack0(AbstractTable table, IPrinter clientP, IReader clientR)
         {
             int x1 = Int32.Parse(clientR.Read()) - 1;
             int y1 = Int32.Parse(clientR.Read()) - 1;
@@ -33,7 +33,7 @@ namespace Library
         {
             return new List<string> { "Fragata:", "Lanzar misil" };
         }
-        public override void Attack1(ITable table, IPrinter clientP, IReader clientR)
+        public override void Attack1(AbstractTable table, IPrinter clientP, IReader clientR)
         {
             throw new NotImplementedException();
         }

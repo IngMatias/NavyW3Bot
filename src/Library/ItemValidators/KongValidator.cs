@@ -2,7 +2,7 @@
 {
     public class KongValidator : IItemValidator
     {
-        public bool IsAddable(int position, AbstractItemSaver vesselToAdd, ITable table)
+        public bool IsAddable(int position, AbstractItemSaver vesselToAdd, AbstractTable table)
         {
             if (vesselToAdd.Items.Count == 0 && vesselToAdd.Length() < 4)
             {

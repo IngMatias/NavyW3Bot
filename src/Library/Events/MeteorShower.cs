@@ -6,7 +6,7 @@ namespace Library
     public class MeteorShower : IEvent
     {
         private int times = 10;
-        public void DoEvent(List<ITable> participants)
+        public void DoEvent(List<AbstractTable> participants)
         {
             Random random = new Random();
             foreach (Table table in participants)

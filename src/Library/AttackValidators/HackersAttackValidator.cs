@@ -2,7 +2,7 @@
 {
     public class HackersAttackValidator : IAttackValidator
     {
-        public bool AvoidAttack(ITable table, AbstractAttacker attack)
+        public bool AvoidAttack(AbstractTable table, AbstractAttacker attack)
         {
             return false;
         }

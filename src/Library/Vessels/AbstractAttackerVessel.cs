@@ -10,8 +10,8 @@ namespace Library
             
         }
         public abstract List<string> AttackForms();
-        public abstract void Attack0(ITable table, IPrinter clientP, IReader clientR);
-        public abstract void Attack1(ITable table, IPrinter clientP, IReader clientR);
+        public abstract void Attack0(AbstractTable table, IPrinter clientP, IReader clientR);
+        public abstract void Attack1(AbstractTable table, IPrinter clientP, IReader clientR);
 
     }
 }

@@ -5,7 +5,7 @@ namespace Library
 {
     public class PlayerPhase : IPhase
     {
-        public List<int> Execute(ITable player, List<ITable> enemies, IPrinter clientP, IReader clientR)
+        public List<int> Execute(AbstractTable player, List<AbstractTable> enemies, IPrinter clientP, IReader clientR)
         {
             // Muestra los barcos en pantalla, y el jugador elije con cual atacar.
             int option = 1;
@@ -31,7 +31,7 @@ namespace Library
 
             // Muestra los tableros enemigos, y el jugador elije con cual atacar.
             option = 1;
-            foreach (ITable table in enemies)
+            foreach (AbstractTable table in enemies)
             {
                 clientP.Print("Table " + option);
                 option++;

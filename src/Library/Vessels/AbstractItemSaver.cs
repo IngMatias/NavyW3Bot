@@ -21,7 +21,7 @@ namespace Library
         {
             return this.items.Length;
         }
-        public bool AddItem(int position, IItem toAdd, ITable table, IItemValidator validator)
+        public bool AddItem(int position, IItem toAdd, AbstractTable table, IItemValidator validator)
         {
             if (validator.IsAddable(position, this, table))
             {

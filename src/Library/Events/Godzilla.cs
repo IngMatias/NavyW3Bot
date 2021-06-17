@@ -5,7 +5,7 @@ namespace Library
 {
     public class Godzilla : IEvent
     {
-        public void DoEvent(List<ITable> participants)
+        public void DoEvent(List<AbstractTable> participants)
         {
             Random random = new Random();
             int radio = 3;

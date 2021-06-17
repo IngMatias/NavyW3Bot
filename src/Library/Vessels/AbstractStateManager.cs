@@ -37,7 +37,7 @@ namespace Library
             }
             return false;
         }
-        public virtual bool ReceiveAttack(ITable table, AbstractAttacker attack, IAttackValidator validator)
+        public virtual bool ReceiveAttack(AbstractTable table, AbstractAttacker attack, IAttackValidator validator)
         {
             bool avoidAttack = false;
             foreach (IItem item in this.items)

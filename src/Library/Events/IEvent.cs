@@ -4,6 +4,6 @@ namespace Library
 {
     public interface IEvent
     {
-        public void DoEvent(List<ITable> participants);
+        public void DoEvent(List<AbstractTable> participants);
     }
 }

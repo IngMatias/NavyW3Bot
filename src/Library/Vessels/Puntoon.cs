@@ -10,12 +10,12 @@ namespace Library
             
         }
 
-        public override void Attack0(ITable table, IPrinter clientP, IReader clientR)
+        public override void Attack0(AbstractTable table, IPrinter clientP, IReader clientR)
         {
             throw new System.NotImplementedException();
         }
 
-        public override void Attack1(ITable table, IPrinter clientP, IReader clientR)
+        public override void Attack1(AbstractTable table, IPrinter clientP, IReader clientR)
         {
             throw new System.NotImplementedException();
         }

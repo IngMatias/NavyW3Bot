@@ -5,7 +5,7 @@ namespace Library
 {
     public class Volcano : IEvent
     {
-        public void DoEvent(List<ITable> participants)
+        public void DoEvent(List<AbstractTable> participants)
         {
             Random random = new Random();
             int radio = 2;

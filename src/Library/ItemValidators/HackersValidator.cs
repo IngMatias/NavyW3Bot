@@ -2,7 +2,7 @@
 {
     public class HackersValidator : IItemValidator
     {
-        public bool IsAddable(int position, AbstractItemSaver vesselToAdd, ITable table)
+        public bool IsAddable(int position, AbstractItemSaver vesselToAdd, AbstractTable table)
         {
             if (vesselToAdd is Puntoon)
             {
