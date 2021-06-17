@@ -5,13 +5,13 @@ namespace Library
 {
     public class Round
     {
-        private List<ITable> players;
-        public List<ITable> Players 
-        { 
+        private List<AbstractTable> players;
+        public List<AbstractTable> Players
+        {
             get
             {
-                List<ITable> copy = new List<ITable>(); 
-                foreach(ITable player in this.players)
+                List<AbstractTable> copy = new List<AbstractTable>();
+                foreach (AbstractTable player in this.players)
                 {
                     copy.Add(player);
                 }
@@ -20,13 +20,13 @@ namespace Library
         }
         public Round()
         {
-            this.players = new List<ITable> ();
+            this.players = new List<AbstractTable>();
         }
-        public void AddPlayer(ITable player)
+        public void AddPlayer(AbstractTable player)
         {
             this.players.Add(player);
         }
-        public void RemovePlayer(ITable player)
+        public void RemovePlayer(AbstractTable player)
         {
             this.players.Remove(player);
         }
@@ -34,17 +34,17 @@ namespace Library
         public void MaikingGame(IPrinter clientP, IReader clientR)
         {
             // Proximamente debe ser alterado por multijugador.
-            foreach (ITable table in this.players)
+            foreach (AbstractTable table in this.players)
             {
-                VesselList vessels = new VesselList();
-                foreach (AbstractVessels vessel in vessels.Vessels)
+                // VesselList vessels = new VesselList();
+                /*foreach (AbstractVessels vessel in vessels.Vessels)
                 {
                     int x = Int32.Parse(clientR.Read()) -1 ;
                     int y = Int32.Parse(clientR.Read()) -1 ;
                     int orientation = Int32.Parse(clientR.Read()) -1 ;
                     table.AddVessel(x,y,vessel,orientation == 0);
                 }
-                Console.WriteLine(table.StringTable());
+                Console.WriteLine(table.StringTable());*/
             }
         }
 
@@ -53,9 +53,9 @@ namespace Library
             IPhase phase = new PlayerPhase();
             IPhase computerPhase = new ComputerPhase();
 
-            foreach(ITable player in players)
+            foreach (AbstractTable player in players)
             {
-                List<ITable> aux = this.Players;
+                List<AbstractTable> aux = this.Players;
                 aux.Remove(player);
                 phase.Execute(player, aux, clientP, clientR);
             }
