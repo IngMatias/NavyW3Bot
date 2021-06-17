@@ -24,6 +24,6 @@ namespace Library
 {
     public interface IPrinter
     {
-        public void Print(string ToPrint);
+        public void Print(object ToPrint);
     }
 }

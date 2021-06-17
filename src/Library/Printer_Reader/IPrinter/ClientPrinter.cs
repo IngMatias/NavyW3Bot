@@ -24,7 +24,7 @@ namespace Library
 {
     public class ClientPrinter : IPrinter
     {
-        public void Print(string ToPrint)
+        public void Print(object ToPrint)
         {
             Console.WriteLine(ToPrint);
         }
