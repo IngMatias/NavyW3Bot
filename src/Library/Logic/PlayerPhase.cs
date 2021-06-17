@@ -14,7 +14,7 @@ namespace Library
         {
             // Muestra los barcos en pantalla, y el jugador elije con cual atacar.
             int option = 1;
-            foreach (AbstractVessels vessel in player.GetVessels())
+            foreach (AbstractVessel vessel in player.GetVessels())
             {
                 clientP.Print(option);
                 foreach (string attack in vessel.AttackForms())
@@ -43,7 +43,7 @@ namespace Library
             }
             int tableAttacked = Int32.Parse(clientR.Read()) - 1;
 
-            player.GetVessels()[vesselOption].Attack0(enemies[tableAttacked],clientP,clientR);
+            player.GetVessels()[vesselOption].Attack0(enemies[tableAttacked], clientP, clientR);
 
             return new List<int> { };
         }

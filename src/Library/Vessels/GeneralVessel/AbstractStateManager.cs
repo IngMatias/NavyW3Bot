@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System;
 
 namespace Library
 {
@@ -14,7 +14,7 @@ namespace Library
             }
         }
         public AbstractStateManager(int size, int health)
-        :base(size)
+        : base(size)
         {
             this.state = new int[size];
             this.InitState(health);
