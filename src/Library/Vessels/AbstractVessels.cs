@@ -66,17 +66,9 @@ namespace Library
         {
             return State.Count;
         }
-        private Dictionary<IItem, IItemValidator> validatorsAddItem = new Dictionary<IItem, IItemValidator>
-            {
-                {new AntiaircraftMissile(), new AntiaircraftMissileValidator() },
-                {new Armor(), new ArmorValidator() },
-                {new Hackers(), new HackersValidator() },
-                {new Kong(), new KongValidator() },
-                {new SateliteLock(), new SateliteLockValidator() },
-            };
-        public bool AddItem(int position, IItem toAdd, ITable table)
+        public bool AddItem(int position, IItem toAdd, ITable table, IItemValidator validator)
         {
-            if (validatorsAddItem[toAdd].IsAddable(position, this, table))
+            if (validator.IsAddable(position, this, table))
             {
                 this.items[position] = toAdd;
                 return true;
@@ -91,22 +83,14 @@ namespace Library
                 this.items[index] = null;
             }
         }
-        private Dictionary<IItem, IAttackValidator> validatorsToReceiveAttack = new Dictionary<IItem, IAttackValidator>
-            {
-                {new AntiaircraftMissile(), new AntiaircraftMissileAttackValidator() },
-                {new Armor(), new ArmorAttackValidator() },
-                {new Hackers(), new HackersAttackValidator() },
-                {new Kong(), new KongAttackValidator() },
-                {new SateliteLock(), new SateliteLockAttackValidator() },
-            };
-        public virtual bool ReceiveAttack(ITable table, AbstractAttacker attack)
+        public virtual bool ReceiveAttack(ITable table, AbstractAttacker attack, IAttackValidator validator)
         {
             bool avoidAttack = false;
             foreach (IItem item in this.items)
             {
                 if (item != null)
                 {
-                    avoidAttack = this.validatorsToReceiveAttack[item].AvoidAttack(table, attack);
+                    avoidAttack = validator.AvoidAttack(table, attack);
                     if (avoidAttack)
                     {
                         this.RemoveItem(item);
