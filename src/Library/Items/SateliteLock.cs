@@ -18,20 +18,6 @@ namespace Library
 {
     public class SateliteLock : IItem
     {
-        public bool IsAddable(ITable table, AbstractVessels vasselToAdd)
-        {
-            foreach (AbstractVessels vassel in table.GetVessels())
-            {
-                foreach (IItem item in vassel.Items)
-                {
-                    if (item is SateliteLock)
-                    {
-                        return false;
-                    }
-                }
-            }
-            return true;
-        }
         public bool ReceiveAttack(ITable table, AbstractAttacker attack)
         {
             if (attack is MissileAttack || attack is LoadAttack)

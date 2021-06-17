@@ -18,7 +18,6 @@ namespace Library
 {
     public interface IItem
     {
-        public bool IsAddable(ITable table, AbstractVessels vasselToAdd);
         public bool ReceiveAttack(ITable table, AbstractAttacker attack);
     }
 }

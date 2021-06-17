@@ -70,9 +70,9 @@ namespace Library
         {
             return State.Count;
         }
-        public bool AddItem(ITable table, IItem toAdd)
+        public bool AddItem(ITable table, IItem toAdd, IItemValidator validator)
         {
-            if (toAdd.IsAddable(table, this))
+            if (validator.IsAddable(this, table))
             {
                 this.items.Add(toAdd);
                 return true;
