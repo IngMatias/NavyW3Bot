@@ -2,12 +2,9 @@
 {
     public class ArmorValidator : IItemValidator
     {
-        public bool IsAddable(AbstractVessels vasselToAdd, ITable table)
+        public bool IsAddable(int position, AbstractVessels vesselToAdd, ITable table)
         {
-            return true; 
-            // Esta es la condicion para poder agreagar una armadura:
-            // Que no haya otra en el mismo lugar.
-            // (vasselToAdd.State[itemToAdd.Position]) != 0;
+            return vesselToAdd.Items[position] == null; 
         }
     }
 }

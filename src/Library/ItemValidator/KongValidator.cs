@@ -2,11 +2,11 @@
 {
     public class KongValidator : IItemValidator
     {
-        public bool IsAddable(AbstractVessels vasselToAdd, ITable table)
+        public bool IsAddable(int position, AbstractVessels vesselToAdd, ITable table)
         {
-            if (vasselToAdd.Items.Count == 0 && vasselToAdd.Length() < 4)
+            if (vesselToAdd.Items.Count == 0 && vesselToAdd.Length() < 4)
             {
-                return true;
+                return vesselToAdd.Items[position] == null;
             }
             return false;
         }

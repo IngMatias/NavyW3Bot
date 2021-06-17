@@ -2,7 +2,7 @@
 {
     public class SateliteLockValidator : IItemValidator
     {
-        public bool IsAddable(AbstractVessels vasselToAdd, ITable table)
+        public bool IsAddable(int position, AbstractVessels vesselToAdd, ITable table)
         {
             foreach (AbstractVessels vassel in table.GetVessels())
             {
@@ -14,7 +14,7 @@
                     }
                 }
             }
-            return true;
+            return vesselToAdd.Items[position] == null;
         }
     }
 }

@@ -24,10 +24,10 @@ namespace Library
     public class Puntoon : AbstractVessels
     {
         public Puntoon()
-        :base()
         {
             this.state = new int[1];
             this.InitState(1);
+            this.items = new IItem[1];
         }
 
         public override void Attack0(ITable table, IPrinter clientP, IReader clientR)

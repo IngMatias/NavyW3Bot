@@ -2,16 +2,16 @@
 {
     public class AntiaircraftMissileValidator : IItemValidator
     {
-        public bool IsAddable(AbstractVessels vasselToAdd, ITable table)
+        public bool IsAddable(int position, AbstractVessels vesselToAdd, ITable table)
         {
-            foreach (IItem item in vasselToAdd.Items)
+            foreach (IItem item in vesselToAdd.Items)
             {
                 if (item is AntiaircraftMissile)
                 {
                     return false;
                 }
             }
-            return true;
+            return vesselToAdd.Items[position] == null;
         }
     }
 }

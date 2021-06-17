@@ -27,10 +27,10 @@ namespace Library
     public class Submarine : AbstractVessels
     {
         public Submarine()
-        :base()
         {
             this.state = new int[4];
             this.InitState(1);
+            this.items = new IItem[4];
         }
         public void LaunchMissile(ITable table, int x, int y)
         {

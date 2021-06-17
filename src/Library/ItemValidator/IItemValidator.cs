@@ -2,6 +2,6 @@
 {
     public interface IItemValidator
     {
-        public bool IsAddable(AbstractVessels vasselToAdd, ITable table);
+        public bool IsAddable(int position, AbstractVessels vesselToAdd, ITable table);
     }
 }
