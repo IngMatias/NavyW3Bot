@@ -2,9 +2,6 @@
 {
     public class Armor : IItem
     {
-        public Armor()
-        {
-
-        }
+        
     }
 }

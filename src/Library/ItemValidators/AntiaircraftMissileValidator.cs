@@ -2,10 +2,6 @@
 {
     public class AntiaircraftMissileValidator : IItemValidator
     {
-        public AntiaircraftMissileValidator()
-        {
-            
-        }
         public bool IsAddable(int position, AbstractItemSaver vesselToAdd, ITable table)
         {
             foreach (IItem item in vesselToAdd.Items)

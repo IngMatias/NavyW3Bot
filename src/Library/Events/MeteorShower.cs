@@ -5,10 +5,6 @@ namespace Library
 {
     public class MeteorShower : IEvent
     {
-        public MeteorShower()
-        {
-
-        }
         private int times = 10;
         public void DoEvent(List<ITable> participants)
         {

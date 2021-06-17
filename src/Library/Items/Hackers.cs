@@ -2,9 +2,6 @@
 {
     public class Hackers : IItem
     {
-        public Hackers()
-        {
 
-        }
     }
 }

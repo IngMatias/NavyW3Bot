@@ -5,10 +5,6 @@ namespace Library
 {
     public class Godzilla : IEvent
     {
-        public Godzilla()
-        {
-
-        }
         public void DoEvent(List<ITable> participants)
         {
             Random random = new Random();

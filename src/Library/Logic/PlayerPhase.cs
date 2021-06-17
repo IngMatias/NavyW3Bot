@@ -5,11 +5,6 @@ namespace Library
 {
     public class PlayerPhase : IPhase
     {
-        public PlayerPhase()
-        {
-
-        }
-
         public List<int> Execute(ITable player, List<ITable> enemies, IPrinter clientP, IReader clientR)
         {
             // Muestra los barcos en pantalla, y el jugador elije con cual atacar.

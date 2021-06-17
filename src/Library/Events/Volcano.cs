@@ -5,10 +5,6 @@ namespace Library
 {
     public class Volcano : IEvent
     {
-        public Volcano()
-        {
-
-        }
         public void DoEvent(List<ITable> participants)
         {
             Random random = new Random();

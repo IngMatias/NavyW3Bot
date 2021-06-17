@@ -2,10 +2,6 @@
 {
     public class SateliteLockValidator : IItemValidator
     {
-        public SateliteLockValidator()
-        {
-            
-        }
         public bool IsAddable(int position, AbstractItemSaver vesselToAdd, ITable table)
         {
             foreach (AbstractVessel vassel in table.GetVessels())

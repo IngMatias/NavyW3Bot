@@ -2,9 +2,6 @@
 {
     public class Kong : IItem
     {
-        public Kong()
-        {
-
-        }
+        
     }
 }

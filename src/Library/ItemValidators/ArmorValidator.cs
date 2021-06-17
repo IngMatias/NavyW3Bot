@@ -2,10 +2,6 @@
 {
     public class ArmorValidator : IItemValidator
     {
-        public ArmorValidator()
-        {
-            
-        }
         public bool IsAddable(int position, AbstractItemSaver vesselToAdd, ITable table)
         {
             return vesselToAdd.Items[position] == null; 

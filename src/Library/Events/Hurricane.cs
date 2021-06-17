@@ -5,10 +5,6 @@ namespace Library
 {
     public class Hurricane : IEvent
     {
-        public Hurricane()
-        {
-
-        }
         public void DoEvent(List<ITable> participants)
         {
             Random random = new Random();

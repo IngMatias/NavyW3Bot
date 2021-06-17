@@ -2,9 +2,6 @@
 {
     public class SateliteLock : IItem
     {
-        public SateliteLock()
-        {
-
-        }
+        
     }
 }

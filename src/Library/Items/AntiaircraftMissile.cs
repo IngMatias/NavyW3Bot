@@ -2,9 +2,6 @@
 {
     public class AntiaircraftMissile : IItem
     {
-        public AntiaircraftMissile()
-        {
-
-        }
+        
     }
 }
