@@ -105,5 +105,9 @@ namespace Library
             }
             return false;
         }
+        public abstract List<string> AttackForms();
+        public abstract void Attack0(ITable table, IPrinter clientP ,IReader clientR);
+        public abstract void Attack1(ITable table, IPrinter clientP ,IReader clientR);
+        
     }
 }

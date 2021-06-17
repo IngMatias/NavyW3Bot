@@ -33,6 +33,10 @@ namespace Library
                                                             new MeteorShower(),
                                                             new Volcano(),
                                                         };
+        public EventList()
+        {
+
+        }
         public IEvent RandomEvent()
         {
             Random rnd = new Random();
