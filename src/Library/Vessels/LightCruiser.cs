@@ -29,10 +29,8 @@ namespace Library
     public class LightCruiser : AbstractVessels
     {
         public LightCruiser()
+        :base(5,1)
         {
-            this.state = new int[5];
-            this.InitState(1);
-            this.items = new IItem[5];
         }
         public void LaunchMissile(ITable table, int x, int y)
         {

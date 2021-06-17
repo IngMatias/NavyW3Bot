@@ -6,7 +6,7 @@
         {
             
         }
-        public bool IsAddable(int position, AbstractVessels vesselToAdd, ITable table)
+        public bool IsAddable(int position, AbstractItemSaver vesselToAdd, ITable table)
         {
             foreach (IItem item in vesselToAdd.Items)
             {
