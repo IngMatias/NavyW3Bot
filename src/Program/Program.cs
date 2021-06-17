@@ -11,8 +11,8 @@ namespace Program
             Class1 class1 = new Class1();
             class1.SayHi();
 
-            AbstractVessels bar = new Battleship(); // Largo 6
-            AbstractVessels pun = new Puntoon(); 
+            AbstractVessel bar = new Battleship(); // Largo 6
+            AbstractVessel pun = new Puntoon(); 
 
             IItem hack = new Hackers();
             IItem kong = new Kong();

@@ -4,27 +4,6 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 
-// S - SRP: Esta interface se encarga de la responsabilidad de manejar el tablero.
-// Si se es estricto hay mas de dos razones de cambio, si se desea cambiar el tamaño
-// del tablero, agregar una nueva representacion en el mismo o cambiar el modo de agregado
-// de barcos, por ejemplo permitiendo agregarse en el borde.
-// Sin embargo no creemos que sea necesario romper esta unión.
-
-// O - OCP: No se encuentra una aplicacion del principio OCP.
-
-// L - LSP: No se encuentra una aplicacion del principio LSP.
-
-// I - ISP: Table no respeta ISP, no hace uso de todas las operaciones de AbstractVessels.
-
-// D - DIP: Table depende solo de abstracciones, se cumple DIP.
-
-// Expert : Esta clase conoce el tablero, por lo tanto tiene todo lo relacionado con su Consulta y Tratamiento.
-// Ademas conoce el lugar donde se hallan los barcos, por lo que tambien es responsable de realizar los ataques si corrsponde.
-
-// Polimorfismo : No se usa polimorfismo.
-
-// Creator : Se usa Creator en la creacion de la matriz table y el diccionario vessels.
-
 namespace Library
 {
     public class Table : ITable
@@ -41,11 +20,11 @@ namespace Library
         // -4 Hay algo (puede ser atacado)
 
         private int[,] table;
-        private Dictionary<(int, int), AbstractVessels> vessels;
+        private Dictionary<(int, int), AbstractVessel> vessels;
         public Table()
         {
             this.table = new int[14, 26];
-            this.vessels = new Dictionary<(int, int), AbstractVessels>();
+            this.vessels = new Dictionary<(int, int), AbstractVessel>();
         }
         public int XLength()
         {
@@ -60,9 +39,9 @@ namespace Library
             this.table[x, y] = data;
         }
 
-        public ReadOnlyCollection<AbstractVessels> GetVessels()
+        public ReadOnlyCollection<AbstractVessel> GetVessels()
         {
-            return this.vessels.Values.ToList<AbstractVessels>().AsReadOnly();
+            return this.vessels.Values.ToList<AbstractVessel>().AsReadOnly();
         }
         public bool IsAVessel(int x, int y)
         {
@@ -86,7 +65,7 @@ namespace Library
             }
             return true;
         }
-        public bool AddVessel(int x, int y, AbstractVessels vessel, bool orientation)
+        public bool AddVessel(int x, int y, AbstractVessel vessel, bool orientation)
         {
             // La orientacion se interpreta de la siguiente manera.
             // true - Vertical 
@@ -178,23 +157,23 @@ namespace Library
                 {
                     if (attack is MissileAttack)
                     {
-                        this.Update(x,y,-1);
+                        this.Update(x, y, -1);
                     }
                     else
                     {
-                        this.Update(x,y,-3);
+                        this.Update(x, y, -3);
                     }
                 }
                 else
                 {
                     // Aca hay algo pero no se pudo atacar.
-                    this.Update(x,y,-5);
+                    this.Update(x, y, -5);
                 }
-                
+
             }
             else
             {
-                this.Update(x,y,-2);
+                this.Update(x, y, -2);
             }
         }
         public void RandomAttack(AbstractAttacker attack)
