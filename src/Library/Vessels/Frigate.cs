@@ -28,10 +28,8 @@ namespace Library
     public class Frigate : AbstractVessels
     {
         public Frigate()
+        :base(2,1)
         {
-            this.state = new int[2];
-            this.InitState(1);
-            this.items = new IItem[2];
         }
         public void LaunchMissile(ITable table, int x1, int y1, int x2, int y2)
         {
