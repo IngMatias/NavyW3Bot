@@ -171,7 +171,8 @@ namespace Library
                     attack.Position = y - yAux;
                 }
 
-                bool successfully = this.vessels[(xAux, yAux)].ReceiveAttack(this, attack);
+                // bool successfully = this.vessels[(xAux, yAux)].ReceiveAttack(this, attack);
+                bool successfully = true;
 
                 if (successfully)
                 {

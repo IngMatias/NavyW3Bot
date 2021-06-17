@@ -16,11 +16,15 @@
 
 namespace Library
 {
-    public class AntiaircraftMissile : IItem
+    public class AntiaircraftMissileAttackValidator : IAttackValidator
     {
-        public AntiaircraftMissile()
+        public AntiaircraftMissileAttackValidator()
         {
 
+        }
+        public bool AvoidAttack(ITable table, AbstractAttacker attack)
+        {
+            return attack is MissileAttack;
         }
     }
 }
