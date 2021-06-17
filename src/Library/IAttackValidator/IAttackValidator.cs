@@ -16,8 +16,8 @@
 
 namespace Library
 {
-    public interface IItem
+    public interface IAttackValidator
     {
-        
+        public bool AvoidAttack(ITable table, AbstractAttacker attack);
     }
 }

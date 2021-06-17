@@ -16,11 +16,15 @@
 
 namespace Library
 {
-    public class Kong : IItem
+    public class KongAttackValidator : IAttackValidator
     {
-        public Kong()
+        public KongAttackValidator()
         {
-            
+
+        }
+        public bool AvoidAttack(ITable table, AbstractAttacker attack)
+        {
+            return attack is GodzillaAttack;
         }
     }
 }
