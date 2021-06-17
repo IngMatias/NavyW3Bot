@@ -27,10 +27,8 @@ namespace Library
     public class Submarine : AbstractVessels
     {
         public Submarine()
-        :base()
+        :base(4,1)
         {
-            this.state = new int[4];
-            this.InitState(1);
         }
         public void LaunchMissile(ITable table, int x, int y)
         {
@@ -58,35 +56,6 @@ namespace Library
             int x = Int32.Parse(clientR.Read()) - 1;
             int y = Int32.Parse(clientR.Read()) - 1;
             this.ThrowLoad(table,x,y);
-        }
-        public override bool ReceiveAttack(ITable table, AbstractAttacker attack)
-        {
-            if (attack is MissileAttack)
-            {
-                return false;
-            }
-            else
-            {
-                bool avoidAttack = false;
-                foreach (IItem item in this.items)
-                {
-                    avoidAttack = item.ReceiveAttack(table, attack);
-                    if (avoidAttack)
-                    {
-                        this.RemoveItem(item);
-                        break;
-                    }
-                }
-                if (!avoidAttack)
-                {
-                    this.state[attack.Position] -= 1;
-                    if (this.state[attack.Position] == 0)
-                    {
-                        return true;
-                    }
-                }
-                return false;
-            }
         }
     }
 }

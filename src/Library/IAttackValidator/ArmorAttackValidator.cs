@@ -16,11 +16,15 @@
 
 namespace Library
 {
-    public class Armor : IItem
+    public class ArmorAttackValidator : IAttackValidator
     {
-        public Armor()
+        public ArmorAttackValidator()
         {
-            
+
+        }
+        public bool AvoidAttack(ITable table, AbstractAttacker attack)
+        {
+            return (attack is MissileAttack || attack is LoadAttack);
         }
     }
 }

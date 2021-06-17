@@ -29,10 +29,8 @@ namespace Library
     public class HeavyCruiser : AbstractVessels
     {
         public HeavyCruiser()
-        :base()
+        :base(3,2)
         {
-            this.state = new int[3];
-            this.InitState(2);
         }
         public void LaunchMissile(ITable table, int x, int y)
         {

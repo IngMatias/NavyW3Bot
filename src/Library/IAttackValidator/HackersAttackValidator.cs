@@ -16,11 +16,15 @@
 
 namespace Library
 {
-    public class Hackers : IItem
+    public class HackersAttackValidator : IAttackValidator
     {
-        public Hackers()
+        public HackersAttackValidator()
         {
-            
+
+        }
+        public bool AvoidAttack(ITable table, AbstractAttacker attack)
+        {
+            return false;
         }
     }
 }
