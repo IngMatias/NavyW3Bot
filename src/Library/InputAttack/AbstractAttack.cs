@@ -26,7 +26,7 @@ namespace Library
         {
             int x = clientR.ReadInt(1, table.XLength(), clientP, "En que posicion X desea atacar: ");
             int y = clientR.ReadInt(1, table.YLength(), clientP, "En que posicion Y desea atacar: ");
-            return (x,y);
+            return (x-1,y-1);
         }
         public abstract void Attack(AbstractVessel vessel, AbstractTable table, IPrinter clientP, IReader clientR);
     }

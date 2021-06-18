@@ -18,9 +18,9 @@ namespace Library
 
         private int[,] table;
         public AbstractField(int x, int y)
-        :base()
+        : base()
         {
-            this.table = new int[x,y];
+            this.table = new int[x, y];
         }
         public int XLength()
         {
@@ -32,7 +32,7 @@ namespace Library
         }
         public int At(int x, int y)
         {
-            return this.table[x,y];
+            return this.table[x, y];
         }
         public void UpdateAt(int x, int y, int data)
         {
@@ -40,7 +40,7 @@ namespace Library
         }
         public bool IsAVessel(int x, int y)
         {
-            return true;
+            return this.At(x, y) == 1;
         }
         public bool IsOrWasSomething(int x, int y)
         {
