@@ -9,20 +9,5 @@ namespace Library
         {
             
         }
-
-        public override void Attack0(AbstractTable table, IPrinter clientP, IReader clientR)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void Attack1(AbstractTable table, IPrinter clientP, IReader clientR)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override List<string> AttackForms()
-        {
-            return new List<string>();
-        }
     }
 }

@@ -5,9 +5,13 @@ namespace Library
 {
     public class PlayerPhase : IPhase
     {
+        public int TakeOption(List<string> otions)
+        {
+            return 0;
+        }
         public List<int> Execute(AbstractTable player, List<AbstractTable> enemies, IPrinter clientP, IReader clientR)
         {
-            // Muestra los barcos en pantalla, y el jugador elije con cual atacar.
+/*          // Muestra los barcos en pantalla, y el jugador elije con cual atacar.
             int option = 1;
             foreach (AbstractVessel vessel in player.GetVessels())
             {
@@ -38,8 +42,8 @@ namespace Library
             }
             int tableAttacked = Int32.Parse(clientR.Read()) - 1;
 
-            player.GetVessels()[vesselOption].Attack0(enemies[tableAttacked], clientP, clientR);
-
+            // player.GetVessels()[vesselOption].Attack0(enemies[tableAttacked], clientP, clientR);
+*/
             return new List<int> { };
         }
     }
