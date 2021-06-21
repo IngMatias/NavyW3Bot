@@ -28,11 +28,11 @@ namespace Library
             AbstractAttacker load = new LoadAttack();
             table.AttackAt(x, y, load);
         }
-        public override bool ReceiveAttack(AbstractTable table, AbstractAttacker attack, IAttackValidator validator)
+        public override bool ReceiveAttack(AbstractAttackable table, AbstractAttacker attack)
         {
             if (!(attack is MissileAttack))
             {
-                return base.ReceiveAttack(table, attack, validator);
+                return base.ReceiveAttack(table, attack);
             }
             return false;
         }

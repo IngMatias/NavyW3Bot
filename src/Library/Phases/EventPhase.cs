@@ -21,10 +21,10 @@ namespace Library
             };
         public List<int> Execute(AbstractTable player, List<AbstractTable> enemies, IPrinter clientP, IReader clientR)
         {
+            Random random = new Random();
+            int rnd = random.Next(0,15);
             foreach(AbstractTable table in enemies)
             {
-                Random random = new Random();
-                int rnd = random.Next(0,15);
                 if (0 <= rnd && rnd<=this.events.Count)
                 {
                     this.events[rnd].DoEvent(enemies);

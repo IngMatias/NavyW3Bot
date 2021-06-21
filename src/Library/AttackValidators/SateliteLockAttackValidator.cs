@@ -2,7 +2,7 @@
 {
     public class SateliteLockAttackValidator : IAttackValidator
     {
-        public bool AvoidAttack(AbstractTable table, AbstractAttacker attack)
+        public bool AvoidAttack(AbstractAttackable table, AbstractAttacker attack)
         {
             if (attack is MissileAttack || attack is LoadAttack)
             {

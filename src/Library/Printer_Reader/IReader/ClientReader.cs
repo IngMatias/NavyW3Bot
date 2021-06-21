@@ -8,12 +8,12 @@ namespace Library
         {
             return Console.ReadLine();
         }
-        public string Read(IPrinter printer, string msg)
+        public string Read(IPrinter printer, object msg)
         {
             printer.Print(msg);
             return this.Read();
         }
-        public int ReadInt(int from, int until, IPrinter printer, string msg)
+        public int ReadInt(int from, int until, IPrinter printer, object msg)
         {
             printer.Print(msg);
             int read;
