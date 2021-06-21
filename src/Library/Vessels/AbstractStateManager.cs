@@ -37,6 +37,14 @@ namespace Library
             }
             return false;
         }
+        private Dictionary<System.Type, IAttackValidator> toValidator = new Dictionary<System.Type, IAttackValidator> 
+        {
+            {new AntiaircraftMissile().GetType(), new AntiaircraftMissileAttackValidator()},
+            {new Armor().GetType(), new ArmorAttackValidator()},
+            {new Hackers().GetType(), new HackersAttackValidator()},
+            {new Kong().GetType(), new KongAttackValidator()},
+            {new SateliteLock().GetType(), new SateliteLockAttackValidator()}
+        };
         public virtual bool ReceiveAttack(AbstractAttackable table, AbstractAttacker attack)
         {
             bool avoidAttack = false;
@@ -44,7 +52,7 @@ namespace Library
             {
                 if (item != null)
                 {
-                    // avoidAttack = validator.AvoidAttack(table, attack);
+                    avoidAttack = toValidator[item.GetType()].AvoidAttack(table, attack);
                     if (avoidAttack)
                     {
                         this.RemoveItem(item);
