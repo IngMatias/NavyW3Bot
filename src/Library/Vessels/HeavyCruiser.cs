@@ -10,6 +10,14 @@ namespace Library
         {
             
         }
+        public string Name()
+        {
+            return "HeavyCruiser";
+        }
+        public List<string> AttackForms()
+        {
+            return new List<string> {"LaunchMissile"};
+        }
         public override void LaunchMissile(AbstractTable table, int x, int y)
         {
             AbstractAttacker missile1 = new MissileAttack();

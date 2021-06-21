@@ -8,7 +8,15 @@ namespace Library
         public Submarine()
         : base(4, 1)
         {
-            
+
+        }
+        public string Name()
+        {
+            return "Submarine";
+        }
+        public List<string> AttackForms()
+        {
+            return new List<string> {"LaunchMissile","ThrowLoad"};
         }
         public override void LaunchMissile(AbstractTable table, int x, int y)
         {
@@ -19,6 +27,14 @@ namespace Library
         {
             AbstractAttacker load = new LoadAttack();
             table.AttackAt(x, y, load);
+        }
+        public override bool ReceiveAttack(AbstractTable table, AbstractAttacker attack, IAttackValidator validator)
+        {
+            if (!(attack is MissileAttack))
+            {
+                return base.ReceiveAttack(table, attack, validator);
+            }
+            return false;
         }
     }
 }

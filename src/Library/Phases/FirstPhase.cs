@@ -50,7 +50,7 @@ namespace Library
         public List<int> Execute(AbstractTable player, List<AbstractTable> enemies, IPrinter clientP, IReader clientR)
         {
 
-            // Colocacion de los barcos
+            // Posicionamiento de los barcos.
             InputAddVessel addVessel = new InputAddVessel();
             int i = 0;
             bool agregado = false;
@@ -73,9 +73,9 @@ namespace Library
                 i++;
             }
 
-            // Coloco los items
+            // Distribucion de los items.
             InputAddItem addItem = new InputAddItem();
-            for (i = 0; i<3; i++)
+            for (i = 0; i<this.items.Count; i++)
             {
                 Random random= new Random();
                 int rnd = random.Next(0,this.items.Count);

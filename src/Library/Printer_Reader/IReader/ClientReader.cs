@@ -11,7 +11,7 @@ namespace Library
         public string Read(IPrinter printer, string msg)
         {
             printer.Print(msg);
-            return Console.ReadLine();
+            return this.Read();
         }
         public int ReadInt(int from, int until, IPrinter printer, string msg)
         {
@@ -21,7 +21,7 @@ namespace Library
             {
                 try
                 {
-                    read = Int32.Parse(Console.ReadLine());
+                    read = Int32.Parse(this.Read());
                     if (from <= read && read <= until)
                     {
                         break;
@@ -29,7 +29,7 @@ namespace Library
                 }
                 catch (FormatException)
                 {
-                    printer.Print("Debes ingresar un numero enterio: ");
+                    printer.Print("Debes ingresar un numero entero: ");
                 }
                 catch (OverflowException)
                 {

@@ -14,7 +14,7 @@ namespace Library
         // -1 Ruinas despues de un misil (pueden ser atacables).
         // -2 Ruinas sin barco (no pueden ser atacables).
         // -3 Ruina con barco (no pueden ser atacables).
-        // -4 Hay algo (puede ser atacado)
+        // -4 Hay algo (puede ser atacado).
 
         private int[,] table;
         public AbstractField(int x, int y)
