@@ -7,7 +7,7 @@ namespace Library
         public Puntoon()
         : base(1, 1)
         {
-            
+
         }
         public string Name()
         {
@@ -15,7 +15,7 @@ namespace Library
         }
         public List<string> AttackForms()
         {
-            return new List<string> {};
+            return new List<string> { };
         }
     }
 }

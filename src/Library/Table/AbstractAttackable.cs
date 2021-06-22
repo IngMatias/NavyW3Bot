@@ -5,7 +5,7 @@ namespace Library
     public abstract class AbstractAttackable : AbstractField
     {
         public AbstractAttackable(int x, int y)
-        :base(x,y)
+        : base(x, y)
         {
 
         }
@@ -13,7 +13,7 @@ namespace Library
         {
             if (this.IsAVessel(x, y))
             {
-                (int,int) posicionVessel = this.GetLeftUp(x,y);
+                (int, int) posicionVessel = this.GetLeftUp(x, y);
 
                 int xAux = posicionVessel.Item1;
                 int yAux = posicionVessel.Item2;
@@ -33,22 +33,22 @@ namespace Library
 
                 if (successfully)
                 {
-                    this.UpdateAt(x,y, Field.deadVessel);
+                    this.UpdateAt(x, y, Field.deadVessel);
                 }
                 else
                 {
-                    this.UpdateAt(x,y,Field.livedVessel);
+                    this.UpdateAt(x, y, Field.livedVessel);
                 }
             }
             else
             {
                 if (attack is MissileAttack)
                 {
-                    this.UpdateAt(x,y,Field.attackedWater);
+                    this.UpdateAt(x, y, Field.attackedWater);
                 }
                 else
                 {
-                    this.UpdateAt(x,y,Field.unattackableWater);
+                    this.UpdateAt(x, y, Field.unattackableWater);
                 }
             }
         }

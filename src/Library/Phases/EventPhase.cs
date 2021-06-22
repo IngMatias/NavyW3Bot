@@ -12,7 +12,7 @@ namespace Library
             "MeteorShower",
             "Volcano",
         };
-        private List<IEvent> events = new List<IEvent> 
+        private List<IEvent> events = new List<IEvent>
             {
                 new Godzilla(),
                 new Hurricane(),
@@ -22,10 +22,10 @@ namespace Library
         public List<int> Execute(AbstractTable player, List<AbstractTable> enemies, IPrinter clientP, IReader clientR)
         {
             Random random = new Random();
-            int rnd = random.Next(0,15);
-            foreach(AbstractTable table in enemies)
+            int rnd = random.Next(0, 15);
+            foreach (AbstractTable table in enemies)
             {
-                if (0 <= rnd && rnd<=this.events.Count)
+                if (0 <= rnd && rnd <= this.events.Count)
                 {
                     this.events[rnd].DoEvent(enemies);
                 }

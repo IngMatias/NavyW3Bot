@@ -8,11 +8,11 @@ namespace Library
 
         public enum Field
         {
-            attackableWater, 
+            attackableWater,
             // Representa agua que puede ser atacada y no ha sido attacada.
-            attackedWater, 
+            attackedWater,
             // Representa agua que ha sido atacada pero puede serlo nuevamente (ej. luego de un misil).
-            unattackableWater, 
+            unattackableWater,
             // Representa agua que no puede ser atacada (ej. luego de una carga).
             liveHiddenVessel,
             // Representa una parte de un barco vivo pero oculto.
@@ -50,8 +50,8 @@ namespace Library
             {
                 for (int x = 0; y < this.XLength(); x++)
                 {
-                    if (table[x, y] == Field.livedVessel || 
-                        table[x,y] == Field.liveHiddenVessel)
+                    if (table[x, y] == Field.livedVessel ||
+                        table[x, y] == Field.liveHiddenVessel)
                     {
                         return false;
                     }
@@ -70,11 +70,11 @@ namespace Library
             return table[x, y] == Field.liveHiddenVessel ||
                    table[x, y] == Field.livedVessel;
         }
-        public (int,int) GetLeftUp(int x, int y)
-        {  
+        public (int, int) GetLeftUp(int x, int y)
+        {
             int xAux = x;
             int yAux = y;
-            while (this.IsOrWasAVessel(xAux -1, yAux))
+            while (this.IsOrWasAVessel(xAux - 1, yAux))
             {
                 xAux = xAux - 1;
             }
@@ -86,7 +86,7 @@ namespace Library
             int up = xAux;
             int left = yAux;
 
-            return (up,left);
+            return (up, left);
         }
         public bool AddVessel(int x, int y, AbstractVessel vessel, bool orientation)
         {
@@ -120,7 +120,7 @@ namespace Library
             {
                 for (int i = minX; i <= maxX; i++)
                 {
-                    if (this.IsOrWasAVessel(i,j))
+                    if (this.IsOrWasAVessel(i, j))
                     {
                         return false;
                     }
@@ -153,7 +153,7 @@ namespace Library
             int xAux = x;
             int yAux = y;
 
-            (int, int) aux = this.GetLeftUp(x,y);
+            (int, int) aux = this.GetLeftUp(x, y);
 
             // Up y Left forman la posicion mas arriba y mas a la izquierda de un barco, 
             // lo que es nuestra clave en el diccionario.
@@ -170,7 +170,7 @@ namespace Library
             }
             xAux = up;
             yAux = left + 1;
-            while (this.IsOrWasAVessel(x,yAux))
+            while (this.IsOrWasAVessel(x, yAux))
             {
                 this.UpdateAt(xAux, yAux, data);
                 yAux = yAux + 1;

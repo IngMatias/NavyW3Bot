@@ -10,7 +10,7 @@ namespace Library
     {
 
         public AbstractTable(int x, int y)
-        :base(x,y)
+        : base(x, y)
         {
 
         }

@@ -11,7 +11,7 @@ namespace Library
         {
             return this.vessels.Values.ToList<AbstractVessel>().AsReadOnly();
         }
-        public AbstractVessel GetVessel((int,int) key)
+        public AbstractVessel GetVessel((int, int) key)
         {
             return this.vessels[key];
         }
@@ -24,7 +24,7 @@ namespace Library
             this.vessels.Add((up, left), vessel);
             return true;
         }
-        protected bool RemoveVessel((int,int) key)
+        protected bool RemoveVessel((int, int) key)
         {
             this.vessels.Remove(key);
             return true;

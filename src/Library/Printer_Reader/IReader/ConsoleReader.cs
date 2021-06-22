@@ -39,7 +39,7 @@ namespace Library
                 {
 
                 }
-                printer.Print("Debes ingresar un numero entre "+from+" y "+until+" :");
+                printer.Print("Debes ingresar un numero entre " + from + " y " + until + " :");
             }
             return read;
         }

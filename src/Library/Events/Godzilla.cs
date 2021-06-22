@@ -14,7 +14,7 @@ namespace Library
             int randomX = random.Next(radio, lengthX - radio);
             int randomY = random.Next(radio, lengthY - radio);
 
-            List<AbstractVessel> vesselsToAttack = new List<AbstractVessel> ();
+            List<AbstractVessel> vesselsToAttack = new List<AbstractVessel>();
 
             foreach (Table table in participants)
             {
@@ -22,9 +22,9 @@ namespace Library
                 {
                     for (int x = randomX - radio; x <= randomX + radio; x++)
                     {
-                        if (table.IsAVessel(x,y) && vesselsToAttack.IndexOf(table.GetVessel((x,y))) == -1)
+                        if (table.IsAVessel(x, y) && vesselsToAttack.IndexOf(table.GetVessel((x, y))) == -1)
                         {
-                            vesselsToAttack.Add(table.GetVessel((x,y)));
+                            vesselsToAttack.Add(table.GetVessel((x, y)));
                         }
                     }
                 }

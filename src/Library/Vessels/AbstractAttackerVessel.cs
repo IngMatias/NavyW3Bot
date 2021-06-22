@@ -7,7 +7,7 @@ namespace Library
         public AbstractAttackerVessel(int size, int health)
         : base(size, health)
         {
-            
+
         }
         public virtual void LaunchMissile(AbstractTable table, int x, int y)
         {

@@ -8,7 +8,7 @@ namespace Library
         {
             int x = clientR.ReadInt(1, table.XLength(), clientP, "En que posicion X desea colocar el barco: ");
             int y = clientR.ReadInt(1, table.YLength(), clientP, "En que posicion Y desea colocar el barco: ");
-            return (x-1, y-1);
+            return (x - 1, y - 1);
         }
         public bool TakeOrientation(IPrinter clientP, IReader clientR)
         {

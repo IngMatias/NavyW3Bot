@@ -8,7 +8,7 @@ namespace Library
         public LightCruiser()
         : base(5, 1)
         {
-            
+
         }
         public string Name()
         {
@@ -16,7 +16,7 @@ namespace Library
         }
         public List<string> AttackForms()
         {
-            return new List<string> {"LaunchMissile", "ThrowLoad"};
+            return new List<string> { "LaunchMissile", "ThrowLoad" };
         }
         public override void LaunchMissile(AbstractTable table, int x, int y)
         {

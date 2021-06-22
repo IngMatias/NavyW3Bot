@@ -7,7 +7,11 @@ namespace Library
     {
         public int TakePosition(AbstractVessel vessel, IPrinter clientP, IReader clientR)
         {
-            int x = clientR.ReadInt(1, vessel.Length(), clientP, "En que posicion desea colocar el item: ");
+            int x = clientR.ReadInt(0, vessel.Length(), clientP, "En que posicion desea colocar el item, 0 para eliminar el item: ");
+            if (x == 0)
+            {
+                throw new DeleteItemException();
+            }
             return x - 1;
         }
         public int TakeVessel(ReadOnlyCollection<AbstractVessel> vessels, IPrinter clientP, IReader clientR)
@@ -15,10 +19,15 @@ namespace Library
             int index = 1;
             foreach (AbstractVessel vessel in vessels)
             {
-                clientP.Print(index + " " +vessel);
-                index ++;
+                clientP.Print(index + " " + vessel);
+                index++;
             }
-            return clientR.ReadInt(1, vessels.Count, clientP, "En que barco deseas colocar el item: ") -1;
+            int x = clientR.ReadInt(0, vessels.Count, clientP, "En que barco deseas colocar el item, 0 para eliminar el item: ") - 1;
+            if (x == 0)
+            {
+                throw new DeleteItemException();
+            }
+            return x;
         }
         public bool AddItem(IItem item, ReadOnlyCollection<AbstractVessel> vessels, AbstractTable table, IItemValidator validator, IPrinter clientP, IReader clientR)
         {

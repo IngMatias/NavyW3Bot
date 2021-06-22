@@ -23,7 +23,7 @@ namespace Library
                 new Puntoon(),
                 new Submarine(),
             };
-        private List<string> itemsName = new List<string> 
+        private List<string> itemsName = new List<string>
             {
                 "AntiaircraftMissile",
                 "Armor",
@@ -72,21 +72,32 @@ namespace Library
                 }
                 i++;
             }
+            clientP.Print(player.StringTable());
 
             // Distribucion de los items.
             InputAddItem addItem = new InputAddItem();
-            for (i = 0; i<this.items.Count; i++)
+            for (i = 0; i < this.items.Count; i++)
             {
-                Random random= new Random();
-                int rnd = random.Next(0,this.items.Count);
+                Random random = new Random();
+                int rnd = random.Next(0, this.items.Count);
                 agregado = false;
                 while (!agregado)
                 {
                     clientP.Print(itemsName[rnd]);
-                    agregado = addItem.AddItem(this.items[rnd],player.GetVessels(),player,this.itemValidators[rnd],clientP,clientR);
+
+                    try
+                    {
+                        agregado = addItem.AddItem(this.items[rnd], player.GetVessels(), player, this.itemValidators[rnd], clientP, clientR);
+                    }
+                    catch (DeleteItemException)
+                    {
+                        agregado = true;
+                        Console.WriteLine("Item Eliminado.");
+                    }
+
                     if (agregado)
                     {
-                        clientP.Print(itemsName[i] + " ha sido agregado correctamente.");
+                        clientP.Print(itemsName[rnd] + " ha sido agregado correctamente.");
                     }
                     else
                     {

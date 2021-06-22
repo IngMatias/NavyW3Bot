@@ -37,7 +37,7 @@ namespace Library
             }
             return false;
         }
-        private Dictionary<System.Type, IAttackValidator> toValidator = new Dictionary<System.Type, IAttackValidator> 
+        private Dictionary<System.Type, IAttackValidator> toValidator = new Dictionary<System.Type, IAttackValidator>
         {
             {new AntiaircraftMissile().GetType(), new AntiaircraftMissileAttackValidator()},
             {new Armor().GetType(), new ArmorAttackValidator()},
