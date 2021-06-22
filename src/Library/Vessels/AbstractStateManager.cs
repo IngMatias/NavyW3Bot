@@ -37,22 +37,16 @@ namespace Library
             }
             return false;
         }
-        private Dictionary<System.Type, IAttackValidator> toValidator = new Dictionary<System.Type, IAttackValidator>
-        {
-            {new AntiaircraftMissile().GetType(), new AntiaircraftMissileAttackValidator()},
-            {new Armor().GetType(), new ArmorAttackValidator()},
-            {new Hackers().GetType(), new HackersAttackValidator()},
-            {new Kong().GetType(), new KongAttackValidator()},
-            {new SateliteLock().GetType(), new SateliteLockAttackValidator()}
-        };
         public virtual bool ReceiveAttack(AbstractAttackable table, AbstractAttacker attack)
         {
+            AttacksValidators validator = new AttacksValidators();
+
             bool avoidAttack = false;
             foreach (IItem item in this.items)
             {
                 if (item != null)
                 {
-                    avoidAttack = toValidator[item.GetType()].AvoidAttack(table, attack);
+                    avoidAttack = validator.ValidatorOf(item).AvoidAttack(table, attack);
                     if (avoidAttack)
                     {
                         this.RemoveItem(item);

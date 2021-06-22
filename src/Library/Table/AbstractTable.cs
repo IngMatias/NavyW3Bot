@@ -27,5 +27,35 @@ namespace Library
             }
             return toReturn.ToString();
         }
+
+        public string StringVessels()
+        {
+            ItemsToString itemsName = new ItemsToString();
+            VesselsToString vesselsName = new VesselsToString();
+            StringBuilder toReturn = new StringBuilder();
+
+            int vesselIndex = 1;
+            int itemIndex = 1;
+
+            foreach (AbstractVessel vessel in this.GetVessels())
+            {
+                toReturn.Append(vesselIndex +" "+ vesselsName.NameOf(vessel) + "\n");
+                foreach (IItem item in vessel.Items)
+                {
+                    if (item != null)
+                    {
+                        toReturn.Append("    " + itemIndex + itemsName.NameOf(item) + "\n");
+                    }
+                    else
+                    {
+                        toReturn.Append("    " + itemIndex + "Vacio" + "\n");
+                    }
+                    itemIndex ++;
+                }
+                toReturn.Append("\n");
+                vesselIndex ++;
+            }
+            return toReturn.ToString();
+        }
     }
 }

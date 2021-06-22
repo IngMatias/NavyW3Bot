@@ -9,13 +9,5 @@ namespace Library
         {
 
         }
-        public string Name()
-        {
-            return "Puntoon";
-        }
-        public List<string> AttackForms()
-        {
-            return new List<string> { };
-        }
     }
 }

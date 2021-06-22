@@ -22,12 +22,12 @@ namespace Library
                 clientP.Print(index + " " + vessel);
                 index++;
             }
-            int x = clientR.ReadInt(0, vessels.Count, clientP, "En que barco deseas colocar el item, 0 para eliminar el item: ") - 1;
+            int x = clientR.ReadInt(0, vessels.Count, clientP, "En que barco deseas colocar el item, 0 para eliminar el item: ");
             if (x == 0)
             {
                 throw new DeleteItemException();
             }
-            return x;
+            return x - 1;
         }
         public bool AddItem(IItem item, ReadOnlyCollection<AbstractVessel> vessels, AbstractTable table, IItemValidator validator, IPrinter clientP, IReader clientR)
         {

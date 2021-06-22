@@ -4,11 +4,15 @@
     {
         public bool IsAddable(int position, AbstractItemSaver vesselToAdd, AbstractTable table)
         {
-            if (vesselToAdd is Puntoon)
+            if (!(vesselToAdd is Puntoon))
             {
-                return vesselToAdd.Items[position] == null;
+                throw new WrongVesselException();
             }
-            return false;
+            if (vesselToAdd.Items[position] != null)
+            {
+                throw new NoEmptyPositionException();
+            }
+            return true;
         }
     }
 }
