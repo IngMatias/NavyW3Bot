@@ -17,6 +17,18 @@ namespace Library
         {
             this.items = new IItem[size];
         }
+        public int CountItem()
+        {
+            int i = 0;
+            foreach (IItem item in this.items)
+            {
+                if (item != null)
+                {
+                    i++;
+                }
+            }
+            return i;
+        }
         public int Length()
         {
             return this.items.Length;

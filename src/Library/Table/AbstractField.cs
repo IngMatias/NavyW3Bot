@@ -6,21 +6,27 @@ namespace Library
     public abstract class AbstractField : AbstractVesselSaver
     {
 
-        // La clase Table contiene una Matriz donde se guardan 
-        // enteros que se interpretan de la siguiente manera.
-        // En el futuro podria implementarse un enumerado.
-        // +1 Barco: hay un barco.
-        //  0 Agua: no hay barco.
-        // -1 Ruinas despues de un misil (pueden ser atacables).
-        // -2 Ruinas sin barco (no pueden ser atacables).
-        // -3 Ruina con barco (no pueden ser atacables).
-        // -4 Hay algo (puede ser atacado)
-
-        private int[,] table;
-        public AbstractField(int x, int y)
-        :base()
+        public enum Field
         {
-            this.table = new int[x,y];
+            attackableWater,
+            // Representa agua que puede ser atacada y no ha sido attacada.
+            attackedWater,
+            // Representa agua que ha sido atacada pero puede serlo nuevamente (ej. luego de un misil).
+            unattackableWater,
+            // Representa agua que no puede ser atacada (ej. luego de una carga).
+            liveHiddenVessel,
+            // Representa una parte de un barco vivo pero oculto.
+            livedVessel,
+            // Representa una parte de un barco vivo pero visible.
+            deadVessel,
+            // Representa una parte de un barco atacado. 
+        }
+
+        private Field[,] table;
+        public AbstractField(int x, int y)
+        : base()
+        {
+            this.table = new Field[x, y];
         }
         public int XLength()
         {
@@ -30,21 +36,13 @@ namespace Library
         {
             return this.table.GetLength(1);
         }
-        public int At(int x, int y)
+        public Field At(int x, int y)
         {
-            return this.table[x,y];
+            return this.table[x, y];
         }
-        public void UpdateAt(int x, int y, int data)
+        public void UpdateAt(int x, int y, Field data)
         {
             this.table[x, y] = data;
-        }
-        public bool IsAVessel(int x, int y)
-        {
-            return true;
-        }
-        public bool IsOrWasSomething(int x, int y)
-        {
-            return true;
         }
         public bool IsEmpty()
         {
@@ -52,13 +50,43 @@ namespace Library
             {
                 for (int x = 0; y < this.XLength(); x++)
                 {
-                    if (table[x, y] > 0)
+                    if (table[x, y] == Field.livedVessel ||
+                        table[x, y] == Field.liveHiddenVessel)
                     {
                         return false;
                     }
                 }
             }
             return true;
+        }
+        public bool IsOrWasAVessel(int x, int y)
+        {
+            return table[x, y] == Field.liveHiddenVessel ||
+                   table[x, y] == Field.livedVessel ||
+                   table[x, y] == Field.deadVessel;
+        }
+        public bool IsAVessel(int x, int y)
+        {
+            return table[x, y] == Field.liveHiddenVessel ||
+                   table[x, y] == Field.livedVessel;
+        }
+        public (int, int) GetLeftUp(int x, int y)
+        {
+            int xAux = x;
+            int yAux = y;
+            while (this.IsOrWasAVessel(xAux - 1, yAux))
+            {
+                xAux = xAux - 1;
+            }
+            while (this.IsOrWasAVessel(xAux, yAux - 1))
+            {
+                yAux = yAux - 1;
+            }
+
+            int up = xAux;
+            int left = yAux;
+
+            return (up, left);
         }
         public bool AddVessel(int x, int y, AbstractVessel vessel, bool orientation)
         {
@@ -87,16 +115,15 @@ namespace Library
                 return false;
             }
 
-            // Revisamos que el barco no se superponga con otro, ni con un submarino.
+            // Revisamos que el barco no se superponga con otro.
             for (int j = minY; j <= maxY; j++)
             {
                 for (int i = minX; i <= maxX; i++)
                 {
-                    if (this.IsAVessel(i, j))
+                    if (this.IsOrWasAVessel(i, j))
                     {
                         return false;
                     }
-
                 }
             }
 
@@ -105,110 +132,47 @@ namespace Library
             {
                 for (int j = y; j < y + vessel.Length(); j++)
                 {
-                    this.UpdateAt(x, j, 1);
+                    this.UpdateAt(x, j, Field.liveHiddenVessel);
                 }
             }
             else
             {
                 for (int i = x; i < x + vessel.Length(); i++)
                 {
-                    this.UpdateAt(i, y, 1);
+                    this.UpdateAt(i, y, Field.liveHiddenVessel);
                 }
             }
+
             // Actualizo el diccionario. 
             this.AddVessel(x, y, vessel);
             return true;
         }
-        public void AttackAt(int x, int y, AbstractAttacker attack)
-        {
-            if (this.IsAVessel(x, y))
-            {
-                int xAux = x;
-                int yAux = y;
-                while (this.IsOrWasSomething(xAux - 1, y))
-                {
-                    xAux = xAux - 1;
-                }
-                while (this.IsOrWasSomething(x, yAux - 1))
-                {
-                    yAux = yAux - 1;
-                }
 
-                int up = xAux;
-                int left = yAux;
-
-                if (y == yAux)
-                {
-                    // Actualizo la Posicion relativa al barco en attack.
-                    attack.Position = x - xAux;
-                }
-                else
-                {
-                    // Actualizo la Posicion relativa al barco en attack.
-                    attack.Position = y - yAux;
-                }
-
-                // bool successfully = this.vessels[(xAux, yAux)].ReceiveAttack(this, attack);
-                bool successfully = true;
-
-                if (successfully)
-                {
-                    if (attack is MissileAttack)
-                    {
-                        this.UpdateAt(x, y, -1);
-                    }
-                    else
-                    {
-                        this.UpdateAt(x, y, -3);
-                    }
-                }
-                else
-                {
-                    // Aca hay algo pero no se pudo atacar.
-                    this.UpdateAt(x, y, -5);
-                }
-
-            }
-            else
-            {
-                this.UpdateAt(x, y, -2);
-            }
-        }
-        public void RandomAttack(AbstractAttacker attack)
-        {
-            Random random = new Random();
-            int randomX = random.Next(0, this.XLength());
-            int randomY = random.Next(0, this.YLength());
-            this.AttackAt(randomX, randomY, attack);
-        }
-        public void RemoveVessel(int x, int y)
+        public void RemoveVessel(int x, int y, Field data)
         {
             int xAux = x;
             int yAux = y;
-            while (this.IsAVessel(xAux - 1, y))
-            {
-                xAux = xAux - 1;
-            }
-            while (this.IsAVessel(x, yAux - 1))
-            {
-                yAux = yAux - 1;
-            }
-            // Up y Left forman la posicion mas arriba y mas a la izquierda de un barco, lo que es nuestra clave en el diccionario
-            int up = xAux;
-            int left = yAux;
+
+            (int, int) aux = this.GetLeftUp(x, y);
+
+            // Up y Left forman la posicion mas arriba y mas a la izquierda de un barco, 
+            // lo que es nuestra clave en el diccionario.
+
+            int up = aux.Item1;
+            int left = aux.Item2;
 
             this.RemoveVessel((up, left));
 
-            while (this.IsAVessel(xAux, y))
+            while (this.IsOrWasAVessel(xAux, y))
             {
-                this.UpdateAt(xAux, yAux, -3);
+                this.UpdateAt(xAux, yAux, data);
                 xAux = xAux + 1;
             }
             xAux = up;
             yAux = left + 1;
-            while (this.IsAVessel(x, yAux))
+            while (this.IsOrWasAVessel(x, yAux))
             {
-                this.UpdateAt(xAux, yAux, -3);
+                this.UpdateAt(xAux, yAux, data);
                 yAux = yAux + 1;
             }
         }

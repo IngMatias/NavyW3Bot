@@ -4,11 +4,19 @@
     {
         public bool IsAddable(int position, AbstractItemSaver vesselToAdd, AbstractTable table)
         {
-            if (vesselToAdd.Items.Count == 0 && vesselToAdd.Length() < 4)
+            if (vesselToAdd.CountItem() != 0)
             {
-                return vesselToAdd.Items[position] == null;
+                throw new NeededEmptyVesselException();
             }
-            return false;
+            if (vesselToAdd.Length() < 4)
+            {
+                throw new TooLongVesselException();
+            }
+            if (vesselToAdd.Items[position] != null)
+            {
+                throw new NoEmptyPositionException();
+            }
+            return true;
         }
     }
 }

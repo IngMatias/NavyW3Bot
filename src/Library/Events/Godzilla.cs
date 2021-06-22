@@ -14,16 +14,25 @@ namespace Library
             int randomX = random.Next(radio, lengthX - radio);
             int randomY = random.Next(radio, lengthY - radio);
 
+            List<AbstractVessel> vesselsToAttack = new List<AbstractVessel>();
+
             foreach (Table table in participants)
             {
                 for (int y = randomY - radio; y <= randomY + radio; y++)
                 {
                     for (int x = randomX - radio; x <= randomX + radio; x++)
                     {
-                        AbstractAttacker godzilla = new GodzillaAttack();
-                        table.AttackAt(x, y, godzilla);
+                        if (table.IsAVessel(x, y) && vesselsToAttack.IndexOf(table.GetVessel((x, y))) == -1)
+                        {
+                            vesselsToAttack.Add(table.GetVessel((x, y)));
+                        }
                     }
                 }
+            }
+            AbstractAttacker godzilla = new GodzillaAttack();
+            foreach (AbstractVessel vessel in vesselsToAttack)
+            {
+                vessel.ReceiveAttack(null, godzilla);
             }
         }
     }

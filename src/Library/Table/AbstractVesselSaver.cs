@@ -6,10 +6,14 @@ namespace Library
 {
     public abstract class AbstractVesselSaver
     {
-        private Dictionary<(int, int), AbstractVessel> vessels;
+        protected Dictionary<(int, int), AbstractVessel> vessels;
         public ReadOnlyCollection<AbstractVessel> GetVessels()
         {
             return this.vessels.Values.ToList<AbstractVessel>().AsReadOnly();
+        }
+        public AbstractVessel GetVessel((int, int) key)
+        {
+            return this.vessels[key];
         }
         public AbstractVesselSaver()
         {
@@ -20,7 +24,7 @@ namespace Library
             this.vessels.Add((up, left), vessel);
             return true;
         }
-        protected bool RemoveVessel((int up,int left) key)
+        protected bool RemoveVessel((int, int) key)
         {
             this.vessels.Remove(key);
             return true;

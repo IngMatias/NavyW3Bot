@@ -7,11 +7,21 @@ namespace Library
         public AbstractAttackerVessel(int size, int health)
         : base(size, health)
         {
-            
+
         }
-        public abstract List<string> AttackForms();
-        public abstract void Attack0(AbstractTable table, IPrinter clientP, IReader clientR);
-        public abstract void Attack1(AbstractTable table, IPrinter clientP, IReader clientR);
+        public virtual void LaunchMissile(AbstractTable table, int x, int y)
+        {
+            // Lanzar excepcion
+        }
+        public virtual void ThrowLoad(AbstractTable table, int x, int y)
+        {
+            // Lanzar excepcion
+        }
+        public virtual void LaunchMissile(AbstractTable table, int x1, int y1, int x2, int y2)
+        {
+            // Lanzar excepcion
+        }
+
 
     }
 }

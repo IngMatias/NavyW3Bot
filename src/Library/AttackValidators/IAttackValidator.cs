@@ -2,6 +2,6 @@
 {
     public interface IAttackValidator
     {
-        public bool AvoidAttack(AbstractTable table, AbstractAttacker attack);
+        public bool AvoidAttack(AbstractAttackable table, AbstractAttacker attack);
     }
 }

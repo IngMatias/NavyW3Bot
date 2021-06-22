@@ -8,10 +8,14 @@
             {
                 if (item is AntiaircraftMissile)
                 {
-                    return false;
+                    throw new NoRepetitiveItemException();
                 }
             }
-            return vesselToAdd.Items[position] == null;
+            if (vesselToAdd.Items[position] != null)
+            {
+                throw new NoEmptyPositionException();
+            }
+            return true;
         }
     }
 }
