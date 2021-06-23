@@ -1,0 +1,5 @@
+Cambie el kong validator en la condicion de que tiene que ser mas largo que 4.
+
+trabajar los throws en los validadores.
+
+Hice cambios en todos los validadores.

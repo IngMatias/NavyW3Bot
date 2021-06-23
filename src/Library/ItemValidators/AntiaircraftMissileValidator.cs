@@ -1,9 +1,13 @@
 ﻿namespace Library
 {
-    public class AntiaircraftMissileValidator : IItemValidator
+    public class AntiaircraftMissileValidator : AbstractKongCheck, IItemValidator
     {
         public bool IsAddable(int position, AbstractItemSaver vesselToAdd, AbstractTable table)
         {
+            if (!(KongCheck(vesselToAdd)))
+            {
+                throw new ThereIsAKongExeption();
+            }
             foreach (IItem item in vesselToAdd.Items)
             {
                 if (item is AntiaircraftMissile)
@@ -15,6 +19,7 @@
             {
                 throw new NoEmptyPositionException();
             }
+
             return true;
         }
     }
