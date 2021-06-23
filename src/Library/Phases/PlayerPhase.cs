@@ -10,9 +10,9 @@ namespace Library
             InputVessel vesselSelect = new InputVessel();
             int selectedVessel = vesselSelect.TakeOptionVessel(player.GetVessels(), clientP, clientR);
             Console.WriteLine(player.GetVessels()[selectedVessel]);
-            /*
+            
                         // Elige la forma de ataque.
-                        option = 0;
+                        int option = 0;
                         foreach (string attackForm in player.GetVessels()[vesselOption].AttackForms())
                         {
                             clientP.Print(option + "  " + attackForm);

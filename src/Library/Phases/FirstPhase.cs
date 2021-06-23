@@ -89,7 +89,7 @@ namespace Library
                     {
                         clientP.Print("Solo puedes tener un item de este tipo por barco.");
                     }
-                    catch (TooLongVesselException)
+                    catch (TooShortVesselException)
                     {
                         clientP.Print("Se necesita un barco mas grande.");
                     }
