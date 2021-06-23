@@ -5,7 +5,7 @@ namespace Library
 {
     public class FirstPhase : IPhase
     {
-        private List<AbstractVessel> vessels = new List<AbstractVessel>
+        private List<AbstractVessel> _vessels = new List<AbstractVessel>
         {
             new Battleship(),
             new Frigate(),
@@ -14,7 +14,7 @@ namespace Library
             new Puntoon(),
             new Submarine(),
         };
-        private List<IItem> items = new List<IItem>
+        private List<IItem> _items = new List<IItem>
             {
                 new AntiaircraftMissile(),
                 new Armor(),
@@ -22,13 +22,14 @@ namespace Library
                 new Kong(),
                 new SateliteLock()
             };
+        private int _howManyItems = 4;
         public List<int> Execute(AbstractTable player, List<AbstractTable> enemies, IPrinter clientP, IReader clientR)
         {
+            // Dependencias.
             ItemsToString itemsName = new ItemsToString();
             VesselsToString vesselsName = new VesselsToString();
             VesselsAttackForms vesselsAttack = new VesselsAttackForms();
             ItemsValidators validator = new ItemsValidators();
-            
             InputAddItem addItem = new InputAddItem();
             InputAddVessel addVessel = new InputAddVessel();
 
@@ -40,11 +41,11 @@ namespace Library
                 agregado = false;
                 while (!agregado)
                 {
-                    clientP.Print(vesselsName.NameOf(vessels[i]));
-                    agregado = addVessel.AddVessel(this.vessels[i], player, clientP, clientR);
+                    clientP.Print(vesselsName.NameOf(this._vessels[i]));
+                    agregado = addVessel.AddVessel(this._vessels[i], player, clientP, clientR);
                     if (agregado)
                     {
-                        clientP.Print(vesselsName.NameOf(vessels[i]) + " ha sido agregado correctamente.");
+                        clientP.Print(vesselsName.NameOf(this._vessels[i]) + " ha sido agregado correctamente.");
                     }
                     else
                     {
@@ -56,20 +57,20 @@ namespace Library
             clientP.Print(player.StringTable());
 
             // Distribucion de los items.
-            for (i = 0; i < 3; i++)
+            for (i = 0; i < this._howManyItems; i++)
             {
                 Random random = new Random();
-                int rnd = random.Next(0, this.items.Count);
+                int rnd = random.Next(0, this._items.Count);
                 agregado = false;
                 while (!agregado)
                 {
-                    clientP.Print(itemsName.NameOf(items[rnd]));
+                    clientP.Print(itemsName.NameOf(this._items[rnd]));
 
 
 
                     try
                     {
-                        agregado = addItem.AddItem(this.items[rnd], player.GetVessels(), player, validator.ValidatorOf(this.items[rnd]), clientP, clientR);
+                        agregado = addItem.AddItem(this._items[rnd], player.GetVessels(), player, validator.ValidatorOf(this._items[rnd]), clientP, clientR);
                     }
                     catch (DeleteItemException)
                     {
@@ -101,7 +102,7 @@ namespace Library
 
                     if (agregado)
                     {
-                        clientP.Print(itemsName.NameOf(items[rnd]) + " ha sido agregado correctamente.");
+                        clientP.Print(itemsName.NameOf(this._items[rnd]) + " ha sido agregado correctamente.");
                     }
                     else
                     {

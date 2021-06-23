@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Library
 {
@@ -11,15 +12,15 @@ namespace Library
         }
         public virtual void LaunchMissile(AbstractTable table, int x, int y)
         {
-            // Lanzar excepcion
+            throw new NotImplementedException();
         }
         public virtual void ThrowLoad(AbstractTable table, int x, int y)
         {
-            // Lanzar excepcion
+            throw new NotImplementedException();
         }
         public virtual void LaunchMissile(AbstractTable table, int x1, int y1, int x2, int y2)
         {
-            // Lanzar excepcion
+            throw new NotImplementedException();
         }
 
 

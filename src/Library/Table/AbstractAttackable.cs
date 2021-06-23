@@ -4,7 +4,7 @@ namespace Library
 {
     public abstract class AbstractAttackable : AbstractField
     {
-        public AbstractAttackable(int x, int y)
+        protected AbstractAttackable(int x, int y)
         : base(x, y)
         {
 

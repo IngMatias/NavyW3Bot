@@ -4,7 +4,7 @@ namespace Library
 {
     public class VesselsToString
     {
-        public Dictionary<System.Type,string> VesselToString;
+        private Dictionary<System.Type,string> _vesselToString;
         public VesselsToString()
         {
             List<string> names = new List<string> 
@@ -16,7 +16,7 @@ namespace Library
                 "Lang-Ponton",
                 "Lang-Submarino"
             };
-            this.VesselToString = new Dictionary<System.Type, string> 
+            this._vesselToString = new Dictionary<System.Type, string> 
             {
                 {new Battleship().GetType(), names[0]},
                 {new Frigate().GetType(), names[1]},
@@ -28,7 +28,7 @@ namespace Library
         }
         public string NameOf(AbstractVessel vessel)
         {
-            return this.VesselToString[vessel.GetType()];
+            return this._vesselToString[vessel.GetType()];
         }
     }
 }

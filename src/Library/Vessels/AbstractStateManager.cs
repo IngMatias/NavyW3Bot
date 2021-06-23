@@ -19,7 +19,7 @@ namespace Library
             this.state = new int[size];
             this.InitState(health);
         }
-        public void InitState(int health)
+        protected void InitState(int health)
         {
             for (int i = 0; i < this.state.Length; i++)
             {
@@ -39,10 +39,11 @@ namespace Library
         }
         public virtual bool ReceiveAttack(AbstractAttackable table, AbstractAttacker attack)
         {
+            // Dependencias.
             AttacksValidators validator = new AttacksValidators();
 
             bool avoidAttack = false;
-            foreach (IItem item in this.items)
+            foreach (IItem item in this._items)
             {
                 if (item != null)
                 {

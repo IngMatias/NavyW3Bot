@@ -5,7 +5,7 @@ namespace Library
 {
     public class InputAddItem
     {
-        public int TakePosition(AbstractVessel vessel, IPrinter clientP, IReader clientR)
+        private int TakePosition(AbstractVessel vessel, IPrinter clientP, IReader clientR)
         {
             int x = clientR.ReadInt(0, vessel.Length(), clientP, "En que posicion desea colocar el item, 0 para eliminar el item: ");
             if (x == 0)
@@ -14,12 +14,15 @@ namespace Library
             }
             return x - 1;
         }
-        public int TakeVessel(ReadOnlyCollection<AbstractVessel> vessels, IPrinter clientP, IReader clientR)
+        private int TakeVessel(ReadOnlyCollection<AbstractVessel> vessels, IPrinter clientP, IReader clientR)
         {
+            // Dependencias.
+            VesselsToString vesselsName = new VesselsToString();
+            
             int index = 1;
             foreach (AbstractVessel vessel in vessels)
             {
-                clientP.Print(index + " " + vessel);
+                clientP.Print(index + " " + vesselsName.NameOf(vessel));
                 index++;
             }
             int x = clientR.ReadInt(0, vessels.Count, clientP, "En que barco deseas colocar el item, 0 para eliminar el item: ");

@@ -7,7 +7,9 @@ namespace Library
     {
         public int TakeOptionVessel(ReadOnlyCollection<AbstractVessel> opcions, IPrinter clientP, IReader clientR)
         {
+            // Dependencias.
             UtilTakeOption util = new UtilTakeOption();
+            
             List<string> opcionsString = new List<string>();
             foreach (AbstractVessel vessel in opcions)
             {

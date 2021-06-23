@@ -4,10 +4,10 @@ namespace Library
 {
     public class AttacksValidators
     {
-        public Dictionary<System.Type, IAttackValidator> AttackValidator;
+        private Dictionary<System.Type, IAttackValidator> _attackValidator;
         public AttacksValidators()
         {
-            this.AttackValidator = new Dictionary<System.Type, IAttackValidator>
+            this._attackValidator = new Dictionary<System.Type, IAttackValidator>
             {
                 {new AntiaircraftMissile().GetType(), new AntiaircraftMissileAttackValidator() },
                 {new Armor().GetType(), new ArmorAttackValidator() },
@@ -18,7 +18,7 @@ namespace Library
         }
         public IAttackValidator ValidatorOf(IItem item)
         {
-            return this.AttackValidator[item.GetType()];
+            return this._attackValidator[item.GetType()];
         }
     }
 }

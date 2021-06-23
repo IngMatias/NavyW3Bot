@@ -23,7 +23,7 @@ namespace Library
         }
 
         private Field[,] table;
-        public AbstractField(int x, int y)
+        protected  AbstractField(int x, int y)
         : base()
         {
             this.table = new Field[x, y];

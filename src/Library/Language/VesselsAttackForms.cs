@@ -4,7 +4,7 @@ namespace Library
 {
     public class VesselsAttackForms
     {
-        public Dictionary<System.Type, List<string>> AttackForm;
+        private Dictionary<System.Type, List<string>> _attackForm;
         public VesselsAttackForms()
         {
             List<List<string>> names = new List<List<string>>
@@ -17,7 +17,7 @@ namespace Library
                 new List<string> {},
                 new List<string> {"Lang-Lanzar Misil", "Lang-Lanzar Carga"},
             };
-            this.AttackForm = new Dictionary<System.Type, List<string>>
+            this._attackForm = new Dictionary<System.Type, List<string>>
             {
                 {new Battleship().GetType(), names[0]},
                 {new Frigate().GetType(), names[1]},
@@ -29,7 +29,7 @@ namespace Library
         }
         public List<string> AttackFormsOf(AbstractVessel vessel)
         {
-            return this.AttackForm[vessel.GetType()];
+            return this._attackForm[vessel.GetType()];
         }
     }
 }

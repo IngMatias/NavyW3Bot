@@ -4,7 +4,7 @@ namespace Library
 {
     public class ItemsToString
     {
-        public Dictionary<System.Type,string> ItemToString;
+        private Dictionary<System.Type,string> _itemToString;
         public ItemsToString()
         {
             List<string> names = new List<string> 
@@ -15,7 +15,7 @@ namespace Library
                 "Lang-Kong",
                 "Lang-Bloqueo Satelital"
             };
-            this.ItemToString = new Dictionary<System.Type, string> 
+            this._itemToString = new Dictionary<System.Type, string> 
             {
                 {new AntiaircraftMissile().GetType(), names[0]},
                 {new Armor().GetType(), names[1]},
@@ -26,7 +26,7 @@ namespace Library
         }
         public string NameOf(IItem item)
         {
-            return this.ItemToString[item.GetType()];
+            return this._itemToString[item.GetType()];
         }
     }
 }

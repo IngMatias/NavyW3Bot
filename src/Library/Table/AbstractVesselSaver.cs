@@ -15,7 +15,7 @@ namespace Library
         {
             return this.vessels[key];
         }
-        public AbstractVesselSaver()
+        protected AbstractVesselSaver()
         {
             this.vessels = new Dictionary<(int, int), AbstractVessel>();
         }

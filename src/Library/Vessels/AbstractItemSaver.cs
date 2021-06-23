@@ -5,22 +5,22 @@ namespace Library
 {
     public abstract class AbstractItemSaver
     {
-        protected IItem[] items;
+        protected IItem[] _items;
         public ReadOnlyCollection<IItem> Items
         {
             get
             {
-                return Array.AsReadOnly<IItem>(items);
+                return Array.AsReadOnly<IItem>(_items);
             }
         }
         public AbstractItemSaver(int size)
         {
-            this.items = new IItem[size];
+            this._items = new IItem[size];
         }
         public int CountItem()
         {
             int i = 0;
-            foreach (IItem item in this.items)
+            foreach (IItem item in this._items)
             {
                 if (item != null)
                 {
@@ -31,23 +31,23 @@ namespace Library
         }
         public int Length()
         {
-            return this.items.Length;
+            return this._items.Length;
         }
         public bool AddItem(int position, IItem toAdd, AbstractTable table, IItemValidator validator)
         {
             if (validator.IsAddable(position, this, table))
             {
-                this.items[position] = toAdd;
+                this._items[position] = toAdd;
                 return true;
             }
             return false;
         }
         public void RemoveItem(IItem toRemove)
         {
-            int index = Array.IndexOf(this.items, toRemove);
+            int index = Array.IndexOf(this._items, toRemove);
             if (index != -1)
             {
-                this.items[index] = null;
+                this._items[index] = null;
             }
         }
     }

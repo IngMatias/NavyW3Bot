@@ -7,6 +7,9 @@ namespace Library
     {
         public void DoEvent(List<AbstractTable> participants)
         {
+            // Dependencias.
+            AbstractAttacker godzilla = new GodzillaAttack();
+            
             Random random = new Random();
             int radio = 3;
             int lengthX = participants[0].XLength();
@@ -29,7 +32,6 @@ namespace Library
                     }
                 }
             }
-            AbstractAttacker godzilla = new GodzillaAttack();
             foreach (AbstractVessel vessel in vesselsToAttack)
             {
                 vessel.ReceiveAttack(null, godzilla);

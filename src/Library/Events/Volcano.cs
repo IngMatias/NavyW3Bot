@@ -7,6 +7,9 @@ namespace Library
     {
         public void DoEvent(List<AbstractTable> participants)
         {
+            // Dependencias.
+            AbstractAttacker lava = new LavaAttack();
+            
             Random random = new Random();
             int radio = 2;
             int lengthX = participants[0].XLength();
@@ -19,7 +22,6 @@ namespace Library
                 {
                     for (int x = randomX - radio; x <= randomX + radio; x++)
                     {
-                        AbstractAttacker lava = new LavaAttack();
                         table.AttackAt(x, y, lava);
                     }
                 }

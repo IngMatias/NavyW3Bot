@@ -4,10 +4,10 @@ namespace Library
 {
     public class ItemsValidators
     {
-        public Dictionary<System.Type, IItemValidator> ItemValidator;
+        private Dictionary<System.Type, IItemValidator> _itemValidator;
         public ItemsValidators()
         {
-            this.ItemValidator = new Dictionary<System.Type, IItemValidator>
+            this._itemValidator = new Dictionary<System.Type, IItemValidator>
             {
                 {new AntiaircraftMissile().GetType(), new AntiaircraftMissileValidator() },
                 {new Armor().GetType(), new ArmorValidator() },
@@ -18,7 +18,7 @@ namespace Library
         }
         public IItemValidator ValidatorOf(IItem item)
         {
-            return this.ItemValidator[item.GetType()];
+            return this._itemValidator[item.GetType()];
         }
     }
 }

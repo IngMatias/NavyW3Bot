@@ -4,14 +4,15 @@ namespace Library
 {
     public abstract class InputAbstractAttack
     {
-        public (int, int) TakeAttack(AbstractTable table, IPrinter clientP, IReader clientR)
+        protected (int, int) TakeAttack(AbstractTable table, IPrinter clientP, IReader clientR)
         {
             int x = clientR.ReadInt(1, table.XLength(), clientP, "En que posicion X desea atacar: ");
             int y = clientR.ReadInt(1, table.YLength(), clientP, "En que posicion Y desea atacar: ");
             return (x - 1, y - 1);
         }
-        public int TakeAttackOption(AbstractVessel vessel ,IPrinter clientP, IReader clientR)
+        protected int TakeAttackOption(AbstractVessel vessel ,IPrinter clientP, IReader clientR)
         {
+            // Dependencias.
             UtilTakeOption util = new UtilTakeOption();
             VesselsToString vesselName = new VesselsToString();
             VesselsAttackForms attackForms = new VesselsAttackForms();

@@ -1,4 +1,4 @@
-﻿namespace Library
+﻿/*namespace Library
 {
     public class AppLogic
     {
@@ -20,3 +20,4 @@
         }
     }
 }
+*/

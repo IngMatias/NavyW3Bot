@@ -9,7 +9,7 @@ namespace Library
     public abstract class AbstractTable : AbstractAttackable
     {
 
-        public AbstractTable(int x, int y)
+        protected AbstractTable(int x, int y)
         : base(x, y)
         {
 
@@ -30,10 +30,11 @@ namespace Library
 
         public string StringVessels()
         {
+            // Dependencias.
             ItemsToString itemsName = new ItemsToString();
             VesselsToString vesselsName = new VesselsToString();
-            StringBuilder toReturn = new StringBuilder();
 
+            StringBuilder toReturn = new StringBuilder();
             int vesselIndex = 1;
             int itemIndex = 1;
 
