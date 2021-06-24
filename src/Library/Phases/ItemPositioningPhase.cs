@@ -62,9 +62,9 @@ namespace Library
                     {
                         clientP.Print("Este item no puede ser agregado en este barco.");
                     }
-                    catch (ThereIsAKongExeption)
+                    catch (BlockedVesselException)
                     {
-                        clientP.Print("Este barco no puede añadir items porque tiene un kong a bordo.");
+                        clientP.Print("Este barco no puede añadir items porque esta bloqueado.");
                     }
 
                     if (agregado)

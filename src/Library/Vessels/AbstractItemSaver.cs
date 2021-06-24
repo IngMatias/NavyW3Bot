@@ -7,7 +7,7 @@ namespace Library
     {
         protected IItem[] _items;
 
-        protected bool _isNotKong = true;
+        private bool _blocked = false;
 
         public ReadOnlyCollection<IItem> Items
         {
@@ -39,26 +39,22 @@ namespace Library
 
         public void Block()
         {
-            this._isNotKong = false;
+            this._blocked = false;
         }
 
         public void Unblock()
         {
-            this._isNotKong = true;
+            this._blocked = true;
         }
 
         public bool AddItem(int position, IItem toAdd, AbstractTable table, IItemValidator validator)
         {
-            if (!(this._isNotKong))
+            if (this._blocked)
             {
-                throw new ThereIsAKongExeption();
+                throw new BlockedVesselException();
             }
             if (validator.IsAddable(position, this, table))
             {
-                if (toAdd is Kong)
-                {
-                    this.Block();
-                }
                 this._items[position] = toAdd;
                 return true;
             }
@@ -67,10 +63,6 @@ namespace Library
 
         public void RemoveItem(IItem toRemove)
         {
-            if (toRemove is Kong)
-            {
-                this.Unblock();
-            }
             int index = Array.IndexOf(this._items, toRemove);
             if (index != -1)
             {

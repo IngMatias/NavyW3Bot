@@ -105,6 +105,21 @@ namespace Library.Test
             _battleShip.RemoveItem(_kong);
             Assert.IsTrue(_battleShip.AddItem(1,_antiAircraftMisile,_table,_antiaircraftValidator));
             
-        } 
+        }
+
+        [Test]
+        public void Test1()
+        {
+            _battleShip.AddItem(1,_kong,_table,_kongValidator);
+            try
+            {
+                _battleShip.AddItem(1,_kong,_table,_kongValidator);
+            }
+            catch (BlockedVesselException)
+            {
+                
+            }
+
+        }
     }
 }
