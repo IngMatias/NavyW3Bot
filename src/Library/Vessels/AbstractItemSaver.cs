@@ -49,7 +49,11 @@ namespace Library
 
         public bool AddItem(int position, IItem toAdd, AbstractTable table, IItemValidator validator)
         {
-            if (this._isNotKong && validator.IsAddable(position, this, table))
+            if (!(this._isNotKong))
+            {
+                throw new ThereIsAKongExeption();
+            }
+            if (validator.IsAddable(position, this, table))
             {
                 if (toAdd is Kong)
                 {
