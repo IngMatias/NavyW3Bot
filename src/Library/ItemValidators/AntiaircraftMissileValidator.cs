@@ -15,7 +15,6 @@
             {
                 throw new NoEmptyPositionException();
             }
-
             return true;
         }
     }
