@@ -7,7 +7,6 @@ namespace Library
         public Puntoon()
         : base(1, 1)
         {
-
         }
     }
 }

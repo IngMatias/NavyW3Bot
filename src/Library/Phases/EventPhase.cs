@@ -5,7 +5,7 @@ namespace Library
 {
     public class EventPhase : IPhase
     {
-        private List<IEvent> _events = new List<IEvent> 
+        private List<IEvent> _events = new List<IEvent>
         {
             new Godzilla(),
             new Hurricane(),

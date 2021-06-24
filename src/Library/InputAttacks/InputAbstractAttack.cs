@@ -10,7 +10,7 @@ namespace Library
             int y = clientR.ReadInt(1, table.YLength(), clientP, "En que posicion Y desea atacar?: ");
             return (x - 1, y - 1);
         }
-        protected int TakeAttackOption(AbstractVessel vessel ,IPrinter clientP, IReader clientR)
+        protected int TakeAttackOption(AbstractVessel vessel, IPrinter clientP, IReader clientR)
         {
             // Dependencias.
             UtilTakeOption util = new UtilTakeOption();

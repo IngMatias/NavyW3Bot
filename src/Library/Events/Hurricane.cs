@@ -9,7 +9,7 @@ namespace Library
         {
             // Dependencias.
             AbstractAttacker hurricane = new HurricaneAttack();
-            
+
             Random random = new Random();
             int radio = 3;
             int lengthX = participants[0].XLength();

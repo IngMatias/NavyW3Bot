@@ -5,7 +5,6 @@
         protected AbstractVessel(int size, int health)
         : base(size, health)
         {
-
         }
     }
 }

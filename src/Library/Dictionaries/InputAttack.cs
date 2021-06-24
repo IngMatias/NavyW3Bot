@@ -4,10 +4,10 @@ namespace Library
 {
     public class InputAttack
     {
-        private Dictionary<System.Type,InputAbstractAttack> _AttackForms;
+        private Dictionary<System.Type, InputAbstractAttack> _attackForms;
         public InputAttack()
         {
-            this._AttackForms = new Dictionary<System.Type, InputAbstractAttack>
+            this._attackForms = new Dictionary<System.Type, InputAbstractAttack>
             {
                 {new Battleship().GetType(), new InputBattleshipAttack()},
                 {new Frigate().GetType(), new InputFrigateAttack()},
@@ -18,7 +18,7 @@ namespace Library
         }
         public InputAbstractAttack AttackForm(AbstractVessel vessel)
         {
-            return this._AttackForms[vessel.GetType()];
+            return this._attackForms[vessel.GetType()];
         }
     }
 }

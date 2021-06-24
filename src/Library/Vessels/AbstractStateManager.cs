@@ -5,25 +5,25 @@ namespace Library
 {
     public abstract class AbstractStateManager : AbstractItemSaver
     {
-        protected int[] state;
+        protected int[] _state;
         public IList<int> State
         {
             get
             {
-                return Array.AsReadOnly(state);
+                return Array.AsReadOnly(this._state);
             }
         }
         public AbstractStateManager(int size, int health)
         : base(size)
         {
-            this.state = new int[size];
+            this._state = new int[size];
             this.InitState(health);
         }
         protected void InitState(int health)
         {
-            for (int i = 0; i < this.state.Length; i++)
+            for (int i = 0; i < this._state.Length; i++)
             {
-                this.state[i] = health;
+                this._state[i] = health;
             }
         }
         public bool IsAlive()
@@ -57,8 +57,8 @@ namespace Library
             }
             if (!avoidAttack)
             {
-                this.state[attack.Position] -= 1;
-                if (this.state[attack.Position] == 0)
+                this._state[attack.Position] -= 1;
+                if (this._state[attack.Position] == 0)
                 {
                     return true;
                 }

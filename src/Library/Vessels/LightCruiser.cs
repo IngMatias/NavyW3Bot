@@ -8,7 +8,6 @@ namespace Library
         public LightCruiser()
         : base(5, 1)
         {
-
         }
         public override void LaunchMissile(AbstractTable table, int x, int y)
         {

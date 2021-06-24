@@ -8,7 +8,6 @@ namespace Library
         public Submarine()
         : base(4, 1)
         {
-
         }
         public override void LaunchMissile(AbstractTable table, int x, int y)
         {
