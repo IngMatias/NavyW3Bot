@@ -25,7 +25,7 @@ namespace Library
             int i = 0;
             bool agregado = false;
             
-            while (i < 5)
+            while (i < this._vessels.Count)
             {
                 agregado = false;
                 while (!agregado)
