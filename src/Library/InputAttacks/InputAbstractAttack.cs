@@ -6,8 +6,8 @@ namespace Library
     {
         protected (int, int) TakeAttack(AbstractTable table, IPrinter clientP, IReader clientR)
         {
-            int x = clientR.ReadInt(1, table.XLength(), clientP, "En que posicion X desea atacar: ");
-            int y = clientR.ReadInt(1, table.YLength(), clientP, "En que posicion Y desea atacar: ");
+            int x = clientR.ReadInt(1, table.XLength(), clientP, "En que posicion X desea atacar?: ");
+            int y = clientR.ReadInt(1, table.YLength(), clientP, "En que posicion Y desea atacar?: ");
             return (x - 1, y - 1);
         }
         protected int TakeAttackOption(AbstractVessel vessel ,IPrinter clientP, IReader clientR)

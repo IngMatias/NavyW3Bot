@@ -3,17 +3,8 @@ using System.Collections.Generic;
 
 namespace Library
 {
-    public class FirstPhase : IPhase
+    public class ItemPositioningPhase : IPhase
     {
-        private List<AbstractVessel> _vessels = new List<AbstractVessel>
-        {
-            new Battleship(),
-            new Frigate(),
-            new HeavyCruiser(),
-            new LightCruiser(),
-            new Puntoon(),
-            new Submarine(),
-        };
         private List<IItem> _items = new List<IItem>
             {
                 new AntiaircraftMissile(),
@@ -23,38 +14,14 @@ namespace Library
                 new SateliteLock()
             };
         private int _howManyItems = 4;
+        
         public List<int> Execute(AbstractTable player, List<AbstractTable> enemies, IPrinter clientP, IReader clientR)
         {
-            // Dependencias.
             ItemsToString itemsName = new ItemsToString();
-            VesselsToString vesselsName = new VesselsToString();
-            VesselsAttackForms vesselsAttack = new VesselsAttackForms();
             ItemsValidators validator = new ItemsValidators();
             InputAddItem addItem = new InputAddItem();
-            InputAddVessel addVessel = new InputAddVessel();
-
-            // Posicionamiento de los barcos.
+            bool agregado;
             int i = 0;
-            bool agregado = false;
-            while (i < 2)
-            {
-                agregado = false;
-                while (!agregado)
-                {
-                    clientP.Print(vesselsName.NameOf(this._vessels[i]));
-                    agregado = addVessel.AddVessel(this._vessels[i], player, clientP, clientR);
-                    if (agregado)
-                    {
-                        clientP.Print(vesselsName.NameOf(this._vessels[i]) + " ha sido agregado correctamente.");
-                    }
-                    else
-                    {
-                        clientP.Print("El barco no ha sido agregado.");
-                    }
-                }
-                i++;
-            }
-            clientP.Print(player.StringTable());
 
             // Distribucion de los items.
             for (i = 0; i < this._howManyItems; i++)
@@ -65,8 +32,6 @@ namespace Library
                 while (!agregado)
                 {
                     clientP.Print(itemsName.NameOf(this._items[rnd]));
-
-
 
                     try
                     {
@@ -89,7 +54,7 @@ namespace Library
                     {
                         clientP.Print("Solo puedes tener un item de este tipo por barco.");
                     }
-                    catch (TooLongVesselException)
+                    catch (TooShortVesselException)
                     {
                         clientP.Print("Se necesita un barco mas grande.");
                     }
@@ -97,8 +62,10 @@ namespace Library
                     {
                         clientP.Print("Este item no puede ser agregado en este barco.");
                     }
-
-
+                    catch (BlockedVesselException)
+                    {
+                        clientP.Print("Este barco no puede añadir items porque esta bloqueado.");
+                    }
 
                     if (agregado)
                     {

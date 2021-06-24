@@ -10,7 +10,7 @@
             }
             if (vesselToAdd.Length() < 4)
             {
-                throw new TooLongVesselException();
+                throw new TooShortVesselException();
             }
             if (vesselToAdd.Items[position] != null)
             {
