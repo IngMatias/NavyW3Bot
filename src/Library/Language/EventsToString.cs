@@ -14,7 +14,7 @@ namespace Library
                 "Lang-MeteorShower",
                 "Lang-Volcano",
             };
-            this._eventsName = new Dictionary<System.Type, string> 
+            this._eventsName = new Dictionary<System.Type, string>
             {
                 {new Godzilla().GetType(), names[0]},
                 {new Hurricane().GetType(), names[1]},

@@ -5,6 +5,5 @@ namespace Library
     [Serializable]
     public class WrongVesselException : Exception
     {
-        
     }
 }

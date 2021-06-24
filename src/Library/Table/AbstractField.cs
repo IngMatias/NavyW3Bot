@@ -21,28 +21,27 @@ namespace Library
             deadVessel,
             // Representa una parte de un barco atacado. 
         }
-
-        private Field[,] table;
-        protected  AbstractField(int x, int y)
+        private Field[,] _table;
+        protected AbstractField(int x, int y)
         : base()
         {
-            this.table = new Field[x, y];
+            this._table = new Field[x, y];
         }
         public int XLength()
         {
-            return this.table.GetLength(0);
+            return this._table.GetLength(0);
         }
         public int YLength()
         {
-            return this.table.GetLength(1);
+            return this._table.GetLength(1);
         }
         public Field At(int x, int y)
         {
-            return this.table[x, y];
+            return this._table[x, y];
         }
         public void UpdateAt(int x, int y, Field data)
         {
-            this.table[x, y] = data;
+            this._table[x, y] = data;
         }
         public bool IsEmpty()
         {
@@ -50,8 +49,8 @@ namespace Library
             {
                 for (int x = 0; y < this.XLength(); x++)
                 {
-                    if (table[x, y] == Field.livedVessel ||
-                        table[x, y] == Field.liveHiddenVessel)
+                    if (this._table[x, y] == Field.livedVessel ||
+                        this._table[x, y] == Field.liveHiddenVessel)
                     {
                         return false;
                     }
@@ -61,14 +60,14 @@ namespace Library
         }
         public bool IsOrWasAVessel(int x, int y)
         {
-            return table[x, y] == Field.liveHiddenVessel ||
-                   table[x, y] == Field.livedVessel ||
-                   table[x, y] == Field.deadVessel;
+            return this._table[x, y] == Field.liveHiddenVessel ||
+                   this._table[x, y] == Field.livedVessel ||
+                   this._table[x, y] == Field.deadVessel;
         }
         public bool IsAVessel(int x, int y)
         {
-            return table[x, y] == Field.liveHiddenVessel ||
-                   table[x, y] == Field.livedVessel;
+            return this._table[x, y] == Field.liveHiddenVessel ||
+                   this._table[x, y] == Field.livedVessel;
         }
         public (int, int) GetLeftUp(int x, int y)
         {
@@ -147,7 +146,6 @@ namespace Library
             this.AddVessel(x, y, vessel);
             return true;
         }
-
         public void RemoveVessel(int x, int y, Field data)
         {
             int xAux = x;

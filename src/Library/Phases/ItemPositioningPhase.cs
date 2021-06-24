@@ -14,7 +14,6 @@ namespace Library
                 new SateliteLock()
             };
         private int _howManyItems = 4;
-        
         public List<int> Execute(AbstractTable player, List<AbstractTable> enemies, IPrinter clientP, IReader clientR)
         {
             ItemsToString itemsName = new ItemsToString();
@@ -79,7 +78,7 @@ namespace Library
             }
             clientP.Print(player.StringVessels());
 
-            return new List<int> {};
+            return new List<int> { };
         }
     }
 }

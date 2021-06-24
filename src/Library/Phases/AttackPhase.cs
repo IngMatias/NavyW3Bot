@@ -6,7 +6,7 @@ namespace Library
     public class AttackPhase : IPhase
     {
         public List<int> Execute(AbstractTable player, List<AbstractTable> enemies, IPrinter clientP, IReader clientR)
-        {            
+        {
 
             // Dependencias.
             InputTable tableOption = new InputTable();
@@ -17,12 +17,12 @@ namespace Library
             int tableToAttack = tableOption.TakeOptionTable(enemies.AsReadOnly(), clientP, clientR);
 
             // Mostrar los barcos disponibles y seleccionar uno.
-            int vesselToAttack = vesselOption.TakeOptionVessel(player.GetVessels(),clientP,clientR);
+            int vesselToAttack = vesselOption.TakeOptionVessel(player.GetVessels(), clientP, clientR);
 
             // Atacar con el barco.
-            attackWith.AttackForm(player.GetVessels()[vesselToAttack]).Attack(player.GetVessels()[vesselToAttack],enemies[tableToAttack],clientP,clientR);
+            attackWith.AttackForm(player.GetVessels()[vesselToAttack]).Attack(player.GetVessels()[vesselToAttack], enemies[tableToAttack], clientP, clientR);
 
-            return new List<int> {};
+            return new List<int> { };
         }
     }
 }

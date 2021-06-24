@@ -24,7 +24,7 @@ namespace Library
             // Posicionamiento de los barcos.
             int i = 0;
             bool agregado = false;
-            
+
             while (i < this._vessels.Count)
             {
                 agregado = false;
@@ -45,7 +45,7 @@ namespace Library
             }
             clientP.Print(player.StringTable());
 
-            return new List<int> {};
+            return new List<int> { };
         }
     }
 }

@@ -8,11 +8,9 @@ namespace Library
 {
     public abstract class AbstractTable : AbstractAttackable
     {
-
         protected AbstractTable(int x, int y)
         : base(x, y)
         {
-
         }
         public string StringTable()
         {
@@ -27,7 +25,6 @@ namespace Library
             }
             return toReturn.ToString();
         }
-
         public string StringVessels()
         {
             // Dependencias.
@@ -40,7 +37,7 @@ namespace Library
 
             foreach (AbstractVessel vessel in this.GetVessels())
             {
-                toReturn.Append(vesselIndex +" "+ vesselsName.NameOf(vessel) + "\n");
+                toReturn.Append(vesselIndex + " " + vesselsName.NameOf(vessel) + "\n");
                 foreach (IItem item in vessel.Items)
                 {
                     if (item != null)
@@ -51,10 +48,10 @@ namespace Library
                     {
                         toReturn.Append("    " + itemIndex + "Vacio" + "\n");
                     }
-                    itemIndex ++;
+                    itemIndex++;
                 }
                 toReturn.Append("\n");
-                vesselIndex ++;
+                vesselIndex++;
             }
             return toReturn.ToString();
         }
