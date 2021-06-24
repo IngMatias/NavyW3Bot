@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Library
 {
-    public class ComputerPhase : IPhase
+    public class EventPhase : IPhase
     {
         private List<IEvent> _events = new List<IEvent> 
         {
