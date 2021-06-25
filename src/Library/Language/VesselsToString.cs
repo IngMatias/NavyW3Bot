@@ -1,5 +1,22 @@
 using System.Collections.Generic;
 
+// S - SRP: Tiene la responsabilidad de mostrar cada barco.
+
+// O - OCP:
+
+// L - LSP: 
+
+// I - ISP: 
+
+// D - DIP: No se aplica.
+
+// Expert: Esta clase conoce los tipos dentro del diccionario lo que le permite cumplir con su funcionalidad.
+
+// Polymorphism: No se aplica.
+
+// Creator: Esta clase usa al patron ya que crea instancias de clases cercanas.
+
+
 namespace Library
 {
     public class VesselsToString

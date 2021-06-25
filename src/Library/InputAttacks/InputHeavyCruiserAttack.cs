@@ -1,6 +1,22 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
+// S - SRP: Esta clase tiene la responsabilidad de atacar con el crucero pesado a una posicion ingresada por el jugador
+
+// O - OCP: Se cumple con el principio ya que se puede agregar otra forma de atacar heredando de InputAbstractAttack.
+
+// L - LSP: Cualquier clase que herede de InputAbstractAttack es y debe ser un subtipo.
+
+// I - ISP: No aplica.
+
+// D - DIP: El metodo Attack depende de una clase abstracta por lo tanto cumple con DIP.
+
+// Expert: Esta clase conoce las cordenadas por lo tanto puede cumplir con su responsabilidad.
+
+// Polymorphism: La operacion Attack es polimorfica.
+
+// Creator : No se utiliza.
+
 namespace Library
 {
     public class InputHeavyCruiserAttack : InputAbstractAttack

@@ -1,5 +1,22 @@
 using System.Collections.Generic;
 
+// S - SRP: Esta clase tiene la responsabilidad de colocar u eliminar un barco.
+
+// O - OCP: No cumple OCP, si se quiere agregar un nuevo ataque es necesario modificar el codigo.
+
+// L - LSP: No aplica.
+
+// I - ISP: No aplica.
+
+// D - DIP: InputAddItem depende de AbstractVessel por lo tanto cumple con DIP.
+
+// Expert: Esta clase conoce si el item se coloca o no por lo tanto tiene la responsabilidad de
+//         agregarlo u eliminarlo.
+
+// Polymorphism: La operacion TakePosition y AddVessel son polimorficas.
+
+// Creator: No aplica.
+
 namespace Library
 {
     public class InputAddVessel

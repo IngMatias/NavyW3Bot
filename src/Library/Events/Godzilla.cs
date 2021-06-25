@@ -1,6 +1,23 @@
 ﻿using System.Collections.Generic;
 using System;
 
+// S - SRP: Esta clase tiene como encargo realizar el evento Godzilla.
+
+// O - OCP: Se cumple con el principio ya que se puede agregar otro evento implementando la interfaz IEvent.
+
+// L - LSP: Esta clase es un subtipo de IEvent.
+
+// I - ISP: No aplica.
+
+// D - DIP: Godzilla depende de AbstractTable y AbstractAttacker ambas son abstracciones 
+//          por lo tanto cumple con DIP.
+
+// Expert: No aplica.
+
+// Polymorphism: No aplica.
+
+// Creator: Esta clase usa al patron ya que crea instancias de clases cercanas.
+
 namespace Library
 {
     public class Godzilla : IEvent

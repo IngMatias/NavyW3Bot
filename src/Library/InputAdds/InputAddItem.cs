@@ -1,6 +1,23 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
+// S - SRP: Esta clase tiene la responsabilidad de colocar u eliminar un item.
+
+// O - OCP: No cumple OCP, si se quiere agregar un nuevo ataque es necesario modificar el codigo.
+
+// L - LSP: No aplica.
+
+// I - ISP: No aplica.
+
+// D - DIP: InputAddItem depende de AbstractVessel por lo tanto cumple con DIP.
+
+// Expert: Esta clase conoce si el item se coloca o no por lo tanto tiene la responsabilidad de
+//         agregarlo u eliminarlo.
+
+// Polymorphism: La operacion TakePosition y TakeVessel son polimorficas.
+
+// Creator: Esta clase usa al patron ya que crea instancias de clases cercanas.
+
 namespace Library
 {
     public class InputAddItem
