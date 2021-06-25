@@ -3,7 +3,7 @@ using System;
 namespace Library
 {
     [Serializable]
-    public class BlockedVesselException : Exception
+    internal class BlockedVesselException : Exception
     {
     }
 }
