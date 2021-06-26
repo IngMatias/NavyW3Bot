@@ -1,21 +1,22 @@
-using System.Collections.Generic;
-
 // S - SRP: Tiene la responsabilidad de mostrar la forma de atacar de cada barco.
 
-// O - OCP:
+// O - OCP: Cumple con el principio. En el caso de necesitar cambiar la manera de como una clase muestra los ataques del 
+//           barco no se tendrá que modificar esa clase, se deberá modificar esta. 
 
-// L - LSP: 
+// L - LSP: No se utiliza.
 
-// I - ISP: 
+// I - ISP: No se utiliza.
 
-// D - DIP: No se aplica.
+// D - DIP: No se cumple con el patron, esta clase no implementa ninguna clase alto nivel, todas las clases que hagan uso
+//           de esta clase, tambien dependeran de ella. Se debe implementar una interfaz.
 
-// Expert: Esta clase conoce los tipos dentro del diccionario lo que le permite cumplir con su funcionalidad.
+// Expert: Esta clase conoce el nombre y los tipos de ataque de cada barco.
 
 // Polymorphism: No se aplica.
 
-// Creator: Esta clase usa al patron ya que crea instancias de clases cercanas.
+// Creator: Esta clase usa el patron ya que crea instancias de clases cercanas.
 
+using System.Collections.Generic;
 namespace Library
 {
     public class VesselsAttackForms
@@ -25,13 +26,13 @@ namespace Library
         {
             List<List<string>> names = new List<List<string>>
             {
-                new List<string> {"Lang-Lanzar Misil"},
-                new List<string> {"Lang-Lanzar Misil"},
-                new List<string> {"Lang-Lanzar Misil"},
-                new List<string> {"Lang-Lanzar Misil"},
-                new List<string> {"Lang-Lanzar Misil", "Lang-Lanzar Carga"},
+                new List<string> {"Lanzar Misil"},
+                new List<string> {"Lanzar Misil"},
+                new List<string> {"Lanzar Misil"},
+                new List<string> {"Lanzar Misil"},
+                new List<string> {"Lanzar Misil", "Lanzar Carga"},
                 new List<string> {},
-                new List<string> {"Lang-Lanzar Misil", "Lang-Lanzar Carga"},
+                new List<string> {"Lanzar Misil", "Lanzar Carga"},
             };
             this._attackForm = new Dictionary<System.Type, List<string>>
             {

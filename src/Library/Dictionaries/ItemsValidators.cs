@@ -31,11 +31,11 @@ namespace Library
         private IItem _sateliteLock = new SateliteLock();
 
         // Validators.
-        private IAttackValidator _antiAircraftValidator = new AntiaircraftMissileValidator();
-        private IAttackValidator _armorValidators = new ArmorValidator();
-        private IAttackValidator _hackersValidators = new HackersValidator();
-        private IAttackValidator _kongValidator = new KongValidator();
-        private IAttackValidator _sateliteLock = new SateliteLockValidator();
+        private IItemValidator _antiAircraftValidator = new AntiaircraftMissileValidator();
+        private IItemValidator _armorValidators = new ArmorValidator();
+        private IItemValidator _hackersValidators = new HackersValidator();
+        private IItemValidator _kongValidator = new KongValidator();
+        private IItemValidator _sateliteLockValidator = new SateliteLockValidator();
 
         public ItemsValidators()
         {
@@ -45,7 +45,7 @@ namespace Library
                 {_armor.GetType(), _armorValidators },
                 {_hackers.GetType(), _hackersValidators},
                 {_kong.GetType(), _kongValidator},
-                {_sateliteLock.GetType(), _sateliteLock},
+                {_sateliteLock.GetType(), _sateliteLockValidator},
             };
         }
         public IItemValidator ValidatorOf(IItem item)
