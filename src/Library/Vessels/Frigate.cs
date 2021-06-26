@@ -24,7 +24,6 @@ namespace Library
         public Frigate()
         : base(2, 1)
         {
-
         }
         public override void LaunchMissile(AbstractTable table, int x1, int y1, int x2, int y2)
         {

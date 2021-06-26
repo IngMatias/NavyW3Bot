@@ -23,8 +23,8 @@ namespace Library
     {
         private (int, int) TakePosition(AbstractTable table, IPrinter clientP, IReader clientR)
         {
-            int x = clientR.ReadInt(1, table.XLength(), clientP, "En que posicion X desea colocar el barco: ");
-            int y = clientR.ReadInt(1, table.YLength(), clientP, "En que posicion Y desea colocar el barco: ");
+            int x = clientR.ReadInt(1, table.XLength(), clientP, "En que posicion X desea colocar el barco?: ");
+            int y = clientR.ReadInt(1, table.YLength(), clientP, "En que posicion Y desea colocar el barco?: ");
             return (x - 1, y - 1);
         }
         private bool TakeOrientation(IPrinter clientP, IReader clientR)

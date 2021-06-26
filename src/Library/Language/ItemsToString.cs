@@ -20,10 +20,10 @@ namespace Library
 {
     public class ItemsToString
     {
-        private Dictionary<System.Type,string> _itemToString;
+        private Dictionary<System.Type, string> _itemToString;
         public ItemsToString()
         {
-            List<string> names = new List<string> 
+            List<string> names = new List<string>
             {
                 "Lang-Misil Antiaereo",
                 "Lang-Armadura",
@@ -31,7 +31,7 @@ namespace Library
                 "Lang-Kong",
                 "Lang-Bloqueo Satelital"
             };
-            this._itemToString = new Dictionary<System.Type, string> 
+            this._itemToString = new Dictionary<System.Type, string>
             {
                 {new AntiaircraftMissile().GetType(), names[0]},
                 {new Armor().GetType(), names[1]},

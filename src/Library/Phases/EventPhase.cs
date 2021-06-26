@@ -1,23 +1,42 @@
-﻿using System;
+﻿// S - SRP: Esta interfaz define la fase de Eventos catastroficos.
+
+// O - OCP: No se utiliza.
+           
+// L - LSP: Se cumple. Si se sustituye por IPhase su comportamiento es el mismo.
+
+// I - ISP: Se cumple, utiliza todas las operaciones que define la interfaz, ninguna operacion esta de mas.
+
+// D - DIP: Se rompe el principio cuando se depende de una clase de bajo nivel como random.
+
+// Expert: No se utiliza.
+
+// Polymorphism: Se define el metodo Excecute.
+
+// Creator: No se aplica.
+
+using System;
 using System.Collections.Generic;
 
 namespace Library
 {
-    public class ComputerPhase : IPhase
+    public class EventPhase : IPhase
     {
-        private List<IEvent> _events = new List<IEvent> 
+        // Dependencias.
+        private Random random = new Random();
+
+        private static IEvent _godzilla = new Godzilla();
+        private static IEvent _hurricane = new Hurricane();
+        private static IEvent _meteorShower = new MeteorShower();
+        private static IEvent _volcano = new Volcano();
+        private List<IEvent> _events = new List<IEvent>
         {
-            new Godzilla(),
-            new Hurricane(),
-            new MeteorShower(),
-            new Volcano(),
+            _godzilla,
+            _hurricane,
+            _meteorShower,
+            _volcano,
         };
         public List<int> Execute(AbstractTable player, List<AbstractTable> enemies, IPrinter clientP, IReader clientR)
         {
-            // Dependencias.
-            EventsToString eventsName = new EventsToString();
-
-            Random random = new Random();
             int rnd = random.Next(0, 15);
             foreach (AbstractTable table in enemies)
             {

@@ -26,6 +26,7 @@ namespace Library
             {
                 throw new NoEmptyPositionException();
             }
+
             return true;
         }
     }

@@ -24,7 +24,6 @@ namespace Library
         public HeavyCruiser()
         : base(3, 2)
         {
-
         }
         public override void LaunchMissile(AbstractTable table, int x, int y)
         {

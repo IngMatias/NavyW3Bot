@@ -27,7 +27,7 @@ namespace Library
         {
             // Dependencias.
             AbstractAttacker meteor = new MeteorAttack();
-            
+
             Random random = new Random();
             foreach (Table table in participants)
             {

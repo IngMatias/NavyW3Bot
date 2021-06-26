@@ -27,7 +27,6 @@ namespace Library
         public Table()
         : base(14, 26)
         {
-
         }
     }
 }

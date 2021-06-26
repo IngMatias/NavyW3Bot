@@ -26,7 +26,7 @@ namespace Library
         {
             // Dependencias.
             AbstractAttacker godzilla = new GodzillaAttack();
-            
+
             Random random = new Random();
             int radio = 3;
             int lengthX = participants[0].XLength();

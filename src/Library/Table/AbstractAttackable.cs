@@ -31,7 +31,6 @@ namespace Library
         protected AbstractAttackable(int x, int y)
         : base(x, y)
         {
-
         }
         public void AttackAt(int x, int y, AbstractAttacker attack)
         {

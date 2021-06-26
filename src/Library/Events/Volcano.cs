@@ -26,7 +26,7 @@ namespace Library
         {
             // Dependencias.
             AbstractAttacker lava = new LavaAttack();
-            
+
             Random random = new Random();
             int radio = 2;
             int lengthX = participants[0].XLength();
