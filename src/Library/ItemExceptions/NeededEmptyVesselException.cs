@@ -19,7 +19,7 @@ using System;
 namespace Library
 {
     [Serializable]
-    public class NeededEmptyVesselException : Exception
+    internal class NeededEmptyVesselException : Exception
     {
     }
 }
