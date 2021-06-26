@@ -19,12 +19,7 @@ using System;
 namespace Library
 {
     [Serializable]
-<<<<<<< HEAD
-    internal class DeleteItemException : Exception
-    { 
-=======
     public class DeleteItemException : Exception
     {
->>>>>>> main
     }
 }
