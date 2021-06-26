@@ -8,7 +8,7 @@
 
 // D - DIP: Esta clase cumple con el principio ya que depende solo de clases de alto nivel (clases abstractas).
 
-// Expert: Esta clase es respon¿sable de saber las espesificaciones de la embarcacion, tales como sus dimenciones y el tipo de ataque que realiza.
+// Expert: Esta clase es responsable de saber las espesificaciones de la embarcacion, tales como sus dimenciones y el tipo de ataque que realiza.
 
 // Polymorphism: Se utiliza al sobre escribir el metodo LaunchMissile, ThrowLoad y ReceiveAtack.
 

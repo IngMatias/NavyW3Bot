@@ -1,4 +1,20 @@
-﻿using System;
+﻿// S - SRP: Esta clase define los metodos necesarion para comunicarnos desde la consola hacia el programa.
+
+// O - OCP: No se utiliza.
+
+// L - LSP: Esta clase es sustituible por IReader.
+
+// I - ISP: Se aplica porque la interfaz implementada se utiliza en su totalidad, ninguna operacion esta de mas.
+
+// D - DIP: esta clase solo depende de clases de alto nivel.
+
+// Expert: es la clase experta en como interactuar con la consola. 
+
+// Polymorphism: Se definen las operaciones de la interfaz orientado a el funcionamiento de la consola.
+
+// Creator: No se utiliza.
+
+using System;
 
 namespace Library
 {

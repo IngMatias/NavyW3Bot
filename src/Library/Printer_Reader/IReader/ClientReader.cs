@@ -1,4 +1,21 @@
-﻿using System;
+﻿// S - SRP: Esta clase define los metodos necesarion para comunicarnos desde un cliente hacia el programa. Este podria ser 
+//           Telegram, Twitter, WhatsApp, etc. Actualmente trabaja con la consola.
+
+// O - OCP: No se utiliza.
+
+// L - LSP: Esta clase es sustituible por IReader.
+
+// I - ISP: Se aplica porque la interfaz implementada se utiliza en su totalidad, ninguna operacion esta de mas.
+
+// D - DIP: esta clase solo depende de clases de alto nivel.
+
+// Expert: es la clase experta en como interactuar con un cliente.
+
+// Polymorphism: Se definen las operaciones de la interfaz orientado a el funcionamiento del cliente.
+
+// Creator: No se utiliza.
+
+using System;
 
 namespace Library
 {
