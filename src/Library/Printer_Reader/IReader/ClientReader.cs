@@ -1,4 +1,21 @@
-﻿using System;
+﻿
+// S -  SRP: Esta clase implementa la lectura al cliente de cualquier informacion.
+
+// O -  OCP: Basta con implementar IReader para crear una nueva forma de lectura de informacion.
+
+// L -  LSP: Cualquier clase que implemente IReader debe ser un subtipo de IReader.
+
+// I -  ISP: No se utiliza.
+
+// D -  DIP: Esta clase depende de abstracciones.
+
+//      Expert: No aplica.
+
+//      Polymorphism: Read y ReadInt son polimorficos en todos los IReaders.
+
+//      Creator: No se utiliza.
+
+using System;
 
 namespace Library
 {

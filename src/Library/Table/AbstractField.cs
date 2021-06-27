@@ -1,4 +1,21 @@
-﻿using System;
+﻿
+// S -  SRP: Esta clase define los metodos para la representacion del tablero.
+
+// O -  OCP: Se cumple. Si se deseara añadir un comportamiento de almacenamiento de barcos basta con crear una nueva clase.
+
+// L -  LSP: Se cumple. Cualquier objeto que herede esta clase es y debe ser un subtipo de esta.
+
+// I -  ISP: No se aplica.
+
+// D -  DIP: Esta clase depende solamente de abstracciones.
+
+//      Expert: Esta clase conoce la representacion del tablero, por lo que define los metodos para su consulta y transformacion. 
+
+//      Polymorphism: No se aplica.
+
+//      Creator: No se aplica.
+
+using System;
 using System.Text;
 
 namespace Library

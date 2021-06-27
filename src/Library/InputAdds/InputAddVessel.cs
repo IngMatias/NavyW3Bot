@@ -1,3 +1,22 @@
+
+// S -  SRP: Esta clase tiene la responsabilidad de conseguir la informacion para agregar un barco 
+//      (posicion en el tablero y orientacion).
+
+// O -  OCP: No se cumple, para cambiar la forma de elegir la posicion y orientacion de estos
+//      se necesita modificar este codigo.
+
+// L -  LSP: No se aplica.
+
+// I -  ISP: Se depende de operaciones de IPrinter e IReader de las que no se utilizan todas.
+
+// D -  DIP: Se depende solo de abstracciones.
+
+//      Expert: No aplica.
+
+//      Polymorphism: No es utilizado.
+
+//      Creator: No se usa.
+
 using System.Collections.Generic;
 
 namespace Library

@@ -1,4 +1,21 @@
-﻿using System;
+﻿
+// S - SRP: Esta clase tiene la responsabilidad de definir los metodos necesarios para que un barco pueda atacar.
+
+// O -  OCP: No se aplica, para agregar una forma diferente de atacar hay que modificar este codigo.
+
+// L -  LSP: Cualquier clase que herede esta debe ser y es un subtipo de esta clase.
+
+// I -  ISP: No se aplica.
+
+// D -  DIP: Esta clase solo depende de abstracciones.
+
+//      Expert: No se aplica.
+
+//      Polymorphism: No se aplica.
+
+//      Creator: No se utiliza.
+
+using System;
 using System.Collections.Generic;
 
 namespace Library

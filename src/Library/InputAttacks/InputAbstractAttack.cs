@@ -1,3 +1,21 @@
+
+// S -  SRP: Esta clase tiene la responsabilidad de conseguir la informacion para realizar un ataque.
+
+// O -  OCP: Esta clase cumple con el principio, ya que si se quiere agregar un barco con nuevas formas de ataque
+//      basta con heredar de esta clase.
+
+// L -  LSP: Cualquier clase que herede de InputAbstractAttack es y debe ser un subtipo.
+
+// I -  ISP: Se depende de operaciones de IPrinter e IReader de las que no se utilizan todas.
+
+// D -  DIP: Se depende de no abstracciones como lo son: UtilTakeOption, VesselsToString, VesselsAttackForms.
+
+//      Expert: No aplica.
+
+//      Polymorphism: La operacion TakeAttack, TakeAttackOption y Attack son polimorficas.
+
+//      Creator : Esta clase usa al patron ya que crea instancias que usa de manera cercana.
+
 using System.Collections.ObjectModel;
 
 namespace Library

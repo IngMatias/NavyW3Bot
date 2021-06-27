@@ -1,3 +1,21 @@
+
+// S -  SRP: Esta clase define la fase de distribucion de barcos.
+
+// O -  OCP: Implementando IPhase podemos permitir el agregado de nuevas fases 
+//      sin la necesidad de alterar el codigo, sino mas bien simplemente agregando una nueva clase.
+
+// L -  LSP: VasselsPositioningPhase es un subtipo de IPhase.
+
+// I -  ISP: No se usan todas las operaciones definidas en IPriner e IReader.
+
+// D -  DIP: No se depende solo de abstracciones.
+
+//      Expert: Esta clase conoce los items por lo tanto se encarga de asignarlos.
+
+//      Polymorphism: El metodo Excecute es polimorfico en todos los IPhase.
+
+//      Creator: Se crean VesselsToString e InputAddVessel porque se usan de manera cercana.
+
 using System;
 using System.Collections.Generic;
 
@@ -5,7 +23,6 @@ namespace Library
 {
     public class VasselsPositioningPhase : IPhase
     {
-
         private List<AbstractVessel> _vessels = new List<AbstractVessel>
         {
             new Battleship(),
@@ -17,8 +34,8 @@ namespace Library
         };
         public List<int> Execute(AbstractTable player, List<AbstractTable> enemies, IPrinter clientP, IReader clientR)
         {
+            // Dependencias.
             VesselsToString vesselsName = new VesselsToString();
-            VesselsAttackForms vesselsAttack = new VesselsAttackForms();
             InputAddVessel addVessel = new InputAddVessel();
 
             // Posicionamiento de los barcos.

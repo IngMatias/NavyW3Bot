@@ -1,3 +1,20 @@
+
+// S -  SRP: Esta clase define los metodos para que un tablero reciba un ataque.
+
+// O -  OCP: Se cumple. Si se deseara añadir un comportamiento de recepcion de ataques diferente basta con crear una nueva clase.
+
+// L -  LSP: Se cumple. Cualquier objeto que herede esta clase es y debe ser un subtipo de esta.
+
+// I -  ISP: No se aplica.
+
+// D -  DIP: Esta clase depende solamente de abstracciones.
+
+//      Expert: Esta clase no conoce la representacion del tablero aunque la altera. 
+
+//      Polymorphism: No se aplica.
+
+//      Creator: No se aplica.
+
 using System;
 
 namespace Library

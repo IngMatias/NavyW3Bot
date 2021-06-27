@@ -1,3 +1,20 @@
+
+// S -  SRP: Tiene la responsabilidad de retornar el nombre de un evento.
+
+// O -  OCP: No se utiliza.
+
+// L -  LSP: No se utiliza.
+
+// I -  ISP: No aplica.
+
+// D -  DIP: No aplica.
+
+//      Expert: Esta clase conoce los nombres de cada evento, por lo tanto se encarga de retornarlo segun el evento.
+
+//      Polymorphism: No se aplica.
+
+//      Creator: Esta clase usa al patron ya que crea instancias que se guardan.
+
 using System.Collections.Generic;
 
 namespace Library
@@ -9,10 +26,10 @@ namespace Library
         {
             List<string> names = new List<string>
             {
-                "Lang-Godzilla",
-                "Lang-Hurricane",
-                "Lang-MeteorShower",
-                "Lang-Volcano",
+                "BetaL-Godzilla",
+                "BetaL-Hurricane",
+                "BetaL-MeteorShower",
+                "BetaL-Volcano",
             };
             this._eventsName = new Dictionary<System.Type, string>
             {

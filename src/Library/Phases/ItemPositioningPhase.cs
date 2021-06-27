@@ -1,3 +1,21 @@
+
+// S -  SRP: Esta clase define la fase de distribucion de items.
+
+// O -  OCP: Implementando IPhase podemos permitir el agregado de nuevas fases 
+//      sin la necesidad de alterar el codigo, sino mas bien simplemente agregando una nueva clase.
+
+// L -  LSP: ItemPositioningPhase es un subtipo de IPhase.
+
+// I -  ISP: No se usan todas las operaciones definidas en IPriner e IReader.
+
+// D -  DIP: No se depende solo de abstracciones.
+
+//      Expert: Esta clase conoce los items por lo tanto se encarga de asignarlos.
+
+//      Polymorphism: El metodo Excecute es polimorfico en todos los IPhase.
+
+//      Creator: Se crean ItemsToString, ItemsValidators, InputAddItem porque se usan de manera cercana.
+
 using System;
 using System.Collections.Generic;
 
@@ -16,9 +34,11 @@ namespace Library
         private int _howManyItems = 4;
         public List<int> Execute(AbstractTable player, List<AbstractTable> enemies, IPrinter clientP, IReader clientR)
         {
+
             ItemsToString itemsName = new ItemsToString();
             ItemsValidators validator = new ItemsValidators();
             InputAddItem addItem = new InputAddItem();
+
             bool agregado;
             int i = 0;
 

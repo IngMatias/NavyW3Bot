@@ -1,3 +1,20 @@
+
+// S -  SRP: Tiene la responsabilidad de retornar el nombre de un item.
+
+// O -  OCP: No se utiliza.
+
+// L -  LSP: No se utiliza.
+
+// I -  ISP: No aplica.
+
+// D -  DIP: No aplica.
+
+//      Expert: Esta clase conoce los nombres de cada item, por lo tanto se encarga de retornarlo segun el item.
+
+//      Polymorphism: No se aplica.
+
+//      Creator: Esta clase usa al patron ya que crea instancias que se guardan.
+
 using System.Collections.Generic;
 
 namespace Library
@@ -9,11 +26,11 @@ namespace Library
         {
             List<string> names = new List<string>
             {
-                "Lang-Misil Antiaereo",
-                "Lang-Armadura",
-                "Lang-Hackers",
-                "Lang-Kong",
-                "Lang-Bloqueo Satelital"
+                "BetaL-Misil Antiaereo",
+                "BetaL-Armadura",
+                "BetaL-Hackers",
+                "BetaL-Kong",
+                "BetaL-Bloqueo Satelital"
             };
             this._itemToString = new Dictionary<System.Type, string>
             {
