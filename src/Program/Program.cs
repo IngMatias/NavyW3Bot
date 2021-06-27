@@ -8,8 +8,17 @@ namespace Program
     {
         static void Main(string[] args)
         {
-            Class1 class1 = new Class1();
-            class1.SayHi();
+            IRound game = new Game();
+            IPrinter clientP = new ClientPrinter();
+            IReader clientR = new ClientReader();
+
+            Table tab1 = new Table();
+            game.AddPlayer(tab1);
+            Table tab2 = new Table();
+            game.AddPlayer(tab2);
+
+            game.Execute(clientP, clientR);
+
         }
     }
 }
