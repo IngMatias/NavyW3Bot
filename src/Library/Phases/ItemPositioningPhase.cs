@@ -31,13 +31,13 @@ namespace Library
                 new Kong(),
                 new SateliteLock()
             };
-        private int _howManyItems = 5;
+        private int _howManyItems = 4;
         public List<int> Execute(AbstractTable player, List<AbstractTable> enemies, IPrinter clientP, IReader clientR)
         {
 
-            ItemsToString _itemsName = new ItemsToString();
-            ItemsValidators _validator = new ItemsValidators();
-            InputAddItem _addItem = new InputAddItem();
+            ItemsToString itemsName = new ItemsToString();
+            ItemsValidators validator = new ItemsValidators();
+            InputAddItem addItem = new InputAddItem();
 
             bool agregado;
             int i = 0;
@@ -50,11 +50,11 @@ namespace Library
                 agregado = false;
                 while (!agregado)
                 {
-                    clientP.Print(_itemsName.NameOf(this._items[rnd]));
+                    clientP.Print(itemsName.NameOf(this._items[rnd]));
 
                     try
                     {
-                        agregado = _addItem.AddItem(this._items[rnd], player.GetVessels(), player, _validator.ValidatorOf(this._items[rnd]), clientP, clientR);
+                        agregado = addItem.AddItem(this._items[rnd], player.GetVessels(), player, validator.ValidatorOf(this._items[rnd]), clientP, clientR);
                     }
                     catch (DeleteItemException)
                     {
@@ -88,7 +88,7 @@ namespace Library
 
                     if (agregado)
                     {
-                        clientP.Print(_itemsName.NameOf(this._items[rnd]) + " ha sido agregado correctamente.");
+                        clientP.Print(itemsName.NameOf(this._items[rnd]) + " ha sido agregado correctamente.");
                     }
                     else
                     {

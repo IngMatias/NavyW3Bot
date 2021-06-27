@@ -25,13 +25,13 @@ namespace Library
         {
             List<List<string>> names = new List<List<string>>
             {
-                new List<string> {"Lanzar Misil"},
-                new List<string> {"Lanzar Misil"},
-                new List<string> {"Lanzar Misil"},
-                new List<string> {"Lanzar Misil"},
-                new List<string> {"Lanzar Misil", "Lanzar Carga"},
+                new List<string> {"BetaL-Lanzar Misil"},
+                new List<string> {"BetaL-Lanzar Misil"},
+                new List<string> {"BetaL-Lanzar Misil"},
+                new List<string> {"BetaL-Lanzar Misil"},
+                new List<string> {"BetaL-Lanzar Misil", "BetaL-Lanzar Carga"},
                 new List<string> {},
-                new List<string> {"Lanzar Misil", "Lanzar Carga"},
+                new List<string> {"BetaL-Lanzar Misil", "BetaL-Lanzar Carga"},
             };
             this._attackForm = new Dictionary<System.Type, List<string>>
             {

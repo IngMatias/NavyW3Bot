@@ -24,20 +24,17 @@ namespace Library
     public class EventPhase : IPhase
     {
         // Dependencias.
-        private Random random = new Random();
-        private static IEvent _godzilla = new Godzilla();
-        private static IEvent _hurricane = new Hurricane();
-        private static IEvent _meteorShower = new MeteorShower();
-        private static IEvent _volcano = new Volcano();
         private List<IEvent> _events = new List<IEvent>
         {
-            _godzilla,
-            _hurricane,
-            _meteorShower,
-            _volcano,
+            new Godzilla(),
+            new Hurricane(),
+            new MeteorShower(),
+            new Volcano(),
         };
         public List<int> Execute(AbstractTable player, List<AbstractTable> enemies, IPrinter clientP, IReader clientR)
         {
+            Random random = new Random();
+
             int rnd = random.Next(0, 15);
             foreach (AbstractTable table in enemies)
             {

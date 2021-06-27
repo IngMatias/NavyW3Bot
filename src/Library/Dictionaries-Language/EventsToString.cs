@@ -26,10 +26,10 @@ namespace Library
         {
             List<string> names = new List<string>
             {
-                "Lang-Godzilla",
-                "Lang-Hurricane",
-                "Lang-MeteorShower",
-                "Lang-Volcano",
+                "BetaL-Godzilla",
+                "BetaL-Hurricane",
+                "BetaL-MeteorShower",
+                "BetaL-Volcano",
             };
             this._eventsName = new Dictionary<System.Type, string>
             {

@@ -35,8 +35,8 @@ namespace Library
         public List<int> Execute(AbstractTable player, List<AbstractTable> enemies, IPrinter clientP, IReader clientR)
         {
             // Dependencias.
-            VesselsToString _vesselsName = new VesselsToString();
-            InputAddVessel _addVessel = new InputAddVessel();
+            VesselsToString vesselsName = new VesselsToString();
+            InputAddVessel addVessel = new InputAddVessel();
 
             // Posicionamiento de los barcos.
             int i = 0;
@@ -47,11 +47,11 @@ namespace Library
                 agregado = false;
                 while (!agregado)
                 {
-                    clientP.Print(_vesselsName.NameOf(this._vessels[i]));
-                    agregado = _addVessel.AddVessel(this._vessels[i], player, clientP, clientR);
+                    clientP.Print(vesselsName.NameOf(this._vessels[i]));
+                    agregado = addVessel.AddVessel(this._vessels[i], player, clientP, clientR);
                     if (agregado)
                     {
-                        clientP.Print(_vesselsName.NameOf(this._vessels[i]) + " ha sido agregado correctamente.");
+                        clientP.Print(vesselsName.NameOf(this._vessels[i]) + " ha sido agregado correctamente.");
                     }
                     else
                     {

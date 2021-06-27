@@ -26,11 +26,11 @@ namespace Library
         {
             List<string> names = new List<string>
             {
-                "Lang-Misil Antiaereo",
-                "Lang-Armadura",
-                "Lang-Hackers",
-                "Lang-Kong",
-                "Lang-Bloqueo Satelital"
+                "BetaL-Misil Antiaereo",
+                "BetaL-Armadura",
+                "BetaL-Hackers",
+                "BetaL-Kong",
+                "BetaL-Bloqueo Satelital"
             };
             this._itemToString = new Dictionary<System.Type, string>
             {

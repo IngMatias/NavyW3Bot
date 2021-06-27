@@ -24,12 +24,12 @@ namespace Library
 
         private List<string> names = new List<string>
             {
-                "Acorazado",
-                "Fragata",
-                "Crucero Pesado",
-                "Crucero Ligero",
-                "Ponton",
-                "Submarino"
+                "BetaL-Acorazado",
+                "BetaL-Fragata",
+                "BetaL-Crucero Pesado",
+                "BetaL-Crucero Ligero",
+                "BetaL-Ponton",
+                "BetaL-Submarino"
             };
 
         public VesselsToString()
