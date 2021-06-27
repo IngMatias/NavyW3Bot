@@ -64,7 +64,7 @@ namespace Library
         {
             for (int y = 0; y < this.YLength(); y++)
             {
-                for (int x = 0; y < this.XLength(); x++)
+                for (int x = 0; x < this.XLength(); x++)
                 {
                     if (this._table[x, y] == Field.livedVessel ||
                         this._table[x, y] == Field.liveHiddenVessel)

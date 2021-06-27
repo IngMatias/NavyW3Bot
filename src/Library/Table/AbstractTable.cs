@@ -42,6 +42,21 @@ namespace Library
             }
             return toReturn.ToString();
         }
+        public List<string> ListTable()
+        {
+            StringBuilder row = new StringBuilder();
+            List<string> toReturn = new List<string>();
+            for (int j = 0; j < this.YLength(); j++)
+            {
+                for (int i = 0; i < this.XLength(); i++)
+                {
+                    row.Append((int)this.At(i, j));
+                }
+                toReturn.Add(row.ToString());
+                row.Clear();
+            }
+            return toReturn;
+        }
         public string StringVessels()
         {
             // Dependencias.
