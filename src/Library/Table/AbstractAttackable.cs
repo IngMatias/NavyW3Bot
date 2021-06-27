@@ -1,26 +1,19 @@
-// S - SRP: Esta clase define los metodos para que un tablero reciba un ataque.
 
-// O - OCP: Se cumple. Si se deseara añadir un comportamiento al tablero, se debería crear una nueva clase abtracta con el
-//           comportamiento definido a esta nueva clase y hacer que AbstractVesselSaver lo herede.
-//           Recordar que Table es una clase compuesta por:
-//           AbstractVesselSaver -> AbstractField -> AbstractAttackable -> AbstractTable -> Table
-//           AbstractVesselSaver es la última clase en la cadena, si esta clase hereda un comportamiento, todas las clases
-//           que hereden a esta úlitma tambien habrán heredado el nuevo comportamiento, haciendo que se cumpla el principio.
+// S -  SRP: Esta clase define los metodos para que un tablero reciba un ataque.
 
-// L - LSP: Se cumple. Cualquier objeto Table puede ser sustituido por el tipo AbstractAttackable, mas si esto se hiciera no se
-//           contaría con todos los comportamientos de las clases que heredan a esta.
+// O -  OCP: Se cumple. Si se deseara añadir un comportamiento de recepcion de ataques diferente basta con crear una nueva clase.
 
-// I - ISP: No se aplica.
+// L -  LSP: Se cumple. Cualquier objeto que herede esta clase es y debe ser un subtipo de esta.
 
-// D - DIP: Se aplica DIP, esto se puede ver en el diseño de Table (clase de bajo nivel), esta depende de abstracciones
-//           no de clases de bajo nivel.
+// I -  ISP: No se aplica.
 
-// Expert: Esta clase es la experta en la interaccion de los tableros con los barcos, esta clase conoce todas las formas
-//          en las que un tablero puede ser atacado. 
+// D -  DIP: Esta clase depende solamente de abstracciones.
 
-// Polymorphism: No se aplica.
+//      Expert: Esta clase no conoce la representacion del tablero aunque la altera. 
 
-// Creator: No se aplica.
+//      Polymorphism: No se aplica.
+
+//      Creator: No se aplica.
 
 using System;
 

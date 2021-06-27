@@ -1,18 +1,21 @@
-﻿// S - SRP: Definir la interface IItem.
+﻿
+// S -  SRP: Esta clase define el tipo IItem.
 
-// O - OCP: 
+// O -  OCP: Esta clase cumple con el principio, ya que si se quiere agregar un nuevo item basta con
+//      implementar esta interface.
 
-// L - LSP: No se aplica..
+// L -  LSP: Este Item puede ser intercambiado por cualquier otro Item, puede recibir los mismos 
+//      mensajes.
 
-// I - ISP: No se aplica.
+// I -  ISP: No aplica.
 
-// D - DIP: No se aplica.
+// D -  DIP: Este Item no depende.
 
-// Expert: No se aplica.
+//      Expert: No se utiliza.
 
-// Polymorphism: No se aplica.
+//      Polymorphism: No se utiliza..
 
-// Creator: No se aplica.
+//      Creator: No se utiliza.
 
 namespace Library
 {

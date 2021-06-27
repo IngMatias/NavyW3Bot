@@ -1,20 +1,20 @@
-// S - SRP: Esta interfaz define la fase de Posisionamiento de Barcos.
 
-// O - OCP: No se utiliza.
-           
-// L - LSP: Se cumple. Si se sustituye por IPhase su comportamiento es el mismo.
+// S -  SRP: Esta clase define la fase de distribucion de barcos.
 
-// I - ISP: Se cumple, utiliza todas las operaciones que define la interfaz, ninguna operacion esta de mas.
+// O -  OCP: Implementando IPhase podemos permitir el agregado de nuevas fases 
+//      sin la necesidad de alterar el codigo, sino mas bien simplemente agregando una nueva clase.
 
-// D - DIP: Se rompe el principio cuando se depende de una clase de bajo nivel como VesselsToString, InputAddVessel.
-//           Para que se cumpla con este principio, se deberian definir interfaces para que AttackPhase dependa de estas
-//           interfaces y no de clases de bajo nivel.
+// L -  LSP: VasselsPositioningPhase es un subtipo de IPhase.
 
-// Expert: No se utiliza.
+// I -  ISP: No se usan todas las operaciones definidas en IPriner e IReader.
 
-// Polymorphism: Se define el metodo Excecute.
+// D -  DIP: No se depende solo de abstracciones.
 
-// Creator: No se aplica.
+//      Expert: Esta clase conoce los items por lo tanto se encarga de asignarlos.
+
+//      Polymorphism: El metodo Excecute es polimorfico en todos los IPhase.
+
+//      Creator: Se crean VesselsToString e InputAddVessel porque se usan de manera cercana.
 
 using System;
 using System.Collections.Generic;
@@ -23,9 +23,6 @@ namespace Library
 {
     public class VasselsPositioningPhase : IPhase
     {
-        private VesselsToString _vesselsName = new VesselsToString();
-        private InputAddVessel _addVessel = new InputAddVessel();
-
         private List<AbstractVessel> _vessels = new List<AbstractVessel>
         {
             new Battleship(),
@@ -37,6 +34,10 @@ namespace Library
         };
         public List<int> Execute(AbstractTable player, List<AbstractTable> enemies, IPrinter clientP, IReader clientR)
         {
+            // Dependencias.
+            VesselsToString _vesselsName = new VesselsToString();
+            InputAddVessel _addVessel = new InputAddVessel();
+
             // Posicionamiento de los barcos.
             int i = 0;
             bool agregado = false;

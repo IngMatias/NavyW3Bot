@@ -1,18 +1,20 @@
-﻿// S - SRP: Esta interfaz define la fase de Eventos catastroficos.
+﻿
+// S -  SRP: Esta clase define la fase de Eventos.
 
-// O - OCP: No se utiliza.
+// O -  OCP: Implementando IPhase podemos permitir el agregado de nuevas fases 
+//      sin la necesidad de alterar el codigo, sino mas bien simplemente agregando una nueva clase.
            
-// L - LSP: Se cumple. Si se sustituye por IPhase su comportamiento es el mismo.
+// L -  LSP: EventPhase es un subtipo de IPhase.
 
-// I - ISP: Se cumple, utiliza todas las operaciones que define la interfaz, ninguna operacion esta de mas.
+// I -  ISP: No se usan todas las operaciones definidas en IPriner e IReader.
 
-// D - DIP: Se rompe el principio cuando se depende de una clase de bajo nivel como random.
+// D -  DIP: Se depende solo de abstracciones.
 
-// Expert: No se utiliza.
+//      Expert: Esta clase conoce los eventos por lo tanto se encarga de elegir entre ellos cual ejecutar.
 
-// Polymorphism: Se define el metodo Excecute.
+//      Polymorphism: El metodo Excecute es polimorfico en todos los IPhase.
 
-// Creator: No se aplica.
+//      Creator: No se aplica.
 
 using System;
 using System.Collections.Generic;
@@ -23,7 +25,6 @@ namespace Library
     {
         // Dependencias.
         private Random random = new Random();
-
         private static IEvent _godzilla = new Godzilla();
         private static IEvent _hurricane = new Hurricane();
         private static IEvent _meteorShower = new MeteorShower();

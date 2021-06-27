@@ -1,19 +1,19 @@
-﻿// S - SRP: Esta clase define los metodos necesarion para comunicarnos desde un cliente hacia el programa. Este podria ser 
-//           Telegram, Twitter, WhatsApp, etc. Actualmente trabaja con la consola.
+﻿
+// S -  SRP: Esta clase implementa la lectura al cliente de cualquier informacion.
 
-// O - OCP: No se utiliza.
+// O -  OCP: Basta con implementar IReader para crear una nueva forma de lectura de informacion.
 
-// L - LSP: Esta clase es sustituible por IReader.
+// L -  LSP: Cualquier clase que implemente IReader debe ser un subtipo de IReader.
 
-// I - ISP: Se aplica porque la interfaz implementada se utiliza en su totalidad, ninguna operacion esta de mas.
+// I -  ISP: No se utiliza.
 
-// D - DIP: esta clase solo depende de clases de alto nivel.
+// D -  DIP: Esta clase depende de abstracciones.
 
-// Expert: es la clase experta en como interactuar con un cliente.
+//      Expert: No aplica.
 
-// Polymorphism: Se definen las operaciones de la interfaz orientado a el funcionamiento del cliente.
+//      Polymorphism: Read y ReadInt son polimorficos en todos los IReaders.
 
-// Creator: No se utiliza.
+//      Creator: No se utiliza.
 
 using System;
 

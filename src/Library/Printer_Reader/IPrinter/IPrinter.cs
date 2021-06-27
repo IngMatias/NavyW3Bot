@@ -1,21 +1,19 @@
-﻿// S - SRP: Esta clase define los metodos necesarion para comunicarnos desde el programa hacia un cliente. Este podria ser 
-//           Telegram, Twitter, WhatsApp, etc.
+﻿
+// S -  SRP: Esta clase define la impresion al cliente de cualquier informacion.
 
-// O - OCP: De querer implementar un cliente nuevo se debe crear un objeto que implemente esta interfaz, de esta manera no
-//           se debe cambiar ninguna otra clase.
+// O -  OCP: Basta con implementar IPrinter para crear una nueva forma de mostrar informacion.
 
-// L - LSP: Cualquier objeto que implemente esta interfaz será sustituible por el tipo IPrinter
+// L -  LSP: Cualquier clase que implemente IPrinter debe ser un subtipo de IPrinter.
 
-// I - ISP: Esta interfaz define las operaciones minimas necesarias para que el programa se pueda comunicar con el cliente.
+// I -  ISP: No se utiliza.
 
-// D - DIP: No se aplica.
+// D -  DIP: Esta clase depende de abstracciones.
 
-// Expert: Esta clase es la experta en conocer las operaciones necesarias para que el programa se pueda comunicar con el cliente.
+//      Expert: No aplica.
 
-// Polymorphism: Se definen las operaciones de la interfaz orientado a el funcionamiento del cliente, que serán definidas en cada 
-//                clase que implemente la interfaz.
+//      Polymorphism: Print es polimorfico en todos los IPrinter.
 
-// Creator: No se utiliza.
+//      Creator: No se utiliza.
 
 namespace Library
 {

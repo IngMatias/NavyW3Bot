@@ -1,28 +1,32 @@
+
+// S -  SRP: Esta clase tiene la responsabilidad dado un item retornar el objeto para validar si es agregable.
+
+// O -  OCP: No cumple OCP, si se quiere agregar un nuevo item es necesario modificar el codigo sin embargo 
+//      una posible solucion podria ser aplicando el patron Cadena de Responsabilidad para cumplir OCP.
+
+// L -  LSP: No se hallan relaciones de subtipo relacionadas con esta clase.
+
+// I -  ISP: No se usan las operaciones de la interface IItemValidator.
+
+// D -  DIP: Esta clase depende solamente de abstracciones.
+
+//      Expert: Esta clase conoce el diccionario de validadores de items, por ello tiene la responsabilidad 
+//      de retornar el validador del mismo.
+
+//      Polymorphism: No es utilizado.
+
+//      Creator: Esta clase usa el patron ya que guarda instancias de IItem e IItemValidator.
+
 using System.Collections.Generic;
-
-// S - SRP: Esta clase tiene la responsabilidad dado un item retornar su correspondiente validador.
-
-// O - OCP: No cumple OCP, si se quiere agregar un nuevo item es necesario modificar el codigo sin embargo 
-//          se nos ocurre que podemos aplicar Cadena de Responsabilidad para cumplir este patron.
-
-// L - LSP: No aplica.
-
-// I - ISP: No aplica.
-
-// D - DIP: 
-
-// Expert: Esta clase conoce el diccionario de items validos y como esta dispuesto, por ello tiene la responsabilidad 
-//         validar de retornar el validador del mismo.
-
-// Polymorphism: No es utilizado.
-
-// Creator: Esta clase usa al patron ya que crea instancias de clases cercanas.
 
 namespace Library
 {
     public class ItemsValidators
     {
         private Dictionary<System.Type, IItemValidator> _itemValidator;
+
+        // Se crean las variables de instancia para evitar que cada vez que se llame a la clase se creen instancias inecesariamente.
+
         // Vessels.
         private IItem _antiAircraft = new AntiaircraftMissile();
         private IItem _armor = new Armor();

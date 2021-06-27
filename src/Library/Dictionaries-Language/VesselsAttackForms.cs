@@ -1,20 +1,19 @@
-// S - SRP: Tiene la responsabilidad de mostrar la forma de atacar de cada barco.
 
-// O - OCP: Cumple con el principio. En el caso de necesitar cambiar la manera de como una clase muestra los ataques del 
-//           barco no se tendrá que modificar esa clase, se deberá modificar esta. 
+// S -  SRP: Tiene la responsabilidad de retornar las formas de ataque segun el barco.
 
-// L - LSP: No se utiliza.
+// O -  OCP: No se utiliza.
 
-// I - ISP: No se utiliza.
+// L -  LSP: No se utiliza.
 
-// D - DIP: No se cumple con el patron, esta clase no implementa ninguna clase alto nivel, todas las clases que hagan uso
-//           de esta clase, tambien dependeran de ella. Se debe implementar una interfaz.
+// I -  ISP: No aplica.
 
-// Expert: Esta clase conoce el nombre y los tipos de ataque de cada barco.
+// D -  DIP: No aplica.
 
-// Polymorphism: No se aplica.
+//      Expert: Esta clase conoce la forma de ataque de cada barco, por lo tanto se encarga de retornarlas segun el barco.
 
-// Creator: Esta clase usa el patron ya que crea instancias de clases cercanas.
+//      Polymorphism: No se aplica.
+
+//      Creator: Esta clase usa al patron ya que crea instancias que se guardan.
 
 using System.Collections.Generic;
 namespace Library

@@ -1,19 +1,20 @@
-// S - SRP: Esta interfaz define las operaciones que definen una Phase (fase).
 
-// O - OCP: Se cumple. Si se deseara añadir una fase se tiene que crear una clase que implemente esta interfaz, asi, ninguna
-//           otra se ve afectada.
+// S -  SRP: Esta clase define el tipo IPhase.
+
+// O -  OCP: Implementando IPhase podemos permitir el agregado de nuevas fases 
+//      sin la necesidad de alterar el codigo, sino mas bien simplemente agregando una nueva clase.
            
-// L - LSP: Se cumple. Cualquier objeto que implemente IPhase puede ser substituido por este tipo y no cambiar su funcionamiento.
+// L -  LSP: Cualquier clase que implemente IPhase es y debe ser un subtipo de IPhase.
 
-// I - ISP: No se utiliza.
+// I -  ISP: No aplica.
 
-// D - DIP: No se utiliza.
+// D -  DIP: Se depende solo de abstracciones.
 
-// Expert: No se utiliza.
+//      Expert: No aplica.
 
-// Polymorphism: Se define una operacion que será sobreescrita en cada clase que implemente la interfaz.
+//      Polymorphism: El metodo Excecute es polimorfico en todos los IPhase.
 
-// Creator: No se aplica.
+//      Creator: No se aplica.
 
 using System.Collections.Generic;
 

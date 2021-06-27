@@ -1,21 +1,19 @@
-// S - SRP: Tiene la responsabilidad de mostrar cada barco. Ademas quita una responsabilidad de la clase que necesite 
-//           convertir a string un barco.
 
-// O - OCP: Cumple con el principio. En el caso de necesitar cambiar la manera de como una clase transforma a string 
-//           el barco no se tendrá que modificar esa clase, se deberá modificar esta. 
+// S -  SRP: Tiene la responsabilidad de retornar el nombre segun el barco.
 
-// L - LSP: No se utiliza,
+// O -  OCP: No se utiliza.
 
-// I - ISP: No se Utiliza.
+// L -  LSP: No se utiliza.
 
-// D - DIP: No se cumple con el patron, esta clase no implementa ninguna clase alto nivel, todas las clases que hagan uso
-//           de esta clase, tambien dependeran de ella. Se debe implementar una interfaz.
+// I -  ISP: No aplica.
 
-// Expert: Esta clase conoce los nombres de cada tipo.
+// D -  DIP: No aplica.
 
-// Polymorphism: No se utiliza.
+//      Expert: Esta clase conoce el nombre de cada barco, por lo tanto se encarga de retornarlos.
 
-// Creator: No se utiliza.
+//      Polymorphism: No se aplica.
+
+//      Creator: Esta clase usa al patron ya que crea instancias que se guardan.
 
 using System.Collections.Generic;
 namespace Library

@@ -1,24 +1,19 @@
-﻿// S - SRP: Esta clase tiene la responsabilidad de definir los metodos necesarios para que un barco pueda atacar.
+﻿
+// S - SRP: Esta clase tiene la responsabilidad de definir los metodos necesarios para que un barco pueda atacar.
 
-// O - OCP: Esta clase no cumple con el principio, ya que si se quiere agregar una funcionalidad que cambie funcionamiento de como se ataca se debe
-//           cambiar esta clase. En C# solo se puede heredar de una clase, esto nos limita a que no se pueda cumplir con el principio en este caso espesifico. 
-//           Pero si se desease agregar otra funcionalidad a AbstractVessel que no fuera atacar, manejar items, o manejar el estado 
-//           (ej: moverse por el tablero) si se cumpliria con el principio, ya que se debería extender la cadena de herencia de AbstractVessel
-//           con una clase abtracta que bien podría llamarse AbstractMover.
-//           Recordar que AbstractVessel esta compusta de la siguiente manera:
-//           AbstractVessel -> AbstractAttackerVessel -> AbstractStateManager -> AbstractItemSaver.
+// O -  OCP: No se aplica, para agregar una forma diferente de atacar hay que modificar este codigo.
 
-// L - LSP: Cualquier barco que pueda atacar podra ser sustituida por el tipo AbstractAttackerVessel.
+// L -  LSP: Cualquier clase que herede esta debe ser y es un subtipo de esta clase.
 
-// I - ISP: No es utilizado el principio en esta clase ya que no se implementa ninguna interfaz.
+// I -  ISP: No se aplica.
 
-// D - DIP: Esta clase cumple con el principio, ya que depende de abtracciones como AbstractTable (clase de alto nivel).
+// D -  DIP: Esta clase solo depende de abstracciones.
 
-// Expert: No se utiliza.
+//      Expert: No se aplica.
 
-// Polymorphism: Se definen metodos que luego pueden ser sobreescribidos.
+//      Polymorphism: No se aplica.
 
-// Creator: No se utiliza.
+//      Creator: No se utiliza.
 
 using System;
 using System.Collections.Generic;

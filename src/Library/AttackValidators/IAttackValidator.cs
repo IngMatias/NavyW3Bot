@@ -1,18 +1,20 @@
-﻿// S - SRP: Esta interface tiene la responsabilidad de definir el metodo AvoidAttack.
+﻿
+// S -  SRP: Esta interface tiene la responsabilidad de definir el tipo IAttackValidator.
 
-// O - OCP: 
+// O -  OCP: Esta clase cumple con el principio, ya que si se quiere agregar una nueva forma de ataque basta con
+//      heredar esta clase para implementar su validador.
 
-// L - LSP: No se utiliza.
+// L -  LSP: Cualquier clase que implemente IAttackValidator es y debe ser un subtipo.
 
-// I - ISP: No se utiliza.
+// I -  ISP: No se utiliza.
 
-// D - DIP: IAttackValidator depende de Table y AbstractAttacker, ambas clases abstractas por lo tanto cumple con DIP
+// D -  DIP: El metodo definido en esta interface depende solamente de abstracciones.
 
-// Expert: No se utiliza.
+//      Expert: No es utilizado.
 
-// Polymorphism: El metodo AvoidAttack es polimorfico en todos los IAttackValidator.
+//      Polymorphism: El metodo AvoidAttack es polimorfico en todos los IAttackValidator.
 
-// Creator: No se utiliza.
+//      Creator: No es utilizado.
 
 namespace Library
 {

@@ -1,27 +1,19 @@
-﻿// S - SRP: Esta clase define los metodos necesarios para convertir la informacion del tablero a string.
+﻿
+// S -  SRP: Esta clase define los metodos para la representacion (en strings) del tablero.
 
-// O - OCP: Se cumple. Si se deseara añadir un comportamiento al tablero, se debería crear una nueva clase abtracta con el
-//           comportamiento definido a esta nueva clase y hacer que AbstractVesselSaver lo herede.
-//           Recordar que Table es una clase compuesta por:
-//           AbstractVesselSaver -> AbstractField -> AbstractAttackable -> AbstractTable -> Table
-//           AbstractVesselSaver es la última clase en la cadena, si esta clase hereda un comportamiento, todas las clases
-//           que hereden a esta úlitma tambien habrán heredado el nuevo comportamiento, haciendo que se cumpla el principio.
+// O -  OCP: Se cumple. Si se deseara añadir una representacion basta con crear una nueva clase.
 
-// L - LSP: Se cumple. Cualquier objeto Table puede ser sustituido por el tipo AbstractTable sin tener ningun tipo de 
-//           modificacion en su comportamiento.
+// L -  LSP: Se cumple. Cualquier objeto que herede esta clase es y debe ser un subtipo de esta.
 
-// I - ISP: No se aplica.
+// I -  ISP: No se aplica.
 
-// D - DIP: No se aplica DIP ya que esta clase depende de clases de bajo nivel como lo son ItemToString y VesselToString. 
-//           Para cumplir con este principio se deben hacer interfaces para cada una de estas clases. 
-//           La implementacion ItemToString sería:
-//                  IItemToString itemsName = new ItemToString();         
+// D -  DIP: Esta clase depende solamente de abstracciones.
 
-// Expert: No se aplica.
+//      Expert: Esta clase no conoce la representacion del tablero, aun asi se encarga de su representacion. 
 
-// Polymorphism: No se aplica.
+//      Polymorphism: No se aplica.
 
-// Creator: No se aplica.
+//      Creator: No se aplica.
 
 using System;
 using System.Collections.Generic;

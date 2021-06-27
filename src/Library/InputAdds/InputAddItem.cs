@@ -1,22 +1,24 @@
+
+// S -  SRP: Esta clase tiene la responsabilidad de conseguir la informacion para agregar un item 
+//      (seleccionar el barco y la posicion en el barco).
+
+// O -  OCP: No se cumple, para cambiar la forma de seleccion entre barcos y la posicion en estos
+//      se necesita modificar este codigo.
+
+// L -  LSP: No se aplica.
+
+// I -  ISP: Se depende de operaciones de IPrinter e IReader de las que no se utilizan todas.
+
+// D -  DIP: El metodo TakeVessel depende de VesselsToString que no es una abastraccion.
+
+//      Expert: No aplica.
+
+//      Polymorphism: No es utilizado.
+
+//      Creator: Esta clase crea instancias de VesselsToString, ya que se utiliza de forma cercana.
+
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-
-// S - SRP: Esta clase tiene la responsabilidad de colocar u eliminar un item.
-
-// O - OCP: No cumple OCP, si se quiere agregar un nuevo ataque es necesario modificar el codigo.
-
-// L - LSP: No aplica.
-
-// I - ISP: No aplica.
-
-// D - DIP: InputAddItem depende de AbstractVessel por lo tanto cumple con DIP.
-
-// Expert: Esta clase conoce si el item se coloca o no por lo tanto tiene la responsabilidad de
-//         agregarlo u eliminarlo.
-
-// Polymorphism: La operacion TakePosition y TakeVessel son polimorficas.
-
-// Creator: Esta clase usa al patron ya que crea instancias de clases cercanas.
 
 namespace Library
 {

@@ -1,20 +1,21 @@
+
+// S -  SRP: Tiene la responsabilidad declarar un error.
+
+// O -  OCP: Basta con heredar Exception para implementar un error.
+
+// L -  LSP: Todas las excepciones se comportan de igual manera.
+
+// I -  ISP: No aplica.
+
+// D -  DIP: No aplica.
+
+//      Expert: No aplica.
+
+//      Polymorphism: No aplica.
+
+//      Creator: No aplica.
+
 using System;
-
-// S - SRP: Tiene la responsabilidad declarar un tipo de error.
-
-// O - OCP: No se aplica.
-
-// L - LSP: No se aplica.
-
-// I - ISP: No se aplica.
-
-// D - DIP: No se aplica.
-
-// Expert: No se aplica.
-
-// Polymorphism: No se aplica.
-
-// Creator: No se aplica.
 
 namespace Library
 {

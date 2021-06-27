@@ -1,20 +1,21 @@
+
+// S -  SRP: Tiene la responsabilidad de retornar el nombre de un item.
+
+// O -  OCP: No se utiliza.
+
+// L -  LSP: No se utiliza.
+
+// I -  ISP: No aplica.
+
+// D -  DIP: No aplica.
+
+//      Expert: Esta clase conoce los nombres de cada item, por lo tanto se encarga de retornarlo segun el item.
+
+//      Polymorphism: No se aplica.
+
+//      Creator: Esta clase usa al patron ya que crea instancias que se guardan.
+
 using System.Collections.Generic;
-
-// S - SRP: Tiene la responsabilidad de mostrar el nombre de un item.
-
-// O - OCP:
-
-// L - LSP: 
-
-// I - ISP: 
-
-// D - DIP: No se aplica.
-
-// Expert: Esta clase conoce los tipos dentro del diccionario lo que le permite cumplir con su funcionalidad.
-
-// Polymorphism: No se aplica.
-
-// Creator: Esta clase usa al patron ya que crea instancias de clases cercanas.
 
 namespace Library
 {

@@ -1,19 +1,21 @@
-﻿// S - SRP: Definir el item Armor.
+﻿
+// S -  SRP: Esta clase tiene una responsabilidad estructural.
 
-// O - OCP: Utilizando IItem - podemos permitir tener un agregado de nuevos items 
-//          sin la necesidad de alterar el codigo, sino mas bien simplemente agregando una nueva clase.
+// O -  OCP: Esta clase es un ejemplo del uso de OCP, se implementa la clase IItem pero no se
+//      modifica el codigo existente para agregar un nuevo item.
 
-// L - LSP: Esta clase es un subtipo de IItem.
+// L -  LSP: Este Item puede ser intercambiado por cualquier otro Item, puede recibir los mismos 
+//      mensajes.
 
-// I - ISP: 
+// I -  ISP: No aplica.
 
-// D - DIP: No se aplica.
+// D -  DIP: Este Item no depende.
 
-// Expert: No se aplica.
+//      Expert: No se utiliza.
 
-// Polymorphism: No se aplica.
+//      Polymorphism: No se utiliza..
 
-// Creator: No se aplica.
+//      Creator: No se utiliza.
 
 namespace Library
 {

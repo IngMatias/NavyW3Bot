@@ -1,19 +1,19 @@
-﻿// S - SRP: Esta clase define los metodos necesarion para comunicarnos desde el programa hacia un cliente. Este clase  
-//           en particular define a la consola, pero este podria ser Telegram, Twitter, WhatsApp, etc.
+﻿
+// S -  SRP: Esta clase implementa la impresion al cliente de cualquier informacion.
 
-// O - OCP: No se utiliza.
+// O -  OCP: Basta con implementar IPrinter para crear una nueva forma de mostrar informacion.
 
-// L - LSP: Cualquier objeto de este tipo puede ser sustituido por IPrinter.
+// L -  LSP: Cualquier clase que implemente IPrinter debe ser un subtipo de IPrinter.
 
-// I - ISP: No se utiliza.
+// I -  ISP: No se utiliza.
 
-// D - DIP: Esta clase solo depende de clases de alto nivel.
+// D -  DIP: Esta clase depende de abstracciones.
 
-// Expert: Esta clase es la experta en conocer los metodos necesarios para que el programa se pueda comunicar con el cliente.
+//      Expert: No aplica.
 
-// Polymorphism: Se definen las metodos orientado a el funcionamiento del cliente.
+//      Polymorphism: Print es polimorfico en todos los IPrinter.
 
-// Creator: No se utiliza.
+//      Creator: No se utiliza.
 
 using System;
 

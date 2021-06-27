@@ -1,24 +1,19 @@
-﻿// S - SRP: Esta clase tiene la responsabilidad de definir un barco.
-//           Recordar que AbstractVessel esta compusta de la siguiente manera:
-//           AbstractVessel -> AbstractAttackerVessel -> AbstractStateManager -> AbstractItemSaver.
+﻿
+// S - SRP: Esta clase tiene la responsabilidad de definir el barco abstracto.
 
-// O - OCP: Se cumple el principio, ya que si se desease agregar otra funcionalidad a AbstractVessel que no fuera atacar, manejar items, 
-//           o manejar el estado (ej: moverse por el tablero) se debería extender la cadena de herencia de AbstractVessel
-//           con una clase abtracta que bien podría llamarse AbstractMover.
-//           Recordar que AbstractVessel esta compusta de la siguiente manera:
-//           AbstractVessel -> AbstractAttackerVessel -> AbstractStateManager -> AbstractItemSaver.
+// O -  OCP: Si se aplica, para agregar una abstraccion diferente basta con implementar una nueva clase.
 
-// L - LSP: Cualquier barco que puede ser sustituido por el tipo AbstractVessel.
+// L -  LSP: Cualquier clase que herede esta debe ser y es un subtipo de esta clase.
 
-// I - ISP: No es utilizado el principio en esta clase ya que no se implementa ninguna interfaz.
+// I -  ISP: No se aplica.
 
-// D - DIP: Esta clase cumple con el principio, ya que depende de abtracciones.
+// D -  DIP: Esta clase solo depende de abstracciones.
 
-// Expert: No se utiliza.
+//      Expert: No se aplica.
 
-// Polymorphism: No se utliza.
+//      Polymorphism: No se aplica.
 
-// Creator: No se utiliza.
+//      Creator: No se utiliza.
 
 namespace Library
 {

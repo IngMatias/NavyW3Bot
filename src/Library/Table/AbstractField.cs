@@ -1,26 +1,19 @@
-﻿// S - SRP: Esta clase define los metodos necesarios para cambiar el estado del tablero.
+﻿
+// S -  SRP: Esta clase define los metodos para la representacion del tablero.
 
-// O - OCP: Se cumple. Si se deseara añadir un comportamiento al tablero, se debería crear una nueva clase abtracta con el
-//           comportamiento definido a esta nueva clase y hacer que AbstractVesselSaver lo herede.
-//           Recordar que Table es una clase compuesta por:
-//           AbstractVesselSaver -> AbstractField -> AbstractAttackable -> AbstractTable -> Table
-//           AbstractVesselSaver es la última clase en la cadena, si esta clase hereda un comportamiento, todas las clases
-//           que hereden a esta úlitma tambien habrán heredado el nuevo comportamiento, haciendo que se cumpla el principio.
+// O -  OCP: Se cumple. Si se deseara añadir un comportamiento de almacenamiento de barcos basta con crear una nueva clase.
 
-// L - LSP: Se cumple. Cualquier objeto Table puede ser sustituido por el tipo AbstractField, mas si esto se hiciera no se
-//           contaría con todos los comportamientos de las clases que heredan a esta.
+// L -  LSP: Se cumple. Cualquier objeto que herede esta clase es y debe ser un subtipo de esta.
 
-// I - ISP: No se aplica.
+// I -  ISP: No se aplica.
 
-// D - DIP: Se aplica DIP, esto se puede ver en el diseño de Table (clase de bajo nivel), esta depende de abstracciones
-//           no de clases de bajo nivel.
+// D -  DIP: Esta clase depende solamente de abstracciones.
 
-// Expert: Esta clase es la experta en el control de el estado del tablero. Define todos los metodos e informacion necesarios
-//          para modificar el tablero.
+//      Expert: Esta clase conoce la representacion del tablero, por lo que define los metodos para su consulta y transformacion. 
 
-// Polymorphism: No se aplica.
+//      Polymorphism: No se aplica.
 
-// Creator: No se aplica.
+//      Creator: No se aplica.
 
 using System;
 using System.Text;

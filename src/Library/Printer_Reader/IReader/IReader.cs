@@ -1,21 +1,19 @@
-﻿// S - SRP: Esta interfaz define las operaciones que debe definir un IReader para poder comunicarse el cliente con el programa.
+﻿
+// S -  SRP: Esta clase define la lectura al cliente de cualquier informacion.
 
-// O - OCP: Se aplica ya que si se quisiese agregar una comunicacion un con otra plataforma (Ej: Telegram)
-//           no se deberia cambiar nada, simplemente se deberia agregar una clase que implemente esta interfaz 
-//           a favor de telegram.
+// O -  OCP: Basta con implementar IReader para crear una nueva forma de mostrar informacion.
 
-// L - LSP: Se aplica a la hora de utilizar un IReader, cualquier objeto que implemente esta interfaz podra ser 
-//           sustituido por este tipo y no cambiara su funcionamiento.
+// L -  LSP: Cualquier clase que implemente IReader debe ser un subtipo de IReader.
 
-// I - ISP: Esta interfaz define las operaciones minimas necesarias para que el cliente pueda comunicarse con el programa.
+// I -  ISP: No se utiliza.
 
-// D - DIP: No se aplica.
+// D -  DIP: Esta clase depende de abstracciones.
 
-// Expert: Esta clase es experta en conocer las operaciones necesarias para que el cliente pueda comunicarse con el programa.
+//      Expert: No aplica.
 
-// Polymorphism: Cada objeto que implemente esta interfaz podra definir las operaciones siguiendo sus necesidasdes.
+//      Polymorphism: Print es polimorfico en todos los IPrinter.
 
-// Creator: No se utiliza.
+//      Creator: No se utiliza.
 
 namespace Library
 {

@@ -1,19 +1,20 @@
-// S - SRP: Esta clase tiene la responsabilidad de situar un punto de ataque.
 
-// O - OCP: Esta clase cumple con el principio, ya que si se quiere agregar una nueva forma de ataque basta con
-//          heredar esta clase.
+// S -  SRP: Esta clase tiene la responsabilidad de situar un punto de ataque.
 
-// L - LSP: Cualquier clase que herede de AbstractAttacker es y debe ser un subtipo.
+// O -  OCP: Esta clase cumple con el principio, ya que si se quiere agregar una nueva forma de ataque basta con
+//      heredar esta clase.
 
-// I - ISP: No es utilizado el principio en esta clase ya que no se implementa ninguna interfaz.
+// L -  LSP: Cualquier clase que herede de AbstractAttacker es y debe ser un subtipo.
 
-// D - DIP: Esta clase cumple con el principio ya que no depende de otra clase.
+// I -  ISP: No es utilizado el principio en esta clase ya que no se utiliza ninguna interfaz.
 
-// Expert: No se utiliza.
+// D -  DIP: Esta clase cumple con el principio ya que no depende de ninguna otra clase.
 
-// Polymorphism: No se utiliza.
+//      Expert: No se utiliza.
 
-// Creator: No se utiliza.
+//      Polymorphism: Las propiedades son polimorficas a cualquier Attacker.
+
+//      Creator: No se utiliza.
 
 namespace Library
 {

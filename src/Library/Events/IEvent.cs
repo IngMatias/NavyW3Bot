@@ -1,20 +1,22 @@
-﻿using System.Collections.Generic;
+﻿
+// S -  SRP: Esta interface tiene como responsabilidad definir el tipo IEvent.
 
-// S - SRP: Esta interfaz tiene la responsabilidad de hacer un evento.
+// O -  OCP: Esta clase cumple con el principio, ya que si se quiere agregar un nuevo evento basta con
+//      implementar esta interface.
 
-// O - 
+// L -  LSP: Cualquier clase que implemente IEvent es y debe ser un subtipo.
 
-// L - LSP: No aplica
+// I -  ISP: No se utiliza.
 
-// I - ISP: No aplica.
+// D -  DIP: El metodo definido en esta interface depende solamente de abstracciones.
 
-// D - DIP: Depende de AbstractTable la cual es una abstraccion por lo tanto cumple con DIP.
+//      Expert: No aplica.
 
-// Expert: No aplica.
+//      Polymorphism: El metodo DoEvent es polimorfico a todos los IEvent.
 
-// Polymorphism: La operacion DoEvent es polimorfica a todos los IEvent.
+//      Creator: No aplica.
 
-// Creator: No aplica.
+using System.Collections.Generic;
 
 namespace Library
 {

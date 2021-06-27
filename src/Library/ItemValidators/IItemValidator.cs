@@ -1,20 +1,20 @@
-﻿// S - SRP: Esta interface tiene la responsabilidad de validar si se puede agregar un item.
+﻿
+// S -  SRP: Esta interface tiene la responsabilidad de definir el tipo IItemValidator.
 
-// O - OCP: Utilizando IItemValidator - podemos permitir tener un agregado de nuevos validadores 
-//          sin la necesidad de alterar el codigo, sino mas bien simplemente agregando una nueva clase.
+// O -  OCP: Implementando IItemValidator podemos permitir tener un agregado de nuevos items 
+//          sin la necesidad de alterar el codigo, sino mas bien simplemente agregando nuevas clases.
 
-// L - LSP: Esta clase es un subtipo de IItemValidator
+// L -  LSP: Todas las clases que implementen esta interface son y deben ser subtipos.
 
-// I - ISP: 
+// I -  ISP: No aplica.
 
-// D - DIP: El metodo IsAddable depende de una clase abstracta por lo tanto cumple con DIP
+// D -  DIP: El metodo IsAddable depende de abstracciones por lo tanto se cumple el patron.
 
-// Expert: No se aplica.
+//      Expert: No aplica.
 
-// Polymorphism: El metodo IsAddable es polimorfico.
+//      Polymorphism: El metodo IsAddable es polimorfico.
 
-// Creator: No se aplica.
-
+//      Creator: Esta clase usa al patron ya que crea instancias de clases que se usan de manera cercana (Excepciones).
 
 namespace Library
 {

@@ -1,19 +1,20 @@
-﻿// S - SRP: Esta clase tiene la responsabilidad de validar si se puede agregar el item SateliteLock.
+﻿
+// S -  SRP: Esta clase tiene la responsabilidad de validar si se puede agregar el item SateliteLock.
 
-// O - OCP: Utilizando IItemValidator - podemos permitir tener un agregado de nuevos validadores 
-//          sin la necesidad de alterar el codigo, sino mas bien simplemente agregando una nueva clase.
+// O -  OCP: Implementando IItemValidator podemos permitir tener un agregado de nuevos items 
+//          sin la necesidad de alterar el codigo, sino mas bien simplemente agregando nuevas clases.
 
-// L - LSP: Esta clase es un subtipo de IItemValidator
+// L -  LSP: Esta clase es un subtipo de IItemValidator.
 
-// I - ISP: 
+// I -  ISP: No aplica.
 
-// D - DIP: El metodo IsAddable depende de una clase abstracta por lo tanto cumple con DIP
+// D -  DIP: El metodo IsAddable depende de abstracciones por lo tanto se cumple el patron.
 
-// Expert: 
+//      Expert: No aplica.
 
-// Polymorphism: El metodo IsAddable es polimorfico.
+//      Polymorphism: El metodo IsAddable es polimorfico.
 
-// Creator: Esta clase usa al patron ya que crea instancias de clases cercanas.
+//      Creator: Esta clase usa al patron ya que crea instancias de clases que se usan de manera cercana (Excepciones).
 
 namespace Library
 {

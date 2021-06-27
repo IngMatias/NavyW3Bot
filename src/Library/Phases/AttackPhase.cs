@@ -1,20 +1,20 @@
-// S - SRP: Esta interfaz define la fase de Ataque.
 
-// O - OCP: No se utiliza.
+// S -  SRP: Esta interfaz define la fase de Ataque.
+
+// O -  OCP: Implementando IPhase podemos permitir el agregado de nuevas fases 
+//      sin la necesidad de alterar el codigo, sino mas bien simplemente agregando una nueva clase.
            
-// L - LSP: Se cumple. Si se sustituye por IPhase su comportamiento es el mismo.
+// L -  LSP: AttackPhase es un subtipo de IPhase.
 
-// I - ISP: Se cumple, utiliza todas las operaciones que define la interfaz, ninguna operacion esta de mas.
+// I -  ISP: No se usan todas las operaciones definidas en IPriner e IReader.
 
-// D - DIP: Se rompe el principio cuando se depende de una clase de bajo nivel como random, InputTable, InputVessel y InputAttack.
-//           Para que las tres ultimas cumplan con este principio, se deberian definir interfaces para que AttackPhase dependa de estas
-//           interfaces y no de clases de bajo nivel.
+// D -  DIP: Se rompe el principio cuando se depende de clases de bajo nivel como InputTable, InputVessel e InputAttack.
 
-// Expert: No se utiliza.
+//      Expert: No se utiliza.
 
-// Polymorphism: Se define el metodo Excecute.
+//      Polymorphism: El metodo Excecute es polimorfico en todos los IPhase.
 
-// Creator: No se aplica.
+//      Creator: Se crean InputTable, InputVessel e InputAttack ya que se utilizan de manera cercana.
 
 using System;
 using System.Collections.Generic;
@@ -23,21 +23,22 @@ namespace Library
 {
     public class AttackPhase : IPhase
     {
-        // Dependencias.
-            private InputTable _tableOption = new InputTable();
-            private InputVessel _vesselOption = new InputVessel();
-            private InputAttack _attackWith = new InputAttack();
-
         public List<int> Execute(AbstractTable player, List<AbstractTable> enemies, IPrinter clientP, IReader clientR)
         {
+
+            // Dependencias.
+            InputTable tableOption = new InputTable();
+            InputVessel vesselOption = new InputVessel();
+            InputAttack attackWith = new InputAttack();
+
             // Mostrar los tableros de los enemigos y seleccionar uno.
-            int tableToAttack = _tableOption.TakeOptionTable(enemies.AsReadOnly(), clientP, clientR);
+            int tableToAttack = tableOption.TakeOptionTable(enemies.AsReadOnly(), clientP, clientR);
 
             // Mostrar los barcos disponibles y seleccionar uno.
-            int vesselToAttack = _vesselOption.TakeOptionVessel(player.GetVessels(), clientP, clientR);
+            int vesselToAttack = vesselOption.TakeOptionVessel(player.GetVessels(), clientP, clientR);
 
             // Atacar con el barco.
-            _attackWith.AttackForm(player.GetVessels()[vesselToAttack]).Attack(player.GetVessels()[vesselToAttack], enemies[tableToAttack], clientP, clientR);
+            attackWith.AttackForm(player.GetVessels()[vesselToAttack]).Attack(player.GetVessels()[vesselToAttack], enemies[tableToAttack], clientP, clientR);
 
             return new List<int> { };
         }

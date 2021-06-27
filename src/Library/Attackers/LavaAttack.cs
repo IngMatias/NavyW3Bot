@@ -1,20 +1,21 @@
-// S - SRP: Esta clase tiene la responsabilidad de conocer como ataca la lava.
 
-// O - OCP: Utilizando AbstractAttacker podemos permitir tener un agregado de nuevos ataques 
-//          sin la necesidad de alterar el codigo, sino mas bien simplemente agregando una nueva clase.
+// S -  SRP: Esta clase tiene una responsabilidad estructural.
 
-// L - LSP: LavaAttack puede ser intercambiado por cualquier otro Attackers, y puede a su vez recibir 
-//          los mismos mensajes, sin embargo se comporta de distinta manera.
+// O -  OCP: Esta clase es un ejemplo del uso de OCP, se hereda la clase AbstractAttacker pero no se
+//      modifica el codigo existente para agregar una forma de ataque.
 
-// I - ISP: No se utiliza.
+// L -  LSP: Este Attack puede ser intercambiado por cualquier otro Attack, puede recibir los mismos 
+//      mensajes.
 
-// D - DIP: LavaAttack depende de una abstraccion por lo tanto cumple con DIP.
+// I -  ISP: No es utilizado el principio en esta clase ya que no se utiliza ninguna interfaz.
 
-// Expert: No se utiliza.
+// D -  DIP: Este Attack depende solo de una abstraccion por lo tanto cumple con DIP.
 
-// Polymorphism: No se utiliza.
+//      Expert: No se utiliza.
 
-// Creator: No se utiliza.
+//      Polymorphism: No se utiliza..
+
+//      Creator: No se utiliza.
 
 namespace Library
 {

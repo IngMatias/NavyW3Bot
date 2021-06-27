@@ -1,27 +1,19 @@
-﻿// S - SRP: Esta clase define el comportamiento de los barcos de un tablero, es decir, tiene la responsabilidad de 
-//           definir los metodos por los cuales el tablero podra manejar la informacion de sus barcos.
+﻿
+// S -  SRP: Esta clase define los metodos para el almacenamiento de barcos dentro del tablero.
 
-// O - OCP: Se cumple. Si se deseara añadir un comportamiento al tablero, se debería crear una nueva clase abtracta con el
-//           comportamiento definido a esta nueva clase y hacer que AbstractVesselSaver lo herede.
-//           Recordar que Table es una clase compuesta por:
-//           AbstractVesselSaver -> AbstractField -> AbstractAttackable -> AbstractTable -> Table
-//           AbstractVesselSaver es la última clase en la cadena, si esta clase hereda un comportamiento, todas las clases
-//           que hereden a esta úlitma tambien habrán heredado el nuevo comportamiento, haciendo que se cumpla el principio.       
+// O -  OCP: Se cumple. Si se deseara añadir una forma de almacenamiento basta con crear una nueva clase.
 
-// L - LSP: Se cumple. Cualquier objeto Table puede ser sustituido por el tipo AbstractVesselSaver, mas si esto se hiciera no se
-//           contaría con todos los comportamientos de las clases que heredan a esta.
+// L -  LSP: Se cumple. Cualquier objeto que herede esta clase es y debe ser un subtipo de esta.
 
-// I - ISP: No se aplica.
+// I -  ISP: No se aplica.
 
-// D - DIP: Se aplica DIP, esto se puede ver en el diseño de Table (clase de bajo nivel), esta depende de abstracciones
-//           no de clases de bajo nivel.
+// D -  DIP: Esta clase depende solamente de abstracciones.
 
-// Expert: Esta clase es la experta en el manejo de los barcos, es decir la experta en agregar/quitar barcos del tablero
-//          y de guardar el registro de los barcos que tiene cada tablero.
+//      Expert: Esta clase conoce los los barcos y su posicion, por lo tanto se encarga de manejarla. 
 
-// Polymorphism: No se aplica.
+//      Polymorphism: No se aplica.
 
-// Creator: No se aplica.
+//      Creator: No se aplica.
 
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
