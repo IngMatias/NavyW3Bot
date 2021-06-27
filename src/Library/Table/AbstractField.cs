@@ -165,9 +165,6 @@ namespace Library
         }
         public void RemoveVessel(int x, int y, Field data)
         {
-            int xAux = x;
-            int yAux = y;
-
             (int, int) aux = this.GetLeftUp(x, y);
 
             // Up y Left forman la posicion mas arriba y mas a la izquierda de un barco, 
@@ -178,14 +175,19 @@ namespace Library
 
             this.RemoveVessel((up, left));
 
-            while (this.IsOrWasAVessel(xAux, y))
+            int xAux = left;
+            int yAux = up;
+
+            while (this.IsOrWasAVessel(xAux, yAux))
             {
                 this.UpdateAt(xAux, yAux, data);
                 xAux = xAux + 1;
             }
-            xAux = up;
-            yAux = left + 1;
-            while (this.IsOrWasAVessel(x, yAux))
+
+            xAux = left;
+            yAux = up + 1;
+            
+            while (this.IsOrWasAVessel(xAux, yAux))
             {
                 this.UpdateAt(xAux, yAux, data);
                 yAux = yAux + 1;

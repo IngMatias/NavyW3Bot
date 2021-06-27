@@ -1,8 +1,9 @@
+using System;
 using NUnit.Framework;
 
 namespace Library.Test
 {
-    public class TableAddVessels
+    public class RemoveVesselsTest
     {
         private Table _tab;
         private Battleship _battleship;
@@ -14,36 +15,27 @@ namespace Library.Test
             this._battleship = new Battleship();
         }
         [Test]
-        public void EmptyTable()
-        {
-            Assert.IsTrue(this._tab.IsEmpty());
-        }
-        [Test]
-        public void NormalVerticalAdd()
+        public void NormalVerticalRemove()
         {
             this._tab.AddVessel(1,1,this._battleship,true);
-            Assert.AreEqual('3', this._tab.ListTable()[6][1]);
+            this._tab.RemoveVessel(1,3,AbstractField.Field.unattackableWater);
+            Assert.IsTrue(this._tab.IsEmpty());
         }
         [Test]
-        public void NormalHorizontalAdd()
+        public void NormalHorizontalRemove()
         {
             this._tab.AddVessel(1,1,this._battleship,false);
-            Assert.AreEqual('3', this._tab.ListTable()[1][6]);
-        }
-        [Test]
-        public void EdgeAdd()
-        {
-            this._tab.AddVessel(0,0,this._battleship,true);
+            this._tab.RemoveVessel(3,1,AbstractField.Field.unattackableWater);
             Assert.IsTrue(this._tab.IsEmpty());
         }
         [Test]
-        public void NotAtAllInTable()
+        public void EmptyRemove()
         {
-            this._tab.AddVessel(12,1,this._battleship,false);
+            this._tab.RemoveVessel(1,1,AbstractField.Field.unattackableWater);
             Assert.IsTrue(this._tab.IsEmpty());
         }
         [Test]
-        public void AllOutTable()
+        public void RemoveOutTable()
         {
             this._tab.AddVessel(25,30,this._battleship,false);
             Assert.IsTrue(this._tab.IsEmpty());

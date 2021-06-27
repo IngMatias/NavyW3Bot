@@ -3,7 +3,7 @@ using NUnit.Framework;
 
 namespace Library.Test
 {
-    public class AttackTableTest
+    public class AbstractAttackableTest
     {
         private Table _tab;
         private Battleship _battleship;
@@ -26,11 +26,6 @@ namespace Library.Test
             this._meteorShower = new MeteorShower();
         }
         [Test]
-        public void EmptyWater()
-        {
-            Assert.AreEqual('0', this._tab.ListTable()[1][1]);
-        }
-        [Test]
         public void EmptyAfterAttack()
         {
             this._tab.AddVessel(1,1,this._battleship,true);
@@ -47,13 +42,6 @@ namespace Library.Test
             Assert.IsTrue(this._tab.IsEmpty());
         }
         [Test]
-        public void EmptyAfterEvent()
-        {
-            List<AbstractTable> aux = new List<AbstractTable> {this._tab};
-            this._meteorShower.DoEvent(aux);
-            Assert.IsTrue(this._tab.IsEmpty());
-        }
-        [Test]
         public void MissilToWater()
         {
             this._tab.AttackAt(1,1,this._missile);
@@ -64,12 +52,6 @@ namespace Library.Test
         {
             this._tab.AttackAt(1,1,this._load);
             Assert.AreEqual('2', this._tab.ListTable()[1][1]);
-        }
-        [Test]
-        public void HiddenVessel()
-        {
-            this._tab.AddVessel(1,1,this._battleship,true);
-            Assert.AreEqual('3', this._tab.ListTable()[1][1]);
         }
         [Test]
         public void FoundedVessel()

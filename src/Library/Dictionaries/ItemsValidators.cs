@@ -24,32 +24,15 @@ namespace Library
     public class ItemsValidators
     {
         private Dictionary<System.Type, IItemValidator> _itemValidator;
-
-        // Se crean las variables de instancia para evitar que cada vez que se llame a la clase se creen instancias inecesariamente.
-
-        // Vessels.
-        private IItem _antiAircraft = new AntiaircraftMissile();
-        private IItem _armor = new Armor();
-        private IItem _hackers = new Hackers();
-        private IItem _kong = new Kong();
-        private IItem _sateliteLock = new SateliteLock();
-
-        // Validators.
-        private IItemValidator _antiAircraftValidator = new AntiaircraftMissileValidator();
-        private IItemValidator _armorValidators = new ArmorValidator();
-        private IItemValidator _hackersValidators = new HackersValidator();
-        private IItemValidator _kongValidator = new KongValidator();
-        private IItemValidator _sateliteLockValidator = new SateliteLockValidator();
-
         public ItemsValidators()
         {
             this._itemValidator = new Dictionary<System.Type, IItemValidator>
             {
-                {_antiAircraft.GetType(), _antiAircraftValidator},
-                {_armor.GetType(), _armorValidators },
-                {_hackers.GetType(), _hackersValidators},
-                {_kong.GetType(), _kongValidator},
-                {_sateliteLock.GetType(), _sateliteLockValidator},
+                {new AntiaircraftMissile().GetType(), new AntiaircraftMissileValidator()},
+                {new Armor().GetType(), new ArmorValidator()},
+                {new Hackers().GetType(), new HackersValidator()},
+                {new Kong().GetType(), new KongValidator()},
+                {new SateliteLock().GetType(), new SateliteLockValidator()},
             };
         }
         public IItemValidator ValidatorOf(IItem item)
