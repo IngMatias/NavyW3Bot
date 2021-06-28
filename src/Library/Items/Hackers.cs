@@ -13,7 +13,7 @@
 
 //      Expert: No se utiliza.
 
-//      Polymorphism: No se utiliza..
+//      Polymorphism: No se utiliza.
 
 //      Creator: No se utiliza.
 
