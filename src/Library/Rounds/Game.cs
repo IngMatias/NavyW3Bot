@@ -27,6 +27,7 @@ namespace Library
         }
         public AbstractTable Execute(IPrinter clientP, IReader clientR)
         {
+            // Dependencias.
             IPhase vesselsPositioningPhase = new VesselsPositioningPhase();
             IPhase itemPositioningPhase = new ItemPositioningPhase();
             IPhase playerPhase = new AttackPhase();
