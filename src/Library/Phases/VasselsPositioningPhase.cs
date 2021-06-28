@@ -21,7 +21,7 @@ using System.Collections.Generic;
 
 namespace Library
 {
-    public class VasselsPositioningPhase : IPhase
+    public class VesselsPositioningPhase : IPhase
     {
         private List<AbstractVessel> _vessels = new List<AbstractVessel>
         {
