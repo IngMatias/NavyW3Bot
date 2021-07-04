@@ -8,7 +8,7 @@ namespace Program
     {
         static void Main(string[] args)
         {
-            IRound game = new Game();
+            /*IRound game = new Game();
             IPrinter clientP = new ClientPrinter();
             IReader clientR = new ClientReader();
 
@@ -17,8 +17,10 @@ namespace Program
             Table tab2 = new Table();
             game.AddPlayer(tab2);
 
-            game.Execute(clientP, clientR);
+            game.Execute(clientP, clientR);*/
 
+            ClientTelegramReader telegram = new ClientTelegramReader();
+            telegram.Read();
         }
     }
 }
