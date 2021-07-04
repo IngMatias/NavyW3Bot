@@ -1,6 +1,4 @@
-
 using System;
-
 using Telegram.Bot;
 // Se usa para MessageEventArgs.
 using Telegram.Bot.Args;
@@ -22,12 +20,11 @@ namespace Library
                 long id = chatInfo.Id;
 
                 IPrinter clientP = new ClientTelegramPrinter(client, id);
-                JoinCommand start = new JoinCommand();
+                StartHandler start = new StartHandler();
                 
                 start.DoCommand(messageText, clientP);
             }
         }
-
         public string Read()
         {
             TelegramBot telegramBot = TelegramBot.Instance;
@@ -47,7 +44,6 @@ namespace Library
 
             return "";
         }
-
         public string Read(IPrinter printer, object msg)
         {
             throw new System.NotImplementedException();
