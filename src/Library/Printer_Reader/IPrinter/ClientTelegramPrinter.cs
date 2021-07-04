@@ -31,9 +31,7 @@ namespace Library
         }
         public void Print(object ToPrint)
         {
-            this._client.SendTextMessageAsync(
-                chatId: this._id,
-                text: ToPrint.ToString());
+            this._client.SendTextMessageAsync(chatId: this._id, text: ToPrint.ToString());
         }
     }
 }

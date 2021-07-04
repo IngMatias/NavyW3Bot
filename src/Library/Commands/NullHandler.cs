@@ -1,9 +1,9 @@
 namespace Library
 {
-    public class NullCommand : AbstractCommand
+    public class NullHandler : AbstractHandlers
     {
-        private AbstractCommand nextCommand;
-        public NullCommand()
+        private AbstractHandlers nextHandler;
+        public NullHandler()
         {
         }
         public override void DoCommand(string command, IPrinter clientP)
