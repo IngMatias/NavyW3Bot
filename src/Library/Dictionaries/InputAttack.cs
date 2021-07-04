@@ -24,15 +24,29 @@ namespace Library
     public class InputAttack
     {
         private Dictionary<System.Type, InputAbstractAttack> _attackForms;
+
+        // Vassels.
+        private AbstractVessel _battleship = new Battleship();
+        private AbstractVessel _frigate = new Frigate();
+        private AbstractVessel _heavyCruiser = new HeavyCruiser();
+        private AbstractVessel _lightCruiser = new LightCruiser();
+        private AbstractVessel _submarine = new Submarine();
+
+        // Inputs.
+        private InputAbstractAttack _inputBattleship = new InputBattleshipAttack();
+        private InputAbstractAttack _inputFrigate = new InputFrigateAttack();
+        private InputAbstractAttack _inputHeavyCruiser = new InputHeavyCruiserAttack();
+        private InputAbstractAttack _inputLightCruiser = new InputLightCruiserAttack();
+        private InputAbstractAttack _inputSubmarine = new InputSubmarineAttack();
         public InputAttack()
         {
             this._attackForms = new Dictionary<System.Type, InputAbstractAttack>
             {
-                {new Battleship().GetType(), new InputBattleshipAttack()},
-                {new Frigate().GetType(), new InputFrigateAttack()},
-                {new HeavyCruiser().GetType(), new InputHeavyCruiserAttack()},
-                {new LightCruiser().GetType(), new InputLightCruiserAttack()},
-                {new Submarine().GetType(), new InputSubmarineAttack()},
+                {_battleship.GetType(), _inputBattleship},
+                {_frigate.GetType(), _inputFrigate},
+                {_heavyCruiser.GetType(),_inputHeavyCruiser},
+                {_lightCruiser.GetType(), _inputLightCruiser},
+                {_submarine.GetType(), _inputSubmarine},
             };
         }
         public InputAbstractAttack AttackForm(AbstractVessel vessel)
