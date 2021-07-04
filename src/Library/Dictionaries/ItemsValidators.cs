@@ -24,15 +24,28 @@ namespace Library
     public class ItemsValidators
     {
         private Dictionary<System.Type, IItemValidator> _itemValidator;
+        // Items.
+        private IItem _antiAircraft = new AntiaircraftMissile();
+        private IItem _armor = new Armor();
+        private IItem _hackers = new Hackers();
+        private IItem _kong = new Kong();
+        private IItem _sateliteLock = new SateliteLock();
+
+        // Vessels.
+        private IItemValidator _antiaircraftValidator = new AntiaircraftMissileValidator();
+        private IItemValidator _armorValidator = new ArmorValidator();
+        private IItemValidator _hackersValidator = new HackersValidator();
+        private IItemValidator _kongValidator = new KongValidator();
+        private IItemValidator _sateliteLockValidator = new SateliteLockValidator();
         public ItemsValidators()
         {
             this._itemValidator = new Dictionary<System.Type, IItemValidator>
             {
-                {new AntiaircraftMissile().GetType(), new AntiaircraftMissileValidator()},
-                {new Armor().GetType(), new ArmorValidator()},
-                {new Hackers().GetType(), new HackersValidator()},
-                {new Kong().GetType(), new KongValidator()},
-                {new SateliteLock().GetType(), new SateliteLockValidator()},
+                {_antiAircraft.GetType(), _antiaircraftValidator},
+                {_armor.GetType(), _armorValidator},
+                {_hackers.GetType(), _hackersValidator},
+                {_kong.GetType(), _kongValidator},
+                {_sateliteLock.GetType(), _sateliteLockValidator},
             };
         }
         public IItemValidator ValidatorOf(IItem item)

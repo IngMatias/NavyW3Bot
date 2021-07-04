@@ -24,15 +24,29 @@ namespace Library
     public class AttacksValidators
     {
         private Dictionary<System.Type, IAttackValidator> _attackValidator;
+        // Items.
+        private IItem _antiAircraft = new AntiaircraftMissile();
+        private IItem _armor = new Armor();
+        private IItem _hackers = new Hackers();
+        private IItem _kong = new Kong();
+        private IItem _sateliteLock = new SateliteLock();
+
+        // Validators.
+        private IAttackValidator _antiaircraftAttackValidator = new AntiaircraftMissileAttackValidator();
+        private IAttackValidator _armorAttackValidator = new ArmorAttackValidator();
+        private IAttackValidator _hackersAttackValidator = new HackersAttackValidator();
+        private IAttackValidator _kongAttackValidator = new KongAttackValidator();
+        private IAttackValidator _sateliteLockAttackValidator = new SateliteLockAttackValidator();
+
         public AttacksValidators()
         {
             this._attackValidator = new Dictionary<System.Type, IAttackValidator>
             {
-                {new AntiaircraftMissile().GetType(), new AntiaircraftMissileAttackValidator()},
-                {new Armor().GetType(), new ArmorAttackValidator() },
-                {new Hackers().GetType(), new HackersAttackValidator()},
-                {new Kong().GetType(), new KongAttackValidator()},
-                {new SateliteLock().GetType(), new SateliteLockAttackValidator()},
+                {_antiAircraft.GetType(), _antiaircraftAttackValidator},
+                {_armor.GetType(), _armorAttackValidator },
+                {_hackers.GetType(), _hackersAttackValidator},
+                {_kong.GetType(), _kongAttackValidator},
+                {_sateliteLock.GetType(), _sateliteLockAttackValidator},
             };
         }
         public IAttackValidator ValidatorOf(IItem item)
