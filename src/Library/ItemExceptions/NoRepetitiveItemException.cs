@@ -20,7 +20,7 @@ using System;
 namespace Library
 {
     [Serializable]
-    internal class NoRepetitiveItemException : Exception
+    public class NoRepetitiveItemException : Exception
     {
     }
 }

@@ -30,10 +30,6 @@ namespace Library
             {
                 throw new TooShortVesselException();
             }
-            if (vesselToAdd.Items[position] != null)
-            {
-                throw new NoEmptyPositionException();
-            }
             return true;
         }
     }
