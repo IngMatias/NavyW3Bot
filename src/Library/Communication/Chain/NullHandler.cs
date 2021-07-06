@@ -8,7 +8,7 @@ namespace Library
         }
         public override void DoCommand(string command, AbstractPlayer player)
         {
-            player.SendMessage("Comando Inválido");
+            player.SendMessage("Comando invalido. ");
         }
     }
 }

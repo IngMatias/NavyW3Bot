@@ -5,6 +5,9 @@ namespace Library
 {
     public class Vessel
     {
+        private Vessel()
+        {
+        }
         private static List<AbstractVessel> _vessels = new List<AbstractVessel> 
         {
             new Battleship(),

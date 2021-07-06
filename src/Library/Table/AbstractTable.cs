@@ -79,7 +79,44 @@ namespace Library
                     itemIndex++;
                 }
                 toReturn.Append("\n");
-                vesselIndex++;
+                itemIndex = 1;
+                vesselIndex ++;
+            }
+            return toReturn.ToString();
+        }
+        public string EmoticTable()
+        {
+            StringBuilder toReturn = new StringBuilder();
+            for (int j = 0; j < this.YLength(); j++)
+            {
+                for (int i = 0; i < this.XLength(); i++)
+                {
+                    if (this.At(i, j) == Field.attackableWater)
+                    {
+                        toReturn.Append("\U0001F30A");
+                    }
+                    if (this.At(i, j) == Field.attackedWater)
+                    {
+                        toReturn.Append("\U00002753");
+                    }
+                    if (this.At(i, j) == Field.unattackableWater)
+                    {
+                        toReturn.Append("\U00002B55");
+                    }
+                    if (this.At(i, j) == Field.liveHiddenVessel)
+                    {
+                        toReturn.Append("\U0001F6A2");
+                    }
+                    if (this.At(i, j) == Field.livedVessel)
+                    {
+                        toReturn.Append("\U0001F198");
+                    }
+                    if (this.At(i, j) == Field.deadVessel)
+                    {
+
+                    }
+                }
+                toReturn.Append("\n");
             }
             return toReturn.ToString();
         }

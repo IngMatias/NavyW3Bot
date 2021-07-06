@@ -17,12 +17,26 @@
 
 //      Creator: Esta clase usa el patron ya que guarda instancias de IItem e IItemValidator.
 
+using System;
 using System.Collections.Generic;
 
 namespace Library
 {
     public class ItemsValidators
     {
+        private static ItemsValidators _intance;
+        public static ItemsValidators Instance
+        {
+            get
+            {
+                if (_intance == null)
+                {
+                    _intance = new ItemsValidators();
+                }
+                return _intance;
+            }
+        }
+
         private static Dictionary<System.Type, IItemValidator> _itemValidator;
         // Items.
         private IItem _antiAircraft = new AntiaircraftMissile();
@@ -37,7 +51,7 @@ namespace Library
         private IItemValidator _hackersValidator = new HackersValidator();
         private IItemValidator _kongValidator = new KongValidator();
         private IItemValidator _sateliteLockValidator = new SateliteLockValidator();
-        public ItemsValidators()
+        private ItemsValidators()
         {
             _itemValidator = new Dictionary<System.Type, IItemValidator>
             {
@@ -48,9 +62,10 @@ namespace Library
                 {_sateliteLock.GetType(), _sateliteLockValidator},
             };
         }
-        public static IItemValidator Of(IItem item)
+        public IItemValidator Of(IItem item)
         {
             return _itemValidator[item.GetType()];
+
         }
     }
 }

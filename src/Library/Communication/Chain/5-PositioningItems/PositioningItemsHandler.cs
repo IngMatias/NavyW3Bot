@@ -14,7 +14,9 @@ namespace Library
             if (command.StartsWith("add") && player.IsPositioningItem() && command.Split(" ").Length == 3)
             {
                 int vesselInt = StringToInt.Convert(command.Split(" ")[1], player) - 1;
+
                 int position = StringToInt.Convert(command.Split(" ")[2], player) - 1;
+
                 player.AddItem(position,Item.Instance.Next(player) ,player.Vessels[vesselInt]);
                     
                 player.SendMessage(player.Vessels.ToString());

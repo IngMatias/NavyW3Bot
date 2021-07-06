@@ -22,7 +22,7 @@ namespace Library
         {
             get
             {
-                return this._table.StringTable();
+                return this._table.EmoticTable();
             }
         }
         public ReadOnlyCollection<AbstractVessel> Vessels

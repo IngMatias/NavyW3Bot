@@ -8,7 +8,7 @@ namespace Library
         }
         public void AddItem(int position, IItem toAdd, AbstractVessel vessel)
         {
-            vessel.AddItem(position, toAdd, this._table, ItemsValidators.Of(toAdd));
+            vessel.AddItem(position, toAdd, this._table, ItemsValidators.Instance.Of(toAdd));
         }
         public int CountItems()
         {
