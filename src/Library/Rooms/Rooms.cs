@@ -7,29 +7,46 @@ namespace Library
         private Dictionary<int,Room> _rooms;
         private int _id = 0; 
         private static Rooms _instance;
-
-        public int AddSession()
+        public static Rooms Instance
         {
-            Room newSession = new Room(this._id);
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new Rooms();
+                }
+                return _instance;
+            }
+        }
+        private Rooms()
+        {
+            this._rooms = new Dictionary<int, Room> ();
+        }
+        public int AddSession(AbstractPlayer newPlayer)
+        {
+            Room newSession = new Room(this._id, newPlayer);
             this._rooms.Add(this._id, newSession);
             this._id += 1;
             return this._id -1;
         }
-        public Room GetSession(int id)
+        public Room GetRoom(int id)
         {
             return this._rooms[id];
         }
-        public void AddPlayer(Player newPlayer, int id)
+        public Room GetRoomByHost(AbstractPlayer maybeHost)
+        {
+            foreach(Room room in this._rooms.Values)
+            {
+                if (room.Host == maybeHost)
+                {
+                    return room;
+                }
+            }
+            return null;
+        }
+        public void AddPlayer(AbstractPlayer newPlayer, int id)
         {
             this._rooms[id].AddPlayer(newPlayer);
-        }
-        public static Rooms Instance()
-        {
-            if (_instance == null)
-            {
-                _instance = new Rooms();
-            }
-            return _instance;
         }
     }
 }

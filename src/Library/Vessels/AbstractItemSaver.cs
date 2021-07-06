@@ -68,6 +68,10 @@ namespace Library
             if (validator.IsAddable(position, this, table))
             {
                 this._items[position] = toAdd;
+                if (toAdd is IBlockItem)
+                {
+                    this.Block();
+                }
                 return true;
             }
             return false;
@@ -77,6 +81,10 @@ namespace Library
             int index = Array.IndexOf(this._items, toRemove);
             if (index != -1)
             {
+                if (this._items[index] is IBlockItem)
+                {
+                    this.Unblock();
+                }
                 this._items[index] = null;
             }
         }

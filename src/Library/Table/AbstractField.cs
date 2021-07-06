@@ -138,6 +138,7 @@ namespace Library
                 {
                     if (this.IsOrWasAVessel(i, j))
                     {
+                        Console.WriteLine("No entro aqui2");
                         return false;
                     }
                 }
@@ -186,7 +187,7 @@ namespace Library
 
             xAux = left;
             yAux = up + 1;
-            
+
             while (this.IsOrWasAVessel(xAux, yAux))
             {
                 this.UpdateAt(xAux, yAux, data);
