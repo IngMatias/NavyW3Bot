@@ -10,10 +10,10 @@ namespace Library
         }
         public override void DoCommand(string command, AbstractPlayer player)
         {
-            if (command == ("create") && player.IsWaitingForJoin())
+            if (command.Equals("create") && player.IsWaitingForJoin())
             {
-                player.SendMessage("Comando /create recibido");
                 player.SendMessage("Su Id de partida es: " + Rooms.Instance.AddSession(player));
+                player.SendMessage("Su partida se ha creado correctamente.");
                 player.NextState();
             }
             else

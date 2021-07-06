@@ -6,7 +6,20 @@ namespace Library
 {
     public class Item
     {
-        private static List<IItem> _items = new List<IItem> 
+        private static Item _instance;
+        public static Item Instance
+        {
+            get
+            {
+                if(_instance == null)
+                {
+                    _instance = new Item();
+                }
+                return _instance;
+            }
+
+        }
+        private List<IItem> _items = new List<IItem> 
         {
             new AntiaircraftMissile(),
             new Armor(),
@@ -14,9 +27,22 @@ namespace Library
             new Kong(),
             new SateliteLock(),
         };
-        public static IItem Next()
+        private Dictionary<AbstractPlayer, IItem> _nextItem;
+        private Item()
+        {   
+            this._nextItem = new Dictionary<AbstractPlayer, IItem> {};
+        }
+        public IItem Next(AbstractPlayer player)
         {
-            return _items[new Random().Next(0,_items.Count)];
+            try
+            {
+                return this._nextItem[player];
+            }
+            catch (KeyNotFoundException)
+            {
+                this._nextItem.Add(player, this._items[new Random().Next(0,this._items.Count)]);
+            }
+            return this._nextItem[player];
         }
     }
 }

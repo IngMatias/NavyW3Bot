@@ -41,6 +41,14 @@ namespace Library
         {
             return this.State == PlayerState.positioningItem;
         }
+        public bool IsReceivingAttack()
+        {
+            return this.State == PlayerState.reciveingAttack;
+        }
+        public bool IsAttacking()
+        {
+            return this.State == PlayerState.attacking;
+        }
         public void NextState()
         {
             this.State = (PlayerState)(((int)this.State + 1) % 7);

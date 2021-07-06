@@ -21,8 +21,20 @@ namespace Library
 {
     public class ItemsToString : INameOf
     {
+        private static ItemsToString _instance;
+        public static ItemsToString Instance
+        {
+            get
+            {
+                if (_instance  == null)
+                {
+                    _instance = new ItemsToString();
+                }
+                return _instance;
+            }
+        }
         private Dictionary<System.Type, string> _itemToString;
-        public ItemsToString()
+        private ItemsToString()
         {
             List<string> names = new List<string>
             {

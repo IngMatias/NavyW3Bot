@@ -5,20 +5,22 @@ namespace Library
     public class StartGameHandler : AbstractHandler
     {
         public StartGameHandler()
-        : base(new PositioningVesselsHandler())
+        : base(new NextVesselHandler())
         {
         }
         public override void DoCommand(string command, AbstractPlayer player)
         {
-            if (command == ("start") && player.IsWaitingForStartGame())
+            if (command.Equals("start") && player.IsWaitingForStartGame())
             {
                 Room room = Rooms.Instance.GetRoomByHost(player);
-                if (room != null)
+                if (room == null)
                 {
-                    player.SendMessage("Comando /start recibido");
-                    room.StartGame();
-                    player.NextState();
+                    player.SendMessage("Debes ser host para poder iniciar el juego.");
                 }
+                else
+                {
+                    room.StartGame();
+                }   
             }
             else
             {

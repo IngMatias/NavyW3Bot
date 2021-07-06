@@ -34,6 +34,20 @@ namespace Library
         {
             this._isStarted = true;
             this._playing = this._players[0];
+
+            foreach(AbstractPlayer player in this._players)
+            {
+                player.NextState();
+            }
+            this.SendAll("Ha comenzado el juego.");
+
+        }
+        public void SendAll(string message)
+        {
+            foreach(AbstractPlayer player in this._players)
+            {
+                player.SendMessage(message);
+            }
         }
         public void NextAttack()
         {

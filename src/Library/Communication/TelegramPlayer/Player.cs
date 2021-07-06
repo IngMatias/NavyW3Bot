@@ -2,8 +2,8 @@ namespace Library
 {
     public class Player : AbstractPlayer
     {
-        public Player(long id, IPrinter clientP)
-        :base(id, clientP)
+        public Player(string name, long id, IPrinter clientP)
+        :base(name, id, clientP)
         {
 
         }

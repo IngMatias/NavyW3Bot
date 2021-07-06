@@ -59,22 +59,18 @@ namespace Library
         }
         public string StringVessels()
         {
-            // Dependencias.
-            ItemsToString itemsName = new ItemsToString();
-            VesselsToString vesselsName = new VesselsToString();
-
             StringBuilder toReturn = new StringBuilder();
             int vesselIndex = 1;
             int itemIndex = 1;
 
             foreach (AbstractVessel vessel in this.GetVessels())
             {
-                toReturn.Append(vesselIndex + " " + vesselsName.NameOf(vessel) + "\n");
+                toReturn.Append(vesselIndex + " " + VesselsToString.Instance.NameOf(vessel) + "\n");
                 foreach (IItem item in vessel.Items)
                 {
                     if (item != null)
                     {
-                        toReturn.Append("    " + itemIndex + itemsName.NameOf(item) + "\n");
+                        toReturn.Append("    " + itemIndex + ItemsToString.Instance.NameOf(item) + "\n");
                     }
                     else
                     {

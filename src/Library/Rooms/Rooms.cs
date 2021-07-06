@@ -46,6 +46,7 @@ namespace Library
         }
         public void AddPlayer(AbstractPlayer newPlayer, int id)
         {
+            this._rooms[id].SendAll("Se ha unido: "+ newPlayer.Name);
             this._rooms[id].AddPlayer(newPlayer);
         }
     }

@@ -10,5 +10,17 @@ namespace Library
         {
             vessel.AddItem(position, toAdd, this._table, ItemsValidators.Of(toAdd));
         }
+        public int CountItems()
+        {
+            int count = 0;
+            foreach (AbstractVessel vessel in this.Vessels)
+            {
+                foreach(IItem item in vessel.Items)
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
     }
 }

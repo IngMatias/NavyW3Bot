@@ -24,6 +24,7 @@ namespace Library
             try
             {
                 messageText = message.Text.ToLower();
+            }
             catch (NullReferenceException)
             {
                 Console.WriteLine($"{chatInfo.FirstName} causo una excepcion.");
@@ -31,18 +32,15 @@ namespace Library
 
             if (messageText != null)
             {
-                // Primer punto de la cadena.
-                StartHandler start = new StartHandler();
+                
 
                 Console.WriteLine($"{chatInfo.FirstName}: envío {message.Text}");
 
-                if (message.Text.StartsWith("/"))
+                if (messageText.StartsWith("/"))
                 {
-                    start.DoCommand(messageText.Substring(1, messageText.Length - 1), players.GetPlayer(chatInfo.Id));
-                }
-                else
-                {
-
+                    // Primer punto de la cadena.
+                    StartHandler start = new StartHandler();
+                    start.DoCommand(messageText.Substring(1, messageText.Length - 1), players.GetPlayer(chatInfo.FirstName, chatInfo.Id));
                 }
             }
         }
@@ -64,6 +62,4 @@ namespace Library
             bot.StopReceiving();
         }
     }
-
-}
 }

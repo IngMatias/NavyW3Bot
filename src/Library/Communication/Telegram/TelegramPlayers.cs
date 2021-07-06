@@ -22,17 +22,20 @@ namespace Library
         {
             this._actualPlaying = new Dictionary<long, AbstractPlayer> ();
         }
-        public AbstractPlayer GetPlayer(long id)
+        public AbstractPlayer GetPlayer(string name, long id)
         {
             try
             {
-                Console.WriteLine("Se consulta: " + id);
-                return this._actualPlaying[id];
+                AbstractPlayer toReturn = this._actualPlaying[id];
+                if (toReturn.Name != name)
+                {
+                    toReturn.Name = name;
+                }
+                return toReturn;
             } 
             catch (KeyNotFoundException)
             {
-                Console.WriteLine("Se agrega: " + id);
-                AbstractPlayer playerToAdd = new Player(id, new ClientTelegramPrinter());
+                AbstractPlayer playerToAdd = new Player(name, id, new ClientTelegramPrinter());
                 this._actualPlaying.Add(id, playerToAdd);
             }
             return this._actualPlaying[id];

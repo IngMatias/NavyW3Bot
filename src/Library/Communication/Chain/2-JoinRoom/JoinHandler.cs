@@ -10,11 +10,10 @@ namespace Library
         }
         public override void DoCommand(string command, AbstractPlayer player)
         {
-            //Console.Write("Pasa por join " + player.State + "\n");
-            if (command.StartsWith("join ") && player.IsWaitingForJoin() && command.Split(" ").Length == 2)
+            if (command.StartsWith("join") && player.IsWaitingForJoin() && command.Split(" ").Length == 2)
             {
-                player.SendMessage("Comando /join recibido");
-                Rooms.Instance.AddPlayer(player, Int32.Parse(command.Split(" ")[1]));
+                int roomId = StringToInt.Convert(command.Split(" ")[1], player);
+                Rooms.Instance.AddPlayer(player, roomId);
                 player.SendMessage("Has sido agregado correctamente.");
                 player.NextState();
             }

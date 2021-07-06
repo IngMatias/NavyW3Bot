@@ -32,5 +32,9 @@ namespace Library
                 return this._table.GetVessels();
             }
         }
+        public string VesselsEItemsString()
+        {
+            return this._table.StringVessels();
+        }
     }
 }

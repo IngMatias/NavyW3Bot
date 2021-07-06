@@ -10,10 +10,10 @@ namespace Library
         }
         public override void DoCommand(string command, AbstractPlayer player)
         {
-            if (command == "start" && player.IsWaitingStart())
+            if (command.Equals("start") && player.IsWaitingStart())
             {
-                player.SendMessage("Comando /start recibido");
                 player.NextState();
+                player.SendMessage("Se ha recibido correctamente el mensaje.");
             }
             else
             {

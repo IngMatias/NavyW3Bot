@@ -1,11 +1,12 @@
 namespace Library
 {
-    public abstract class AbstractPlayer : ItemsManager
+    public abstract class AbstractPlayer : AbstractAttackablePlayer
     {
-        public AbstractPlayer(long id, IPrinter clientP)
+        public string Name {get; set; }
+        public AbstractPlayer(string name, long id, IPrinter clientP)
         :base(id, clientP)
         {
-
+            this.Name = name;
         }
     }
 }

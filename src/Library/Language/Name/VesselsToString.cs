@@ -20,6 +20,19 @@ namespace Library
 {
     public class VesselsToString : INameOf
     {
+        private static VesselsToString _instance;
+        public static VesselsToString Instance
+        {
+            get
+            {
+                if (_instance  == null)
+                {
+                    _instance = new VesselsToString();
+                }
+                return _instance;
+            }
+        }
+
         private Dictionary<System.Type, string> _vesselToString;
 
         private List<string> names = new List<string>
@@ -32,7 +45,7 @@ namespace Library
                 "Submarino"
             };
 
-        public VesselsToString()
+        private VesselsToString()
         {
             this._vesselToString = new Dictionary<System.Type, string>
             {
