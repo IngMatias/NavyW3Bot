@@ -11,7 +11,7 @@ namespace Library
     // Esta clase es un Singleton de TelegramBot
     public class TelegramBot
     {
-        private const string TELEGRAM_TOKEN = "1863846699:AAGdX9nWtOtK4OuZ-NLfPXd8Cx3qiwBUOOY";
+        private const string TELEGRAM_TOKEN = "";
         // Esta es la instancia para guardar el Singleton.
         private static TelegramBot instance;
         private ITelegramBotClient bot;

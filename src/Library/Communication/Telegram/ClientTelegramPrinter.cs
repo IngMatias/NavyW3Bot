@@ -15,9 +15,6 @@
 
 //      Creator: No se utiliza.
 
-using System;
-using Telegram.Bot;
-
 namespace Library
 {
     public class ClientTelegramPrinter : IPrinter

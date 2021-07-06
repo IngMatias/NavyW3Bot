@@ -42,28 +42,28 @@ namespace Library
                 }
                 else
                 {
-                    
+
                 }
             }
         }
+        public void StartRead()
+        {
+            TelegramBot telegramBot = TelegramBot.Instance;
+            ITelegramBotClient bot = telegramBot.Client;
 
+            bot.OnMessage += SentToChain;
+
+            bot.StartReceiving();
+        }
+
+        public void StopRead()
+        {
+            TelegramBot telegramBot = TelegramBot.Instance;
+            ITelegramBotClient bot = telegramBot.Client;
+
+            bot.StopReceiving();
+        }
     }
-    public void StartRead()
-    {
-        TelegramBot telegramBot = TelegramBot.Instance;
-        ITelegramBotClient bot = telegramBot.Client;
 
-        bot.OnMessage += SentToChain;
-
-        bot.StartReceiving();
-    }
-
-    public void StopRead()
-    {
-        TelegramBot telegramBot = TelegramBot.Instance;
-        ITelegramBotClient bot = telegramBot.Client;
-
-        bot.StopReceiving();
-    }
 }
 }
