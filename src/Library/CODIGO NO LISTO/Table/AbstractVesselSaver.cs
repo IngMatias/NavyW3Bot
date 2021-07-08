@@ -24,27 +24,27 @@ namespace Library
 {
     public abstract class AbstractVesselSaver
     {
-        protected Dictionary<(int, int), AbstractVessel> vessels;
-        public ReadOnlyCollection<AbstractVessel> GetVessels()
+        protected Dictionary<(int, int), AbstractVessel> _vessels;
+        public ReadOnlyCollection<AbstractVessel> GetListOfVessels()
         {
-            return this.vessels.Values.ToList<AbstractVessel>().AsReadOnly();
+            return this._vessels.Values.ToList<AbstractVessel>().AsReadOnly();
         }
-        public AbstractVessel GetVessel((int, int) key)
+        protected AbstractVessel GetVessel((int, int) key)
         {
-            return this.vessels[key];
+            return this._vessels[key];
         }
         protected AbstractVesselSaver()
         {
-            this.vessels = new Dictionary<(int, int), AbstractVessel>();
+            this._vessels = new Dictionary<(int, int), AbstractVessel>();
         }
         protected bool AddVessel(int up, int left, AbstractVessel vessel)
         {
-            this.vessels.Add((up, left), vessel);
+            this._vessels.Add((up, left), vessel);
             return true;
         }
         protected bool RemoveVessel((int, int) key)
         {
-            this.vessels.Remove(key);
+            this._vessels.Remove(key);
             return true;
         }
     }

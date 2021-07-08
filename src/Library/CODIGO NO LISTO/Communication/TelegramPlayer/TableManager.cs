@@ -18,18 +18,15 @@ namespace Library
             return this._table.AddVessel(x,y,vessel,ori);
         }
 
-        public string Table
+        public string EmojiTable()
         {
-            get
-            {
-                return this._table.EmoticTable();
-            }
+            return this._table.EmojiTable();
         }
         public ReadOnlyCollection<AbstractVessel> Vessels
         {
             get
             {
-                return this._table.GetVessels();
+                return this._table.GetListOfVessels();
             }
         }
         public string VesselsEItemsString()

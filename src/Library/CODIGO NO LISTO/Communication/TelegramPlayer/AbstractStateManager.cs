@@ -9,7 +9,6 @@ namespace Library
         waitingForStartGame,
         positioningVessel,
         positioningItem,
-        reciveingAttack,
         attacking,
     }
     public abstract class AbstractPlayerStateManager : AbstractCommunicationManager
@@ -40,10 +39,6 @@ namespace Library
         public bool IsPositioningItem()
         {
             return this.State == PlayerState.positioningItem;
-        }
-        public bool IsReceivingAttack()
-        {
-            return this.State == PlayerState.reciveingAttack;
         }
         public bool IsAttacking()
         {

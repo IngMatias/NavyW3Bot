@@ -1,17 +1,18 @@
+using System;
+
 namespace Library
 {
-    public class ShowTableOfHandler : AbstractHandler
+    public class StateHandler : AbstractHandler
     {
-        // EmoticTable
-        public ShowTableOfHandler()
-        : base(new StateHandler())
+        public StateHandler()
+        :base(new NullHandler())
         {
         }
         public override void DoCommand(string command, AbstractPlayer player)
         {
-            if(command.StartsWith("show") && player.IsAttacking())
+            if(command.StartsWith("state"))
             {
-                player.SendMessage(player.EmojiTable());
+                Console.WriteLine(player.State);
             }
             else
             {

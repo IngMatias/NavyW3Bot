@@ -43,7 +43,7 @@ namespace Library
         {
             return this._table.GetLength(1);
         }
-        public IField At(int x, int y)
+        protected IField At(int x, int y)
         {
             return this._table[x, y];
         }

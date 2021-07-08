@@ -71,7 +71,7 @@ namespace Library
             int vesselIndex = 1;
             int itemIndex = 1;
 
-            foreach (AbstractVessel vessel in this.GetVessels())
+            foreach (AbstractVessel vessel in this.GetListOfVessels())
             {
                 toReturn.Append(vesselIndex + " " + vesselsName.ToString(vessel) + "\n");
                 foreach (IItem item in vessel.Items)
@@ -92,7 +92,7 @@ namespace Library
             }
             return toReturn.ToString();
         }
-        public string EmoticTable()
+        public string EmojiTable()
         {
             AbstractFieldInterfaceToEmoji fieldToEmoji = new HeadFieldInterfacesToEmoji();
             StringBuilder toReturn = new StringBuilder();

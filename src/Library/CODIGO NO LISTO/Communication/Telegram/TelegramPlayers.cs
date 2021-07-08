@@ -31,10 +31,12 @@ namespace Library
                 {
                     toReturn.Name = name;
                 }
+                Console.WriteLine("Se consulta "+ name);
                 return toReturn;
             } 
             catch (KeyNotFoundException)
             {
+                Console.WriteLine("Se agrego un player: " + name);
                 AbstractPlayer playerToAdd = new Player(name, id, new ClientTelegramPrinter());
                 this._actualPlaying.Add(id, playerToAdd);
             }

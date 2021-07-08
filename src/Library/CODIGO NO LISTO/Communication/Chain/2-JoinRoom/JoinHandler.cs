@@ -15,6 +15,7 @@ namespace Library
                 int roomId = StringToInt.Convert(command.Split(" ")[1], player);
                 Rooms.Instance.AddPlayer(player, roomId);
                 player.SendMessage("Has sido agregado correctamente.");
+                Rooms.Instance.GetRoomById(roomId).SendAll("Se ha unido " + player.Name + " a la partida.");
                 player.NextState();
             }
             else

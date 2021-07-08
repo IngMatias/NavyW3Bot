@@ -34,6 +34,17 @@ namespace Library
 
             return this._players[nextPlayer];
         }
+        public AbstractPlayer GetPlayerByName(string maybeName)
+        {
+            foreach (AbstractPlayer player in this._players)
+            {
+                if(player.Name.ToLower().Equals(maybeName))
+                {
+                    return player;
+                }
+            }
+            return null;
+        }
         public void NextStateAll()
         {
             foreach(AbstractPlayer player in this._players)

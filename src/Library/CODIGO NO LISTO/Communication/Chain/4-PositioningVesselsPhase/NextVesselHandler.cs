@@ -13,7 +13,8 @@ namespace Library
         {
             if (command.Equals("next") && player.IsPositioningVessel())
             {
-                player.SendMessage(Vessel.Next(player.Vessels));
+                Vessel aux = new Vessel();
+                player.SendMessage(aux.Next(player.Vessels));
             }
             else
             {

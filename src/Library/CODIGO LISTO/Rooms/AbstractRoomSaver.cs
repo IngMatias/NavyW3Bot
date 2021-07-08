@@ -30,6 +30,17 @@ namespace Library
             }
             return null;
         }
+        public Room GetRoomByPlaying(AbstractPlayer maybePlaying)
+        {
+            foreach(Room room in this._rooms.Values)
+            {
+                if (room.Playing == maybePlaying)
+                {
+                    return room;
+                }
+            }
+            return null;
+        }
         public void AddPlayer(AbstractPlayer newPlayer, int id)
         {
             this._rooms[id].AddPlayer(newPlayer);

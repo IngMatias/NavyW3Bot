@@ -7,7 +7,7 @@ namespace Library
     public class ShowEnemiesHandler : AbstractHandler
     {
         public ShowEnemiesHandler()
-        : base(new NullHandler())
+        : base(new ShowTableOfHandler())
         {
         }
         public override void DoCommand(string command, AbstractPlayer player)

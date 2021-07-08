@@ -17,10 +17,11 @@ namespace Library
                 int y = StringToInt.Convert(command.Split(" ")[2], player) - 1;
                 bool ori = StringToInt.Convert(command.Split(" ")[3], player) == 1;
 
-                player.AddVessel(x,y,Vessel.Next(player.Vessels),ori);
-                player.SendMessage(player.Table);
+                Vessel aux = new Vessel();
+                player.AddVessel(x,y,aux.Next(player.Vessels),ori);
+                player.SendMessage(player.EmojiTable());
                 
-                if (Vessel.Next(player.Vessels) == null)
+                if (aux.Next(player.Vessels) == null)
                 {
                     player.NextState();
                 }

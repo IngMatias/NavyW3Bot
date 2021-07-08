@@ -5,25 +5,35 @@ namespace Library
 {
     public class Vessel
     {
-        private Vessel()
+        private List<AbstractVessel> _vessels;
+        public Vessel()
         {
-        }
-        private static List<AbstractVessel> _vessels = new List<AbstractVessel> 
-        {
-            new Battleship(),
-            new Frigate(),
-            /*new HeavyCruiser(),
-            new LightCruiser(),
-            new Puntoon(),
-            new Submarine(),*/
-        };
-        public static AbstractVessel Next(ReadOnlyCollection<AbstractVessel> alreadyAdd)
-        {
-            foreach (AbstractVessel vessel in _vessels)
+            this._vessels = new List<AbstractVessel> 
             {
-                if (alreadyAdd.IndexOf(vessel) == -1)
+                new Battleship(),
+                new Frigate(),
+                /*new HeavyCruiser(),
+                new LightCruiser(),
+                new Puntoon(),
+                new Submarine(),*/
+            };
+        }
+        public AbstractVessel Next(ReadOnlyCollection<AbstractVessel> alreadyAdd)
+        {
+            bool added = false;
+            foreach (AbstractVessel vesselToAdd in _vessels)
+            {
+                added = false;
+                foreach (AbstractVessel vesselAdded in alreadyAdd)
                 {
-                    return vessel;
+                    if (vesselToAdd.GetType().Equals(vesselAdded.GetType()))
+                    {
+                        added = true;
+                    }
+                }
+                if (!added)
+                {
+                    return vesselToAdd;
                 }
             }
             return null;

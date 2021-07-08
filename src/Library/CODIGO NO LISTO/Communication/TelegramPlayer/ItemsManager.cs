@@ -19,7 +19,10 @@ namespace Library
             {
                 foreach(IItem item in vessel.Items)
                 {
-                    count++;
+                    if (item != null)
+                    {
+                        count++;
+                    }
                 }
             }
             return count;

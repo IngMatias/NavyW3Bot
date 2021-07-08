@@ -21,11 +21,11 @@ namespace Library
         }
         private List<IItem> _items = new List<IItem> 
         {
-            new AntiaircraftMissile(),
+            // new AntiaircraftMissile(),
             new Armor(),
-            new Hackers(),
-            new Kong(),
-            new SateliteLock(),
+            // new Hackers(),
+            // new Kong(),
+            // new SateliteLock(),
         };
         private Dictionary<AbstractPlayer, IItem> _nextItem;
         private Item()

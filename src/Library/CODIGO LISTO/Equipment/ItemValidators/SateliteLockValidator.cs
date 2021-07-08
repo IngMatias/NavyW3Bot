@@ -22,7 +22,7 @@ namespace Library
     {
         public bool IsAddable(int position, AbstractItemSaver vesselToAdd, AbstractTable table)
         {
-            foreach (AbstractVessel vassel in table.GetVessels())
+            foreach (AbstractVessel vassel in table.GetListOfVessels())
             {
                 foreach (IItem item in vassel.Items)
                 {

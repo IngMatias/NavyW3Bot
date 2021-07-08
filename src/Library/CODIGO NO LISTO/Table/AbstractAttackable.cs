@@ -45,7 +45,7 @@ namespace Library
                     attack.Position = y - yAux;
                 }
 
-                bool successfully = this.vessels[(xAux, yAux)].ReceiveAttackAt(this, attack);
+                bool successfully = this.GetVessel((xAux, yAux)).ReceiveAttackAt(this, attack);
 
                 if (successfully)
                 {
