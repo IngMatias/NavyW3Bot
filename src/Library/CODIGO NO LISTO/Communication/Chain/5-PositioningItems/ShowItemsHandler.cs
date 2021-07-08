@@ -4,15 +4,15 @@ using System.Collections.Generic;
 
 namespace Library
 {
-    public class ShowVesselsHandler : AbstractHandler
+    public class ShowItemsHandler : AbstractHandler
     {
-        public ShowVesselsHandler()
+        public ShowItemsHandler()
         : base(new AttackingHandler())
         {
         }
         public override void DoCommand(string command, AbstractPlayer player)
         {
-            if(command.Equals("showvessels") && player.IsPositioningItem())
+            if(command.Equals("showitems") && player.IsPositioningItem())
             {
                 player.SendMessage(player.VesselsEItemsString());
             }

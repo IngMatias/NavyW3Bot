@@ -12,10 +12,10 @@ namespace Library
             {
                 new Battleship(),
                 new Frigate(),
-                /*new HeavyCruiser(),
+                new HeavyCruiser(),
                 new LightCruiser(),
                 new Puntoon(),
-                new Submarine(),*/
+                new Submarine(),
             };
         }
         public AbstractVessel Next(ReadOnlyCollection<AbstractVessel> alreadyAdd)

@@ -2,11 +2,14 @@ namespace Library
 {
     public abstract class AbstractRoomIdManager
     {
-        public int Id { get; private set; }
+        private int _id;
         protected AbstractRoomIdManager(int id)
         {
-            this.Id = id;
+            this._id = id;
         }
-
+        public bool IsId(int id)
+        {
+            return this._id == id;
+        }
     }
 }

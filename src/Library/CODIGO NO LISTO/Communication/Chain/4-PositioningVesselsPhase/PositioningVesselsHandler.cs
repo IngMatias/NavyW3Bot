@@ -11,19 +11,22 @@ namespace Library
         }
         public override void DoCommand(string command, AbstractPlayer player)
         {
-            if(command.StartsWith("add") && player.IsPositioningVessel() && command.Split(" ").Length == 4)
+            if (command.StartsWith("add ") && player.IsPositioningVessel() && command.Split(" ").Length == 4)
             {
-                int x = StringToInt.Convert(command.Split(" ")[1], player) - 1;
-                int y = StringToInt.Convert(command.Split(" ")[2], player) - 1;
-                bool ori = StringToInt.Convert(command.Split(" ")[3], player) == 1;
+                int x = StringToInt.Convert(1, player.XLength(), command.Split(" ")[1], player, "La primera coordenada del ataque") - 1;
+                int y = StringToInt.Convert(1, player.YLength(), command.Split(" ")[2], player, "La segunda coordenada del ataque") - 1;
+                int ori = StringToInt.Convert(0, 1, command.Split(" ")[3], player, "La orientacion del barco");
 
-                Vessel aux = new Vessel();
-                player.AddVessel(x,y,aux.Next(player.Vessels),ori);
-                player.SendMessage(player.EmojiTable());
-                
-                if (aux.Next(player.Vessels) == null)
+                if (x != -2 && y!= -2 && ori != -1)
                 {
-                    player.NextState();
+                    Vessel aux = new Vessel();
+                    player.AddVessel(x, y, aux.Next(player.Vessels), ori == 1);
+                    player.SendMessage(player.EmojiTable());
+
+                    if (aux.Next(player.Vessels) == null)
+                    {
+                        player.NextState();
+                    }
                 }
             }
             else

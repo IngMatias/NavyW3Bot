@@ -20,13 +20,13 @@ using System.Collections.Generic;
 
 namespace Library
 {
-    public class Battleship : AbstractVessel, IOneMissile
+    public class Battleship : AbstractVessel
     {
         public Battleship()
         : base(6, 1)
         {
         }
-        public void LaunchMissile(AbstractTable table, int x, int y)
+        public override void LaunchMissile(AbstractTable table, int x, int y)
         {
             AbstractAttacker missile1 = new MissileAttack();
             AbstractAttacker missile2 = new MissileAttack();

@@ -25,7 +25,7 @@ namespace Library
             new Armor(),
             // new Hackers(),
             // new Kong(),
-            // new SateliteLock(),
+            new SateliteLock(),
         };
         private Dictionary<AbstractPlayer, IItem> _nextItem;
         private Item()
@@ -43,6 +43,10 @@ namespace Library
                 this._nextItem.Add(player, this._items[new Random().Next(0,this._items.Count)]);
             }
             return this._nextItem[player];
+        }
+        public void RemoveItem(AbstractPlayer player)
+        {
+            this._nextItem.Remove(player);
         }
     }
 }

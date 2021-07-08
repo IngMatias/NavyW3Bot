@@ -20,18 +20,18 @@ using System.Collections.Generic;
 
 namespace Library
 {
-    public class Submarine : AbstractVessel, IOneMissile, IOneLoad
+    public class Submarine : AbstractVessel
     {
         public Submarine()
         : base(4, 1)
         {
         }
-        public void LaunchMissile(AbstractTable table, int x, int y)
+        public override void LaunchMissile(AbstractTable table, int x, int y)
         {
             AbstractAttacker missile = new MissileAttack();
             table.AttackAt(x, y, missile);
         }
-        public void ThrowLoad(AbstractTable table, int x, int y)
+        public override void ThrowLoad(AbstractTable table, int x, int y)
         {
             AbstractAttacker load = new LoadAttack();
             table.AttackAt(x, y, load);

@@ -12,16 +12,15 @@ namespace Library
         {
             if (command.Equals("start") && player.IsWaitingForStartGame())
             {
-                Room room = Rooms.Instance.GetRoomByHost(player);
-                if (room == null)
+
+                if (Rooms.Instance.Start(player))
                 {
-                    player.SendMessage("Debes ser host para poder iniciar el juego.");
+                    Rooms.Instance.SendAllByHost("Ha iniciado el juego.", player);
                 }
                 else
                 {
-                    room.StartGame();
-                    room.SendAll("Ha iniciado el juego.");
-                }   
+                    player.SendMessage("Debes ser host para inicial el juego.");
+                }
             }
             else
             {

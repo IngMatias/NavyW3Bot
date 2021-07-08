@@ -17,11 +17,23 @@
 
 namespace Library
 {
-    public abstract class AbstractVessel : AbstractVesselAttacker
+    public abstract class AbstractVesselAttacker : AbstractStateManager
     {
-        protected AbstractVessel(int size, int health)
+        protected AbstractVesselAttacker(int size, int health)
         : base(size, health)
         {
         }
+        public virtual void LaunchMissile(AbstractTable table, int x, int y)
+        {
+        }
+
+        public virtual void ThrowLoad(AbstractTable table, int x, int y)
+        {
+        }
+
+        public virtual void LaunchMissile(AbstractTable table, int x1, int y1, int x2, int y2)
+        {
+        }
+        
     }
 }

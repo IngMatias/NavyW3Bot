@@ -7,7 +7,7 @@ namespace Library
         {
 
         }
-        public void ReciveAttack(IOneMissile vessel, int x, int y)
+        public void ReciveAttack(AbstractVessel vessel, int x, int y)
         {
             vessel.LaunchMissile(this._table,x,y);
         }

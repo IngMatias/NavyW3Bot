@@ -96,11 +96,44 @@ namespace Library
         {
             AbstractFieldInterfaceToEmoji fieldToEmoji = new HeadFieldInterfacesToEmoji();
             StringBuilder toReturn = new StringBuilder();
+            for(int k = 0; k<this.XLength(); k++)
+            {
+                toReturn.Append(k+1+"  ");
+            }
+            toReturn.Append("\n");
             for (int j = 0; j < this.YLength(); j++)
             {
+                toReturn.Append(j+1);
                 for (int i = 0; i < this.XLength(); i++)
                 {
                     toReturn.Append(fieldToEmoji.Convert(this.At(i,j)));
+                }
+                toReturn.Append("\n");
+            }
+            return toReturn.ToString();
+        }
+        public string EmojiEnemiTable()
+        {
+            AbstractFieldInterfaceToEmoji fieldToEmoji = new HeadFieldInterfacesToEmoji();
+            StringBuilder toReturn = new StringBuilder();
+            for(int k = 0; k<this.XLength(); k++)
+            {
+                toReturn.Append(k+1+"  ");
+            }
+            toReturn.Append("\n");
+            for (int j = 0; j < this.YLength(); j++)
+            {
+                toReturn.Append(j+1);
+                for (int i = 0; i < this.XLength(); i++)
+                {
+                    if (this.At(i,j) is ILiveHiddenVessel)
+                    {
+                        toReturn.Append(fieldToEmoji.Convert(new AttackableWater()));
+                    }
+                    else
+                    {
+                        toReturn.Append(fieldToEmoji.Convert(this.At(i,j)));
+                    }
                 }
                 toReturn.Append("\n");
             }

@@ -14,7 +14,8 @@ namespace Library
             if (command.Equals("next") && player.IsPositioningVessel())
             {
                 Vessel aux = new Vessel();
-                player.SendMessage(aux.Next(player.Vessels));
+                VesselsToString aux2 = new VesselsToString();
+                player.SendMessage(aux2.ToString(aux.Next(player.Vessels)));
             }
             else
             {

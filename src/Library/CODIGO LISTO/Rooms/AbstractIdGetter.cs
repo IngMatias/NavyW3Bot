@@ -10,6 +10,7 @@ namespace Library
                 _id ++;
                 return _id;
             }
+            private set {}
         }
     }
 }

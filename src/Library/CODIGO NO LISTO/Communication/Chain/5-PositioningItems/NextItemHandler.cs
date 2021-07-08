@@ -13,8 +13,8 @@ namespace Library
         {
             if(command.Equals("next") && player.IsPositioningItem())
             {
-                Item next = Item.Instance;
-                player.SendMessage(next.Next(player));
+                ItemsToString itemsToString = new ItemsToString();
+                player.SendMessage("Su siguiente item, mi lord: " + itemsToString.ToString(Item.Instance.Next(player)));
             }
             else
             {

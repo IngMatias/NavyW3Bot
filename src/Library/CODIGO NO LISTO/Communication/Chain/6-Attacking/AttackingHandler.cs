@@ -12,17 +12,42 @@ namespace Library
         }
         public override void DoCommand(string command, AbstractPlayer player)
         {
-            // barco x y missil/load receptor
-            if(command.StartsWith("attack") && player.IsAttacking() && player.IsAttacking() && command.Split(" ").Length == 5)
+            // attack barco x y missil/load receptor
+            if(command.StartsWith("attack ") && player.IsAttacking() && command.Split(" ").Length == 6)
             {
-                Room room = Rooms.Instance.GetRoomByPlaying(player);
-                AbstractPlayer receptor = room.GetPlayerByName(command.Split(" ")[4]);
+                if (Rooms.Instance.IsPlaying(player))
+                {
+                    if (Rooms.Instance.IsPlayingWith(player, command.Split(" ")[5]))
+                    {
+                        string[] commArg = command.Split(" ");
+                        
+                        int vesselInt = StringToInt.Convert(1, player.Vessels.Count, command.Split(" ")[1], player, "El barco") - 1;
+                        int x = StringToInt.Convert(1, player.XLength(), command.Split(" ")[2], player, "La primera coordenada") - 1;
+                        int y = StringToInt.Convert(1, player.YLength(), command.Split(" ")[3], player, "La segunda coordenada") - 1;
 
-                // player.Attack(new Battleship(), Int32.Parse(command.Split(" ")[1]) , Int32.Parse(command.Split(" ")[2]), receptor);
+                        if (vesselInt != -2)
+                        {
+                            VesselsAttackForms aux = new VesselsAttackForms();
+                            int form = StringToInt.Convert(1, aux.AttackFormsOf(player.Vessels[vesselInt]).Count, command.Split(" ")[4], player, "La forma de ataque") - 1;
+                        }
 
-                room.SendAll(player.Name + " ha atacado a " + receptor.Name);
-
-                room.NextAttack();
+                        if (x!=-2 && y !=-2 && vesselInt != -2)
+                        {
+                            Rooms.Instance.AttackByPlaying(player, commArg[5], vesselInt, x, y);
+                            Rooms.Instance.SendAllByPlaying(player, player.Name + " ha atacado a " + commArg[5]);
+                            Rooms.Instance.ShowTableOf(player, commArg[5]);
+                            Rooms.Instance.NextAttackByPlaying(player);
+                        }
+                    }
+                    else
+                    {
+                        player.SendMessage(command.Split(" ")[5] + " no esta jugando contigo");
+                    }
+                }
+                else
+                {
+                    player.SendMessage("No es tu turno de atacar.");
+                }
             }
             else
             {

@@ -4,7 +4,7 @@ namespace Library
 {
     public abstract class AbstractPlayerManager : AbstractRoomStateManager
     {
-        private List<AbstractPlayer> _players;
+        protected List<AbstractPlayer> _players;
         protected AbstractPlayerManager(AbstractPlayer host, int id)
         : base(host, id)
         {
@@ -13,12 +13,12 @@ namespace Library
         }
         public void AddPlayer(AbstractPlayer newPlayer)
         {
-            if (!this.Started)
+            if (!this.IsStarted())
             {
                 this._players.Add(newPlayer);
             }
         }
-        public AbstractPlayer GetNext(AbstractPlayer player)
+        protected AbstractPlayer GetNext(AbstractPlayer player)
         {
             if (player == null)
             {
@@ -34,7 +34,7 @@ namespace Library
 
             return this._players[nextPlayer];
         }
-        public AbstractPlayer GetPlayerByName(string maybeName)
+        protected AbstractPlayer GetPlayerByName(string maybeName)
         {
             foreach (AbstractPlayer player in this._players)
             {
@@ -44,6 +44,18 @@ namespace Library
                 }
             }
             return null;
+        }
+        public string TableOf(string name)
+        {
+            return this.GetPlayerByName(name).EmojiEnemieTable();
+        }
+        public bool IsAPLayer(string name)
+        {
+            return this.GetPlayerByName(name) != null;
+        }
+        public void AttackByName(AbstractPlayer playing, string name, int vessel, int x, int y)
+        {
+            this.GetPlayerByName(name).ReciveAttack(playing.Vessels[vessel],x,y);
         }
         public void NextStateAll()
         {

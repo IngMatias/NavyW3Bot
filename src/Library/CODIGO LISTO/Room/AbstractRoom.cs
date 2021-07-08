@@ -6,27 +6,37 @@ namespace Library
     public abstract class AbstractRoom : AbstractPlayerManager
     {
         private AbstractPlayer _playing;
-        public AbstractPlayer Playing {get; private set;}
         protected AbstractRoom(AbstractPlayer host, int id)
         :base(host, id)
         {
             this._playing = null;
         }
         public void StartGame()
-        {
-            this.Start();
-            this.Playing = this.GetNext(null);
-            this.NextStateAll();
+        {   //if (this._players.Count >= 2)
+            //{
+                this.Start();
+                this._playing = this.GetNext(null);
+                this.NextStateAll();
+            //}
+
         }
         public void NextAttack()
         {
             try
             {
-                this.Playing = this.GetNext(this._playing);
+                this._playing = this.GetNext(this._playing);
             }
             catch(EventException)
             {
-                Console.WriteLine("Debio haber ocurrido un evento.");
+                this._playing = this.GetNext(null);
+                MeteorShower meteor = new MeteorShower();
+                List<AbstractTable> toAttack = new List<AbstractTable> {};
+                foreach (AbstractPlayer player in this._players)
+                {
+                    toAttack.Add(player._table);
+                }
+                meteor.DoEvent(toAttack);
+                this.SendAll("Ha ocurrido un evento.");
             }
         }
         public bool IsPlaying(AbstractPlayer maybePlaying)

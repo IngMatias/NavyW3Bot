@@ -7,14 +7,21 @@ namespace Library
     public class ShowEnemiesHandler : AbstractHandler
     {
         public ShowEnemiesHandler()
-        : base(new ShowTableOfHandler())
+        : base(new ShowMyTableHandler())
         {
         }
         public override void DoCommand(string command, AbstractPlayer player)
         {
-            if(command.Equals("showenemies") && player.IsPositioningItem())
+            if(command.StartsWith("show ") && player.IsAttacking() && Rooms.Instance.IsPlaying(player) && command.Split(" ").Length == 2)
             {
-                player.SendMessage(player.VesselsEItemsString());
+                if (Rooms.Instance.IsPlayingWith(player, command.Split(" ")[1]))
+                {
+                    Rooms.Instance.ShowTableOf(player, command.Split(" ")[1]);
+                }
+                else
+                {
+                    player.SendMessage(command.Split(" ")[1] + " no es un enemigo");
+                }
             }
             else
             {
