@@ -32,7 +32,7 @@ namespace Library.Test
         public void HiddenVessel()
         {
             this._tab.AddVessel(1,1,this._battleship,true);
-            Assert.AreEqual('3', this._tab.ListTable()[1][1]);
+            Assert.AreEqual('4', this._tab.ListTable()[1][1]);
         }
         [Test]
         public void GetLeftUpHorizontal()
