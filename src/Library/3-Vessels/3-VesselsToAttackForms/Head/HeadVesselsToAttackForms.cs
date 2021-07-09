@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace Library
 {
-    public abstract class HeadVesselsToAttackForms : AbstractVesselsToAttackForms
+    public class HeadVesselsToAttackForms : AbstractVesselsToAttackForms
     {
         public HeadVesselsToAttackForms()
         :base(new BattleshipToAttackForms())

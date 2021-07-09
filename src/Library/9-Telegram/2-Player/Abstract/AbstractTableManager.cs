@@ -27,10 +27,10 @@ namespace Library
         {
             return this._table.GetListOfVessels();
         }
-        public string VesselsEItemsToString()
+        public string VesselsEItemsToString(string lang)
         {
             ITableToStringInLang tableToList = new TableToList();
-            return tableToList.ToString(this._table, "es-Es");
+            return tableToList.ToString(this._table, lang);
         }
         public string ToEmojiTable()
         {
