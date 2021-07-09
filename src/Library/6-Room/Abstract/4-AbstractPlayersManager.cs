@@ -1,0 +1,38 @@
+using System.Collections.Generic;
+
+namespace Library
+{
+    public abstract class AbstractPlayersManager : AbstractRoomStateManager
+    {
+        protected List<AbstractPlayer> _players;
+        protected AbstractPlayersManager(AbstractPlayer host, int id)
+        : base(host, id)
+        {
+            this._players = new List<AbstractPlayer>();
+            this.AddPlayer(host);
+        }
+        public void AddPlayer(AbstractPlayer newPlayer)
+        {
+            if (!this.IsStarted())
+            {
+                this._players.Add(newPlayer);
+            }
+        }
+        public bool IsAPLayer(string name)
+        {
+            return this.GetPlayer(name) != null;
+        }
+        protected AbstractPlayer GetPlayer(string maybeName)
+        {
+            foreach (AbstractPlayer player in this._players)
+            {
+                if(player.Name.ToLower().Equals(maybeName))
+                {
+                    return player;
+                }
+            }
+            return null;
+        }
+
+    }
+}

@@ -19,6 +19,6 @@ namespace Library
 {
     public interface IPrinter
     {
-        public void Print(AbstractPlayerIdManager receptor, object ToPrint);
+        public void Print(AbstractPlayerIdManager receptor, string ToPrint);
     }
 }

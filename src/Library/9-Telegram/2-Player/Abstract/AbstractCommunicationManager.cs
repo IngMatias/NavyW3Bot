@@ -8,7 +8,7 @@ namespace Library
         {
             this._clientP = clientP;
         }
-        public void SendMessage(object message)
+        public void SendMessage(string message)
         {
             this._clientP.Print(this, message);
         }

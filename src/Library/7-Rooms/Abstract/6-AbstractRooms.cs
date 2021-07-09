@@ -1,6 +1,6 @@
 namespace Library
 {
-    public abstract class AbstractRooms : AbstractRoomSaver
+    public abstract class AbstractRooms : AbstractRoomsCommunication
     {
         protected AbstractRooms()
         :base()

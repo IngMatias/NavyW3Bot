@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Library
 {
-    public abstract class AbstractRoom : AbstractPlayerManager
+    public abstract class AbstractRoom : AbstractRoomCommunicationManager
     {
         private AbstractPlayer _playing;
         protected AbstractRoom(AbstractPlayer host, int id)
@@ -23,7 +23,6 @@ namespace Library
         public void NextAttack()
         {
             this._playing = this.GetNext(this._playing);
-            
         }
         public bool IsPlaying(AbstractPlayer maybePlaying)
         {

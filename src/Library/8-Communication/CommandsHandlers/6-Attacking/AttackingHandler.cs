@@ -38,11 +38,11 @@ namespace Library
                             {
                                 if (form == 0)
                                 {
-                                    Rooms.Instance.AttackByPlayingWithMissile(player, commArg[5], vesselInt, x, y);
+                                    Rooms.Instance.AttackWithOneMissile(player, commArg[5], vesselInt, x, y);
                                 }
                                 else
                                 {
-                                    Rooms.Instance.AttackByPlayingWithLoad(player, commArg[5], vesselInt, x, y);
+                                    Rooms.Instance.AttackWithLoad(player, commArg[5], vesselInt, x, y);
                                 }
                                 Rooms.Instance.SendAllByPlaying(player, player.Name + " ha atacado a " + commArg[5]);
                                 Rooms.Instance.ShowTableOf(player, commArg[5]);
