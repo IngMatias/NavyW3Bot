@@ -12,7 +12,9 @@ namespace Program
 
             IReader telegram = new ClientTelegramReader();
             telegram.StartRead();
-
+            
+            Console.WriteLine("Se esperan los mensajes: ");
+            Console.ReadKey();
             Console.ReadKey();
 
             telegram.StopRead();
