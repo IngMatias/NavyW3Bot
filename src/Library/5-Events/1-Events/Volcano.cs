@@ -25,22 +25,25 @@ namespace Library
     {
         public void DoEvent(List<AbstractTable> participants)
         {
-            // Dependencias.
-            AbstractAttacker lava = new LavaAttack();
-
-            Random random = new Random();
-            int radio = 2;
-            int lengthX = participants[0].XLength();
-            int lengthY = participants[0].YLength();
-            int randomX = random.Next(radio, lengthX - radio);
-            int randomY = random.Next(radio, lengthY - radio);
-            foreach (Table table in participants)
+            if (participants.Count > 0)
             {
-                for (int y = randomY - radio; y <= randomY + radio; y++)
+                // Dependencias.
+                AbstractAttacker lava = new LavaAttack();
+
+                Random random = new Random();
+                int radio = 2;
+                int lengthX = participants[0].XLength();
+                int lengthY = participants[0].YLength();
+                int randomX = random.Next(radio, lengthX - radio);
+                int randomY = random.Next(radio, lengthY - radio);
+                foreach (Table table in participants)
                 {
-                    for (int x = randomX - radio; x <= randomX + radio; x++)
+                    for (int y = randomY - radio; y <= randomY + radio; y++)
                     {
-                        table.AttackAt(x, y, lava);
+                        for (int x = randomX - radio; x <= randomX + radio; x++)
+                        {
+                            table.AttackAt(x, y, lava);
+                        }
                     }
                 }
             }

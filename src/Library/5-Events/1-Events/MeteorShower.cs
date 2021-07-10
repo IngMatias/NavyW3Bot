@@ -26,15 +26,18 @@ namespace Library
         private int _times = 10;
         public void DoEvent(List<AbstractTable> participants)
         {
-            // Dependencias.
-            AbstractAttacker meteor = new MeteorAttack();
-
-            Random random = new Random();
-            foreach (Table table in participants)
+            if (participants.Count > 0)
             {
-                for (int i = 0; i < this._times; i++)
+                // Dependencias.
+                AbstractAttacker meteor = new MeteorAttack();
+
+                Random random = new Random();
+                foreach (Table table in participants)
                 {
-                    table.RandomAttack(meteor);
+                    for (int i = 0; i < this._times; i++)
+                    {
+                        table.RandomAttack(meteor);
+                    }
                 }
             }
         }

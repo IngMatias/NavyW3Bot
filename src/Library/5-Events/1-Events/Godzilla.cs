@@ -25,30 +25,37 @@ namespace Library
     {
         public void DoEvent(List<AbstractTable> participants)
         {
-            Random random = new Random();
-            int radio = 4;
-            int lengthX = participants[0].XLength();
-            int lengthY = participants[0].YLength();
-            int randomX = random.Next(radio, lengthX - radio);
-            int randomY = random.Next(radio, lengthY - radio);
-
-            List<(int,int)> attackedVessels = new List<(int,int)> ();
-
-            foreach (Table table in participants)
+            if (participants.Count > 0)
             {
-                for (int y = randomY - radio; y <= randomY + radio; y++)
-                {
-                    for (int x = randomX - radio; x <= randomX + radio; x++)
-                    {                        
-                        if (table.IsAVessel(x, y) && attackedVessels.IndexOf(table.GetLeftUp(x,y)) == -1)
-                        {
-                            attackedVessels.Add(table.GetLeftUp(x,y));
+                Random random = new Random();
+                int radio = 3;
+                int lengthX = participants[0].XLength();
+                int lengthY = participants[0].YLength();
+                int randomX = random.Next(radio, lengthX - radio);
+                int randomY = random.Next(radio, lengthY - radio);
 
-                            AbstractAttacker gozilla = new GodzillaAttack();
-                            gozilla.X = table.GetLeftUp(x,y).Item1;
-                            gozilla.Y = table.GetLeftUp(x,y).Item2;
-                            
-                            table.DestroyAttack(gozilla);
+                List<(int, int)> attackedVessels = new List<(int, int)>();
+
+                foreach (Table table in participants)
+                {
+                    for (int y = randomY - radio; y <= randomY + radio; y++)
+                    {
+                        for (int x = randomX - radio; x <= randomX + radio; x++)
+                        {
+                            if (table.IsAVessel(x, y) && attackedVessels.IndexOf(table.GetLeftUp(x, y)) == -1)
+                            {
+                                attackedVessels.Add(table.GetLeftUp(x, y));
+
+                                AbstractAttacker gozilla = new GodzillaAttack();
+                                gozilla.X = table.GetLeftUp(x, y).Item1;
+                                gozilla.Y = table.GetLeftUp(x, y).Item2;
+
+                                table.DestroyAttack(gozilla);
+                            }
+                            if (!(table.IsOrWasAVessel(x, y)))
+                            {
+                                table.AttackAt(x,y,new GodzillaAttack());
+                            }
                         }
                     }
                 }
