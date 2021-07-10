@@ -1,0 +1,10 @@
+empezar
+crear
+unirse
+agregar
+siguiente
+mitablero
+tablerode
+mostraritems
+atacar
+nuevo

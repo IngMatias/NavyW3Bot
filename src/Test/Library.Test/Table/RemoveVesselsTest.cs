@@ -18,20 +18,21 @@ namespace Library.Test
         public void NormalVerticalRemove()
         {
             this._tab.AddVessel(1,1,this._battleship,true);
-            this._tab.RemoveVessel(1,3,AbstractField.Field.unattackableWater);
+            this._tab.RemoveVessel(1,3,new DeadVessel());
             Assert.IsTrue(this._tab.IsEmpty());
+            
         }
         [Test]
         public void NormalHorizontalRemove()
         {
             this._tab.AddVessel(1,1,this._battleship,false);
-            this._tab.RemoveVessel(3,1,AbstractField.Field.unattackableWater);
+            this._tab.RemoveVessel(3,1, new DeadVessel());
             Assert.IsTrue(this._tab.IsEmpty());
         }
         [Test]
         public void EmptyRemove()
         {
-            this._tab.RemoveVessel(1,1,AbstractField.Field.unattackableWater);
+            this._tab.RemoveVessel(1,1, new UnattackableWater());
             Assert.IsTrue(this._tab.IsEmpty());
         }
         [Test]

@@ -22,13 +22,13 @@ namespace Library.Test
         public void NormalVerticalAdd()
         {
             this._tab.AddVessel(1,1,this._battleship,true);
-            Assert.AreEqual('3', this._tab.ListTable()[6][1]);
+            Assert.AreEqual('4', this._tab.ListTable()[6][1]);
         }
         [Test]
         public void NormalHorizontalAdd()
         {
             this._tab.AddVessel(1,1,this._battleship,false);
-            Assert.AreEqual('3', this._tab.ListTable()[1][6]);
+            Assert.AreEqual('4', this._tab.ListTable()[1][6]);
         }
         [Test]
         public void EdgeAdd()
