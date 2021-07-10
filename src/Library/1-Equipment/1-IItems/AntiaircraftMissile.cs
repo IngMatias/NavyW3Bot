@@ -19,7 +19,7 @@
 
 namespace Library
 {
-    public class AntiaircraftMissile : IItem
+    public class AntiaircraftMissile : IItem, IPositionMatter
     {
     }
 }

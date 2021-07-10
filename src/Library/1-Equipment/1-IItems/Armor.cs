@@ -19,7 +19,7 @@
 
 namespace Library
 {
-    public class Armor : IItem
+    public class Armor : IItem, IPositionMatter
     {
     }
 }
