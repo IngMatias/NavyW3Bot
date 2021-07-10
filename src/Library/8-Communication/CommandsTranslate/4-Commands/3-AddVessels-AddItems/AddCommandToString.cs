@@ -5,7 +5,7 @@ namespace Library
     public class AddCommandToString : AbstractCommandsTranslate
     {
         public AddCommandToString()
-        :base(new NextCommandToString())
+        :base(new NewItemCommandToString())
         {
         }
         public override string Translate(string command, string lang)

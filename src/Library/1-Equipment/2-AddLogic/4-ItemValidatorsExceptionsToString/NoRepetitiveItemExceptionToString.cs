@@ -30,7 +30,7 @@ namespace Library
         {
             if (exception is NoRepetitiveItemException)
             {
-                return File.ReadAllLines(@"..\..\..\..\..\..\language\" + lang + @"\ItemExceptions.txt")[3];
+                return File.ReadAllLines(@"..\..\language\" + lang + @"\ItemExceptions.txt")[3];
             }
             else
             {

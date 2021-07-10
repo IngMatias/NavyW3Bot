@@ -12,7 +12,7 @@ namespace Library
             AbstractCommandsTranslate translate = new HeadCommandsToString();
             string[] message = new HeadMessageHandler().MessagesOf(player.Phase, player.Language);
    
-            if(command == translate.Translate("show", player.Language) && player.Phase is AttackPhase)
+            if(command == translate.Translate("mytable", player.Language) && player.Phase is AttackPhase)
             {
                 player.SendMessage(player.ToEmojiTable());
             }

@@ -24,5 +24,10 @@ namespace Library
         {
             this.GetRoomByPlaying(player).AttackWithLoad(player, name, vessel, x, y);
         }
+        public void AttackPhase(AbstractPlayer player)
+        {
+            AbstractEndPhase endPhase = new HeadEndPhase();
+            endPhase.DoEndPhase(this.GetRoomByPlaying(player).Players);
+        }
     }
 }

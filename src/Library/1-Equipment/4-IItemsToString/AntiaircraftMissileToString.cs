@@ -12,7 +12,7 @@ namespace Library
         {
             if (item is AntiaircraftMissile)
             {
-                return File.ReadAllLines(@"..\..\..\..\language\"+lang+@"\Items.txt")[0];
+                return File.ReadAllLines(@"..\..\language\"+lang+@"\Items.txt")[0];
             }
             else
             {

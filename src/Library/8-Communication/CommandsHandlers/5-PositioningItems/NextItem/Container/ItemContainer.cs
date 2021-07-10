@@ -19,6 +19,10 @@ namespace Library
         }
 
         private Dictionary<AbstractPlayer, (int,IItem)> _dict;
+        private ItemContainer()
+        {
+            this._dict = new Dictionary<AbstractPlayer, (int,IItem)> ();
+        }
 
         public (int, IItem) GetItem(AbstractPlayer player)
         {
@@ -34,13 +38,14 @@ namespace Library
             }
             return this._dict[player];
         }
-        public void NewItem(AbstractPlayer player)
+        public int NewItem(AbstractPlayer player)
         {
             int newInt = this._dict[player].Item1 + 1;
             this._dict.Remove(player);
             Random rnd = new Random();
             AbstractNextItem nextItem = new HeadNextItem();
             this._dict.Add(player, (newInt, nextItem.NextItem(rnd.Next(0,5))));
+            return this._dict[player].Item1;
         }
     }
 }

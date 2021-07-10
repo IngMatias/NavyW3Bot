@@ -13,7 +13,7 @@ namespace Library
         {
             if (random == 3)
             {
-                return new AntiaircraftMissile();
+                return new Kong();
             }
             else
             {

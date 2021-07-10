@@ -16,7 +16,7 @@ namespace Library
             string[] message = new HeadMessageHandler().MessagesOf(player.Phase, player.Language);
 
             // attack Vessel x y m/l stringEnemy
-            if (command.StartsWith(translate.Translate("attack ",player.Language)) && player.Phase is AttackPhase && command.Split(" ").Length == 6)
+            if (command.StartsWith(translate.Translate("attack",player.Language) + " ") && player.Phase is AttackPhase && command.Split(" ").Length == 6)
             {
                 if (Rooms.Instance.IsPlaying(player))
                 {
@@ -56,13 +56,12 @@ namespace Library
                                 }
                                 catch(EndPhaseException)
                                 {
+                                    Rooms.Instance.AttackPhase(player);
                                     string newPlaying = Rooms.Instance.NextAttackNullByPlaying(player);
-                                    
-                                    
                                     Rooms.Instance.SendAllByPlayingName(newPlaying,message[5]+ " " + newPlaying);
                                 }
                             }
-                            catch(NotImplementedException)
+                            catch(VesselAttackException)
                             {
                                 player.SendMessage(message[6]);
                             }

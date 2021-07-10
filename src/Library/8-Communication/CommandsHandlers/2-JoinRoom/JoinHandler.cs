@@ -19,8 +19,8 @@ namespace Library
 
                 if (roomId != -1)
                 {
-                    Rooms.Instance.AddPlayer(player, roomId);
                     Rooms.Instance.SendAllById(message[2] + " " + player.Name, roomId);
+                    Rooms.Instance.AddPlayer(player, roomId);
                     player.SendMessage(message[3]);
                     player.NextState();
                 }

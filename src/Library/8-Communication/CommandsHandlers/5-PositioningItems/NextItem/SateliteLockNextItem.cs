@@ -13,7 +13,7 @@ namespace Library
         {
             if (random == 4)
             {
-                return new AntiaircraftMissile();
+                return new SateliteLock();
             }
             else
             {

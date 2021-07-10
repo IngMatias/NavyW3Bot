@@ -60,6 +60,10 @@ namespace Library
             }
             return null;
         }
+        public bool IsHost(AbstractPlayer player)
+        {
+            return this.GetRoomByHost(player) != null;
+        }
         public bool IsPlaying(AbstractPlayer player)
         {
             return this.GetRoomByPlaying(player) != null;

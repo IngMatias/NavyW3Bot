@@ -1,13 +1,12 @@
-
 using System;
 using System.Collections.Generic;
 
 namespace Library
 {
-    public class ShowEnemiesHandler : AbstractHandler
+    public class NewItemHandler : AbstractHandler
     {
-        public ShowEnemiesHandler()
-        : base(new ShowMyTableHandler())
+        public NewItemHandler()
+        : base(new NextItemHandler())
         {
         }
         public override void DoCommand(string command, AbstractPlayer player)
@@ -15,15 +14,16 @@ namespace Library
             AbstractCommandsTranslate translate = new HeadCommandsToString();
             string[] message = new HeadMessageHandler().MessagesOf(player.Phase, player.Language);
 
-            if(command.StartsWith(translate.Translate("show ", player.Language)) && player.Phase is AttackPhase && Rooms.Instance.IsPlaying(player) && command.Split(" ").Length == 2)
+            if(command.Equals(translate.Translate("new",player.Language)) && player.Phase is PositioningItemsPhase)
             {
-                if (Rooms.Instance.IsPlayingWith(player, command.Split(" ")[1]))
+                if (ItemContainer.Instance.NewItem(player) <= PositioningItemsHandler.Times)
                 {
-                    Rooms.Instance.ShowTableOf(player, command.Split(" ")[1]);
+                    AbstractIItemsToString itemsToString = new HeadIItemsToString();
+                    player.SendMessage(message[0] + itemsToString.ToString(ItemContainer.Instance.GetItem(player).Item2,player.Language));
                 }
                 else
                 {
-                    player.SendMessage(command.Split(" ")[1] + " " + message[8]);
+                    player.NextState();
                 }
             }
             else

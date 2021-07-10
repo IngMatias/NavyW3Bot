@@ -2,17 +2,18 @@ using System.IO;
 
 namespace Library
 {
-    public class NextCommandToString : AbstractCommandsTranslate
+    public class NewItemCommandToString : AbstractCommandsTranslate
     {
-        public NextCommandToString()
-        :base(new ShowItemsCommandToString())
+        public NewItemCommandToString()
+        :base(new NextCommandToString())
         {
+
         }
         public override string Translate(string command, string lang)
         {
-            if (command.ToLower() == "next")
+            if (command.ToLower() == "new")
             {
-                return File.ReadAllLines(@"..\..\language\"+lang+@"\Commands.txt")[4];
+                return File.ReadAllLines(@"..\..\language\"+lang+@"\Commands.txt")[9];
             }
             else
             {

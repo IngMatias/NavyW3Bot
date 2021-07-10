@@ -30,7 +30,7 @@ namespace Library
         {
             if (exception is BlockedVesselException)
             {
-                return File.ReadAllLines(@"..\..\..\..\..\..\language\"+lang+@"\ItemExceptions.txt")[0];
+                return File.ReadAllLines(@"..\..\language\"+lang+@"\ItemExceptions.txt")[0];
             }
             else 
             {

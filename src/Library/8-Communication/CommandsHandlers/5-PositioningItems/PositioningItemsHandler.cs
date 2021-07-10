@@ -5,7 +5,15 @@ namespace Library
 {
     public class PositioningItemsHandler : AbstractHandler
     {
-        private int _times = 3;
+        private static int _times = 3;
+        public static int Times
+        {
+            get
+            {
+                return _times;
+            }
+        }
+
         public PositioningItemsHandler()
         : base(new ShowItemsHandler())
         {
@@ -31,7 +39,7 @@ namespace Library
                         player.AddItem(position, ItemContainer.Instance.GetItem(player).Item2, player.GetListOfVessels()[vesselInt]);
                         ItemContainer.Instance.NewItem(player);
                         player.SendMessage(message[3]);
-                        if (ItemContainer.Instance.GetItem(player).Item1 <= this._times)
+                        if (ItemContainer.Instance.GetItem(player).Item1 <= PositioningItemsHandler._times)
                         {
                             AbstractIItemsToString itemsToString = new HeadIItemsToString();
                             player.SendMessage(message[4] + " " + itemsToString.ToString(ItemContainer.Instance.GetItem(player).Item2, player.Language));

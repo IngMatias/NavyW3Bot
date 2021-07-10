@@ -6,7 +6,7 @@ namespace Library
     public class PositioningVesselsHandler : AbstractHandler
     {
         public PositioningVesselsHandler()
-        : base(new NextItemHandler())
+        : base(new NewItemHandler())
         {
         }
         public override void DoCommand(string command, AbstractPlayer player)
@@ -14,7 +14,7 @@ namespace Library
             AbstractCommandsTranslate translate = new HeadCommandsToString();
             string[] message = new HeadMessageHandler().MessagesOf(player.Phase, player.Language);
 
-            if (command.StartsWith("add ") && player.Phase is PositioningVesselsPhase && command.Split(" ").Length == 4)
+            if (command.StartsWith(translate.Translate("add", player.Language) + " ") && player.Phase is PositioningVesselsPhase && command.Split(" ").Length == 4)
             {
                 int x = StringToInt.Convert(1, player.XLength(), command.Split(" ")[1], player, message[1]) - 1;
                 int y = StringToInt.Convert(1, player.YLength(), command.Split(" ")[2], player, message[2]) - 1;

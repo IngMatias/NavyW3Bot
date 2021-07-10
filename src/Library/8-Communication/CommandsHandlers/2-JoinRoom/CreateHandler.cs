@@ -15,7 +15,7 @@ namespace Library
 
             if (command.Equals(translate.Translate("create",player.Language)) && player.Phase is WaitingForJoinPhase)
             {
-                player.SendMessage(message[0]);
+                player.SendMessage(message[0] + " " + Rooms.Instance.AddSession(player));
                 player.NextState();
             }
             else

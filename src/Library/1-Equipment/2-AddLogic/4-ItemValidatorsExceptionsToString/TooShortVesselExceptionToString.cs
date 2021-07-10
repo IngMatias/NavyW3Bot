@@ -30,7 +30,7 @@ namespace Library
         {
             if (exception is TooShortVesselException)
             {
-                return File.ReadAllLines(@"..\..\..\..\..\..\language\" + lang + @"\ItemExceptions.txt")[4];
+                return File.ReadAllLines(@"..\..\language\" + lang + @"\ItemExceptions.txt")[4];
             }
             else
             {

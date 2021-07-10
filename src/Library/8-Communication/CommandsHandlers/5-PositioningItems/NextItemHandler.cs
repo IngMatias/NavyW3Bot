@@ -18,7 +18,7 @@ namespace Library
             {
                 AbstractIItemsToString itemsToString = new HeadIItemsToString();
 
-                player.SendMessage(message[0] + itemsToString.ToString(ItemContainer.Instance.GetItem(player).Item2,player.Language));
+                player.SendMessage(message[0] + " " + itemsToString.ToString(ItemContainer.Instance.GetItem(player).Item2,player.Language));
             }
             else
             {

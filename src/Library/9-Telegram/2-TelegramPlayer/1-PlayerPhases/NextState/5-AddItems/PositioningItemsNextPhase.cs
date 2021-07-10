@@ -3,14 +3,14 @@ namespace Library
     public class PositioningItemsNextPhase : AbstractNextPhase
     {
         public PositioningItemsNextPhase()
-        :base(new NotAttackNextPhase())
+        :base(new NullNextPhase())
         {
         }
         public override IPhase NextPhase(IPhase phase)
         {
-            if (phase is PositioningVesselsPhase)
+            if (phase is PositioningItemsPhase)
             {
-                return new NotAttackPhase();
+                return new AttackPhase();
             }
             else
             {

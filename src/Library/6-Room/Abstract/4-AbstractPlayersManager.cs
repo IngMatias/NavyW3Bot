@@ -1,10 +1,12 @@
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Library
 {
     public abstract class AbstractPlayersManager : AbstractRoomStateManager
     {
         protected List<AbstractPlayer> _players;
+        public ReadOnlyCollection<AbstractPlayer> Players;
         protected AbstractPlayersManager(AbstractPlayer host, int id)
         : base(host, id)
         {

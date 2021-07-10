@@ -5,7 +5,7 @@ namespace Library
     public class TableOfCommandToString : AbstractCommandsTranslate
     {
         public TableOfCommandToString()
-        :base(new NullCommandToString())
+        :base(new AttackCommandToString())
         {
         }
         public override string Translate(string command, string lang)

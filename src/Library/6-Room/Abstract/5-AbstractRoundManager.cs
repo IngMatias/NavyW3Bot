@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace Library
@@ -19,6 +20,7 @@ namespace Library
 
             if (nextPlayer != (nextPlayer % this._players.Count))
             {
+                Console.WriteLine("Se lanzo la excepcion.");
                 throw new EndPhaseException();
             }
 

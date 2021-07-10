@@ -30,7 +30,7 @@ namespace Library
         {
             if (exception is NoEmptyPositionException)
             {
-                return File.ReadAllLines(@"..\..\..\..\..\..\language\" + lang + @"\ItemExceptions.txt")[2];
+                return File.ReadAllLines(@"..\..\language\" + lang + @"\ItemExceptions.txt")[2];
             }
             else
             {

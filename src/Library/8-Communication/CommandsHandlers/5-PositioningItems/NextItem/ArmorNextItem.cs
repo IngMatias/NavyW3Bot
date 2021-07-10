@@ -13,7 +13,7 @@ namespace Library
         {
             if (random == 1)
             {
-                return new AntiaircraftMissile();
+                return new Armor();
             }
             else
             {

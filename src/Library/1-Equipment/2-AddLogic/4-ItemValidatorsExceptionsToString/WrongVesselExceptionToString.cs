@@ -30,7 +30,7 @@ namespace Library
         {
             if (exception is WrongVesselException)
             {
-                return File.ReadAllLines(@"..\..\..\..\..\..\language\" + lang + @"\ItemExceptions.txt")[5];
+                return File.ReadAllLines(@"..\..\language\" + lang + @"\ItemExceptions.txt")[5];
             }
             else
             {

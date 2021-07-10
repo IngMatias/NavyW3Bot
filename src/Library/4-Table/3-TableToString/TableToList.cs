@@ -19,11 +19,15 @@ namespace Library
                 toReturn.Append(vesselsName.ToString(vessel, lang) + "\n");
                 foreach (IItem item in vessel.Items)
                 {
-                    toReturn.Append("    " + itemInt);
-                    toReturn.Append(itemsName.ToString(item, lang) + "\n");
+                    if (item != null)
+                    {
+                        toReturn.Append("    " + itemInt);
+                        toReturn.Append(itemsName.ToString(item, lang) + "\n");
+                    }
                     itemInt++;
                 }
                 itemInt = 1;
+                vesselInt++;
             }
 
             return toReturn.ToString();

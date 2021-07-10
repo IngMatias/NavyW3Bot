@@ -15,11 +15,7 @@ namespace Library
         {
             AbstractNextPhase next = new HeadNextPhase();
             this.Phase = next.NextPhase(this.Phase);
-        }
-        public void PreviousState()
-        {
-            AbstractPreviousPhase previous = new HeadPreviousPhase();
-            this.Phase = previous.PreviousPhase(this.Phase);
+            Console.WriteLine(this.Phase);
         }
     }    
 }
