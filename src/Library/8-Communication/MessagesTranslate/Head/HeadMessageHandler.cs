@@ -1,4 +1,4 @@
-using System;
+using System.Collections.Generic;
 
 namespace Library
 {
@@ -8,9 +8,9 @@ namespace Library
         :base(new StartMessageHandler())
         {
         }
-        public override string Message(IMessage message, string lang)
+        public override string[] MessagesOf(IPhase phase, string lang)
         {
-            return this.SendNext(message, lang);
+            return this.SendNext(phase, lang);
         }
-    }
+    }   
 }

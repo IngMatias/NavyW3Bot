@@ -1,6 +1,6 @@
 namespace Library
 {
-    public abstract class HeadCommandsToString : AbstractCommandsTranslate
+    public class HeadCommandsToString : AbstractCommandsTranslate
     {
         public HeadCommandsToString()
         :base(new StartCommandsToString())

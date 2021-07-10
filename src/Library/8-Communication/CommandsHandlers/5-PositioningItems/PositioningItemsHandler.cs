@@ -11,6 +11,9 @@ namespace Library
         }
         public override void DoCommand(string command, AbstractPlayer player)
         {
+            AbstractCommandsTranslate translate = new HeadCommandsToString();
+            string[] message = new HeadMessageHandler().MessagesOf(player.Phase, player.Language);
+
             if (command.StartsWith("add") && player.Phase is PositioningItemsPhase && command.Split(" ").Length == 3)
             {
                 int vesselInt = StringToInt.Convert(1, player.GetListOfVessels().Count, command.Split(" ")[1], player, "El barco") - 1;

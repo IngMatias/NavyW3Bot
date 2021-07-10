@@ -10,10 +10,12 @@ namespace Library
         }
         public override void DoCommand(string command, AbstractPlayer player)
         {
-            if (command.Equals("create") && player.Phase is WaitingForJoinPhase)
+            AbstractCommandsTranslate translate = new HeadCommandsToString();
+            string[] message = new HeadMessageHandler().MessagesOf(player.Phase, player.Language);
+
+            if (command.Equals(translate.Translate("create",player.Language)) && player.Phase is WaitingForJoinPhase)
             {
-                player.SendMessage("Su Id de partida es: " + Rooms.Instance.AddSession(player));
-                player.SendMessage("Su partida se ha creado correctamente.");
+                player.SendMessage(message[0]);
                 player.NextState();
             }
             else

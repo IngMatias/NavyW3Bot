@@ -9,7 +9,11 @@ namespace Library
             AbstractRoom toStart = this.GetRoomByHost(maybeHost);
             if (toStart == null)
             {
-                return false;
+                throw new NoHostException();
+            }
+            if (toStart.Count()<=1)
+            {
+                throw new NoSinglePlayerException();
             }
             toStart.StartGame();
             return true;

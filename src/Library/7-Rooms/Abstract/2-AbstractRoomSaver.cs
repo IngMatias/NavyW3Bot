@@ -56,7 +56,7 @@ namespace Library
         public bool IsPlayingWith(AbstractPlayer player, string partner)
         {
             AbstractRoom find = GetRoomByPlaying(player);
-            if (find!=null && find.IsAPLayer(partner))
+            if (find!=null && find.IsAPlayer(partner))
             {
                 return true;
             }

@@ -1,0 +1,4 @@
+Su siguiente item es:
+La primera coordenada del ataque
+La segunda coordenada del ataque
+La orientacion del barco

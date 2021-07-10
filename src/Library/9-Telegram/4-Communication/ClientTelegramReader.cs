@@ -40,13 +40,13 @@ namespace Library
 
             if (messageText != "")
             {
-                
+
                 Console.WriteLine($"{chatInfo.FirstName}: envío {messageText}");
 
                 if (messageText.StartsWith("/"))
                 {
                     // Primer punto de la cadena.
-                    AbstractHandler start = new HeadHandler();
+                    AbstractHandler start = new HeadCommandHandler();
                     start.DoCommand(messageText.Substring(1, messageText.Length - 1), players.GetPlayer(chatInfo.FirstName, chatInfo.Id));
                 }
             }

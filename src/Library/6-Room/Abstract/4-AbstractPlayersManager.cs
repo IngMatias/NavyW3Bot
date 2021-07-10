@@ -18,7 +18,11 @@ namespace Library
                 this._players.Add(newPlayer);
             }
         }
-        public bool IsAPLayer(string name)
+        public int Count()
+        {
+            return this._players.Count;
+        }
+        public bool IsAPlayer(string name)
         {
             return this.GetPlayer(name) != null;
         }

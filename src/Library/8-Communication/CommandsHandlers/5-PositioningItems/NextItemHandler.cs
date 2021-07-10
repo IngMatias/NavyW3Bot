@@ -11,6 +11,9 @@ namespace Library
         }
         public override void DoCommand(string command, AbstractPlayer player)
         {
+            AbstractCommandsTranslate translate = new HeadCommandsToString();
+            string[] message = new HeadMessageHandler().MessagesOf(player.Phase, player.Language);
+
             if(command.Equals("next") && player.Phase is PositioningItemsPhase)
             {
                 AbstractIItemsToString itemsToString = new HeadIItemsToString();
