@@ -5,6 +5,7 @@ namespace Library
 {
     public class PositioningItemsHandler : AbstractHandler
     {
+        private int _times = 3;
         public PositioningItemsHandler()
         : base(new ShowItemsHandler())
         {
@@ -14,36 +15,37 @@ namespace Library
             AbstractCommandsTranslate translate = new HeadCommandsToString();
             string[] message = new HeadMessageHandler().MessagesOf(player.Phase, player.Language);
 
-            if (command.StartsWith("add") && player.Phase is PositioningItemsPhase && command.Split(" ").Length == 3)
+            if (command.StartsWith(translate.Translate("add", player.Language)) && player.Phase is PositioningItemsPhase && command.Split(" ").Length == 3)
             {
-                int vesselInt = StringToInt.Convert(1, player.GetListOfVessels().Count, command.Split(" ")[1], player, "El barco") - 1;
+                int vesselInt = StringToInt.Convert(1, player.GetListOfVessels().Count, command.Split(" ")[1], player, message[1]) - 1;
                 int position = -2;
-
                 if (vesselInt != -2)
                 {
-                    position = StringToInt.Convert(1, player.GetListOfVessels()[vesselInt].Length(), command.Split(" ")[2], player, "La posicion del barco") - 1;
+                    position = StringToInt.Convert(1, player.GetListOfVessels()[vesselInt].Length(), command.Split(" ")[2], player, message[2]) - 1;
                 }
 
                 if (vesselInt != -2 && position != -2)
                 {
                     try
                     {
-                        player.AddItem(position, Item.Instance.Next(player), player.GetListOfVessels()[vesselInt]);
-                        Item.Instance.RemoveItem(player);
-                        player.SendMessage("Se ha agregado el item correctamente");
-
-                        AbstractIItemsToString itemsToString = new HeadIItemsToString();
-                        player.SendMessage("Siguiente item: "+ itemsToString.ToString(Item.Instance.Next(player), player.Language));
+                        player.AddItem(position, ItemContainer.Instance.GetItem(player).Item2, player.GetListOfVessels()[vesselInt]);
+                        ItemContainer.Instance.NewItem(player);
+                        player.SendMessage(message[3]);
+                        if (ItemContainer.Instance.GetItem(player).Item1 <= this._times)
+                        {
+                            AbstractIItemsToString itemsToString = new HeadIItemsToString();
+                            player.SendMessage(message[4] + " " + itemsToString.ToString(ItemContainer.Instance.GetItem(player).Item2, player.Language));
+                        }
+                        else
+                        {
+                            player.NextState();
+                        }
                     }
-                    catch (Exception)
+                    catch (ItemAddException e)
                     {
-                        Item.Instance.RemoveItem(player);
+                        AbstractItemValidatorsExceptionsToString exceptionToString = new HeadItemValidatorsExceptionsToString();
+                        player.SendMessage(exceptionToString.ToString(e, player.Language));
                     }
-
-                    /*if (player.CountItems() >= 4)
-                    {
-                        player.NextState();
-                    }*/
                 }
             }
             else

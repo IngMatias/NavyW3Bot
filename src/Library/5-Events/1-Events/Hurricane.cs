@@ -18,12 +18,13 @@
 
 using System.Collections.Generic;
 using System;
+using System.Collections.ObjectModel;
 
 namespace Library
 {
     public class Hurricane : IEvent
     {
-        public void DoEvent(List<AbstractTable> participants)
+        public void DoEvent(ReadOnlyCollection<AbstractPlayer> participants)
         {
             // Dependencias.
             AbstractAttacker hurricane = new HurricaneAttack();
@@ -34,15 +35,16 @@ namespace Library
             int lengthY = participants[0].YLength();
             int randomX = random.Next(radio, lengthX - radio);
             int randomY = random.Next(radio, lengthY - radio);
-            foreach (Table table in participants)
+
+            foreach (AbstractPlayer participant in participants)
             {
                 for (int y = 0; y < lengthY; y++)
                 {
-                    table.AttackAt(randomX, y, hurricane);
+                    participant.AttackAt(randomX, y, hurricane);
                 }
                 for (int x = 0; x < lengthX; x++)
                 {
-                    table.AttackAt(x, randomY, hurricane);
+                    participant.AttackAt(x, randomY, hurricane);
                 }
             }
         }

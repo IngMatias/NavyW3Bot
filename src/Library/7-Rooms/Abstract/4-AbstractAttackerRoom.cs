@@ -4,9 +4,13 @@ namespace Library
 {
     public abstract class AbstractAttackerRoom : AbstractRoomStart
     {        
-        public void NextAttackByPlaying(AbstractPlayer player)
+        public string NextAttackByPlaying(AbstractPlayer player)
         {
-            this.GetRoomByPlaying(player).NextAttack();
+            return this.GetRoomByPlaying(player).NextAttack();
+        }
+        public string NextAttackNullByPlaying(AbstractPlayer player)
+        {
+            return this.GetRoomByPlaying(player).NextAttackWithNull();
         }
         public void AttackWithOneMissile(AbstractPlayer player, string name, int vessel, int x, int y)
         {

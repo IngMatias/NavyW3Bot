@@ -12,7 +12,10 @@ namespace Library
         }
         public override void DoCommand(string command, AbstractPlayer player)
         {
-            if(command.StartsWith("show ") && player.Phase is AttackPhase && Rooms.Instance.IsPlaying(player) && command.Split(" ").Length == 2)
+            AbstractCommandsTranslate translate = new HeadCommandsToString();
+            string[] message = new HeadMessageHandler().MessagesOf(player.Phase, player.Language);
+
+            if(command.StartsWith(translate.Translate("show ", player.Language)) && player.Phase is AttackPhase && Rooms.Instance.IsPlaying(player) && command.Split(" ").Length == 2)
             {
                 if (Rooms.Instance.IsPlayingWith(player, command.Split(" ")[1]))
                 {
@@ -20,7 +23,7 @@ namespace Library
                 }
                 else
                 {
-                    player.SendMessage(command.Split(" ")[1] + " no es un enemigo");
+                    player.SendMessage(command.Split(" ")[1] + " " + message[8]);
                 }
             }
             else

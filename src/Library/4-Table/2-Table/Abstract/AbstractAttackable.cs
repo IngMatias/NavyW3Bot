@@ -16,6 +16,7 @@
 //      Creator: No se aplica.
 
 using System;
+using System.Collections.Generic;
 
 namespace Library
 {
@@ -68,13 +69,14 @@ namespace Library
                 }
             }
         }
-        public void DestroyAttack(AbstractAttacker attack)
+        public List<(int,int)> DestroyAttack(AbstractAttacker attack)
         {
             bool deleted = this.GetVessel((attack.X, attack.Y)).ReceiveDestruction(this, attack);
             if (deleted)
             {
                 this.RemoveVessel(attack.X, attack.Y, new DeadVessel());
             }
+            return this.VesselCoordinates(attack.X, attack.Y);
         }
         public void RandomAttack(AbstractAttacker attack)
         {

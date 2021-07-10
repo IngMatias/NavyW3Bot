@@ -16,6 +16,7 @@
 //      Creator: No se aplica.
 
 using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace Library
@@ -76,6 +77,31 @@ namespace Library
         {
             return this._table[x, y] is ILiveHiddenVessel ||
                    this._table[x, y] is ILivedVessel;
+        }
+        public List<(int,int)> VesselCoordinates(int x, int y)
+        {
+            List<(int,int)> toReturn = new List<(int, int)> ();
+            if (this.IsOrWasAVessel(x,y))
+            {
+                (int, int) aux = this.GetLeftUp(x,y);
+
+                int xAux = aux.Item1;
+                int yAux = aux.Item2;
+
+                toReturn.Add((xAux,yAux));
+                
+                while (this.IsOrWasAVessel(xAux + 1, yAux))
+                {
+                    xAux = xAux + 1;
+                    toReturn.Add((xAux,yAux));
+                }
+                while (this.IsOrWasAVessel(xAux, yAux + 1))
+                {
+                    yAux = yAux + 1;
+                    toReturn.Add((xAux,yAux));
+                }
+            }
+            return toReturn;
         }
         public (int, int) GetLeftUp(int x, int y)
         {

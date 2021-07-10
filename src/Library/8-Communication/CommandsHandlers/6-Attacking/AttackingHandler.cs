@@ -12,8 +12,11 @@ namespace Library
         }
         public override void DoCommand(string command, AbstractPlayer player)
         {
-            // attack barco x y missil/load receptor
-            if (command.StartsWith("attack ") && player.Phase is AttackPhase && command.Split(" ").Length == 6)
+            AbstractCommandsTranslate translate = new HeadCommandsToString();
+            string[] message = new HeadMessageHandler().MessagesOf(player.Phase, player.Language);
+
+            // attack Vessel x y m/l stringEnemy
+            if (command.StartsWith(translate.Translate("attack ",player.Language)) && player.Phase is AttackPhase && command.Split(" ").Length == 6)
             {
                 if (Rooms.Instance.IsPlaying(player))
                 {
@@ -21,15 +24,14 @@ namespace Library
                     {
                         string[] commArg = command.Split(" ");
 
-                        int vesselInt = StringToInt.Convert(1, player.GetListOfVessels().Count, command.Split(" ")[1], player, "El barco") - 1;
-                        int x = StringToInt.Convert(1, player.XLength(), command.Split(" ")[2], player, "La primera coordenada") - 1;
-                        int y = StringToInt.Convert(1, player.YLength(), command.Split(" ")[3], player, "La segunda coordenada") - 1;
+                        int vesselInt = StringToInt.Convert(1, player.GetListOfVessels().Count, command.Split(" ")[1], player, message[0]) - 1;
+                        int x = StringToInt.Convert(1, player.XLength(), command.Split(" ")[2], player, message[1]) - 1;
+                        int y = StringToInt.Convert(1, player.YLength(), command.Split(" ")[3], player, message[2]) - 1;
 
                         int form = 0;
                         if (vesselInt != -2)
                         {
-                            AbstractVesselsToAttackForms aux = new HeadVesselsToAttackForms();
-                            form = StringToInt.Convert(1, 2, command.Split(" ")[4], player, "La forma de ataque") - 1;
+                            form = StringToInt.Convert(1, 2, command.Split(" ")[4], player, message[3]) - 1;
                         }
 
                         if (x != -2 && y != -2 && vesselInt != -2)
@@ -44,24 +46,36 @@ namespace Library
                                 {
                                     Rooms.Instance.AttackWithLoad(player, commArg[5], vesselInt, x, y);
                                 }
-                                Rooms.Instance.SendAllByPlaying(player, player.Name + " ha atacado a " + commArg[5]);
+                                Rooms.Instance.SendAllByPlaying(player, player.Name + " "+ message[4] +" " + commArg[5]);
                                 Rooms.Instance.ShowTableOf(player, commArg[5]);
-                                Rooms.Instance.NextAttackByPlaying(player);
+
+                                try
+                                {
+                                    string newPlaying = Rooms.Instance.NextAttackByPlaying(player);
+                                    Rooms.Instance.SendAllByPlayingName(newPlaying,message[5]+ " " + newPlaying);
+                                }
+                                catch(EndPhaseException)
+                                {
+                                    string newPlaying = Rooms.Instance.NextAttackNullByPlaying(player);
+                                    
+                                    
+                                    Rooms.Instance.SendAllByPlayingName(newPlaying,message[5]+ " " + newPlaying);
+                                }
                             }
                             catch(NotImplementedException)
                             {
-                                player.SendMessage("Ese barco no puede atacar de esa forma");
+                                player.SendMessage(message[6]);
                             }
                         }
                     }
                     else
                     {
-                        player.SendMessage(command.Split(" ")[5] + " no esta jugando contigo");
+                        player.SendMessage(command.Split(" ")[5] + " "+ message[7]);
                     }
                 }
                 else
                 {
-                    player.SendMessage("No es tu turno de atacar.");
+                    player.SendMessage(message[8]);
                 }
             }
             else

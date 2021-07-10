@@ -49,6 +49,17 @@ namespace Library
             }
             return null;
         }
+        protected Room GetRoomByPlayingName(string player)
+        {
+            foreach (Room room in this._rooms.Values)
+            {
+                if (room.IsPlayingByName(player))
+                {
+                    return room;
+                }
+            }
+            return null;
+        }
         public bool IsPlaying(AbstractPlayer player)
         {
             return this.GetRoomByPlaying(player) != null;

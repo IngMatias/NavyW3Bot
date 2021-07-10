@@ -9,7 +9,10 @@ namespace Library
         }
         public override void DoCommand(string command, AbstractPlayer player)
         {
-            if(command == ("show") && player.Phase is AttackPhase)
+            AbstractCommandsTranslate translate = new HeadCommandsToString();
+            string[] message = new HeadMessageHandler().MessagesOf(player.Phase, player.Language);
+   
+            if(command == translate.Translate("show", player.Language) && player.Phase is AttackPhase)
             {
                 player.SendMessage(player.ToEmojiTable());
             }

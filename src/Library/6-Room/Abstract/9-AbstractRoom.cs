@@ -21,9 +21,19 @@ namespace Library
         {
             return maybePlaying == this._playing;
         }
-        public void NextAttack()
+        public bool IsPlayingByName(string name)
+        {
+            return this._playing.Name.ToLower() == name.ToLower();
+        }
+        public string NextAttack()
         {
             this._playing = this.GetNext(this._playing);
+            return this._playing.Name;
+        }
+        public string NextAttackWithNull()
+        {
+            this._playing = this.GetNext(null);
+            return this._playing.Name;
         }
     }
 }

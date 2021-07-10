@@ -18,12 +18,13 @@
 
 using System.Collections.Generic;
 using System;
+using System.Collections.ObjectModel;
 
 namespace Library
 {
     public class Volcano : IEvent
     {
-        public void DoEvent(List<AbstractTable> participants)
+        public void DoEvent(ReadOnlyCollection<AbstractPlayer> participants)
         {
             // Dependencias.
             AbstractAttacker lava = new LavaAttack();
@@ -34,13 +35,13 @@ namespace Library
             int lengthY = participants[0].YLength();
             int randomX = random.Next(radio, lengthX - radio);
             int randomY = random.Next(radio, lengthY - radio);
-            foreach (Table table in participants)
+            foreach (AbstractPlayer participant in participants)
             {
                 for (int y = randomY - radio; y <= randomY + radio; y++)
                 {
                     for (int x = randomX - radio; x <= randomX + radio; x++)
                     {
-                        table.AttackAt(x, y, lava);
+                        participant.AttackAt(x, y, lava);
                     }
                 }
             }

@@ -18,23 +18,24 @@
 
 using System.Collections.Generic;
 using System;
+using System.Collections.ObjectModel;
 
 namespace Library
 {
     public class MeteorShower : IEvent
     {
         private int _times = 10;
-        public void DoEvent(List<AbstractTable> participants)
+        public void DoEvent(ReadOnlyCollection<AbstractPlayer> participants)
         {
             // Dependencias.
             AbstractAttacker meteor = new MeteorAttack();
 
             Random random = new Random();
-            foreach (Table table in participants)
+            foreach (AbstractPlayer participant in participants)
             {
                 for (int i = 0; i < this._times; i++)
                 {
-                    table.RandomAttack(meteor);
+                    participant.RandomAttack(meteor);
                 }
             }
         }

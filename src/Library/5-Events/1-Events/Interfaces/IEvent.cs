@@ -17,11 +17,12 @@
 //      Creator: No aplica.
 
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Library
 {
     public interface IEvent
     {
-        public void DoEvent(List<AbstractTable> participants);
+        public void DoEvent(ReadOnlyCollection<AbstractPlayer> participants);
     }
 }

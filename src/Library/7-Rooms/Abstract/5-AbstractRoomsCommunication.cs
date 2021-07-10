@@ -16,6 +16,10 @@ namespace Library
         {
             this.GetRoomByPlaying(player).SendAll(message);
         }
+        public void SendAllByPlayingName(string player, string message)
+        {
+            this.GetRoomByPlayingName(player).SendAll(message);
+        }
         public void ShowTableOf(AbstractPlayer player, string name)
         {
             Room room = this.GetRoomByPlaying(player);

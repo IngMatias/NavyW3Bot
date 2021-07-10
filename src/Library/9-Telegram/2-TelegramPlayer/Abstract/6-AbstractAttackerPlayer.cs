@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Library
 {
     public abstract class AbstractAttackablePlayer : AbstractItemsManager
@@ -5,6 +7,18 @@ namespace Library
         public AbstractAttackablePlayer(long id, IPrinter clientP)
         : base(id, clientP)
         {
+        }
+        public void AttackAt(int x, int y, AbstractAttacker attack)
+        {
+            this._table.AttackAt(x,y,attack);
+        }
+        public void RandomAttack(AbstractAttacker attack)
+        {
+            this._table.RandomAttack(attack);
+        }
+        public List<(int,int)> DestroyAttack(AbstractAttacker attacker)
+        {
+            return this._table.DestroyAttack(attacker);
         }
         public void ReciveOneMissile(AbstractVessel vessel, int x, int y)
         {
