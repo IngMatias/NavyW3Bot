@@ -9,7 +9,7 @@ namespace Library
 
         public override int Convert(IField field)
         {
-            if (field is ILivedVessel)
+            if (field is LivedVessel)
             {
                 return 3;
             }

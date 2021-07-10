@@ -13,7 +13,7 @@ namespace Library
             {
                 for (int i = 0; i < table.XLength(); i++)
                 {
-                    if (table.At(i, j) is ILiveHiddenVessel)
+                    if (table.At(i, j) is LiveHiddenVessel)
                     {
                         toReturn.Append(fieldToEmoji.Convert(new AttackableWater()));
                     }

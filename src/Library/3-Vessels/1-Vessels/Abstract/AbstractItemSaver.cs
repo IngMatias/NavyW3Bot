@@ -1,21 +1,4 @@
-﻿
-// S - SRP: Esta clase tiene la responsabilidad de definir los metodos necesarios para que un barco pueda guardar items.
-
-// O -  OCP: Si se aplica, para agregar una forma diferente de guardar items basta con implementar una nueva clase.
-
-// L -  LSP: Cualquier clase que herede esta debe ser y es un subtipo de esta clase.
-
-// I -  ISP: No se aplica.
-
-// D -  DIP: Esta clase solo depende de abstracciones.
-
-//      Expert: Esta clase conoce los items, por lo tanto se encarga de su manejo.
-
-//      Polymorphism: No se aplica.
-
-//      Creator: No se utiliza.
-
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System;
 
 namespace Library

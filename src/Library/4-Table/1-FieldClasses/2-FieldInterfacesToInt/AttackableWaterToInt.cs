@@ -9,7 +9,7 @@ namespace Library
 
         public override int Convert(IField field)
         {
-            if (field is IAttackableWater)
+            if (field is AttackableWater)
             {
                 return 0;
             }

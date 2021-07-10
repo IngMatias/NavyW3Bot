@@ -1,23 +1,5 @@
-﻿
-// S -  SRP: Esta clase define los metodos para la representacion del tablero.
-
-// O -  OCP: Se cumple. Si se deseara añadir un comportamiento de almacenamiento de barcos basta con crear una nueva clase.
-
-// L -  LSP: Se cumple. Cualquier objeto que herede esta clase es y debe ser un subtipo de esta.
-
-// I -  ISP: No se aplica.
-
-// D -  DIP: Esta clase depende solamente de abstracciones.
-
-//      Expert: Esta clase conoce la representacion del tablero, por lo que define los metodos para su consulta y transformacion. 
-
-//      Polymorphism: No se aplica.
-
-//      Creator: No se aplica.
-
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Library
 {
@@ -58,8 +40,8 @@ namespace Library
             {
                 for (int x = 0; x < this.XLength(); x++)
                 {
-                    if (this._table[x, y] is ILivedVessel ||
-                        this._table[x, y] is ILiveHiddenVessel)
+                    if (this._table[x, y] is LivedVessel ||
+                        this._table[x, y] is LiveHiddenVessel)
                     {
                         return false;
                     }
@@ -69,14 +51,14 @@ namespace Library
         }
         public bool IsOrWasAVessel(int x, int y)
         {
-            return this._table[x, y] is ILiveHiddenVessel ||
-                   this._table[x, y] is ILivedVessel ||
-                   this._table[x, y] is IDeadVessel;
+            return this._table[x, y] is LiveHiddenVessel ||
+                   this._table[x, y] is LivedVessel ||
+                   this._table[x, y] is DeadVessel;
         }
         public bool IsAVessel(int x, int y)
         {
-            return this._table[x, y] is ILiveHiddenVessel ||
-                   this._table[x, y] is ILivedVessel;
+            return this._table[x, y] is LiveHiddenVessel ||
+                   this._table[x, y] is LivedVessel;
         }
         public List<(int,int)> VesselCoordinates(int x, int y)
         {
