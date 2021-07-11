@@ -21,14 +21,16 @@ namespace Library.Test
         [Test]
         public void NormalVerticalAdd()
         {
+            TableToString toString = new TableToString();
             this._tab.AddVessel(1,1,this._battleship,true);
-            Assert.AreEqual('4', this._tab.ListTable()[6][1]);
+            Assert.AreEqual('4', toString.ToString(this._tab).Split("\n")[6][1]);
         }
         [Test]
         public void NormalHorizontalAdd()
         {
+            TableToString toString = new TableToString();
             this._tab.AddVessel(1,1,this._battleship,false);
-            Assert.AreEqual('4', this._tab.ListTable()[1][6]);
+            Assert.AreEqual('4', toString.ToString(this._tab).Split("\n")[1][6]);
         }
         [Test]
         public void EdgeAdd()

@@ -54,12 +54,19 @@ namespace Library
         }
         public List<(int,int)> DestroyAttack(AbstractAttacker attack)
         {
-            bool deleted = this.GetVessel((attack.X, attack.Y)).ReceiveDestruction(this, attack);
-            if (deleted)
+            if (this.IsAVessel(attack.X, attack.Y))
             {
-                this.RemoveVessel(attack.X, attack.Y, new DeadVessel());
+                bool deleted = this.GetVessel((attack.X, attack.Y)).ReceiveDestruction(this, attack);
+                if (deleted)
+                {
+                    this.RemoveVessel(attack.X, attack.Y, new DeadVessel());
+                }
+                return this.VesselCoordinates(attack.X, attack.Y);
             }
-            return this.VesselCoordinates(attack.X, attack.Y);
+            else
+            {
+                return new List<(int, int)> ();
+            }
         }
         public void RandomAttack(AbstractAttacker attack)
         {

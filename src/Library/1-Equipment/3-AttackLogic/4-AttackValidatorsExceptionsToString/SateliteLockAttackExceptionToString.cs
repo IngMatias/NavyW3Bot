@@ -12,7 +12,7 @@ namespace Library
         {
             if (exception is SateliteLockAttackException)
             {
-                return File.ReadAllLines(@"..\..\..\..\..\language\" + lang + @"\AttackExceptions.txt")[3];
+                return File.ReadAllLines(@"..\..\language\" + lang + @"\AttackExceptions.txt")[3];
             }
             else
             {

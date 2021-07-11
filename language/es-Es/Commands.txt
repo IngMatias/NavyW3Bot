@@ -8,3 +8,4 @@ tablerode
 mostraritems
 atacar
 nuevo
+agregadorandom

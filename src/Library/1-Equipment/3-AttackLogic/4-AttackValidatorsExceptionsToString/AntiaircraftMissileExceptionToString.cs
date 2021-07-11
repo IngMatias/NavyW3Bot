@@ -12,7 +12,7 @@ namespace Library
         {
             if (exception is AntiaircraftMissileException)
             {
-                return File.ReadAllLines(@"..\..\..\..\..\language\"+lang+@"\AttackExceptions.txt")[0];
+                return File.ReadAllLines(@"..\..\language\"+lang+@"\AttackExceptions.txt")[0];
             }
             else 
             {

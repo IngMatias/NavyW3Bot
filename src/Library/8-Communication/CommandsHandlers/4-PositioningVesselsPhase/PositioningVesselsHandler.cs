@@ -3,7 +3,7 @@ namespace Library
     public class PositioningVesselsHandler : AbstractHandler
     {
         public PositioningVesselsHandler()
-        : base(new NewItemHandler())
+        : base(new RandomAddVesselsHandler())
         {
         }
         public override void DoCommand(string command, AbstractPlayer player)

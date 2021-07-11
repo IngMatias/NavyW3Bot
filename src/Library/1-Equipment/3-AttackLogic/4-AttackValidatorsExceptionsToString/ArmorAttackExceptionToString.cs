@@ -12,7 +12,7 @@ namespace Library
         {
             if (exception is ArmorAttackException)
             {
-                return File.ReadAllLines(@"..\..\..\..\..\language\" + lang + @"\AttackExceptions.txt")[1];
+                return File.ReadAllLines(@"..\..\language\" + lang + @"\AttackExceptions.txt")[1];
             }
             else
             {
