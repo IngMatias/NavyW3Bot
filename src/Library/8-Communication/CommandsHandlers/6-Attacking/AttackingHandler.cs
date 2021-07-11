@@ -34,6 +34,8 @@ namespace Library
                         {
                             try
                             {
+                                try
+                                {
                                 if (form == 0)
                                 {
                                     Rooms.Instance.AttackWithOneMissile(player, commArg[5], vesselInt, x, y);
@@ -44,7 +46,12 @@ namespace Library
                                 }
                                 Rooms.Instance.SendAllByPlaying(player, player.Name + " "+ message[4] +" " + commArg[5]);
                                 Rooms.Instance.ShowTableOf(player, commArg[5]);
-
+                                }
+                                catch(AttackException e)
+                                {
+                                    AbstractAttackValidatorsExceptionsToString avoidAttack = new HeadAttackExceptionsToString();
+                                    player.SendMessage(avoidAttack.ToString(e,player.Language));
+                                }
                                 try
                                 {
                                     string newPlaying = Rooms.Instance.NextAttackByPlaying(player);

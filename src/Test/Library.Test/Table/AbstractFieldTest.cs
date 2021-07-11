@@ -24,15 +24,17 @@ namespace Library.Test
         [Test]
         public void EmptyAfterEvent()
         {
-            List<AbstractTable> aux = new List<AbstractTable> {this._tab};
-            this._meteorShower.DoEvent(aux);
+            List<AbstractPlayer> aux = new List<AbstractPlayer> { new Player(0, "Matias", null) };
+            this._meteorShower.DoEvent(aux.AsReadOnly());
             Assert.IsTrue(this._tab.IsEmpty());
         }
         [Test]
         public void HiddenVessel()
         {
+
+            TableToString toString = new TableToString();
             this._tab.AddVessel(1,1,this._battleship,true);
-            Assert.AreEqual('4', this._tab.ListTable()[1][1]);
+            Assert.AreEqual('4', toString.ToString(this._tab).Split("\n")[1][1]);
         }
         [Test]
         public void GetLeftUpHorizontal()

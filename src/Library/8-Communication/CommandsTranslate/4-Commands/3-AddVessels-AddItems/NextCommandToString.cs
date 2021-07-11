@@ -5,7 +5,7 @@ namespace Library
     public class NextCommandToString : AbstractCommandsTranslate
     {
         public NextCommandToString()
-        :base(new ShowItemsCommandToString())
+        :base(new RandomAddCommandToString())
         {
         }
         public override string Translate(string command, string lang)

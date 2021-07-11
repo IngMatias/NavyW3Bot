@@ -44,29 +44,40 @@ namespace Library.Test
         [Test]
         public void MissilToWater()
         {
+            TableToString toString = new TableToString();
             this._tab.AttackAt(1,1,this._missile);
-            Assert.AreEqual('1', this._tab.ListTable()[1][1]);
+            Assert.AreEqual('1', toString.ToString(this._tab).Split("\n")[1][1]);
         }
         [Test]
         public void LoadToWater()
         {
+            TableToString toString = new TableToString();
             this._tab.AttackAt(1,1,this._load);
-            Assert.AreEqual('5', this._tab.ListTable()[1][1]);
+            Assert.AreEqual('5', toString.ToString(this._tab).Split("\n")[1][1]);
         }
         [Test]
         public void FoundedVessel()
         {
+
+            TableToString toString = new TableToString();
             this._battleship.AddItem(0,this._armor,this._tab,new ArmorValidator());
             this._tab.AddVessel(1,1,this._battleship,true);
-            this._tab.AttackAt(1,1,this._load);
-            Assert.AreEqual('3', this._tab.ListTable()[1][1]);
+            try
+            {
+                this._tab.AttackAt(1,1,this._load);
+            }
+            catch(ArmorAttackException)
+            {
+                Assert.AreEqual('4', toString.ToString(this._tab).Split("\n")[1][1]);
+            }
         }
         [Test]
         public void DeadVesselInTable()
         {
+            TableToString toString = new TableToString();
             this._tab.AddVessel(1,1,this._battleship,true);
             this._tab.AttackAt(1,1,this._load);
-            Assert.AreEqual('2', this._tab.ListTable()[1][1]);
+            Assert.AreEqual('2', toString.ToString(this._tab).Split("\n")[1][1]);
         }
     }
 }

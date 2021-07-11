@@ -28,8 +28,14 @@ namespace Library.Test
         [Test]
         public void AvoidingAnticraftMissile()
         {
-            this._attacker = new MissileAttack();
-            Assert.IsTrue(this._anticraft.AvoidAttack(this._tab,this._attacker));
+            try
+            {
+                this._attacker = new MissileAttack();
+            }
+            catch(AntiaircraftMissileException)
+            {
+                Assert.IsTrue(this._anticraft.AvoidAttack(this._tab,this._attacker));
+            }
         }
         [Test]
         public void NotAvoidingAnticraftMissile()
@@ -39,8 +45,14 @@ namespace Library.Test
         [Test]
         public void AvoidingArmor()
         {
-            this._attacker = new MissileAttack();
-            Assert.IsTrue(this._armor.AvoidAttack(this._tab,this._attacker));
+            try
+            {
+                this._attacker = new MissileAttack();
+            }
+            catch(ArmorAttackException)
+            {
+                Assert.IsTrue(this._armor.AvoidAttack(this._tab,this._attacker));
+            }
         }
         [Test]
         public void NotAvoidingArmor()
@@ -56,8 +68,14 @@ namespace Library.Test
         [Test]
         public void AvoidingKong()
         {
-            this._attacker = new GodzillaAttack();
-            Assert.IsTrue(this._kong.AvoidAttack(this._tab,this._attacker));
+            try
+            {
+                this._attacker = new GodzillaAttack();
+            }
+            catch(KongAttackException)
+            {
+                Assert.IsTrue(this._kong.AvoidAttack(this._tab,this._attacker));
+            }
         }
         
         [Test]
@@ -70,8 +88,13 @@ namespace Library.Test
         [Test]
         public void AvoidingSateliteLock()
         {
-            this._attacker = new LoadAttack();
-            Assert.IsTrue(this._sateliteLock.AvoidAttack(this._tab,this._attacker));
+            try
+            {
+                this._attacker = new LoadAttack();
+            }catch(SateliteLockAttackException)
+            {
+                Assert.IsTrue(this._sateliteLock.AvoidAttack(this._tab,this._attacker));
+            }
         }
         [Test]
         public void NotAvoidingSateliteLock()
