@@ -1,6 +1,6 @@
 namespace Library
 {
-    public class DeadVessel : IDeadVessel
+    public class DeadVessel : IField
     {
     }
 }

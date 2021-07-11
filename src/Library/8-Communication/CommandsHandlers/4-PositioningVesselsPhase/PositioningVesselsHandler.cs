@@ -1,29 +1,29 @@
-using System;
-using System.Collections.Generic;
-
 namespace Library
 {
     public class PositioningVesselsHandler : AbstractHandler
     {
         public PositioningVesselsHandler()
-        : base(new NextItemHandler())
+        : base(new NewItemHandler())
         {
         }
         public override void DoCommand(string command, AbstractPlayer player)
         {
-            if (command.StartsWith("add ") && player.Phase is PositioningVesselsPhase && command.Split(" ").Length == 4)
+            AbstractCommandsTranslate translate = new HeadCommandsToString();
+            string[] message = new HeadMessageHandler().MessagesOf(player.Phase, player.Language);
+
+            if (command.StartsWith(translate.Translate("add", player.Language) + " ") && player.Phase is PositioningVesselsPhase && command.Split(" ").Length == 4)
             {
-                int x = StringToInt.Convert(1, player.XLength(), command.Split(" ")[1], player, "La primera coordenada del ataque") - 1;
-                int y = StringToInt.Convert(1, player.YLength(), command.Split(" ")[2], player, "La segunda coordenada del ataque") - 1;
-                int ori = StringToInt.Convert(0, 1, command.Split(" ")[3], player, "La orientacion del barco");
+                int x = StringToInt.Convert(1, player.XLength(), command.Split(" ")[1], player, message[1]) - 1;
+                int y = StringToInt.Convert(1, player.YLength(), command.Split(" ")[2], player, message[2]) - 1;
+                int ori = StringToInt.Convert(0, 1, command.Split(" ")[3], player, message[3]);
 
                 if (x != -2 && y!= -2 && ori != -1)
                 {
-                    Vessel aux = new Vessel();
-                    player.AddVessel(x, y, aux.Next(player.GetListOfVessels()), ori == 1);
+                    AbstractNextVessel nextVessel = new HeadNextVessel();
+                    player.AddVessel(x, y, nextVessel.NextVessel(player.GetListOfVessels()), ori == 1);
                     player.SendMessage(player.ToEmojiTable());
 
-                    if (aux.Next(player.GetListOfVessels()) == null)
+                    if (nextVessel.NextVessel(player.GetListOfVessels()) == null)
                     {
                         player.NextState();
                     }

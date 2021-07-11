@@ -1,22 +1,5 @@
-﻿
-// S -  SRP: Esta clase define los metodos para la representacion del tablero.
-
-// O -  OCP: Se cumple. Si se deseara añadir un comportamiento de almacenamiento de barcos basta con crear una nueva clase.
-
-// L -  LSP: Se cumple. Cualquier objeto que herede esta clase es y debe ser un subtipo de esta.
-
-// I -  ISP: No se aplica.
-
-// D -  DIP: Esta clase depende solamente de abstracciones.
-
-//      Expert: Esta clase conoce la representacion del tablero, por lo que define los metodos para su consulta y transformacion. 
-
-//      Polymorphism: No se aplica.
-
-//      Creator: No se aplica.
-
-using System;
-using System.Text;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Library
 {
@@ -57,8 +40,8 @@ namespace Library
             {
                 for (int x = 0; x < this.XLength(); x++)
                 {
-                    if (this._table[x, y] is ILivedVessel ||
-                        this._table[x, y] is ILiveHiddenVessel)
+                    if (this._table[x, y] is LivedVessel ||
+                        this._table[x, y] is LiveHiddenVessel)
                     {
                         return false;
                     }
@@ -68,14 +51,39 @@ namespace Library
         }
         public bool IsOrWasAVessel(int x, int y)
         {
-            return this._table[x, y] is ILiveHiddenVessel ||
-                   this._table[x, y] is ILivedVessel ||
-                   this._table[x, y] is IDeadVessel;
+            return this._table[x, y] is LiveHiddenVessel ||
+                   this._table[x, y] is LivedVessel ||
+                   this._table[x, y] is DeadVessel;
         }
         public bool IsAVessel(int x, int y)
         {
-            return this._table[x, y] is ILiveHiddenVessel ||
-                   this._table[x, y] is ILivedVessel;
+            return this._table[x, y] is LiveHiddenVessel ||
+                   this._table[x, y] is LivedVessel;
+        }
+        public List<(int,int)> VesselCoordinates(int x, int y)
+        {
+            List<(int,int)> toReturn = new List<(int, int)> ();
+            if (this.IsOrWasAVessel(x,y))
+            {
+                (int, int) aux = this.GetLeftUp(x,y);
+
+                int xAux = aux.Item1;
+                int yAux = aux.Item2;
+
+                toReturn.Add((xAux,yAux));
+                
+                while (this.IsOrWasAVessel(xAux + 1, yAux))
+                {
+                    xAux = xAux + 1;
+                    toReturn.Add((xAux,yAux));
+                }
+                while (this.IsOrWasAVessel(xAux, yAux + 1))
+                {
+                    yAux = yAux + 1;
+                    toReturn.Add((xAux,yAux));
+                }
+            }
+            return toReturn;
         }
         public (int, int) GetLeftUp(int x, int y)
         {

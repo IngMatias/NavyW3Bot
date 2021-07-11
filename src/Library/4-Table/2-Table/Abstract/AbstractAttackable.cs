@@ -1,22 +1,5 @@
-
-// S -  SRP: Esta clase define los metodos para que un tablero reciba un ataque.
-
-// O -  OCP: Se cumple. Si se deseara añadir un comportamiento de recepcion de ataques diferente basta con crear una nueva clase.
-
-// L -  LSP: Se cumple. Cualquier objeto que herede esta clase es y debe ser un subtipo de esta.
-
-// I -  ISP: No se aplica.
-
-// D -  DIP: Esta clase depende solamente de abstracciones.
-
-//      Expert: Esta clase no conoce la representacion del tablero aunque la altera. 
-
-//      Polymorphism: No se aplica.
-
-//      Creator: No se aplica.
-
-using System
-;
+using System;
+using System.Collections.Generic;
 
 namespace Library
 {
@@ -69,13 +52,14 @@ namespace Library
                 }
             }
         }
-        public void DestroyAttack(AbstractAttacker attack)
+        public List<(int,int)> DestroyAttack(AbstractAttacker attack)
         {
             bool deleted = this.GetVessel((attack.X, attack.Y)).ReceiveDestruction(this, attack);
             if (deleted)
             {
                 this.RemoveVessel(attack.X, attack.Y, new DeadVessel());
             }
+            return this.VesselCoordinates(attack.X, attack.Y);
         }
         public void RandomAttack(AbstractAttacker attack)
         {

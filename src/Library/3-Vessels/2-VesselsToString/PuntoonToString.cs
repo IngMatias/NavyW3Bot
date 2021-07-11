@@ -12,7 +12,7 @@ namespace Library
         {
             if (vessel is Puntoon)
             {
-                return File.ReadAllLines(@"..\..\..\..\language\"+lang+@"\Vessels.txt")[4];
+                return File.ReadAllLines(@"..\..\language\"+lang+@"\Vessels.txt")[4];
             }
             else
             {

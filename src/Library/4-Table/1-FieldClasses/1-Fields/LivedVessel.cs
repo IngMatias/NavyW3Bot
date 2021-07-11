@@ -1,6 +1,6 @@
 namespace Library
 {
-    public class LivedVessel : ILivedVessel
+    public class LivedVessel : IField
     {
     }
 }

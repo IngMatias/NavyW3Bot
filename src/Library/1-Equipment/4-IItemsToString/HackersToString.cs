@@ -10,9 +10,9 @@ namespace Library
         }
         public override string ToString(IItem item, string lang)
         {
-            if (item is AntiaircraftMissile)
+            if (item is Hackers)
             {
-                return File.ReadAllLines(@"..\..\..\..\language\"+lang+@"\Items.txt")[2];
+                return File.ReadAllLines(@"..\..\language\"+lang+@"\Items.txt")[2];
             }
             else
             {

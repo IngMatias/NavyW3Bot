@@ -12,7 +12,7 @@ namespace Library
         {
             if (command.ToLower() == "create")
             {
-                return File.ReadAllLines(@"..\..\..\language\"+lang+@"\Commands.txt")[1];
+                return File.ReadAllLines(@"..\..\language\"+lang+@"\Commands.txt")[1];
             }
             else
             {

@@ -1,5 +1,3 @@
-using System;
-
 namespace Library
 {
     public class StartGameHandler : AbstractHandler
@@ -10,16 +8,24 @@ namespace Library
         }
         public override void DoCommand(string command, AbstractPlayer player)
         {
-            if (command.Equals("start") && player.Phase is WaitingForStartGamePhase)
+            AbstractCommandsTranslate translate = new HeadCommandsToString();
+            string[] message = new HeadMessageHandler().MessagesOf(player.Phase, player.Language);
+
+            if (command.Equals(translate.Translate("start",player.Language)) && player.Phase is WaitingForStartGamePhase)
             {
 
-                if (Rooms.Instance.Start(player))
+                try
                 {
-                    Rooms.Instance.SendAllByHost("Ha iniciado el juego.", player);
+                    Rooms.Instance.Start(player);
+                    Rooms.Instance.SendAllByHost(message[0], player);
                 }
-                else
+                catch (NoHostException)
                 {
-                    player.SendMessage("Debes ser host para inicial el juego.");
+                    player.SendMessage(message[1]);
+                }
+                catch(NoSinglePlayerException)
+                {
+                    player.SendMessage(message[2]);
                 }
             }
             else

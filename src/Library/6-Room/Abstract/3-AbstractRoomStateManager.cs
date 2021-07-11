@@ -13,7 +13,7 @@ namespace Library
         }
         public bool IsStarted()
         {
-            return _started;
+            return this._started;
         }
     }
 }

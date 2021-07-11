@@ -12,7 +12,7 @@ namespace Library
         {
             if (vessel is LightCruiser)
             {
-                return File.ReadAllLines(@"..\..\..\..\language\"+lang+@"\Vessels.txt")[3];
+                return File.ReadAllLines(@"..\..\language\"+lang+@"\Vessels.txt")[3];
             }
             else
             {

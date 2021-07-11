@@ -9,7 +9,7 @@ namespace Library
 
         public override string Convert(IField field)
         {
-            if (field is IAttackableWater)
+            if (field is AttackableWater)
             {
                 return "\U0001F30A";
             }

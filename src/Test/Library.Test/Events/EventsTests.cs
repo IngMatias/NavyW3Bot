@@ -27,9 +27,9 @@ namespace Library
         private Hackers _hackers;
 
         // Table.
-        private AbstractTable _table1;
-        private AbstractTable _table2;
-        private List<AbstractTable> _tables;
+        private AbstractPlayer _player1;
+        private AbstractPlayer _player2;
+        private List<AbstractPlayer> _players;
         private TableToString _tableToString;
 
         [SetUp]
@@ -52,9 +52,9 @@ namespace Library
             this._kong = new Kong();
             this._hackers = new Hackers();
 
-            this._table1 = new Table();
-            this._table2 = new Table();
-            this._tables = new List<AbstractTable> { _table1, _table2 };
+            this._player1 = new Player(1,"tomas",null);
+            this._player2 = new Player(2,"tomas 2",null);
+            this._players = new List<AbstractPlayer> { _player1, _player2 };
             this._tableToString = new TableToString();
         }
 
@@ -65,27 +65,27 @@ namespace Library
         public void GodzillaIsKillingTest()
         {
             // Arrange.
-            _table1.AddVessel(1, 1, _battleShip, true);
-            _table1.AddVessel(3, 3, _frigate, true);
-            _table1.AddVessel(7, 7, _battleShip, true);
+            _player1.AddVessel(1, 1, _battleShip, true);
+            _player1.AddVessel(3, 3, _frigate, true);
+            _player1.AddVessel(7, 7, _battleShip, true);
             // Act.
-            string table1 = this._tableToString.ToString(_table1);
-            this._godzilla.DoEvent(new List<AbstractTable> { this._table1 });
+            string table1 = this._player1.
+            this._godzilla.DoEvent(new List<AbstractPlayer> { this._player1 }.AsReadOnly());
             // Assert.
-            Assert.AreNotEqual(this._tableToString.ToString(_table1), table1);
+            Assert.AreNotEqual(this._tableToString.ToString(_player1), table1);
         }
 
         [Test]
         public void GodzillaIsNullIfShipContainsKongTest()
         {
             // Arrange.
-            _battleShip.AddItem(2, new Kong(), _table1, new KongValidator());
-            _table1.AddVessel(1, 1, _battleShip, true);
+            _battleShip.AddItem(2, new Kong(), _player1, new KongValidator());
+            _player1.AddVessel(1, 1, _battleShip, true);
             // Act.
-            string table1 =this._tableToString.ToString(_table1);
-            this._godzilla.DoEvent(new List<AbstractTable> { this._table1 });
+            string table1 =this._tableToString.ToString(_player1);
+            this._godzilla.DoEvent(new List<AbstractPlayer> { this._player1 }.AsReadOnly());
             // Assert.
-            Assert.AreEqual(this._tableToString.ToString(_table1), table1);
+            Assert.AreEqual(this._tableToString.ToString(_player1), table1);
         }
 
         [Test]
@@ -98,64 +98,64 @@ namespace Library
         public void GodzillaKillIfIsArmorToo()
         {
             // Arrange.
-            _table1.AddVessel(1, 1, _battleShip, true);
+            _player1.AddVessel(1, 1, _battleShip, true);
 
-            _battleShip.AddItem(1, _armor, _table1, new ArmorValidator());
+            _battleShip.AddItem(1, _armor, _player1, new ArmorValidator());
             // Act.
-            string table1 = this._tableToString.ToString(_table1);
-            this._godzilla.DoEvent(new List<AbstractTable> { this._table1 });
+            string table1 = this._tableToString.ToString(_player1);
+            this._godzilla.DoEvent(new List<AbstractPlayer> { this._player1 }.AsReadOnly());
             // Assert.
-            Assert.AreNotEqual(this._tableToString.ToString(_table1), table1);
+            Assert.AreNotEqual(this._tableToString.ToString(_player1), table1);
         }
 
         [Test]
         public void GodzillaKillIfIsSateliteLockToo()
         {
             // Arrange.
-            _table1.AddVessel(1, 1, _battleShip, true);
+            _player1.AddVessel(1, 1, _battleShip, true);
 
-            _battleShip.AddItem(1, _sateliteLock, _table1, new SateliteLockValidator());
+            _battleShip.AddItem(1, _sateliteLock, _player1, new SateliteLockValidator());
             // Act.
-            string table1 = this._tableToString.ToString(_table1);
-            this._godzilla.DoEvent(new List<AbstractTable> { this._table1 });
+            string table1 = this._tableToString.ToString(_player1);
+            this._godzilla.DoEvent(new List<AbstractPlayer> { this._player1 }.AsReadOnly());
             // Assert.
-            Assert.AreNotEqual(this._tableToString.ToString(_table1), table1);
+            Assert.AreNotEqual(this._tableToString.ToString(_player1), table1);
         }
 
         [Test]
         public void GodzillaKillIfIsAntiAircraftToo()
         {
             // Arrange.
-            _table1.AddVessel(1, 1, _battleShip, true);
+            _player1.AddVessel(1, 1, _battleShip, true);
 
-            _battleShip.AddItem(1, _anticraftMissile, _table1, new AntiaircraftMissileValidator());
+            _battleShip.AddItem(1, _anticraftMissile, _player1, new AntiaircraftMissileValidator());
             // Act.
-            string table1 =this._tableToString.ToString(_table1);
-            this._godzilla.DoEvent(new List<AbstractTable> { this._table1 });
+            string table1 =this._tableToString.ToString(_player1);
+            this._godzilla.DoEvent(new List<AbstractPlayer> { this._player1 }.AsReadOnly());
             // Assert.
-            Assert.AreNotEqual(this._tableToString.ToString(_table1), table1);
+            Assert.AreNotEqual(this._tableToString.ToString(_player1), table1);
         }
         [Test]
         public void GodzillaKillIfIsHackersToo()
         {
             // Arrange.
-            _table1.AddVessel(1, 1, _puntoon, true);
+            _player1.AddVessel(1, 1, _puntoon, true);
 
-            _puntoon.AddItem(0, _hackers, _table1, new HackersValidator());
+            _puntoon.AddItem(0, _hackers, _player1, new HackersValidator());
             // Act.
-            string table1 = this._tableToString.ToString(_table1);
-            this._godzilla.DoEvent(new List<AbstractTable> { this._table1 });
+            string table1 = this._tableToString.ToString(_player1);
+            this._godzilla.DoEvent(new List<AbstractPlayer> { this._player1 }.AsReadOnly());
             // Assert.
-            Assert.AreNotEqual(this._tableToString.ToString(_table1), table1);
+            Assert.AreNotEqual(this._tableToString.ToString(_player1), table1);
         }
 
         [Test]
         public void AttackingAllTablesInSamePlaceGodzilla()
         {
             // Arrange.
-            _table1.AddVessel(1, 1, _battleShip, true);
-            _table1.AddVessel(3, 3, _frigate, true);
-            _table1.AddVessel(7, 7, _battleShip, true);
+            _player1.AddVessel(1, 1, _battleShip, true);
+            _player1.AddVessel(3, 3, _frigate, true);
+            _player1.AddVessel(7, 7, _battleShip, true);
 
             _table2.AddVessel(1, 1, _battleShip, true);
             _table2.AddVessel(3, 3, _frigate, true);
@@ -165,35 +165,35 @@ namespace Library
             _godzilla.DoEvent(_tables);
 
             // Arrange.
-            Assert.AreEqual(this._tableToString.ToString(_table1),this._tableToString.ToString(_table2));
+            Assert.AreEqual(this._tableToString.ToString(_player1),this._tableToString.ToString(_table2));
         }
 
         [Test]
         public void GodzillaKillSubmarineToo()
         {
             // Arrange.
-            _table1.AddVessel(3, 3, _submarine, true);
+            _player1.AddVessel(3, 3, _submarine, true);
 
             // Act.
-            _godzilla.DoEvent(new List<AbstractTable> { _table1 });
+            _godzilla.DoEvent(new List<AbstractTable> { _player1 });
 
             // Arrange.
-            Assert.False(_table1.IsAVessel(3, 3));
+            Assert.False(_player1.IsAVessel(3, 3));
         }
 
         [Test]
         public void GodzillaKillBoatToIfAPartOfItsAreadyDead()
         {
             // Arrange.
-            _table1.AddVessel(3, 5, _submarine, true);
-            _table1.AttackAt(3,5,new LoadAttack());
+            _player1.AddVessel(3, 5, _submarine, true);
+            _player1.AttackAt(3,5,new LoadAttack());
 
             // Act.
-            _godzilla.DoEvent(new List<AbstractTable> { _table1 });
+            _godzilla.DoEvent(new List<AbstractTable> { _player1 });
 
             // Arrange.
-            Console.WriteLine(this._tableToString.ToString(_table1));
-            Assert.False(_table1.IsAVessel(3, 7));
+            Console.WriteLine(this._tableToString.ToString(_player1));
+            Assert.False(_player1.IsAVessel(3, 7));
         }
 
         [Test]
@@ -201,16 +201,16 @@ namespace Library
         {
             
             // Arrange.
-            _table1.AddVessel(3, 3, _puntoon, true);
-            _table1.AttackAt(3,3,new LoadAttack());
-            IField tableState = _table1.At(3,3);
+            _player1.AddVessel(3, 3, _puntoon, true);
+            _player1.AttackAt(3,3,new LoadAttack());
+            IField tableState = _player1.At(3,3);
 
             // Act.
-            _godzilla.DoEvent(new List<AbstractTable> { _table1 });
+            _godzilla.DoEvent(new List<AbstractTable> { _player1 });
 
             // Arrange.
-            Console.WriteLine(this._tableToString.ToString(_table1));
-            Assert.AreEqual(_table1.At(3,3), _table1.At(3,3));
+            Console.WriteLine(this._tableToString.ToString(_player1));
+            Assert.AreEqual(_player1.At(3,3), _player1.At(3,3));
         }
 
         // MeteorShower.
@@ -218,26 +218,26 @@ namespace Library
         public void IsMeteourShowerAttacking()
         {
             // Arrange.
-            _table1.AddVessel(1, 1, _battleShip, true);
-            _table1.AddVessel(3, 3, _frigate, true);
-            _table1.AddVessel(6, 6, _battleShip, true);
-            string table = this._tableToString.ToString(_table1);
+            _player1.AddVessel(1, 1, _battleShip, true);
+            _player1.AddVessel(3, 3, _frigate, true);
+            _player1.AddVessel(6, 6, _battleShip, true);
+            string table = this._tableToString.ToString(_player1);
             // Act.
-            _meteorShower.DoEvent(new List<AbstractTable> { _table1 });
+            _meteorShower.DoEvent(new List<AbstractTable> { _player1 });
             // Assert.
-            Assert.AreNotEqual(this._tableToString.ToString(_table1), table);
+            Assert.AreNotEqual(this._tableToString.ToString(_player1), table);
         }
 
         [Test]
         public void ArmorNotProtectMeteourAttack()
         {
             // Arrange.
-            _table1.AddVessel(3, 3, _frigate, true);
-            _frigate.AddItem(0, _armor, _table1, new ArmorValidator());
+            _player1.AddVessel(3, 3, _frigate, true);
+            _frigate.AddItem(0, _armor, _player1, new ArmorValidator());
             // Act.
-            _meteorShower.DoEvent(new List<AbstractTable> { _table1 });
+            _meteorShower.DoEvent(new List<AbstractTable> { _player1 });
             // Assert.
-            Assert.IsFalse(_table1.At(3, 3) is ILiveHiddenVessel);
+            Assert.IsFalse(_player1.At(3, 3) is ILiveHiddenVessel);
         }
 
         [Test]
@@ -250,9 +250,9 @@ namespace Library
         public void AttackingAllTablesInSamePlaceMeteourShower()
         {
             // Arrange.
-            _table1.AddVessel(1, 1, _battleShip, true);
-            _table1.AddVessel(3, 3, _frigate, true);
-            _table1.AddVessel(7, 7, _battleShip, true);
+            _player1.AddVessel(1, 1, _battleShip, true);
+            _player1.AddVessel(3, 3, _frigate, true);
+            _player1.AddVessel(7, 7, _battleShip, true);
 
             _table2.AddVessel(1, 1, _battleShip, true);
             _table2.AddVessel(3, 3, _frigate, true);
@@ -262,20 +262,20 @@ namespace Library
             _meteorShower.DoEvent(_tables);
 
             // Arrange.
-            Assert.AreEqual(this._tableToString.ToString(_table1), this._tableToString.ToString(_table2));
+            Assert.AreEqual(this._tableToString.ToString(_player1), this._tableToString.ToString(_table2));
         }
 
         [Test]
         public void MeteorShowerKillSubmarineToo()
         {
             // Arrange.
-            _table1.AddVessel(3, 3, _submarine, true);
+            _player1.AddVessel(3, 3, _submarine, true);
 
             // Act.
-            _meteorShower.DoEvent(new List<AbstractTable> { _table1 });
+            _meteorShower.DoEvent(new List<AbstractTable> { _player1 });
 
             // Arrange.
-            Assert.False(_table1.IsAVessel(3, 3));
+            Assert.False(_player1.IsAVessel(3, 3));
         }
 
         // Volcano.
@@ -283,16 +283,16 @@ namespace Library
         public void VolcanoAttackTest()
         {
             // Arrange.
-            _table1.AddVessel(1, 1, _battleShip, true);
-            _table1.AddVessel(3, 3, _frigate, true);
-            _table1.AddVessel(6, 6, _battleShip, true);
-            string table = this._tableToString.ToString(_table1);
+            _player1.AddVessel(1, 1, _battleShip, true);
+            _player1.AddVessel(3, 3, _frigate, true);
+            _player1.AddVessel(6, 6, _battleShip, true);
+            string table = this._tableToString.ToString(_player1);
 
             // Act.
-            _volcano.DoEvent(new List<AbstractTable> { _table1 });
+            _volcano.DoEvent(new List<AbstractTable> { _player1 });
 
             // Arrange.
-            Assert.AreNotEqual(table, this._tableToString.ToString(_table1));
+            Assert.AreNotEqual(table, this._tableToString.ToString(_player1));
         }
 
         [Test]
@@ -305,9 +305,9 @@ namespace Library
         public void AttackingAllTablesInSamePlaceVolcano()
         {
             // Arrange.
-            _table1.AddVessel(1, 1, _battleShip, true);
-            _table1.AddVessel(3, 3, _frigate, true);
-            _table1.AddVessel(7, 7, _battleShip, true);
+            _player1.AddVessel(1, 1, _battleShip, true);
+            _player1.AddVessel(3, 3, _frigate, true);
+            _player1.AddVessel(7, 7, _battleShip, true);
 
             _table2.AddVessel(1, 1, _battleShip, true);
             _table2.AddVessel(3, 3, _frigate, true);
@@ -317,20 +317,20 @@ namespace Library
             _volcano.DoEvent(_tables);
 
             // Arrange.
-            Assert.AreEqual(this._tableToString.ToString(_table1),this._tableToString.ToString(_table1));
+            Assert.AreEqual(this._tableToString.ToString(_player1),this._tableToString.ToString(_player1));
         }
 
         [Test]
         public void VolcanoKillSubmarineToo()
         {
             // Arrange.
-            _table1.AddVessel(3, 3, _submarine, true);
+            _player1.AddVessel(3, 3, _submarine, true);
 
             // Act.
-            _volcano.DoEvent(new List<AbstractTable> { _table1 });
+            _volcano.DoEvent(new List<AbstractTable> { _player1 });
 
             // Arrange.
-            Assert.False(_table1.IsAVessel(3, 3));
+            Assert.False(_player1.IsAVessel(3, 3));
         }
 
         // Hurricane.
@@ -338,16 +338,16 @@ namespace Library
         public void IsHurricaneAttacking()
         {
             // Arrange.
-            _table1.AddVessel(1, 1, _battleShip, true);
-            _table1.AddVessel(3, 3, _frigate, true);
-            _table1.AddVessel(6, 6, _battleShip, true);
-            string table = this._tableToString.ToString(_table1);
+            _player1.AddVessel(1, 1, _battleShip, true);
+            _player1.AddVessel(3, 3, _frigate, true);
+            _player1.AddVessel(6, 6, _battleShip, true);
+            string table = this._tableToString.ToString(_player1);
 
             // Act.
-            _hurricane.DoEvent(new List<AbstractTable> { _table1 });
+            _hurricane.DoEvent(new List<AbstractTable> { _player1 });
 
             // Arrange.
-            Assert.AreNotEqual(table, this._tableToString.ToString(_table1));
+            Assert.AreNotEqual(table, this._tableToString.ToString(_player1));
         }
 
         [Test]
@@ -360,36 +360,36 @@ namespace Library
         public void AttackingAllTablesInSamePlaceHurricane()
         {
             // Arrange.
-            _table1.AddVessel(1, 1, _battleShip, true);
-            _table1.AddVessel(3, 3, _frigate, true);
-            _table1.AddVessel(7, 7, _battleShip, true);
+            _player1.AddVessel(1, 1, _battleShip, true);
+            _player1.AddVessel(3, 3, _frigate, true);
+            _player1.AddVessel(7, 7, _battleShip, true);
 
             _table2.AddVessel(1, 1, _battleShip, true);
             _table2.AddVessel(3, 3, _frigate, true);
             _table2.AddVessel(7, 7, _battleShip, true);
 
             // Act.
-            Console.WriteLine(this._tableToString.ToString(_table1));
+            Console.WriteLine(this._tableToString.ToString(_player1));
             Console.WriteLine(this._tableToString.ToString(_table2));
             _hurricane.DoEvent(_tables);
-            Console.WriteLine(this._tableToString.ToString(_table1));
+            Console.WriteLine(this._tableToString.ToString(_player1));
             Console.WriteLine(this._tableToString.ToString(_table2));
 
             // Arrange.
-            Assert.AreEqual(this._tableToString.ToString(_table1), this._tableToString.ToString(_table2));
+            Assert.AreEqual(this._tableToString.ToString(_player1), this._tableToString.ToString(_table2));
         }
 
         [Test]
         public void HurricaneKillSubmarineToo()
         {
             // Arrange.
-            _table1.AddVessel(3, 3, _submarine, true);
+            _player1.AddVessel(3, 3, _submarine, true);
 
             // Act.
-            _hurricane.DoEvent(new List<AbstractTable> { _table1 });
+            _hurricane.DoEvent(new List<AbstractTable> { _player1 });
 
             // Arrange.
-            Assert.False(_table1.IsAVessel(3, 3));
+            Assert.False(_player1.IsAVessel(3, 3));
         }
     }
 }

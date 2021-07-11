@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-
 namespace Library
 {
     public class NextVesselHandler : AbstractHandler
@@ -11,11 +8,14 @@ namespace Library
         }
         public override void DoCommand(string command, AbstractPlayer player)
         {
-            if (command.Equals("next") && player.Phase is PositioningVesselsPhase)
+            AbstractCommandsTranslate translate = new HeadCommandsToString();
+            string[] message = new HeadMessageHandler().MessagesOf(player.Phase, player.Language);
+
+            if (command.Equals(translate.Translate("next", player.Language)) && player.Phase is PositioningVesselsPhase)
             {
-                /*Vessel aux = new Vessel();
-                VesselsToString aux2 = new VesselsToString();
-                player.SendMessage(aux2.ToString(aux.Next(player.Vessels)));*/
+                AbstractNextVessel nextVessel = new HeadNextVessel();
+                AbstractVesselsToString toString = new HeadVesselsToString();
+                player.SendMessage(message[0] + " " + toString.ToString(nextVessel.NextVessel(player.GetListOfVessels()), player.Language));
             }
             else
             {

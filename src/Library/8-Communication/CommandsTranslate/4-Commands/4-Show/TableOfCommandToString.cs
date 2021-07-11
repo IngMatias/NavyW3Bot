@@ -5,14 +5,14 @@ namespace Library
     public class TableOfCommandToString : AbstractCommandsTranslate
     {
         public TableOfCommandToString()
-        :base(new NullCommandToString())
+        :base(new AttackCommandToString())
         {
         }
         public override string Translate(string command, string lang)
         {
             if (command.ToLower() == "tableof")
             {
-                return File.ReadAllLines(@"..\..\..\language\"+lang+@"\Commands.txt")[6];
+                return File.ReadAllLines(@"..\..\language\"+lang+@"\Commands.txt")[6];
             }
             else
             {

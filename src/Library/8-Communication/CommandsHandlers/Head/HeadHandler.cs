@@ -1,10 +1,8 @@
-using System;
-
 namespace Library
 {
-    public class HeadHandler : AbstractHandler
+    public class HeadCommandHandler : AbstractHandler
     {
-        public HeadHandler()
+        public HeadCommandHandler()
         :base(new StartHandler())
         {
         }

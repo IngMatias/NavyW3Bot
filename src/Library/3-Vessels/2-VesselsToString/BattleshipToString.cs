@@ -12,7 +12,7 @@ namespace Library
         {
             if (vessel is Battleship)
             {
-                return File.ReadAllLines(@"..\..\..\..\language\"+lang+@"\Vessels.txt")[0];
+                return File.ReadAllLines(@"..\..\language\"+lang+@"\Vessels.txt")[0];
             }
             else
             {

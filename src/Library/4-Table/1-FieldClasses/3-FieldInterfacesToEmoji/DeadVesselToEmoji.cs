@@ -9,7 +9,7 @@ namespace Library
 
         public override string Convert(IField field)
         {
-            if (field is IDeadVessel)
+            if (field is DeadVessel)
             {
                 return "\U0001F480";
             }
