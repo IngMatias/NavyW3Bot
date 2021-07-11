@@ -83,10 +83,10 @@ namespace Library
             foreach (IItem item in this._items)
             {
                 if (item != null)
-                {   
+                {
                     if (item is IPositionMatter)
                     {
-                        int positionOfItemInVessel = Array.IndexOf(this._items,item);
+                        int positionOfItemInVessel = Array.IndexOf(this._items, item);
                         if (positionOfItemInVessel == attack.Position)
                         {
                             avoidAttack = validator.Validator(item).AvoidAttack(table, attack);
