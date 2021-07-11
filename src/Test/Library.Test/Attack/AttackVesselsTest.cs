@@ -80,8 +80,10 @@ namespace Library.Test
             // Arrange.
             this._tab.AddVessel(1, 1, this._battleship, true);
             _battleship.AddItem(4, _armor, _tab, new ArmorValidator());
+            // Act.
+            this._tab.AttackAt(1, 1, this._missile);
             // Assert.
-            Assert.Throws<Library.ArmorAttackException>(() => this._tab.AttackAt(1, 1, this._missile));
+            Assert.AreEqual(0,this._battleship.State[0]);
         }
         [Test]
         public void AntiaircraftAvoidMissileAttack()
@@ -241,17 +243,6 @@ namespace Library.Test
             this._tab.AttackAt(1, 1, this._load);
             // Assert.
             Assert.AreEqual(0, this._submarine.State[0]);
-        }
-        [Test]
-        public void HackersDoNotAvoidLoadAttack()
-        {
-            // Arrange.
-            this._tab.AddVessel(1, 1, this._puntoon, true);
-            _puntoon.AddItem(0, _hackers, _tab, new HackersValidator());
-            // Act.
-            this._tab.AttackAt(1, 1, this._load);
-            // Assert.
-            Assert.AreEqual(0, this._puntoon.State[0]);
         }
     }
 }

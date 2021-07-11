@@ -45,28 +45,34 @@ namespace Library.Test
         public void MissilToWater()
         {
             this._tab.AttackAt(1,1,this._missile);
-            // Assert.AreEqual(Field.AttackedWater, this._tab.At(1,1));
+            Assert.True(this._tab.At(1,1) is AttackedWater);
         }
         [Test]
         public void LoadToWater()
         {
             this._tab.AttackAt(1,1,this._load);
-            //Assert.AreEqual('5', this._tab.ListTable()[1][1]);
+            Assert.True(this._tab.At(1,1) is UnattackableWater);
         }
         [Test]
         public void FoundedVessel()
         {
             this._battleship.AddItem(0,this._armor,this._tab,new ArmorValidator());
             this._tab.AddVessel(1,1,this._battleship,true);
-            this._tab.AttackAt(1,1,this._load);
-            //Assert.AreEqual('3', this._tab.ListTable()[1][1]);
+            try
+            {
+                this._tab.AttackAt(1,1,this._load);
+            }
+            catch
+            {
+                Assert.True(this._tab.At(1,1) is LiveHiddenVessel);
+            }
         }
         [Test]
         public void DeadVesselInTable()
         {
             this._tab.AddVessel(1,1,this._battleship,true);
             this._tab.AttackAt(1,1,this._load);
-            //Assert.AreEqual('2', this._tab.ListTable()[1][1]);
+            Assert.True(this._tab.At(1,1) is DeadVessel);
         }
     }
 }

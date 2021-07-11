@@ -96,6 +96,7 @@ namespace Library
                                 return !avoidAttack;
                             }
                         }
+                        return true;
                     }
                     avoidAttack = validator.Validator(item).AvoidAttack(table, attack);
                     if (avoidAttack)
