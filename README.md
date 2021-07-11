@@ -13,10 +13,12 @@
 
 [Patrones de Diseño, por Luis Fernandez-Youtube](https://www.youtube.com/watch?v=G4mFD16PGMg&ab_channel=DesarrolloWeb.com)
 
+[Principio de sustitución de Liskov](https://es.wikipedia.org/wiki/Principio_de_sustituci%C3%B3n_de_Liskov)
+
 - Los desafíos más difíciles de la entrega.
 
-Esta entrega nos enorgullece totalmente, es una entrega cuyo crecimiento es notorio; tanto en si misma como de parte de quien la escribimos.
-Una entrega con mas de 300 clases y que cumple casi el 100% de los patrones SOLID. Dicha impronta nos permite notar como herramientas de digrama se vencen con determinada magnitud de proyecto. Asi como los comentarios clase a clase del codigo, que se encuentran en la carpeta docs; creemos tambien que esa forma de escribir sobre los patrones tiene la ventaja de la profundidad con respecto a la anterior manera empleada.
+Esta entrega nos enorgullece totalmente, es una entrega cuyo crecimiento es notorio; tanto en si misma asi como de quien la escribimos.
+Una entrega con mas de 300 clases y que cumple casi en su totalidad de los patrones SOLID, haciendo un buen uso de los prncipios Grasp. Dicha impronta nos permite notar como herramientas de digrama se vencen con determinada magnitud de proyecto. Asi como los comentarios clase a clase del codigo, que se encuentran ahora como documento unico en la carpeta docs; creemos tambien que esa forma de escribir sobre los patrones tiene la ventaja de la profundidad con respecto a la anterior manera empleada.
 
 - Lo que aprendimos enfrentándonos al proyecto y no en clase.
 
@@ -24,7 +26,7 @@ Lo que no nos entrega la clase, pero si el proyecto, es la experiencia del desar
 
 - Sobre lo que no se pudo cumplir.
 
-Existen algunos requerimientos que no fueron cumplidos, sentimos que era importante más que continuar con el cumplimiento de requisitos, cumplir de forma profunda con los patrones.
+Existen algunos requerimientos que no fueron cumplidos, sentimos que era mas importante cumplir de forma profunda con los patrones, que continuar con el cumplimiento de requisitos.
 
 Los siguientes requisitos no han sido cumplidos.
 
@@ -37,8 +39,8 @@ Sin embargo ...
 
 No esta implementado el comando de ataque de dos misiles, pero si toda la logica necesaria, bastaria con implementar el AbstractHandler correspondiente.
 No se puede espiar, pero bastaria con agregar un eslabon a la cadena AbstractEndPhase que permitiese con el item necesario realizar un ataque espia.
-No maneja puntajes, tal vez bastaria con un diccionario <AbstractPlayer, int> que se actualize con los ataques de los usuarios.
-El juego no termina nunca, basta con revisar tras cada ataque si el usuario ha perdio y en ese caso retirarlo de la lista de jugadores, en el momento que la lista quede con cantidad inferior a dos de personas la partida ha terminado.
+No maneja puntajes, tal vez bastaria con un diccionario <AbstractPlayer, int> que se actualize segun los ataques de los usuarios.
+El juego no termina nunca, pero basta con revisar tras cada ataque si el usuario ha perdio y en ese caso retirarlo de la lista de jugadores, en el momento que la lista quede con cantidad inferior a dos de personas la partida ha terminado.
 
 Además estamos cerca de cumplir los siguientes, que no son requisitos.
 
