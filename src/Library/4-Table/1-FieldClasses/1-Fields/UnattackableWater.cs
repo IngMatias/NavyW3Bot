@@ -1,6 +1,6 @@
 namespace Library
 {
-    public class UnattackableWater : IUnattackableWater
+    public class UnattackableWater : IField
     {
     }
 }

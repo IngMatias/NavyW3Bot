@@ -1,6 +1,3 @@
-using System;
-using System.Collections.ObjectModel;
-
 namespace Library
 {
     public class KongNextItem : AbstractNextItem

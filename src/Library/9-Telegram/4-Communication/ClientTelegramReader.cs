@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using Telegram.Bot;
 // Se usa para MessageEventArgs.
 using Telegram.Bot.Args;
 // Se usa para Message.
