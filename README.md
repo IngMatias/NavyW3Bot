@@ -16,7 +16,7 @@
 - Los desafíos más difíciles de la entrega.
 
 Esta entrega nos enorgullece totalmente, es una entrega cuyo crecimiento es notorio; tanto en si misma como de parte de quien la escribimos.
-Una entrega con mas de 300 clases y que cumple casi el 100% de los patrones SOLID. Dicha impronta nos permite notar como herramientas de digrama se vencen con determinada magnitud de proyecto. Asi como los comentarios clase a clase del codigo.
+Una entrega con mas de 300 clases y que cumple casi el 100% de los patrones SOLID. Dicha impronta nos permite notar como herramientas de digrama se vencen con determinada magnitud de proyecto. Asi como los comentarios clase a clase del codigo, que se encuentran en la carpeta docs; creemos tambien que esa forma de escribir sobre los patrones tiene la ventaja de la profundidad con respecto a la anterior manera empleada.
 
 - Lo que aprendimos enfrentándonos al proyecto y no en clase.
 
