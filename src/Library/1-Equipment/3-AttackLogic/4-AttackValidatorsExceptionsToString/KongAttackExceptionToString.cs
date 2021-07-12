@@ -12,7 +12,7 @@ namespace Library
         {
             if (exception is KongAttackException)
             {
-                return File.ReadAllLines(@"..\..\..\..\..\language\" + lang + @"\AttackExceptions.txt")[2];
+                return File.ReadAllLines(@"..\..\language\" + lang + @"\AttackExceptions.txt")[2];
             }
             else
             {

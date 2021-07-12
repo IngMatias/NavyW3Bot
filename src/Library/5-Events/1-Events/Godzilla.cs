@@ -16,6 +16,7 @@ namespace Library
                 int lengthY = participants[0].YLength();
                 int randomX = random.Next(radio, lengthX - radio);
                 int randomY = random.Next(radio, lengthY - radio);
+                AbstractAttacker gozilla = new GodzillaAttack();
 
                 List<(int, int)> attackedVessels = new List<(int, int)>();
 
@@ -27,8 +28,12 @@ namespace Library
                         {
                             if (attackedVessels.IndexOf((x, y)) == -1)
                             {
-                                AbstractAttacker gozilla = new GodzillaAttack();
+                                
                                 attackedVessels.AddRange(participant.DestroyAttack(gozilla));
+                            }
+                            if (!(participant.Table.IsOrWasAVessel(x,y)))
+                            {
+                                participant.AttackAt(x,y,gozilla);
                             }
                         }
                     }

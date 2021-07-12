@@ -42,8 +42,7 @@ namespace Library.Test
         {
             this._battleship.AddItem(0,this._sateliteLock,this._tab,new SateliteLockValidator());
             this._tab.AddVessel(1,1,this._battleship,true);
-            this._tab.AttackAt(1,1,this._missile);
-            Assert.AreEqual(1, this._battleship.State[0]);
+            Assert.Throws<Library.SateliteLockAttackException>(() => this._tab.AttackAt(1,1,this._missile));
         }
         [Test]
         public void SateliteLockNotWorking()
@@ -58,9 +57,9 @@ namespace Library.Test
         {
             this._battleship.AddItem(0,this._armor,this._tab,new ArmorValidator());
             this._tab.AddVessel(1,1,this._battleship,true);
-            this._tab.AttackAt(1,1,this._load);
-            Assert.AreEqual(1, this._battleship.State[0]);
+            Assert.Throws<Library.ArmorAttackException>(() => this._tab.AttackAt(1,1,this._load));            
         }
+        [Test]
         public void ArmorNotWorking()
         {
             this._battleship.AddItem(0,this._armor,this._tab,new ArmorValidator());
@@ -73,8 +72,7 @@ namespace Library.Test
         {
             this._battleship.AddItem(0,this._anticraftMissile,this._tab,new AntiaircraftMissileValidator());
             this._tab.AddVessel(1,1,this._battleship,true);
-            this._tab.AttackAt(1,1,this._missile);
-            Assert.AreEqual(1, this._battleship.State[0]);
+            Assert.Throws<Library.AntiaircraftMissileException>(() => this._tab.AttackAt(1,1,this._missile));
         }
         [Test]
         public void AntiaircraftMissileNotWorking()
@@ -84,14 +82,12 @@ namespace Library.Test
             this._tab.AttackAt(1,1,this._lava);
             Assert.AreEqual(0, this._battleship.State[0]);
         }
-
         [Test]
         public void KongWorking()
         {
             this._battleship.AddItem(0,this._kong,this._tab,new KongValidator());
             this._tab.AddVessel(1,1,this._battleship,true);
-            this._tab.AttackAt(1,1,this._godzilla);
-            Assert.AreEqual(1, this._battleship.State[0]);
+            Assert.Throws<Library.KongAttackException>(() => this._tab.AttackAt(1,1,this._godzilla));
         }
         [Test]
         public void KongNotWorking()

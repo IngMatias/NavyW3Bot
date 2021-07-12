@@ -6,7 +6,13 @@ namespace Library
     public abstract class AbstractPlayersManager : AbstractRoomStateManager
     {
         protected List<AbstractPlayer> _players;
-        public ReadOnlyCollection<AbstractPlayer> Players;
+        public ReadOnlyCollection<AbstractPlayer> Players
+        {
+            get
+            { 
+                return this._players.AsReadOnly();
+            }
+        }
         protected AbstractPlayersManager(AbstractPlayer host, int id)
         : base(host, id)
         {

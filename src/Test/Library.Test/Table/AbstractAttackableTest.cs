@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using NUnit.Framework;
 
@@ -6,6 +7,7 @@ namespace Library.Test
     public class AbstractAttackableTest
     {
         private Table _tab;
+        private TableToString _tableToString;
         private Battleship _battleship;
         private MissileAttack _missile;
         private LoadAttack _load;
@@ -15,6 +17,7 @@ namespace Library.Test
         public void Setup()
         {
             this._tab = new Table();
+            this._tableToString = new TableToString();
 
             this._battleship = new Battleship();
 
@@ -73,6 +76,52 @@ namespace Library.Test
             this._tab.AddVessel(1,1,this._battleship,true);
             this._tab.AttackAt(1,1,this._load);
             Assert.True(this._tab.At(1,1) is DeadVessel);
+        }
+        [Test]
+        public void GetsTheRightVesselEvenIfItIsNotAttackedAtTheBeggining()
+        {
+            this._tab.AddVessel(1,1,this._battleship,true);
+            this._tab.AttackAt(1,4,this._missile);
+            Assert.True(this._battleship.State[3] == 0);    
+        }
+        [Test]
+        public void CorrectManagmentOfAttacks()
+        {
+            // Arrange.
+            this._tab.AddVessel(1,1,this._battleship,true);
+            // Act.
+            this._tab.AttackAt(1,1,this._missile);
+            this._tab.AttackAt(1,2,this._load);
+            this._tab.AttackAt(1,3,new MeteorAttack());
+            this._tab.AttackAt(1,4,new HurricaneAttack());
+            this._tab.AttackAt(1,5,new LavaAttack());
+            this._tab.AttackAt(1,6,new GodzillaAttack());
+            // Assert.
+            Assert.IsTrue(this._tab.IsEmpty());
+        }
+        [Test]
+        public void DestroyAttackDestroysVessel()
+        {   
+            // Arrange.
+            this._tab.AddVessel(1,1,this._battleship,true);
+            this._missile.X = 1;
+            this._missile.Y = 1;
+            // Act.
+            this._tab.DestroyAttack(this._missile);
+            // Assert.
+            Assert.IsTrue(this._tab.IsEmpty());
+        }
+        [Test]
+        public void RandomAttackAttacksRandomly()
+        {
+            // Arrange.
+            this._tab.AddVessel(1,1,this._battleship,true);
+            // Act.
+            string table1 = this._tableToString.ToString(_tab);
+            this._tab.RandomAttack(_missile);
+            string table2 = this._tableToString.ToString(_tab);
+            // Assert.
+            Assert.AreNotEqual(table1,table2);
         }
     }
 }

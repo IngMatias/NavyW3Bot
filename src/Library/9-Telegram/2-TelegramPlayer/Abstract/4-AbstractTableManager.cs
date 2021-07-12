@@ -1,10 +1,18 @@
 using System.Collections.ObjectModel;
+using System;
 
 namespace Library
 {
     public abstract class AbstractTableManager : AbstractPlayerStateManager
     {
         protected Table _table;
+        public Table Table
+        {
+            get
+            {
+                return this._table;
+            }
+        }
         public AbstractTableManager(long id, IPrinter clientP)
         :base(id, clientP)
         {
